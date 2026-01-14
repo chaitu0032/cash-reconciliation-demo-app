@@ -1,0 +1,5079 @@
+{
+  "customers": [
+    {
+      "customer_id": "CUST-001",
+      "name": "Acme Corporation",
+      "aliases": [
+        "ACME",
+        "Acme Corp",
+        "ACME CORP"
+      ],
+      "address": "123 Main Street, New York, NY 10001",
+      "payment_ref_patterns": [
+        "PAY-AC-*",
+        "ACME-*"
+      ],
+      "account_numbers": [
+        "90001001",
+        "AC001"
+      ]
+    },
+    {
+      "customer_id": "CUST-002",
+      "name": "Beta Technologies",
+      "aliases": [
+        "Beta Tech",
+        "BETA",
+        "BT Inc"
+      ],
+      "address": "456 Tech Park, San Francisco, CA 94102",
+      "payment_ref_patterns": [
+        "BT-*",
+        "BETA-*"
+      ],
+      "account_numbers": [
+        "90002002",
+        "BT002"
+      ]
+    },
+    {
+      "customer_id": "CUST-003",
+      "name": "Gamma Industries",
+      "aliases": [
+        "Gamma Ind",
+        "GAMMA",
+        "Gamma Inc"
+      ],
+      "address": "789 Industrial Ave, Chicago, IL 60601",
+      "payment_ref_patterns": [
+        "GAM-*",
+        "GAMMA-*"
+      ],
+      "account_numbers": [
+        "90003003"
+      ]
+    },
+    {
+      "customer_id": "CUST-004",
+      "name": "Delta Services LLC",
+      "aliases": [
+        "Delta",
+        "Delta Svc",
+        "DELTA"
+      ],
+      "address": "321 Service Road, Houston, TX 77001",
+      "payment_ref_patterns": [
+        "DEL-*",
+        "DELTA-*"
+      ],
+      "account_numbers": [
+        "90004004"
+      ]
+    },
+    {
+      "customer_id": "CUST-005",
+      "name": "Epsilon Group",
+      "aliases": [
+        "Epsilon",
+        "EPS",
+        "Epsilon Inc"
+      ],
+      "address": "654 Corporate Blvd, Phoenix, AZ 85001",
+      "payment_ref_patterns": [
+        "EPS-*",
+        "EPSILON-*"
+      ],
+      "account_numbers": [
+        "90005005"
+      ]
+    },
+    {
+      "customer_id": "CUST-006",
+      "name": "Zeta Holdings",
+      "aliases": [
+        "Zeta",
+        "ZH",
+        "Zeta Corp"
+      ],
+      "address": "987 Holdings Way, Philadelphia, PA 19101",
+      "payment_ref_patterns": [
+        "ZET-*",
+        "ZETA-*"
+      ],
+      "account_numbers": [
+        "90006006"
+      ]
+    },
+    {
+      "customer_id": "CUST-007",
+      "name": "Theta Partners",
+      "aliases": [
+        "Theta",
+        "TP",
+        "Theta Inc"
+      ],
+      "address": "147 Partner Lane, San Antonio, TX 78201",
+      "payment_ref_patterns": [
+        "THE-*",
+        "THETA-*"
+      ],
+      "account_numbers": [
+        "90007007"
+      ]
+    },
+    {
+      "customer_id": "CUST-008",
+      "name": "Iota Corp",
+      "aliases": [
+        "Iota",
+        "IOTA"
+      ],
+      "address": "258 Corp Street, San Diego, CA 92101",
+      "payment_ref_patterns": [
+        "IOT-*"
+      ],
+      "account_numbers": [
+        "90008008"
+      ]
+    },
+    {
+      "customer_id": "CUST-009",
+      "name": "Kappa Ltd",
+      "aliases": [
+        "Kappa",
+        "K Ltd",
+        "KAPPA"
+      ],
+      "address": "369 Ltd Avenue, Dallas, TX 75201",
+      "payment_ref_patterns": [
+        "KAP-*",
+        "KAPPA-*"
+      ],
+      "account_numbers": [
+        "90009009"
+      ]
+    },
+    {
+      "customer_id": "CUST-010",
+      "name": "Lambda Inc",
+      "aliases": [
+        "Lambda",
+        "LAMBDA"
+      ],
+      "address": "741 Inc Road, San Jose, CA 95101",
+      "payment_ref_patterns": [
+        "LAM-*",
+        "LAMBDA-*"
+      ],
+      "account_numbers": [
+        "90010010"
+      ]
+    }
+  ],
+  "invoices": [
+    {
+      "invoice_id": "INV-2024-001",
+      "customer_id": "CUST-001",
+      "due_date": "2024-01-16",
+      "amount": 42405.0,
+      "pending_amount": 42405.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-002",
+      "customer_id": "CUST-001",
+      "due_date": "2024-02-06",
+      "amount": 2139.0,
+      "pending_amount": 2139.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-003",
+      "customer_id": "CUST-001",
+      "due_date": "2024-01-30",
+      "amount": 16549.0,
+      "pending_amount": 16549.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-004",
+      "customer_id": "CUST-001",
+      "due_date": "2024-01-15",
+      "amount": 9644.0,
+      "pending_amount": 9644.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-005",
+      "customer_id": "CUST-001",
+      "due_date": "2024-03-11",
+      "amount": 44848.0,
+      "pending_amount": 44848.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-006",
+      "customer_id": "CUST-001",
+      "due_date": "2024-03-17",
+      "amount": 6197.0,
+      "pending_amount": 6197.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-007",
+      "customer_id": "CUST-001",
+      "due_date": "2024-01-06",
+      "amount": 28151.0,
+      "pending_amount": 28151.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-008",
+      "customer_id": "CUST-001",
+      "due_date": "2024-01-13",
+      "amount": 2452.0,
+      "pending_amount": 2452.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-009",
+      "customer_id": "CUST-001",
+      "due_date": "2024-01-31",
+      "amount": 14828.0,
+      "pending_amount": 14828.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-010",
+      "customer_id": "CUST-001",
+      "due_date": "2024-03-19",
+      "amount": 33618.0,
+      "pending_amount": 33618.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-011",
+      "customer_id": "CUST-001",
+      "due_date": "2024-03-13",
+      "amount": 2239.0,
+      "pending_amount": 2239.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-012",
+      "customer_id": "CUST-001",
+      "due_date": "2024-03-25",
+      "amount": 13531.0,
+      "pending_amount": 13531.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-013",
+      "customer_id": "CUST-001",
+      "due_date": "2024-03-11",
+      "amount": 46462.0,
+      "pending_amount": 46462.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-014",
+      "customer_id": "CUST-001",
+      "due_date": "2024-01-30",
+      "amount": 27993.0,
+      "pending_amount": 27993.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-015",
+      "customer_id": "CUST-001",
+      "due_date": "2024-03-17",
+      "amount": 29939.0,
+      "pending_amount": 29939.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-016",
+      "customer_id": "CUST-001",
+      "due_date": "2024-01-02",
+      "amount": 18731.0,
+      "pending_amount": 18731.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-017",
+      "customer_id": "CUST-001",
+      "due_date": "2024-03-31",
+      "amount": 10963.0,
+      "pending_amount": 10963.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-018",
+      "customer_id": "CUST-001",
+      "due_date": "2024-02-14",
+      "amount": 28196.0,
+      "pending_amount": 28196.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-019",
+      "customer_id": "CUST-001",
+      "due_date": "2024-01-21",
+      "amount": 18710.0,
+      "pending_amount": 18710.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-020",
+      "customer_id": "CUST-001",
+      "due_date": "2024-02-14",
+      "amount": 14610.0,
+      "pending_amount": 14610.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-021",
+      "customer_id": "CUST-001",
+      "due_date": "2024-01-13",
+      "amount": 7198.0,
+      "pending_amount": 7198.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-022",
+      "customer_id": "CUST-001",
+      "due_date": "2024-01-14",
+      "amount": 25398.0,
+      "pending_amount": 25398.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-023",
+      "customer_id": "CUST-001",
+      "due_date": "2024-02-15",
+      "amount": 24026.0,
+      "pending_amount": 24026.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-024",
+      "customer_id": "CUST-001",
+      "due_date": "2024-02-04",
+      "amount": 40065.0,
+      "pending_amount": 40065.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-025",
+      "customer_id": "CUST-001",
+      "due_date": "2024-02-29",
+      "amount": 3347.0,
+      "pending_amount": 3347.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-026",
+      "customer_id": "CUST-001",
+      "due_date": "2024-01-17",
+      "amount": 35642.0,
+      "pending_amount": 35642.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-027",
+      "customer_id": "CUST-001",
+      "due_date": "2024-01-12",
+      "amount": 25307.0,
+      "pending_amount": 25307.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-028",
+      "customer_id": "CUST-001",
+      "due_date": "2024-02-08",
+      "amount": 36678.0,
+      "pending_amount": 36678.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-029",
+      "customer_id": "CUST-001",
+      "due_date": "2024-03-21",
+      "amount": 41698.0,
+      "pending_amount": 41698.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-030",
+      "customer_id": "CUST-001",
+      "due_date": "2024-03-15",
+      "amount": 24200.0,
+      "pending_amount": 24200.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-031",
+      "customer_id": "CUST-002",
+      "due_date": "2024-01-10",
+      "amount": 13101.0,
+      "pending_amount": 13101.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-032",
+      "customer_id": "CUST-002",
+      "due_date": "2024-03-26",
+      "amount": 3503.0,
+      "pending_amount": 3503.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-033",
+      "customer_id": "CUST-002",
+      "due_date": "2024-02-08",
+      "amount": 15435.0,
+      "pending_amount": 15435.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-034",
+      "customer_id": "CUST-002",
+      "due_date": "2024-01-31",
+      "amount": 5729.0,
+      "pending_amount": 5729.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-035",
+      "customer_id": "CUST-002",
+      "due_date": "2024-02-19",
+      "amount": 7119.0,
+      "pending_amount": 7119.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-036",
+      "customer_id": "CUST-002",
+      "due_date": "2024-02-29",
+      "amount": 18717.0,
+      "pending_amount": 18717.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-037",
+      "customer_id": "CUST-002",
+      "due_date": "2024-02-17",
+      "amount": 42160.0,
+      "pending_amount": 42160.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-038",
+      "customer_id": "CUST-002",
+      "due_date": "2024-02-18",
+      "amount": 11159.0,
+      "pending_amount": 11159.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-039",
+      "customer_id": "CUST-002",
+      "due_date": "2024-01-28",
+      "amount": 23783.0,
+      "pending_amount": 23783.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-040",
+      "customer_id": "CUST-002",
+      "due_date": "2024-02-05",
+      "amount": 44420.0,
+      "pending_amount": 44420.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-041",
+      "customer_id": "CUST-002",
+      "due_date": "2024-03-29",
+      "amount": 46494.0,
+      "pending_amount": 46494.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-042",
+      "customer_id": "CUST-002",
+      "due_date": "2024-01-11",
+      "amount": 42969.0,
+      "pending_amount": 42969.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-043",
+      "customer_id": "CUST-002",
+      "due_date": "2024-03-23",
+      "amount": 40420.0,
+      "pending_amount": 40420.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-044",
+      "customer_id": "CUST-002",
+      "due_date": "2024-03-10",
+      "amount": 11715.0,
+      "pending_amount": 11715.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-045",
+      "customer_id": "CUST-002",
+      "due_date": "2024-02-02",
+      "amount": 48284.0,
+      "pending_amount": 48284.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-046",
+      "customer_id": "CUST-002",
+      "due_date": "2024-03-01",
+      "amount": 11208.0,
+      "pending_amount": 11208.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-047",
+      "customer_id": "CUST-002",
+      "due_date": "2024-02-05",
+      "amount": 25367.0,
+      "pending_amount": 25367.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-048",
+      "customer_id": "CUST-002",
+      "due_date": "2024-03-30",
+      "amount": 42443.0,
+      "pending_amount": 42443.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-049",
+      "customer_id": "CUST-002",
+      "due_date": "2024-01-30",
+      "amount": 37000.0,
+      "pending_amount": 37000.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-050",
+      "customer_id": "CUST-002",
+      "due_date": "2024-02-12",
+      "amount": 45366.0,
+      "pending_amount": 45366.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-051",
+      "customer_id": "CUST-002",
+      "due_date": "2024-01-31",
+      "amount": 4165.0,
+      "pending_amount": 4165.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-052",
+      "customer_id": "CUST-002",
+      "due_date": "2024-02-11",
+      "amount": 2603.0,
+      "pending_amount": 2603.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-053",
+      "customer_id": "CUST-002",
+      "due_date": "2024-02-05",
+      "amount": 26790.0,
+      "pending_amount": 26790.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-054",
+      "customer_id": "CUST-002",
+      "due_date": "2024-01-29",
+      "amount": 4837.0,
+      "pending_amount": 4837.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-055",
+      "customer_id": "CUST-002",
+      "due_date": "2024-02-11",
+      "amount": 37670.0,
+      "pending_amount": 37670.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-056",
+      "customer_id": "CUST-003",
+      "due_date": "2024-03-25",
+      "amount": 14434.0,
+      "pending_amount": 14434.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-057",
+      "customer_id": "CUST-003",
+      "due_date": "2024-02-21",
+      "amount": 33217.0,
+      "pending_amount": 33217.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-058",
+      "customer_id": "CUST-003",
+      "due_date": "2024-02-29",
+      "amount": 42629.0,
+      "pending_amount": 42629.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-059",
+      "customer_id": "CUST-003",
+      "due_date": "2024-02-04",
+      "amount": 9863.0,
+      "pending_amount": 9863.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-060",
+      "customer_id": "CUST-003",
+      "due_date": "2024-02-02",
+      "amount": 9650.0,
+      "pending_amount": 9650.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-061",
+      "customer_id": "CUST-003",
+      "due_date": "2024-03-13",
+      "amount": 49323.0,
+      "pending_amount": 49323.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-062",
+      "customer_id": "CUST-003",
+      "due_date": "2024-02-04",
+      "amount": 35822.0,
+      "pending_amount": 35822.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-063",
+      "customer_id": "CUST-003",
+      "due_date": "2024-03-16",
+      "amount": 49456.0,
+      "pending_amount": 49456.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-064",
+      "customer_id": "CUST-003",
+      "due_date": "2024-03-16",
+      "amount": 28577.0,
+      "pending_amount": 28577.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-065",
+      "customer_id": "CUST-003",
+      "due_date": "2024-02-17",
+      "amount": 26675.0,
+      "pending_amount": 26675.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-066",
+      "customer_id": "CUST-003",
+      "due_date": "2024-01-19",
+      "amount": 14873.0,
+      "pending_amount": 14873.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-067",
+      "customer_id": "CUST-003",
+      "due_date": "2024-03-05",
+      "amount": 33892.0,
+      "pending_amount": 33892.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-068",
+      "customer_id": "CUST-003",
+      "due_date": "2024-01-08",
+      "amount": 6457.0,
+      "pending_amount": 6457.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-069",
+      "customer_id": "CUST-003",
+      "due_date": "2024-01-21",
+      "amount": 7685.0,
+      "pending_amount": 7685.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-070",
+      "customer_id": "CUST-003",
+      "due_date": "2024-01-22",
+      "amount": 41620.0,
+      "pending_amount": 41620.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-071",
+      "customer_id": "CUST-003",
+      "due_date": "2024-02-25",
+      "amount": 45096.0,
+      "pending_amount": 45096.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-072",
+      "customer_id": "CUST-003",
+      "due_date": "2024-01-10",
+      "amount": 39586.0,
+      "pending_amount": 39586.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-073",
+      "customer_id": "CUST-003",
+      "due_date": "2024-02-19",
+      "amount": 25716.0,
+      "pending_amount": 25716.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-074",
+      "customer_id": "CUST-003",
+      "due_date": "2024-03-01",
+      "amount": 39552.0,
+      "pending_amount": 39552.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-075",
+      "customer_id": "CUST-003",
+      "due_date": "2024-02-03",
+      "amount": 35176.0,
+      "pending_amount": 35176.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-076",
+      "customer_id": "CUST-003",
+      "due_date": "2024-01-03",
+      "amount": 36756.0,
+      "pending_amount": 36756.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-077",
+      "customer_id": "CUST-003",
+      "due_date": "2024-01-16",
+      "amount": 45083.0,
+      "pending_amount": 45083.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-078",
+      "customer_id": "CUST-003",
+      "due_date": "2024-03-10",
+      "amount": 45176.0,
+      "pending_amount": 45176.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-079",
+      "customer_id": "CUST-003",
+      "due_date": "2024-02-05",
+      "amount": 49709.0,
+      "pending_amount": 49709.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-080",
+      "customer_id": "CUST-003",
+      "due_date": "2024-02-14",
+      "amount": 42506.0,
+      "pending_amount": 42506.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-081",
+      "customer_id": "CUST-004",
+      "due_date": "2024-02-08",
+      "amount": 7810.0,
+      "pending_amount": 7810.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-082",
+      "customer_id": "CUST-004",
+      "due_date": "2024-01-22",
+      "amount": 28992.0,
+      "pending_amount": 28992.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-083",
+      "customer_id": "CUST-004",
+      "due_date": "2024-01-02",
+      "amount": 30235.0,
+      "pending_amount": 30235.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-084",
+      "customer_id": "CUST-004",
+      "due_date": "2024-02-04",
+      "amount": 47823.0,
+      "pending_amount": 47823.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-085",
+      "customer_id": "CUST-004",
+      "due_date": "2024-01-24",
+      "amount": 33306.0,
+      "pending_amount": 33306.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-086",
+      "customer_id": "CUST-004",
+      "due_date": "2024-01-15",
+      "amount": 33771.0,
+      "pending_amount": 33771.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-087",
+      "customer_id": "CUST-004",
+      "due_date": "2024-02-09",
+      "amount": 41479.0,
+      "pending_amount": 41479.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-088",
+      "customer_id": "CUST-004",
+      "due_date": "2024-03-06",
+      "amount": 42374.0,
+      "pending_amount": 42374.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-089",
+      "customer_id": "CUST-004",
+      "due_date": "2024-01-27",
+      "amount": 40409.0,
+      "pending_amount": 40409.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-090",
+      "customer_id": "CUST-004",
+      "due_date": "2024-02-18",
+      "amount": 10516.0,
+      "pending_amount": 10516.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-091",
+      "customer_id": "CUST-004",
+      "due_date": "2024-03-11",
+      "amount": 11087.0,
+      "pending_amount": 11087.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-092",
+      "customer_id": "CUST-004",
+      "due_date": "2024-01-02",
+      "amount": 35257.0,
+      "pending_amount": 35257.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-093",
+      "customer_id": "CUST-004",
+      "due_date": "2024-02-12",
+      "amount": 39752.0,
+      "pending_amount": 39752.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-094",
+      "customer_id": "CUST-004",
+      "due_date": "2024-01-04",
+      "amount": 32521.0,
+      "pending_amount": 32521.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-095",
+      "customer_id": "CUST-004",
+      "due_date": "2024-02-17",
+      "amount": 7831.0,
+      "pending_amount": 7831.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-096",
+      "customer_id": "CUST-004",
+      "due_date": "2024-02-01",
+      "amount": 20653.0,
+      "pending_amount": 20653.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-097",
+      "customer_id": "CUST-004",
+      "due_date": "2024-02-01",
+      "amount": 4296.0,
+      "pending_amount": 4296.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-098",
+      "customer_id": "CUST-004",
+      "due_date": "2024-01-12",
+      "amount": 37682.0,
+      "pending_amount": 37682.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-099",
+      "customer_id": "CUST-004",
+      "due_date": "2024-03-04",
+      "amount": 6113.0,
+      "pending_amount": 6113.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-100",
+      "customer_id": "CUST-004",
+      "due_date": "2024-03-10",
+      "amount": 5035.0,
+      "pending_amount": 5035.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-101",
+      "customer_id": "CUST-005",
+      "due_date": "2024-01-18",
+      "amount": 8741.0,
+      "pending_amount": 8741.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-102",
+      "customer_id": "CUST-005",
+      "due_date": "2024-03-02",
+      "amount": 43737.0,
+      "pending_amount": 43737.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-103",
+      "customer_id": "CUST-005",
+      "due_date": "2024-01-23",
+      "amount": 36531.0,
+      "pending_amount": 36531.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-104",
+      "customer_id": "CUST-005",
+      "due_date": "2024-03-09",
+      "amount": 17870.0,
+      "pending_amount": 17870.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-105",
+      "customer_id": "CUST-005",
+      "due_date": "2024-02-25",
+      "amount": 40253.0,
+      "pending_amount": 40253.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-106",
+      "customer_id": "CUST-005",
+      "due_date": "2024-03-11",
+      "amount": 14380.0,
+      "pending_amount": 14380.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-107",
+      "customer_id": "CUST-005",
+      "due_date": "2024-03-30",
+      "amount": 49997.0,
+      "pending_amount": 49997.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-108",
+      "customer_id": "CUST-005",
+      "due_date": "2024-02-10",
+      "amount": 13682.0,
+      "pending_amount": 13682.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-109",
+      "customer_id": "CUST-005",
+      "due_date": "2024-03-27",
+      "amount": 26648.0,
+      "pending_amount": 26648.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-110",
+      "customer_id": "CUST-005",
+      "due_date": "2024-02-18",
+      "amount": 43090.0,
+      "pending_amount": 43090.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-111",
+      "customer_id": "CUST-005",
+      "due_date": "2024-03-08",
+      "amount": 29211.0,
+      "pending_amount": 29211.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-112",
+      "customer_id": "CUST-005",
+      "due_date": "2024-01-17",
+      "amount": 30088.0,
+      "pending_amount": 30088.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-113",
+      "customer_id": "CUST-005",
+      "due_date": "2024-01-30",
+      "amount": 16746.0,
+      "pending_amount": 16746.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-114",
+      "customer_id": "CUST-005",
+      "due_date": "2024-02-14",
+      "amount": 4696.0,
+      "pending_amount": 4696.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-115",
+      "customer_id": "CUST-005",
+      "due_date": "2024-03-17",
+      "amount": 1878.0,
+      "pending_amount": 1878.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-116",
+      "customer_id": "CUST-005",
+      "due_date": "2024-01-31",
+      "amount": 36801.0,
+      "pending_amount": 36801.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-117",
+      "customer_id": "CUST-005",
+      "due_date": "2024-01-30",
+      "amount": 39064.0,
+      "pending_amount": 39064.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-118",
+      "customer_id": "CUST-005",
+      "due_date": "2024-01-11",
+      "amount": 971.0,
+      "pending_amount": 971.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-119",
+      "customer_id": "CUST-005",
+      "due_date": "2024-03-22",
+      "amount": 46889.0,
+      "pending_amount": 46889.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-120",
+      "customer_id": "CUST-005",
+      "due_date": "2024-01-31",
+      "amount": 4358.0,
+      "pending_amount": 4358.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-121",
+      "customer_id": "CUST-006",
+      "due_date": "2024-01-06",
+      "amount": 4917.0,
+      "pending_amount": 4917.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-122",
+      "customer_id": "CUST-006",
+      "due_date": "2024-01-11",
+      "amount": 22154.0,
+      "pending_amount": 22154.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-123",
+      "customer_id": "CUST-006",
+      "due_date": "2024-02-01",
+      "amount": 34195.0,
+      "pending_amount": 34195.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-124",
+      "customer_id": "CUST-006",
+      "due_date": "2024-03-27",
+      "amount": 18750.0,
+      "pending_amount": 18750.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-125",
+      "customer_id": "CUST-006",
+      "due_date": "2024-01-29",
+      "amount": 32312.0,
+      "pending_amount": 32312.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-126",
+      "customer_id": "CUST-006",
+      "due_date": "2024-01-18",
+      "amount": 35839.0,
+      "pending_amount": 35839.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-127",
+      "customer_id": "CUST-006",
+      "due_date": "2024-03-15",
+      "amount": 47905.0,
+      "pending_amount": 47905.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-128",
+      "customer_id": "CUST-006",
+      "due_date": "2024-03-02",
+      "amount": 38262.0,
+      "pending_amount": 38262.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-129",
+      "customer_id": "CUST-006",
+      "due_date": "2024-03-02",
+      "amount": 16425.0,
+      "pending_amount": 16425.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-130",
+      "customer_id": "CUST-006",
+      "due_date": "2024-01-26",
+      "amount": 27177.0,
+      "pending_amount": 27177.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-131",
+      "customer_id": "CUST-006",
+      "due_date": "2024-01-14",
+      "amount": 6681.0,
+      "pending_amount": 6681.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-132",
+      "customer_id": "CUST-006",
+      "due_date": "2024-02-26",
+      "amount": 43687.0,
+      "pending_amount": 43687.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-133",
+      "customer_id": "CUST-006",
+      "due_date": "2024-02-25",
+      "amount": 23719.0,
+      "pending_amount": 23719.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-134",
+      "customer_id": "CUST-006",
+      "due_date": "2024-03-01",
+      "amount": 27441.0,
+      "pending_amount": 27441.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-135",
+      "customer_id": "CUST-006",
+      "due_date": "2024-01-08",
+      "amount": 48280.0,
+      "pending_amount": 48280.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-136",
+      "customer_id": "CUST-006",
+      "due_date": "2024-03-25",
+      "amount": 44629.0,
+      "pending_amount": 44629.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-137",
+      "customer_id": "CUST-006",
+      "due_date": "2024-01-14",
+      "amount": 42848.0,
+      "pending_amount": 42848.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-138",
+      "customer_id": "CUST-006",
+      "due_date": "2024-02-22",
+      "amount": 4472.0,
+      "pending_amount": 4472.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-139",
+      "customer_id": "CUST-006",
+      "due_date": "2024-02-14",
+      "amount": 48224.0,
+      "pending_amount": 48224.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-140",
+      "customer_id": "CUST-006",
+      "due_date": "2024-02-02",
+      "amount": 7661.0,
+      "pending_amount": 7661.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-141",
+      "customer_id": "CUST-007",
+      "due_date": "2024-01-26",
+      "amount": 13056.0,
+      "pending_amount": 13056.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-142",
+      "customer_id": "CUST-007",
+      "due_date": "2024-02-28",
+      "amount": 35646.0,
+      "pending_amount": 35646.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-143",
+      "customer_id": "CUST-007",
+      "due_date": "2024-02-25",
+      "amount": 9686.0,
+      "pending_amount": 9686.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-144",
+      "customer_id": "CUST-007",
+      "due_date": "2024-02-06",
+      "amount": 12525.0,
+      "pending_amount": 12525.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-145",
+      "customer_id": "CUST-007",
+      "due_date": "2024-02-02",
+      "amount": 30818.0,
+      "pending_amount": 30818.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-146",
+      "customer_id": "CUST-007",
+      "due_date": "2024-02-27",
+      "amount": 5440.0,
+      "pending_amount": 5440.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-147",
+      "customer_id": "CUST-007",
+      "due_date": "2024-01-14",
+      "amount": 36566.0,
+      "pending_amount": 36566.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-148",
+      "customer_id": "CUST-007",
+      "due_date": "2024-03-25",
+      "amount": 3815.0,
+      "pending_amount": 3815.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-149",
+      "customer_id": "CUST-007",
+      "due_date": "2024-01-03",
+      "amount": 35927.0,
+      "pending_amount": 35927.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-150",
+      "customer_id": "CUST-007",
+      "due_date": "2024-02-01",
+      "amount": 6612.0,
+      "pending_amount": 6612.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-151",
+      "customer_id": "CUST-007",
+      "due_date": "2024-02-23",
+      "amount": 11399.0,
+      "pending_amount": 11399.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-152",
+      "customer_id": "CUST-007",
+      "due_date": "2024-03-03",
+      "amount": 32326.0,
+      "pending_amount": 32326.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-153",
+      "customer_id": "CUST-007",
+      "due_date": "2024-02-22",
+      "amount": 14508.0,
+      "pending_amount": 14508.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-154",
+      "customer_id": "CUST-007",
+      "due_date": "2024-01-23",
+      "amount": 4342.0,
+      "pending_amount": 4342.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-155",
+      "customer_id": "CUST-007",
+      "due_date": "2024-01-02",
+      "amount": 25336.0,
+      "pending_amount": 25336.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-156",
+      "customer_id": "CUST-007",
+      "due_date": "2024-02-04",
+      "amount": 26086.0,
+      "pending_amount": 26086.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-157",
+      "customer_id": "CUST-007",
+      "due_date": "2024-02-07",
+      "amount": 30319.0,
+      "pending_amount": 30319.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-158",
+      "customer_id": "CUST-007",
+      "due_date": "2024-03-31",
+      "amount": 28222.0,
+      "pending_amount": 28222.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-159",
+      "customer_id": "CUST-007",
+      "due_date": "2024-03-13",
+      "amount": 48374.0,
+      "pending_amount": 48374.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-160",
+      "customer_id": "CUST-007",
+      "due_date": "2024-03-04",
+      "amount": 43876.0,
+      "pending_amount": 43876.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-161",
+      "customer_id": "CUST-008",
+      "due_date": "2024-01-26",
+      "amount": 10644.0,
+      "pending_amount": 10644.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-162",
+      "customer_id": "CUST-008",
+      "due_date": "2024-01-29",
+      "amount": 19945.0,
+      "pending_amount": 19945.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-163",
+      "customer_id": "CUST-008",
+      "due_date": "2024-03-16",
+      "amount": 4332.0,
+      "pending_amount": 4332.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-164",
+      "customer_id": "CUST-008",
+      "due_date": "2024-03-11",
+      "amount": 48717.0,
+      "pending_amount": 48717.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-165",
+      "customer_id": "CUST-008",
+      "due_date": "2024-02-11",
+      "amount": 4494.0,
+      "pending_amount": 4494.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-166",
+      "customer_id": "CUST-008",
+      "due_date": "2024-01-08",
+      "amount": 4246.0,
+      "pending_amount": 4246.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-167",
+      "customer_id": "CUST-008",
+      "due_date": "2024-03-03",
+      "amount": 38784.0,
+      "pending_amount": 38784.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-168",
+      "customer_id": "CUST-008",
+      "due_date": "2024-03-09",
+      "amount": 33454.0,
+      "pending_amount": 33454.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-169",
+      "customer_id": "CUST-008",
+      "due_date": "2024-01-09",
+      "amount": 10817.0,
+      "pending_amount": 10817.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-170",
+      "customer_id": "CUST-008",
+      "due_date": "2024-01-12",
+      "amount": 33781.0,
+      "pending_amount": 33781.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-171",
+      "customer_id": "CUST-008",
+      "due_date": "2024-01-10",
+      "amount": 12678.0,
+      "pending_amount": 12678.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-172",
+      "customer_id": "CUST-008",
+      "due_date": "2024-01-10",
+      "amount": 39496.0,
+      "pending_amount": 39496.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-173",
+      "customer_id": "CUST-008",
+      "due_date": "2024-02-01",
+      "amount": 44750.0,
+      "pending_amount": 44750.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-174",
+      "customer_id": "CUST-008",
+      "due_date": "2024-01-17",
+      "amount": 26961.0,
+      "pending_amount": 26961.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-175",
+      "customer_id": "CUST-008",
+      "due_date": "2024-02-02",
+      "amount": 37834.0,
+      "pending_amount": 37834.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-176",
+      "customer_id": "CUST-009",
+      "due_date": "2024-03-18",
+      "amount": 38440.0,
+      "pending_amount": 38440.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-177",
+      "customer_id": "CUST-009",
+      "due_date": "2024-03-21",
+      "amount": 3104.0,
+      "pending_amount": 3104.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-178",
+      "customer_id": "CUST-009",
+      "due_date": "2024-02-24",
+      "amount": 5872.0,
+      "pending_amount": 5872.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-179",
+      "customer_id": "CUST-009",
+      "due_date": "2024-03-16",
+      "amount": 43581.0,
+      "pending_amount": 43581.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-180",
+      "customer_id": "CUST-009",
+      "due_date": "2024-03-08",
+      "amount": 37542.0,
+      "pending_amount": 37542.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-181",
+      "customer_id": "CUST-009",
+      "due_date": "2024-02-04",
+      "amount": 21233.0,
+      "pending_amount": 21233.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-182",
+      "customer_id": "CUST-009",
+      "due_date": "2024-03-27",
+      "amount": 13886.0,
+      "pending_amount": 13886.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-183",
+      "customer_id": "CUST-009",
+      "due_date": "2024-02-11",
+      "amount": 47436.0,
+      "pending_amount": 47436.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-184",
+      "customer_id": "CUST-009",
+      "due_date": "2024-02-04",
+      "amount": 16142.0,
+      "pending_amount": 16142.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-185",
+      "customer_id": "CUST-009",
+      "due_date": "2024-01-18",
+      "amount": 26438.0,
+      "pending_amount": 26438.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-186",
+      "customer_id": "CUST-009",
+      "due_date": "2024-03-24",
+      "amount": 44519.0,
+      "pending_amount": 44519.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-187",
+      "customer_id": "CUST-009",
+      "due_date": "2024-02-29",
+      "amount": 20160.0,
+      "pending_amount": 20160.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-188",
+      "customer_id": "CUST-009",
+      "due_date": "2024-01-11",
+      "amount": 21220.0,
+      "pending_amount": 21220.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-189",
+      "customer_id": "CUST-009",
+      "due_date": "2024-02-29",
+      "amount": 1110.0,
+      "pending_amount": 1110.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-190",
+      "customer_id": "CUST-009",
+      "due_date": "2024-03-14",
+      "amount": 41208.0,
+      "pending_amount": 41208.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-191",
+      "customer_id": "CUST-010",
+      "due_date": "2024-01-11",
+      "amount": 7052.0,
+      "pending_amount": 7052.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-192",
+      "customer_id": "CUST-010",
+      "due_date": "2024-01-29",
+      "amount": 35734.0,
+      "pending_amount": 35734.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-193",
+      "customer_id": "CUST-010",
+      "due_date": "2024-02-04",
+      "amount": 33653.0,
+      "pending_amount": 33653.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-194",
+      "customer_id": "CUST-010",
+      "due_date": "2024-02-15",
+      "amount": 9180.0,
+      "pending_amount": 9180.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-195",
+      "customer_id": "CUST-010",
+      "due_date": "2024-02-02",
+      "amount": 5008.0,
+      "pending_amount": 5008.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-196",
+      "customer_id": "CUST-010",
+      "due_date": "2024-02-07",
+      "amount": 24717.0,
+      "pending_amount": 24717.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-197",
+      "customer_id": "CUST-010",
+      "due_date": "2024-02-27",
+      "amount": 10838.0,
+      "pending_amount": 10838.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-198",
+      "customer_id": "CUST-010",
+      "due_date": "2024-02-09",
+      "amount": 36100.0,
+      "pending_amount": 36100.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-199",
+      "customer_id": "CUST-010",
+      "due_date": "2024-03-25",
+      "amount": 40586.0,
+      "pending_amount": 40586.0,
+      "status": "Open"
+    },
+    {
+      "invoice_id": "INV-2024-200",
+      "customer_id": "CUST-010",
+      "due_date": "2024-01-03",
+      "amount": 35164.0,
+      "pending_amount": 35164.0,
+      "status": "Open"
+    }
+  ],
+  "remittances": [
+    {
+      "id": "REM-001",
+      "customer_id": "CUST-001",
+      "customer_name": "Acme Corporation",
+      "customer_address": "123 Main Street, New York, NY 10001",
+      "payment_reference": "REM-0001",
+      "payment_date": "2024-01-21",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-002",
+          "description": "Payment for INV-2024-002",
+          "payment_method": "Wire",
+          "amount": 2639.0
+        }
+      ]
+    },
+    {
+      "id": "REM-002",
+      "customer_id": "CUST-008",
+      "customer_name": "Iota Corp",
+      "customer_address": "258 Corp Street, San Diego, CA 92101",
+      "payment_reference": "PAY-008-0002",
+      "payment_date": "2024-01-11",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-174",
+          "description": "Payment for INV-2024-174",
+          "payment_method": "Wire",
+          "amount": 27461.0
+        }
+      ]
+    },
+    {
+      "id": "REM-003",
+      "customer_id": "CUST-006",
+      "customer_name": "Zeta Holdings",
+      "customer_address": "987 Holdings Way, Philadelphia, PA 19101",
+      "payment_reference": "PAY-006-0003",
+      "payment_date": "2024-01-17",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-134",
+          "description": "Payment for INV-2024-134",
+          "payment_method": "ACH",
+          "amount": 27941.0
+        }
+      ]
+    },
+    {
+      "id": "REM-004",
+      "customer_id": "CUST-006",
+      "customer_name": "Zeta Holdings",
+      "customer_address": "987 Holdings Way, Philadelphia, PA 19101",
+      "payment_reference": "REM-0004",
+      "payment_date": "2024-02-25",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-133",
+          "description": "Payment for INV-2024-133",
+          "payment_method": "Wire",
+          "amount": 24219.0
+        }
+      ]
+    },
+    {
+      "id": "REM-005",
+      "customer_id": "CUST-006",
+      "customer_name": "Zeta Holdings",
+      "customer_address": "987 Holdings Way, Philadelphia, PA 19101",
+      "payment_reference": "ZET-0005",
+      "payment_date": "2024-01-28",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-132",
+          "description": "Payment for INV-2024-132",
+          "payment_method": "Check",
+          "amount": 44187.0
+        }
+      ]
+    },
+    {
+      "id": "REM-006",
+      "customer_id": "CUST-002",
+      "customer_name": "Beta Technologies",
+      "customer_address": "456 Tech Park, San Francisco, CA 94102",
+      "payment_reference": "REM-0006",
+      "payment_date": "2024-01-14",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-156",
+          "description": "Payment for INV-2024-037",
+          "payment_method": "Check",
+          "amount": 42160.0
+        }
+      ]
+    },
+    {
+      "id": "REM-007",
+      "customer_id": "CUST-005",
+      "customer_name": "Epsilon Group",
+      "customer_address": "654 Corporate Blvd, Phoenix, AZ 85001",
+      "payment_reference": "REM-0007",
+      "payment_date": "2024-01-26",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-157",
+          "description": "Payment for INV-2024-107",
+          "payment_method": "ACH",
+          "amount": 49997.0
+        }
+      ]
+    },
+    {
+      "id": "REM-008",
+      "customer_id": "CUST-003",
+      "customer_name": "Gamma Industries",
+      "customer_address": "789 Industrial Ave, Chicago, IL 60601",
+      "payment_reference": "GAM-0008",
+      "payment_date": "2024-01-17",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-158",
+          "description": "Payment for INV-2024-062",
+          "payment_method": "Wire",
+          "amount": 35822.0
+        }
+      ]
+    },
+    {
+      "id": "REM-009",
+      "customer_id": "CUST-003",
+      "customer_name": "Gamma Industries",
+      "customer_address": "789 Industrial Ave, Chicago, IL 60601",
+      "payment_reference": "REM-0009",
+      "payment_date": "2024-02-15",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-159",
+          "description": "Payment for INV-2024-075",
+          "payment_method": "Wire",
+          "amount": 35176.0
+        }
+      ]
+    },
+    {
+      "id": "REM-010",
+      "customer_id": "CUST-003",
+      "customer_name": "Gamma Industries",
+      "customer_address": "789 Industrial Ave, Chicago, IL 60601",
+      "payment_reference": "PAY-003-0010",
+      "payment_date": "2024-02-20",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-160",
+          "description": "Payment for INV-2024-058",
+          "payment_method": "ACH",
+          "amount": 42629.0
+        }
+      ]
+    },
+    {
+      "id": "REM-011",
+      "customer_id": "CUST-003",
+      "customer_name": "Gamma Industries",
+      "customer_address": "789 Industrial Ave, Chicago, IL 60601",
+      "payment_reference": "PAY-003-0011",
+      "payment_date": "2024-01-13",
+      "line_items": [
+        {
+          "invoice_number": "INV-9999-000",
+          "description": "Payment for INV-2024-078",
+          "payment_method": "Check",
+          "amount": 45176.0
+        }
+      ]
+    },
+    {
+      "id": "REM-012",
+      "customer_id": "CUST-001",
+      "customer_name": "Acme Corporation",
+      "customer_address": "123 Main Street, New York, NY 10001",
+      "payment_reference": "REM-0012",
+      "payment_date": "2024-01-31",
+      "line_items": [
+        {
+          "invoice_number": "INV-9999-001",
+          "description": "Payment for INV-2024-016",
+          "payment_method": "Wire",
+          "amount": 18731.0
+        }
+      ]
+    },
+    {
+      "id": "REM-013",
+      "customer_id": "CUST-003",
+      "customer_name": "Gamma Industries",
+      "customer_address": "789 Industrial Ave, Chicago, IL 60601",
+      "payment_reference": "REM-0013",
+      "payment_date": "2024-01-17",
+      "line_items": [
+        {
+          "invoice_number": "INV-9999-002",
+          "description": "Payment for INV-2024-063",
+          "payment_method": "Wire",
+          "amount": 49456.0
+        }
+      ]
+    },
+    {
+      "id": "REM-014",
+      "customer_id": "CUST-003",
+      "customer_name": "Gamma Industries",
+      "customer_address": "789 Industrial Ave, Chicago, IL 60601",
+      "payment_reference": "GAM-0014",
+      "payment_date": "2024-01-10",
+      "line_items": [
+        {
+          "invoice_number": "INV-9999-003",
+          "description": "Payment for INV-2024-067",
+          "payment_method": "ACH",
+          "amount": 33892.0
+        }
+      ]
+    },
+    {
+      "id": "REM-015",
+      "customer_id": "CUST-007",
+      "customer_name": "Theta Partners",
+      "customer_address": "147 Partner Lane, San Antonio, TX 78201",
+      "payment_reference": "REM-0015",
+      "payment_date": "2024-02-04",
+      "line_items": [
+        {
+          "invoice_number": "INV-9999-004",
+          "description": "Payment for INV-2024-154",
+          "payment_method": "Check",
+          "amount": 2171.0
+        }
+      ]
+    },
+    {
+      "id": "REM-016",
+      "customer_id": "CUST-006",
+      "customer_name": "Zeta Holdings",
+      "customer_address": "987 Holdings Way, Philadelphia, PA 19101",
+      "payment_reference": "REM-0016",
+      "payment_date": "2024-01-22",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-031",
+          "description": "Payment for INV-2024-135",
+          "payment_method": "ACH",
+          "amount": 48280.0
+        }
+      ]
+    },
+    {
+      "id": "REM-017",
+      "customer_id": "CUST-003",
+      "customer_name": "Gamma Industries",
+      "customer_address": "789 Industrial Ave, Chicago, IL 60601",
+      "payment_reference": "REM-0017",
+      "payment_date": "2024-02-23",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-056",
+          "description": "Payment for INV-2024-072",
+          "payment_method": "Check",
+          "amount": 39586.0
+        }
+      ]
+    },
+    {
+      "id": "REM-018",
+      "customer_id": "CUST-001",
+      "customer_name": "Acme Corporation",
+      "customer_address": "123 Main Street, New York, NY 10001",
+      "payment_reference": "REM-0018",
+      "payment_date": "2024-01-29",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-081",
+          "description": "Payment for INV-2024-007",
+          "payment_method": "Check",
+          "amount": 28151.0
+        }
+      ]
+    },
+    {
+      "id": "REM-019",
+      "customer_id": "CUST-004",
+      "customer_name": "Delta Services LLC",
+      "customer_address": "321 Service Road, Houston, TX 77001",
+      "payment_reference": "DEL-0019",
+      "payment_date": "2024-02-28",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-101",
+          "description": "Payment for INV-2024-084",
+          "payment_method": "Wire",
+          "amount": 47823.0
+        }
+      ]
+    },
+    {
+      "id": "REM-020",
+      "customer_id": "CUST-003",
+      "customer_name": "Gamma Industries",
+      "customer_address": "789 Industrial Ave, Chicago, IL 60601",
+      "payment_reference": "REM-0020",
+      "payment_date": "2024-02-26",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-121",
+          "description": "Payment for INV-2024-057",
+          "payment_method": "ACH",
+          "amount": 33217.0
+        }
+      ]
+    },
+    {
+      "id": "REM-021",
+      "customer_id": "CUST-004",
+      "customer_name": "Delta Services LLC",
+      "customer_address": "321 Service Road, Houston, TX 77001",
+      "payment_reference": "DEL-0021",
+      "payment_date": "2024-01-18",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-096",
+          "description": "Payment for INV-2024-096",
+          "payment_method": "Wire",
+          "amount": 20653.0
+        }
+      ]
+    },
+    {
+      "id": "REM-022",
+      "customer_id": "CUST-001",
+      "customer_name": "Acme Corporation",
+      "customer_address": "123 Main Street, New York, NY 10001",
+      "payment_reference": "REM-0022",
+      "payment_date": "2024-01-19",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-018",
+          "description": "Payment for INV-2024-018",
+          "payment_method": "Check",
+          "amount": 28196.0
+        }
+      ]
+    },
+    {
+      "id": "REM-023",
+      "customer_id": "CUST-004",
+      "customer_name": "Delta Services LLC",
+      "customer_address": "321 Service Road, Houston, TX 77001",
+      "payment_reference": "DEL-0023",
+      "payment_date": "2024-02-11",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-093",
+          "description": "Payment for INV-2024-093",
+          "payment_method": "Wire",
+          "amount": 39752.0
+        }
+      ]
+    },
+    {
+      "id": "REM-024",
+      "customer_id": "CUST-007",
+      "customer_name": "Theta Partners",
+      "customer_address": "147 Partner Lane, San Antonio, TX 78201",
+      "payment_reference": "THE-0024",
+      "payment_date": "2024-01-30",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-150",
+          "description": "Payment for INV-2024-150",
+          "payment_method": "Wire",
+          "amount": 3306.0
+        }
+      ]
+    },
+    {
+      "id": "REM-025",
+      "customer_id": "CUST-009",
+      "customer_name": "Kappa Ltd",
+      "customer_address": "369 Ltd Avenue, Dallas, TX 75201",
+      "payment_reference": "REM-0025",
+      "payment_date": "2024-01-20",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-187",
+          "description": "Payment for INV-2024-187",
+          "payment_method": "Wire",
+          "amount": 20160.0
+        }
+      ]
+    },
+    {
+      "id": "REM-026",
+      "customer_id": "CUST-007",
+      "customer_name": "Theta Partners",
+      "customer_address": "147 Partner Lane, San Antonio, TX 78201",
+      "payment_reference": "THE-0026",
+      "payment_date": "2024-01-23",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-146",
+          "description": "Payment for INV-2024-146",
+          "payment_method": "ACH",
+          "amount": 2720.0
+        }
+      ]
+    },
+    {
+      "id": "REM-027",
+      "customer_id": "CUST-001",
+      "customer_name": "Acme Corporation",
+      "customer_address": "123 Main Street, New York, NY 10001",
+      "payment_reference": "REM-0027",
+      "payment_date": "2024-01-07",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-006",
+          "description": "Payment for INV-2024-006",
+          "payment_method": "Wire",
+          "amount": 6197.0
+        }
+      ]
+    },
+    {
+      "id": "REM-028",
+      "customer_id": "CUST-005",
+      "customer_name": "Epsilon Group",
+      "customer_address": "654 Corporate Blvd, Phoenix, AZ 85001",
+      "payment_reference": "PAY-005-0028",
+      "payment_date": "2024-01-16",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-108",
+          "description": "Payment for INV-2024-108",
+          "payment_method": "ACH",
+          "amount": 13682.0
+        }
+      ]
+    },
+    {
+      "id": "REM-029",
+      "customer_id": "CUST-006",
+      "customer_name": "Zeta Holdings",
+      "customer_address": "987 Holdings Way, Philadelphia, PA 19101",
+      "payment_reference": "REM-0029",
+      "payment_date": "2024-01-11",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-125",
+          "description": "Payment for INV-2024-125",
+          "payment_method": "Check",
+          "amount": 32312.0
+        }
+      ]
+    },
+    {
+      "id": "REM-030",
+      "customer_id": "CUST-002",
+      "customer_name": "Beta Technologies",
+      "customer_address": "456 Tech Park, San Francisco, CA 94102",
+      "payment_reference": "PAY-002-0030",
+      "payment_date": "2024-01-06",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-055",
+          "description": "Payment for INV-2024-055",
+          "payment_method": "ACH",
+          "amount": 37670.0
+        }
+      ]
+    },
+    {
+      "id": "REM-031",
+      "customer_id": "CUST-009",
+      "customer_name": "Kappa Ltd",
+      "customer_address": "369 Ltd Avenue, Dallas, TX 75201",
+      "payment_reference": "KAP-0031",
+      "payment_date": "2024-01-23",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-189",
+          "description": "Payment for INV-2024-189",
+          "payment_method": "Check",
+          "amount": 1110.0
+        }
+      ]
+    },
+    {
+      "id": "REM-032",
+      "customer_id": "CUST-007",
+      "customer_name": "Theta Partners",
+      "customer_address": "147 Partner Lane, San Antonio, TX 78201",
+      "payment_reference": "THE-0032",
+      "payment_date": "2024-01-28",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-141",
+          "description": "Payment for INV-2024-141",
+          "payment_method": "Wire",
+          "amount": 6528.0
+        }
+      ]
+    },
+    {
+      "id": "REM-033",
+      "customer_id": "CUST-009",
+      "customer_name": "Kappa Ltd",
+      "customer_address": "369 Ltd Avenue, Dallas, TX 75201",
+      "payment_reference": "PAY-009-0033",
+      "payment_date": "2024-02-24",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-179",
+          "description": "Payment for INV-2024-179",
+          "payment_method": "ACH",
+          "amount": 43581.0
+        }
+      ]
+    },
+    {
+      "id": "REM-034",
+      "customer_id": "CUST-006",
+      "customer_name": "Zeta Holdings",
+      "customer_address": "987 Holdings Way, Philadelphia, PA 19101",
+      "payment_reference": "ZET-0034",
+      "payment_date": "2024-02-28",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-124",
+          "description": "Payment for INV-2024-124",
+          "payment_method": "Check",
+          "amount": 18750.0
+        }
+      ]
+    },
+    {
+      "id": "REM-035",
+      "customer_id": "CUST-001",
+      "customer_name": "Acme Corporation",
+      "customer_address": "123 Main Street, New York, NY 10001",
+      "payment_reference": "REM-0035",
+      "payment_date": "2024-01-03",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-019",
+          "description": "Payment for INV-2024-019",
+          "payment_method": "Check",
+          "amount": 18710.0
+        }
+      ]
+    },
+    {
+      "id": "REM-036",
+      "customer_id": "CUST-004",
+      "customer_name": "Delta Services LLC",
+      "customer_address": "321 Service Road, Houston, TX 77001",
+      "payment_reference": "DEL-0036",
+      "payment_date": "2024-02-01",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-097",
+          "description": "Payment for INV-2024-097",
+          "payment_method": "Wire",
+          "amount": 4296.0
+        }
+      ]
+    },
+    {
+      "id": "REM-037",
+      "customer_id": "CUST-004",
+      "customer_name": "Delta Services LLC",
+      "customer_address": "321 Service Road, Houston, TX 77001",
+      "payment_reference": "DEL-0037",
+      "payment_date": "2024-01-21",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-099",
+          "description": "Payment for INV-2024-099",
+          "payment_method": "ACH",
+          "amount": 6113.0
+        }
+      ]
+    },
+    {
+      "id": "REM-038",
+      "customer_id": "CUST-006",
+      "customer_name": "Zeta Holdings",
+      "customer_address": "987 Holdings Way, Philadelphia, PA 19101",
+      "payment_reference": "ZET-0038",
+      "payment_date": "2024-02-05",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-131",
+          "description": "Payment for INV-2024-131",
+          "payment_method": "Check",
+          "amount": 6681.0
+        }
+      ]
+    },
+    {
+      "id": "REM-039",
+      "customer_id": "CUST-003",
+      "customer_name": "Gamma Industries",
+      "customer_address": "789 Industrial Ave, Chicago, IL 60601",
+      "payment_reference": "REM-0039",
+      "payment_date": "2024-02-05",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-080",
+          "description": "Payment for INV-2024-080",
+          "payment_method": "Check",
+          "amount": 42506.0
+        }
+      ]
+    },
+    {
+      "id": "REM-040",
+      "customer_id": "CUST-006",
+      "customer_name": "Zeta Holdings",
+      "customer_address": "987 Holdings Way, Philadelphia, PA 19101",
+      "payment_reference": "PAY-006-0040",
+      "payment_date": "2024-02-02",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-139",
+          "description": "Payment for INV-2024-139",
+          "payment_method": "Wire",
+          "amount": 48224.0
+        }
+      ]
+    },
+    {
+      "id": "REM-041",
+      "customer_id": "CUST-007",
+      "customer_name": "Theta Partners",
+      "customer_address": "147 Partner Lane, San Antonio, TX 78201",
+      "payment_reference": "THE-0041",
+      "payment_date": "2024-01-29",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-147",
+          "description": "Payment for INV-2024-147",
+          "payment_method": "ACH",
+          "amount": 18283.0
+        }
+      ]
+    },
+    {
+      "id": "REM-042",
+      "customer_id": "CUST-001",
+      "customer_name": "Acme Corporation",
+      "customer_address": "123 Main Street, New York, NY 10001",
+      "payment_reference": "PAY-001-0042",
+      "payment_date": "2024-01-26",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-008",
+          "description": "Payment for INV-2024-008",
+          "payment_method": "ACH",
+          "amount": 2452.0
+        }
+      ]
+    },
+    {
+      "id": "REM-043",
+      "customer_id": "CUST-006",
+      "customer_name": "Zeta Holdings",
+      "customer_address": "987 Holdings Way, Philadelphia, PA 19101",
+      "payment_reference": "REM-0043",
+      "payment_date": "2024-02-14",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-129",
+          "description": "Payment for INV-2024-129",
+          "payment_method": "ACH",
+          "amount": 16425.0
+        }
+      ]
+    },
+    {
+      "id": "REM-044",
+      "customer_id": "CUST-006",
+      "customer_name": "Zeta Holdings",
+      "customer_address": "987 Holdings Way, Philadelphia, PA 19101",
+      "payment_reference": "REM-0044",
+      "payment_date": "2024-01-12",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-136",
+          "description": "Payment for INV-2024-136",
+          "payment_method": "ACH",
+          "amount": 44629.0
+        }
+      ]
+    },
+    {
+      "id": "REM-045",
+      "customer_id": "CUST-001",
+      "customer_name": "Acme Corporation",
+      "customer_address": "123 Main Street, New York, NY 10001",
+      "payment_reference": "PAY-001-0045",
+      "payment_date": "2024-02-10",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-022",
+          "description": "Payment for INV-2024-022",
+          "payment_method": "Check",
+          "amount": 25398.0
+        }
+      ]
+    },
+    {
+      "id": "REM-046",
+      "customer_id": "CUST-002",
+      "customer_name": "Beta Technologies",
+      "customer_address": "456 Tech Park, San Francisco, CA 94102",
+      "payment_reference": "PAY-002-0046",
+      "payment_date": "2024-02-29",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-051",
+          "description": "Payment for INV-2024-051",
+          "payment_method": "ACH",
+          "amount": 4165.0
+        }
+      ]
+    },
+    {
+      "id": "REM-047",
+      "customer_id": "CUST-009",
+      "customer_name": "Kappa Ltd",
+      "customer_address": "369 Ltd Avenue, Dallas, TX 75201",
+      "payment_reference": "REM-0047",
+      "payment_date": "2024-02-07",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-188",
+          "description": "Payment for INV-2024-188",
+          "payment_method": "Check",
+          "amount": 21220.0
+        }
+      ]
+    },
+    {
+      "id": "REM-048",
+      "customer_id": "CUST-003",
+      "customer_name": "Gamma Industries",
+      "customer_address": "789 Industrial Ave, Chicago, IL 60601",
+      "payment_reference": "PAY-003-0048",
+      "payment_date": "2024-01-07",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-060",
+          "description": "Payment for INV-2024-060",
+          "payment_method": "Check",
+          "amount": 9650.0
+        }
+      ]
+    },
+    {
+      "id": "REM-049",
+      "customer_id": "CUST-009",
+      "customer_name": "Kappa Ltd",
+      "customer_address": "369 Ltd Avenue, Dallas, TX 75201",
+      "payment_reference": "KAP-0049",
+      "payment_date": "2024-01-10",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-177",
+          "description": "Payment for INV-2024-177",
+          "payment_method": "ACH",
+          "amount": 3104.0
+        }
+      ]
+    },
+    {
+      "id": "REM-050",
+      "customer_id": "CUST-001",
+      "customer_name": "Acme Corporation",
+      "customer_address": "123 Main Street, New York, NY 10001",
+      "payment_reference": "PAY-001-0050",
+      "payment_date": "2024-01-05",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-013",
+          "description": "Payment for INV-2024-013",
+          "payment_method": "ACH",
+          "amount": 46462.0
+        }
+      ]
+    },
+    {
+      "id": "REM-051",
+      "customer_id": "CUST-006",
+      "customer_name": "Zeta Holdings",
+      "customer_address": "987 Holdings Way, Philadelphia, PA 19101",
+      "payment_reference": "ZET-0051",
+      "payment_date": "2024-01-22",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-137",
+          "description": "Payment for INV-2024-137",
+          "payment_method": "Wire",
+          "amount": 42848.0
+        }
+      ]
+    },
+    {
+      "id": "REM-052",
+      "customer_id": "CUST-005",
+      "customer_name": "Epsilon Group",
+      "customer_address": "654 Corporate Blvd, Phoenix, AZ 85001",
+      "payment_reference": "EPS-0052",
+      "payment_date": "2024-01-22",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-112",
+          "description": "Payment for INV-2024-112",
+          "payment_method": "ACH",
+          "amount": 30088.0
+        }
+      ]
+    },
+    {
+      "id": "REM-053",
+      "customer_id": "CUST-002",
+      "customer_name": "Beta Technologies",
+      "customer_address": "456 Tech Park, San Francisco, CA 94102",
+      "payment_reference": "BET-0053",
+      "payment_date": "2024-01-19",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-048",
+          "description": "Payment for INV-2024-048",
+          "payment_method": "ACH",
+          "amount": 42443.0
+        }
+      ]
+    },
+    {
+      "id": "REM-054",
+      "customer_id": "CUST-002",
+      "customer_name": "Beta Technologies",
+      "customer_address": "456 Tech Park, San Francisco, CA 94102",
+      "payment_reference": "BET-0054",
+      "payment_date": "2024-02-24",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-047",
+          "description": "Payment for INV-2024-047",
+          "payment_method": "Wire",
+          "amount": 25367.0
+        }
+      ]
+    },
+    {
+      "id": "REM-055",
+      "customer_id": "CUST-002",
+      "customer_name": "Beta Technologies",
+      "customer_address": "456 Tech Park, San Francisco, CA 94102",
+      "payment_reference": "BET-0055",
+      "payment_date": "2024-01-03",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-044",
+          "description": "Payment for INV-2024-044",
+          "payment_method": "Check",
+          "amount": 11715.0
+        }
+      ]
+    },
+    {
+      "id": "REM-056",
+      "customer_id": "CUST-005",
+      "customer_name": "Epsilon Group",
+      "customer_address": "654 Corporate Blvd, Phoenix, AZ 85001",
+      "payment_reference": "REM-0056",
+      "payment_date": "2024-01-05",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-106",
+          "description": "Payment for INV-2024-106",
+          "payment_method": "ACH",
+          "amount": 14380.0
+        }
+      ]
+    },
+    {
+      "id": "REM-057",
+      "customer_id": "CUST-004",
+      "customer_name": "Delta Services LLC",
+      "customer_address": "321 Service Road, Houston, TX 77001",
+      "payment_reference": "PAY-004-0057",
+      "payment_date": "2024-02-12",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-081",
+          "description": "Payment for INV-2024-081",
+          "payment_method": "Wire",
+          "amount": 7810.0
+        }
+      ]
+    },
+    {
+      "id": "REM-058",
+      "customer_id": "CUST-003",
+      "customer_name": "Gamma Industries",
+      "customer_address": "789 Industrial Ave, Chicago, IL 60601",
+      "payment_reference": "REM-0058",
+      "payment_date": "2024-01-04",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-074",
+          "description": "Payment for INV-2024-074",
+          "payment_method": "Wire",
+          "amount": 39552.0
+        }
+      ]
+    },
+    {
+      "id": "REM-059",
+      "customer_id": "CUST-008",
+      "customer_name": "Iota Corp",
+      "customer_address": "258 Corp Street, San Diego, CA 92101",
+      "payment_reference": "PAY-008-0059",
+      "payment_date": "2024-01-14",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-173",
+          "description": "Payment for INV-2024-173",
+          "payment_method": "Wire",
+          "amount": 44750.0
+        }
+      ]
+    },
+    {
+      "id": "REM-060",
+      "customer_id": "CUST-010",
+      "customer_name": "Lambda Inc",
+      "customer_address": "741 Inc Road, San Jose, CA 95101",
+      "payment_reference": "REM-0060",
+      "payment_date": "2024-01-11",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-192",
+          "description": "Payment for INV-2024-192",
+          "payment_method": "Wire",
+          "amount": 35734.0
+        }
+      ]
+    },
+    {
+      "id": "REM-061",
+      "customer_id": "CUST-002",
+      "customer_name": "Beta Technologies",
+      "customer_address": "456 Tech Park, San Francisco, CA 94102",
+      "payment_reference": "PAY-002-0061",
+      "payment_date": "2024-02-01",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-046",
+          "description": "Payment for INV-2024-046",
+          "payment_method": "Check",
+          "amount": 11208.0
+        }
+      ]
+    },
+    {
+      "id": "REM-062",
+      "customer_id": "CUST-007",
+      "customer_name": "Theta Partners",
+      "customer_address": "147 Partner Lane, San Antonio, TX 78201",
+      "payment_reference": "PAY-007-0062",
+      "payment_date": "2024-02-07",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-149",
+          "description": "Payment for INV-2024-149",
+          "payment_method": "Wire",
+          "amount": 17963.5
+        }
+      ]
+    },
+    {
+      "id": "REM-063",
+      "customer_id": "CUST-001",
+      "customer_name": "Acme Corporation",
+      "customer_address": "123 Main Street, New York, NY 10001",
+      "payment_reference": "ACM-0063",
+      "payment_date": "2024-02-15",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-017",
+          "description": "Payment for INV-2024-017",
+          "payment_method": "ACH",
+          "amount": 10963.0
+        }
+      ]
+    },
+    {
+      "id": "REM-064",
+      "customer_id": "CUST-004",
+      "customer_name": "Delta Services LLC",
+      "customer_address": "321 Service Road, Houston, TX 77001",
+      "payment_reference": "DEL-0064",
+      "payment_date": "2024-01-12",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-089",
+          "description": "Payment for INV-2024-089",
+          "payment_method": "Check",
+          "amount": 40409.0
+        }
+      ]
+    },
+    {
+      "id": "REM-065",
+      "customer_id": "CUST-002",
+      "customer_name": "Beta Technologies",
+      "customer_address": "456 Tech Park, San Francisco, CA 94102",
+      "payment_reference": "REM-0065",
+      "payment_date": "2024-02-18",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-050",
+          "description": "Payment for INV-2024-050",
+          "payment_method": "Check",
+          "amount": 45366.0
+        }
+      ]
+    },
+    {
+      "id": "REM-066",
+      "customer_id": "CUST-010",
+      "customer_name": "Lambda Inc",
+      "customer_address": "741 Inc Road, San Jose, CA 95101",
+      "payment_reference": "PAY-010-0066",
+      "payment_date": "2024-02-20",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-198",
+          "description": "Payment for INV-2024-198",
+          "payment_method": "Wire",
+          "amount": 36100.0
+        }
+      ]
+    },
+    {
+      "id": "REM-067",
+      "customer_id": "CUST-004",
+      "customer_name": "Delta Services LLC",
+      "customer_address": "321 Service Road, Houston, TX 77001",
+      "payment_reference": "DEL-0067",
+      "payment_date": "2024-01-08",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-082",
+          "description": "Payment for INV-2024-082",
+          "payment_method": "Check",
+          "amount": 28992.0
+        }
+      ]
+    },
+    {
+      "id": "REM-068",
+      "customer_id": "CUST-008",
+      "customer_name": "Iota Corp",
+      "customer_address": "258 Corp Street, San Diego, CA 92101",
+      "payment_reference": "PAY-008-0068",
+      "payment_date": "2024-03-01",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-175",
+          "description": "Payment for INV-2024-175",
+          "payment_method": "ACH",
+          "amount": 37834.0
+        }
+      ]
+    },
+    {
+      "id": "REM-069",
+      "customer_id": "CUST-002",
+      "customer_name": "Beta Technologies",
+      "customer_address": "456 Tech Park, San Francisco, CA 94102",
+      "payment_reference": "REM-0069",
+      "payment_date": "2024-02-14",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-041",
+          "description": "Payment for INV-2024-041",
+          "payment_method": "ACH",
+          "amount": 46494.0
+        }
+      ]
+    },
+    {
+      "id": "REM-070",
+      "customer_id": "CUST-004",
+      "customer_name": "Delta Services LLC",
+      "customer_address": "321 Service Road, Houston, TX 77001",
+      "payment_reference": "DEL-0070",
+      "payment_date": "2024-02-16",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-083",
+          "description": "Payment for INV-2024-083",
+          "payment_method": "Wire",
+          "amount": 30235.0
+        }
+      ]
+    },
+    {
+      "id": "REM-071",
+      "customer_id": "CUST-003",
+      "customer_name": "Gamma Industries",
+      "customer_address": "789 Industrial Ave, Chicago, IL 60601",
+      "payment_reference": "PAY-003-0071",
+      "payment_date": "2024-02-08",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-056",
+          "description": "Payment for INV-2024-056",
+          "payment_method": "Check",
+          "amount": 14434.0
+        }
+      ]
+    },
+    {
+      "id": "REM-072",
+      "customer_id": "CUST-005",
+      "customer_name": "Epsilon Group",
+      "customer_address": "654 Corporate Blvd, Phoenix, AZ 85001",
+      "payment_reference": "REM-0072",
+      "payment_date": "2024-01-17",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-102",
+          "description": "Payment for INV-2024-102",
+          "payment_method": "Wire",
+          "amount": 43737.0
+        }
+      ]
+    },
+    {
+      "id": "REM-073",
+      "customer_id": "CUST-004",
+      "customer_name": "Delta Services LLC",
+      "customer_address": "321 Service Road, Houston, TX 77001",
+      "payment_reference": "REM-0073",
+      "payment_date": "2024-02-20",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-100",
+          "description": "Payment for INV-2024-100",
+          "payment_method": "ACH",
+          "amount": 5035.0
+        }
+      ]
+    },
+    {
+      "id": "REM-074",
+      "customer_id": "CUST-003",
+      "customer_name": "Gamma Industries",
+      "customer_address": "789 Industrial Ave, Chicago, IL 60601",
+      "payment_reference": "REM-0074",
+      "payment_date": "2024-02-09",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-076",
+          "description": "Payment for INV-2024-076",
+          "payment_method": "Wire",
+          "amount": 36756.0
+        }
+      ]
+    },
+    {
+      "id": "REM-075",
+      "customer_id": "CUST-005",
+      "customer_name": "Epsilon Group",
+      "customer_address": "654 Corporate Blvd, Phoenix, AZ 85001",
+      "payment_reference": "REM-0075",
+      "payment_date": "2024-02-21",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-116",
+          "description": "Payment for INV-2024-116",
+          "payment_method": "Wire",
+          "amount": 36801.0
+        }
+      ]
+    },
+    {
+      "id": "REM-076",
+      "customer_id": "CUST-008",
+      "customer_name": "Iota Corp",
+      "customer_address": "258 Corp Street, San Diego, CA 92101",
+      "payment_reference": "IOT-0076",
+      "payment_date": "2024-02-05",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-171",
+          "description": "Payment for INV-2024-171",
+          "payment_method": "ACH",
+          "amount": 12678.0
+        }
+      ]
+    },
+    {
+      "id": "REM-077",
+      "customer_id": "CUST-001",
+      "customer_name": "Acme Corporation",
+      "customer_address": "123 Main Street, New York, NY 10001",
+      "payment_reference": "REM-0077",
+      "payment_date": "2024-01-25",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-015",
+          "description": "Payment for INV-2024-015",
+          "payment_method": "Wire",
+          "amount": 29939.0
+        }
+      ]
+    },
+    {
+      "id": "REM-078",
+      "customer_id": "CUST-009",
+      "customer_name": "Kappa Ltd",
+      "customer_address": "369 Ltd Avenue, Dallas, TX 75201",
+      "payment_reference": "REM-0078",
+      "payment_date": "2024-02-12",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-181",
+          "description": "Payment for INV-2024-181",
+          "payment_method": "ACH",
+          "amount": 21233.0
+        }
+      ]
+    },
+    {
+      "id": "REM-079",
+      "customer_id": "CUST-004",
+      "customer_name": "Delta Services LLC",
+      "customer_address": "321 Service Road, Houston, TX 77001",
+      "payment_reference": "PAY-004-0079",
+      "payment_date": "2024-02-25",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-087",
+          "description": "Payment for INV-2024-087",
+          "payment_method": "ACH",
+          "amount": 41479.0
+        }
+      ]
+    },
+    {
+      "id": "REM-080",
+      "customer_id": "CUST-003",
+      "customer_name": "Gamma Industries",
+      "customer_address": "789 Industrial Ave, Chicago, IL 60601",
+      "payment_reference": "GAM-0080",
+      "payment_date": "2024-01-08",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-069",
+          "description": "Payment for INV-2024-069",
+          "payment_method": "ACH",
+          "amount": 7685.0
+        }
+      ]
+    },
+    {
+      "id": "REM-081",
+      "customer_id": "CUST-010",
+      "customer_name": "Lambda Inc",
+      "customer_address": "741 Inc Road, San Jose, CA 95101",
+      "payment_reference": "PAY-010-0081",
+      "payment_date": "2024-01-25",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-197",
+          "description": "Payment for INV-2024-197",
+          "payment_method": "Wire",
+          "amount": 10838.0
+        },
+        {
+          "invoice_number": "INV-2024-193",
+          "description": "Payment for INV-2024-193",
+          "payment_method": "Wire",
+          "amount": 33653.0
+        }
+      ]
+    },
+    {
+      "id": "REM-082",
+      "customer_id": "CUST-003",
+      "customer_name": "Gamma Industries",
+      "customer_address": "789 Industrial Ave, Chicago, IL 60601",
+      "payment_reference": "PAY-003-0082",
+      "payment_date": "2024-02-11",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-066",
+          "description": "Payment for INV-2024-066",
+          "payment_method": "Wire",
+          "amount": 14873.0
+        },
+        {
+          "invoice_number": "INV-2024-059",
+          "description": "Payment for INV-2024-059",
+          "payment_method": "Wire",
+          "amount": 9863.0
+        }
+      ]
+    },
+    {
+      "id": "REM-083",
+      "customer_id": "CUST-009",
+      "customer_name": "Kappa Ltd",
+      "customer_address": "369 Ltd Avenue, Dallas, TX 75201",
+      "payment_reference": "PAY-009-0083",
+      "payment_date": "2024-02-28",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-176",
+          "description": "Payment for INV-2024-176",
+          "payment_method": "Wire",
+          "amount": 38440.0
+        },
+        {
+          "invoice_number": "INV-2024-183",
+          "description": "Payment for INV-2024-183",
+          "payment_method": "Wire",
+          "amount": 47436.0
+        }
+      ]
+    },
+    {
+      "id": "REM-084",
+      "customer_id": "CUST-007",
+      "customer_name": "Theta Partners",
+      "customer_address": "147 Partner Lane, San Antonio, TX 78201",
+      "payment_reference": "PAY-007-0084",
+      "payment_date": "2024-02-24",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-151",
+          "description": "Payment for INV-2024-151",
+          "payment_method": "Wire",
+          "amount": 5699.5
+        },
+        {
+          "invoice_number": "INV-2024-153",
+          "description": "Payment for INV-2024-153",
+          "payment_method": "Wire",
+          "amount": 7254.0
+        }
+      ]
+    },
+    {
+      "id": "REM-085",
+      "customer_id": "CUST-001",
+      "customer_name": "Acme Corporation",
+      "customer_address": "123 Main Street, New York, NY 10001",
+      "payment_reference": "PAY-001-0085",
+      "payment_date": "2024-01-31",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-009",
+          "description": "Payment for INV-2024-009",
+          "payment_method": "Wire",
+          "amount": 14828.0
+        },
+        {
+          "invoice_number": "INV-2024-025",
+          "description": "Payment for INV-2024-025",
+          "payment_method": "Wire",
+          "amount": 3347.0
+        }
+      ]
+    },
+    {
+      "id": "REM-086",
+      "customer_id": "CUST-002",
+      "customer_name": "Beta Technologies",
+      "customer_address": "456 Tech Park, San Francisco, CA 94102",
+      "payment_reference": "PAY-002-0086",
+      "payment_date": "2024-02-16",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-036",
+          "description": "Payment for INV-2024-036",
+          "payment_method": "Wire",
+          "amount": 18717.0
+        },
+        {
+          "invoice_number": "INV-2024-052",
+          "description": "Payment for INV-2024-052",
+          "payment_method": "Wire",
+          "amount": 2603.0
+        }
+      ]
+    },
+    {
+      "id": "REM-087",
+      "customer_id": "CUST-004",
+      "customer_name": "Delta Services LLC",
+      "customer_address": "321 Service Road, Houston, TX 77001",
+      "payment_reference": "PAY-004-0087",
+      "payment_date": "2024-01-11",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-085",
+          "description": "Payment for INV-2024-085",
+          "payment_method": "Wire",
+          "amount": 33306.0
+        },
+        {
+          "invoice_number": "INV-2024-098",
+          "description": "Payment for INV-2024-098",
+          "payment_method": "Wire",
+          "amount": 37682.0
+        }
+      ]
+    },
+    {
+      "id": "REM-088",
+      "customer_id": "CUST-005",
+      "customer_name": "Epsilon Group",
+      "customer_address": "654 Corporate Blvd, Phoenix, AZ 85001",
+      "payment_reference": "PAY-005-0088",
+      "payment_date": "2024-01-29",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-117",
+          "description": "Payment for INV-2024-117",
+          "payment_method": "Wire",
+          "amount": 39064.0
+        },
+        {
+          "invoice_number": "INV-2024-115",
+          "description": "Payment for INV-2024-115",
+          "payment_method": "Wire",
+          "amount": 1878.0
+        }
+      ]
+    },
+    {
+      "id": "REM-089",
+      "customer_id": "CUST-006",
+      "customer_name": "Zeta Holdings",
+      "customer_address": "987 Holdings Way, Philadelphia, PA 19101",
+      "payment_reference": "PAY-006-0089",
+      "payment_date": "2024-01-13",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-128",
+          "description": "Payment for INV-2024-128",
+          "payment_method": "Wire",
+          "amount": 38262.0
+        },
+        {
+          "invoice_number": "INV-2024-127",
+          "description": "Payment for INV-2024-127",
+          "payment_method": "Wire",
+          "amount": 47905.0
+        }
+      ]
+    },
+    {
+      "id": "REM-090",
+      "customer_id": "CUST-002",
+      "customer_name": "Beta Technologies",
+      "customer_address": "456 Tech Park, San Francisco, CA 94102",
+      "payment_reference": "PAY-002-0090",
+      "payment_date": "2024-02-17",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-045",
+          "description": "Payment for INV-2024-045",
+          "payment_method": "Wire",
+          "amount": 48284.0
+        },
+        {
+          "invoice_number": "INV-2024-049",
+          "description": "Payment for INV-2024-049",
+          "payment_method": "Wire",
+          "amount": 37000.0
+        }
+      ]
+    },
+    {
+      "id": "REM-091",
+      "customer_id": "CUST-001",
+      "customer_name": "Acme Corporation",
+      "customer_address": "123 Main Street, New York, NY 10001",
+      "payment_reference": "PAY-001-0091",
+      "payment_date": "2024-02-04",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-026",
+          "description": "Payment for INV-2024-026",
+          "payment_method": "Wire",
+          "amount": 35642.0
+        },
+        {
+          "invoice_number": "INV-2024-005",
+          "description": "Payment for INV-2024-005",
+          "payment_method": "Wire",
+          "amount": 44848.0
+        }
+      ]
+    },
+    {
+      "id": "REM-092",
+      "customer_id": "CUST-007",
+      "customer_name": "Theta Partners",
+      "customer_address": "147 Partner Lane, San Antonio, TX 78201",
+      "payment_reference": "PAY-007-0092",
+      "payment_date": "2024-02-12",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-148",
+          "description": "Payment for INV-2024-148",
+          "payment_method": "Wire",
+          "amount": 1907.5
+        },
+        {
+          "invoice_number": "INV-2024-143",
+          "description": "Payment for INV-2024-143",
+          "payment_method": "Wire",
+          "amount": 4843.0
+        }
+      ]
+    },
+    {
+      "id": "REM-093",
+      "customer_id": "CUST-003",
+      "customer_name": "Gamma Industries",
+      "customer_address": "789 Industrial Ave, Chicago, IL 60601",
+      "payment_reference": "PAY-003-0093",
+      "payment_date": "2024-01-19",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-061",
+          "description": "Payment for INV-2024-061",
+          "payment_method": "Wire",
+          "amount": 49323.0
+        },
+        {
+          "invoice_number": "INV-2024-064",
+          "description": "Payment for INV-2024-064",
+          "payment_method": "Wire",
+          "amount": 28577.0
+        }
+      ]
+    },
+    {
+      "id": "REM-094",
+      "customer_id": "CUST-004",
+      "customer_name": "Delta Services LLC",
+      "customer_address": "321 Service Road, Houston, TX 77001",
+      "payment_reference": "PAY-004-0094",
+      "payment_date": "2024-02-10",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-090",
+          "description": "Payment for INV-2024-090",
+          "payment_method": "Wire",
+          "amount": 10516.0
+        },
+        {
+          "invoice_number": "INV-2024-091",
+          "description": "Payment for INV-2024-091",
+          "payment_method": "Wire",
+          "amount": 11087.0
+        }
+      ]
+    },
+    {
+      "id": "REM-095",
+      "customer_id": "CUST-006",
+      "customer_name": "Zeta Holdings",
+      "customer_address": "987 Holdings Way, Philadelphia, PA 19101",
+      "payment_reference": "PAY-006-0095",
+      "payment_date": "2024-02-22",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-123",
+          "description": "Payment for INV-2024-123",
+          "payment_method": "Wire",
+          "amount": 34195.0
+        },
+        {
+          "invoice_number": "INV-2024-121",
+          "description": "Payment for INV-2024-121",
+          "payment_method": "Wire",
+          "amount": 4917.0
+        }
+      ]
+    },
+    {
+      "id": "REM-096",
+      "customer_id": "CUST-010",
+      "customer_name": "Lambda Inc",
+      "customer_address": "741 Inc Road, San Jose, CA 95101",
+      "payment_reference": "PAY-010-0096",
+      "payment_date": "2024-02-29",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-195",
+          "description": "Payment for INV-2024-195",
+          "payment_method": "Wire",
+          "amount": 5008.0
+        },
+        {
+          "invoice_number": "INV-2024-196",
+          "description": "Payment for INV-2024-196",
+          "payment_method": "Wire",
+          "amount": 24717.0
+        }
+      ]
+    },
+    {
+      "id": "REM-097",
+      "customer_id": "CUST-002",
+      "customer_name": "Beta Technologies",
+      "customer_address": "456 Tech Park, San Francisco, CA 94102",
+      "payment_reference": "PAY-002-0097",
+      "payment_date": "2024-02-05",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-032",
+          "description": "Payment for INV-2024-032",
+          "payment_method": "Wire",
+          "amount": 3503.0
+        },
+        {
+          "invoice_number": "INV-2024-043",
+          "description": "Payment for INV-2024-043",
+          "payment_method": "Wire",
+          "amount": 40420.0
+        }
+      ]
+    },
+    {
+      "id": "REM-098",
+      "customer_id": "CUST-008",
+      "customer_name": "Iota Corp",
+      "customer_address": "258 Corp Street, San Diego, CA 92101",
+      "payment_reference": "PAY-008-0098",
+      "payment_date": "2024-02-20",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-172",
+          "description": "Payment for INV-2024-172",
+          "payment_method": "Wire",
+          "amount": 39496.0
+        },
+        {
+          "invoice_number": "INV-2024-122",
+          "description": "Payment for INV-2024-122",
+          "payment_method": "Wire",
+          "amount": 22154.0
+        }
+      ]
+    },
+    {
+      "id": "REM-099",
+      "customer_id": "CUST-005",
+      "customer_name": "Epsilon Group",
+      "customer_address": "654 Corporate Blvd, Phoenix, AZ 85001",
+      "payment_reference": "PAY-005-0099",
+      "payment_date": "2024-02-01",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-118",
+          "description": "Payment for INV-2024-118",
+          "payment_method": "Wire",
+          "amount": 971.0
+        },
+        {
+          "invoice_number": "INV-2024-101",
+          "description": "Payment for INV-2024-101",
+          "payment_method": "Wire",
+          "amount": 8741.0
+        }
+      ]
+    },
+    {
+      "id": "REM-100",
+      "customer_id": "CUST-009",
+      "customer_name": "Kappa Ltd",
+      "customer_address": "369 Ltd Avenue, Dallas, TX 75201",
+      "payment_reference": "PAY-009-0100",
+      "payment_date": "2024-01-31",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-180",
+          "description": "Payment for INV-2024-180",
+          "payment_method": "Wire",
+          "amount": 37542.0
+        },
+        {
+          "invoice_number": "INV-2024-184",
+          "description": "Payment for INV-2024-184",
+          "payment_method": "Wire",
+          "amount": 16142.0
+        }
+      ]
+    },
+    {
+      "id": "REM-101",
+      "customer_id": "CUST-001",
+      "customer_name": "Acme Corporation",
+      "customer_address": "123 Main Street, New York, NY 10001",
+      "payment_reference": "PAY-001-0101",
+      "payment_date": "2024-01-29",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-004",
+          "description": "Payment for INV-2024-004",
+          "payment_method": "Wire",
+          "amount": 9644.0
+        },
+        {
+          "invoice_number": "INV-2024-023",
+          "description": "Payment for INV-2024-023",
+          "payment_method": "Wire",
+          "amount": 24026.0
+        }
+      ]
+    },
+    {
+      "id": "REM-102",
+      "customer_id": "CUST-005",
+      "customer_name": "Epsilon Group",
+      "customer_address": "654 Corporate Blvd, Phoenix, AZ 85001",
+      "payment_reference": "PAY-005-0102",
+      "payment_date": "2024-02-23",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-113",
+          "description": "Payment for INV-2024-113",
+          "payment_method": "Wire",
+          "amount": 16746.0
+        },
+        {
+          "invoice_number": "INV-2024-104",
+          "description": "Payment for INV-2024-104",
+          "payment_method": "Wire",
+          "amount": 17870.0
+        }
+      ]
+    },
+    {
+      "id": "REM-103",
+      "customer_id": "CUST-005",
+      "customer_name": "Epsilon Group",
+      "customer_address": "654 Corporate Blvd, Phoenix, AZ 85001",
+      "payment_reference": "PAY-005-0103",
+      "payment_date": "2024-02-17",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-103",
+          "description": "Payment for INV-2024-103",
+          "payment_method": "Wire",
+          "amount": 36531.0
+        },
+        {
+          "invoice_number": "INV-2024-120",
+          "description": "Payment for INV-2024-120",
+          "payment_method": "Wire",
+          "amount": 4358.0
+        }
+      ]
+    },
+    {
+      "id": "REM-104",
+      "customer_id": "CUST-001",
+      "customer_name": "Acme Corporation",
+      "customer_address": "123 Main Street, New York, NY 10001",
+      "payment_reference": "PAY-001-0104",
+      "payment_date": "2024-02-08",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-021",
+          "description": "Payment for INV-2024-021",
+          "payment_method": "Wire",
+          "amount": 7198.0
+        },
+        {
+          "invoice_number": "INV-2024-011",
+          "description": "Payment for INV-2024-011",
+          "payment_method": "Wire",
+          "amount": 2239.0
+        }
+      ]
+    },
+    {
+      "id": "REM-105",
+      "customer_id": "CUST-007",
+      "customer_name": "Theta Partners",
+      "customer_address": "147 Partner Lane, San Antonio, TX 78201",
+      "payment_reference": "PAY-007-0105",
+      "payment_date": "2024-01-19",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-145",
+          "description": "Payment for INV-2024-145",
+          "payment_method": "Wire",
+          "amount": 15409.0
+        },
+        {
+          "invoice_number": "INV-2024-152",
+          "description": "Payment for INV-2024-152",
+          "payment_method": "Wire",
+          "amount": 16163.0
+        }
+      ]
+    },
+    {
+      "id": "REM-106",
+      "customer_id": "CUST-002",
+      "customer_name": "Beta Technologies",
+      "customer_address": "456 Tech Park, San Francisco, CA 94102",
+      "payment_reference": "PAY-002-0106",
+      "payment_date": "2024-01-22",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-031",
+          "description": "Payment for INV-2024-031",
+          "payment_method": "ACH",
+          "amount": 13101.0
+        },
+        {
+          "invoice_number": "INV-2024-119",
+          "description": "Payment for INV-2024-119",
+          "payment_method": "ACH",
+          "amount": 46889.0
+        },
+        {
+          "invoice_number": "INV-2024-190",
+          "description": "Payment for INV-2024-190",
+          "payment_method": "ACH",
+          "amount": 41208.0
+        }
+      ]
+    },
+    {
+      "id": "REM-107",
+      "customer_id": "CUST-005",
+      "customer_name": "Epsilon Group",
+      "customer_address": "654 Corporate Blvd, Phoenix, AZ 85001",
+      "payment_reference": "PAY-005-0107",
+      "payment_date": "2024-02-25",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-105",
+          "description": "Payment for INV-2024-105",
+          "payment_method": "ACH",
+          "amount": 40253.0
+        },
+        {
+          "invoice_number": "INV-2024-200",
+          "description": "Payment for INV-2024-200",
+          "payment_method": "ACH",
+          "amount": 35164.0
+        },
+        {
+          "invoice_number": "INV-2024-092",
+          "description": "Payment for INV-2024-092",
+          "payment_method": "ACH",
+          "amount": 35257.0
+        }
+      ]
+    },
+    {
+      "id": "REM-108",
+      "customer_id": "CUST-006",
+      "customer_name": "Zeta Holdings",
+      "customer_address": "987 Holdings Way, Philadelphia, PA 19101",
+      "payment_reference": "PAY-006-0108",
+      "payment_date": "2024-01-17",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-138",
+          "description": "Payment for INV-2024-138",
+          "payment_method": "ACH",
+          "amount": 4472.0
+        },
+        {
+          "invoice_number": "INV-2024-094",
+          "description": "Payment for INV-2024-094",
+          "payment_method": "ACH",
+          "amount": 32521.0
+        },
+        {
+          "invoice_number": "INV-2024-079",
+          "description": "Payment for INV-2024-079",
+          "payment_method": "ACH",
+          "amount": 49709.0
+        }
+      ]
+    },
+    {
+      "id": "REM-109",
+      "customer_id": "CUST-002",
+      "customer_name": "Beta Technologies",
+      "customer_address": "456 Tech Park, San Francisco, CA 94102",
+      "payment_reference": "PAY-002-0109",
+      "payment_date": "2024-02-24",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-033",
+          "description": "Payment for INV-2024-033",
+          "payment_method": "ACH",
+          "amount": 15435.0
+        },
+        {
+          "invoice_number": "INV-2024-111",
+          "description": "Payment for INV-2024-111",
+          "payment_method": "ACH",
+          "amount": 29211.0
+        },
+        {
+          "invoice_number": "INV-2024-038",
+          "description": "Payment for INV-2024-038",
+          "payment_method": "ACH",
+          "amount": 11159.0
+        }
+      ]
+    },
+    {
+      "id": "REM-110",
+      "customer_id": "CUST-004",
+      "customer_name": "Delta Services LLC",
+      "customer_address": "321 Service Road, Houston, TX 77001",
+      "payment_reference": "PAY-004-0110",
+      "payment_date": "2024-03-01",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-095",
+          "description": "Payment for INV-2024-095",
+          "payment_method": "ACH",
+          "amount": 7831.0
+        },
+        {
+          "invoice_number": "INV-2024-010",
+          "description": "Payment for INV-2024-010",
+          "payment_method": "ACH",
+          "amount": 33618.0
+        },
+        {
+          "invoice_number": "INV-2024-140",
+          "description": "Payment for INV-2024-140",
+          "payment_method": "ACH",
+          "amount": 7661.0
+        }
+      ]
+    },
+    {
+      "id": "REM-111",
+      "customer_id": "CUST-002",
+      "customer_name": "Beta Technologies",
+      "customer_address": "456 Tech Park, San Francisco, CA 94102",
+      "payment_reference": "PAY-002-0111",
+      "payment_date": "2024-01-07",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-039",
+          "description": "Payment for INV-2024-039",
+          "payment_method": "ACH",
+          "amount": 23783.0
+        },
+        {
+          "invoice_number": "INV-2024-020",
+          "description": "Payment for INV-2024-020",
+          "payment_method": "ACH",
+          "amount": 14610.0
+        },
+        {
+          "invoice_number": "INV-2024-029",
+          "description": "Payment for INV-2024-029",
+          "payment_method": "ACH",
+          "amount": 41698.0
+        }
+      ]
+    },
+    {
+      "id": "REM-112",
+      "customer_id": "CUST-001",
+      "customer_name": "Acme Corporation",
+      "customer_address": "123 Main Street, New York, NY 10001",
+      "payment_reference": "PAY-001-0112",
+      "payment_date": "2024-01-19",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-003",
+          "description": "Payment for INV-2024-003",
+          "payment_method": "ACH",
+          "amount": 16549.0
+        },
+        {
+          "invoice_number": "INV-2024-144",
+          "description": "Payment for INV-2024-144",
+          "payment_method": "ACH",
+          "amount": 6262.5
+        },
+        {
+          "invoice_number": "INV-2024-110",
+          "description": "Payment for INV-2024-110",
+          "payment_method": "ACH",
+          "amount": 43090.0
+        }
+      ]
+    },
+    {
+      "id": "REM-113",
+      "customer_id": "CUST-010",
+      "customer_name": "Lambda Inc",
+      "customer_address": "741 Inc Road, San Jose, CA 95101",
+      "payment_reference": "PAY-010-0113",
+      "payment_date": "2024-02-27",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-191",
+          "description": "Payment for INV-2024-191",
+          "payment_method": "ACH",
+          "amount": 7052.0
+        },
+        {
+          "invoice_number": "INV-2024-114",
+          "description": "Payment for INV-2024-114",
+          "payment_method": "ACH",
+          "amount": 4696.0
+        },
+        {
+          "invoice_number": "INV-2024-042",
+          "description": "Payment for INV-2024-042",
+          "payment_method": "ACH",
+          "amount": 42969.0
+        }
+      ]
+    },
+    {
+      "id": "REM-114",
+      "customer_id": "CUST-009",
+      "customer_name": "Kappa Ltd",
+      "customer_address": "369 Ltd Avenue, Dallas, TX 75201",
+      "payment_reference": "PAY-009-0114",
+      "payment_date": "2024-01-30",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-182",
+          "description": "Payment for INV-2024-182",
+          "payment_method": "ACH",
+          "amount": 13886.0
+        },
+        {
+          "invoice_number": "INV-2024-034",
+          "description": "Payment for INV-2024-034",
+          "payment_method": "ACH",
+          "amount": 5729.0
+        },
+        {
+          "invoice_number": "INV-2024-086",
+          "description": "Payment for INV-2024-086",
+          "payment_method": "ACH",
+          "amount": 33771.0
+        }
+      ]
+    },
+    {
+      "id": "REM-115",
+      "customer_id": "CUST-001",
+      "customer_name": "Acme Corporation",
+      "customer_address": "123 Main Street, New York, NY 10001",
+      "payment_reference": "PAY-001-0115",
+      "payment_date": "2024-01-17",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-001",
+          "description": "Payment for INV-2024-001",
+          "payment_method": "ACH",
+          "amount": 42405.0
+        },
+        {
+          "invoice_number": "INV-2024-012",
+          "description": "Payment for INV-2024-012",
+          "payment_method": "ACH",
+          "amount": 13531.0
+        },
+        {
+          "invoice_number": "INV-2024-071",
+          "description": "Payment for INV-2024-071",
+          "payment_method": "ACH",
+          "amount": 45096.0
+        }
+      ]
+    },
+    {
+      "id": "REM-116",
+      "customer_id": "CUST-005",
+      "customer_name": "Epsilon Group",
+      "customer_address": "654 Corporate Blvd, Phoenix, AZ 85001",
+      "payment_reference": "PAY-005-0116",
+      "payment_date": "2024-02-07",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-109",
+          "description": "Payment for INV-2024-109",
+          "payment_method": "Wire",
+          "amount": 26648.0
+        },
+        {
+          "invoice_number": "INV-2024-024",
+          "description": "Payment for INV-2024-024",
+          "payment_method": "Wire",
+          "amount": 40065.0
+        },
+        {
+          "invoice_number": "INV-2024-014",
+          "description": "Payment for INV-2024-014",
+          "payment_method": "Wire",
+          "amount": 27993.0
+        }
+      ]
+    },
+    {
+      "id": "REM-117",
+      "customer_id": "CUST-003",
+      "customer_name": "Gamma Industries",
+      "customer_address": "789 Industrial Ave, Chicago, IL 60601",
+      "payment_reference": "PAY-003-0117",
+      "payment_date": "2024-02-13",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-065",
+          "description": "Payment for INV-2024-065",
+          "payment_method": "Wire",
+          "amount": 26675.0
+        },
+        {
+          "invoice_number": "INV-2024-126",
+          "description": "Payment for INV-2024-126",
+          "payment_method": "Wire",
+          "amount": 35839.0
+        },
+        {
+          "invoice_number": "INV-2024-130",
+          "description": "Payment for INV-2024-130",
+          "payment_method": "Wire",
+          "amount": 27177.0
+        },
+        {
+          "invoice_number": "INV-2024-194",
+          "description": "Payment for INV-2024-194",
+          "payment_method": "Wire",
+          "amount": 9180.0
+        }
+      ]
+    },
+    {
+      "id": "REM-118",
+      "customer_id": "CUST-009",
+      "customer_name": "Kappa Ltd",
+      "customer_address": "369 Ltd Avenue, Dallas, TX 75201",
+      "payment_reference": "PAY-009-0118",
+      "payment_date": "2024-01-23",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-178",
+          "description": "Payment for INV-2024-178",
+          "payment_method": "Wire",
+          "amount": 5872.0
+        },
+        {
+          "invoice_number": "INV-2024-053",
+          "description": "Payment for INV-2024-053",
+          "payment_method": "Wire",
+          "amount": 26790.0
+        },
+        {
+          "invoice_number": "INV-2024-088",
+          "description": "Payment for INV-2024-088",
+          "payment_method": "Wire",
+          "amount": 42374.0
+        }
+      ]
+    },
+    {
+      "id": "REM-119",
+      "customer_id": "CUST-002",
+      "customer_name": "Beta Technologies",
+      "customer_address": "456 Tech Park, San Francisco, CA 94102",
+      "payment_reference": "PAY-002-0119",
+      "payment_date": "2024-02-02",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-054",
+          "description": "Payment for INV-2024-054",
+          "payment_method": "Wire",
+          "amount": 4837.0
+        },
+        {
+          "invoice_number": "INV-2024-155",
+          "description": "Payment for INV-2024-155",
+          "payment_method": "Wire",
+          "amount": 12668.0
+        }
+      ]
+    },
+    {
+      "id": "REM-120",
+      "customer_id": "CUST-003",
+      "customer_name": "Gamma Industries",
+      "customer_address": "789 Industrial Ave, Chicago, IL 60601",
+      "payment_reference": "PAY-003-0120",
+      "payment_date": "2024-01-13",
+      "line_items": [
+        {
+          "invoice_number": "INV-2024-073",
+          "description": "Payment for INV-2024-073",
+          "payment_method": "Wire",
+          "amount": 25716.0
+        },
+        {
+          "invoice_number": "INV-2024-070",
+          "description": "Payment for INV-2024-070",
+          "payment_method": "Wire",
+          "amount": 41620.0
+        },
+        {
+          "invoice_number": "INV-2024-040",
+          "description": "Payment for INV-2024-040",
+          "payment_method": "Wire",
+          "amount": 44420.0
+        }
+      ]
+    }
+  ],
+  "bank_transactions": [
+    {
+      "id": "BANK-001",
+      "amount": 2639.0,
+      "date": "2024-01-21",
+      "reference": "REM-0001",
+      "description": "Acme Corporation PAYMENT"
+    },
+    {
+      "id": "BANK-002",
+      "amount": 27461.0,
+      "date": "2024-01-11",
+      "reference": "PAY-008-0002",
+      "description": "Iota Corp PAYMENT"
+    },
+    {
+      "id": "BANK-003",
+      "amount": 27941.0,
+      "date": "2024-01-17",
+      "reference": "PAY-006-0003",
+      "description": "Zeta Holdings PAYMENT"
+    },
+    {
+      "id": "BANK-004",
+      "amount": 24219.0,
+      "date": "2024-02-25",
+      "reference": "REM-0004",
+      "description": "Zeta Holdings PAYMENT"
+    },
+    {
+      "id": "BANK-005",
+      "amount": 44187.0,
+      "date": "2024-01-28",
+      "reference": "ZET-0005",
+      "description": "Zeta Holdings PAYMENT"
+    },
+    {
+      "id": "BANK-006",
+      "amount": 42160.0,
+      "date": "2024-01-14",
+      "reference": "REM-0006",
+      "description": "Beta Technologies PAYMENT"
+    },
+    {
+      "id": "BANK-007",
+      "amount": 49997.0,
+      "date": "2024-01-26",
+      "reference": "REM-0007",
+      "description": "Epsilon Group PAYMENT"
+    },
+    {
+      "id": "BANK-008",
+      "amount": 35822.0,
+      "date": "2024-01-17",
+      "reference": "GAM-0008",
+      "description": "Gamma Industries PAYMENT"
+    },
+    {
+      "id": "BANK-009",
+      "amount": 35176.0,
+      "date": "2024-02-15",
+      "reference": "REM-0009",
+      "description": "Gamma Industries PAYMENT"
+    },
+    {
+      "id": "BANK-010",
+      "amount": 42629.0,
+      "date": "2024-02-20",
+      "reference": "PAY-003-0010",
+      "description": "Gamma Industries PAYMENT"
+    },
+    {
+      "id": "BANK-011",
+      "amount": 45176.0,
+      "date": "2024-01-13",
+      "reference": "PAY-003-0011",
+      "description": "Gamma Industries PAYMENT"
+    },
+    {
+      "id": "BANK-012",
+      "amount": 18731.0,
+      "date": "2024-01-31",
+      "reference": "REM-0012",
+      "description": "Acme Corporation PAYMENT"
+    },
+    {
+      "id": "BANK-013",
+      "amount": 49456.0,
+      "date": "2024-01-17",
+      "reference": "REM-0013",
+      "description": "Gamma Industries PAYMENT"
+    },
+    {
+      "id": "BANK-014",
+      "amount": 33892.0,
+      "date": "2024-01-10",
+      "reference": "GAM-0014",
+      "description": "Gamma Industries PAYMENT"
+    },
+    {
+      "id": "BANK-015",
+      "amount": 2171.0,
+      "date": "2024-02-04",
+      "reference": "REM-0015",
+      "description": "Theta Partners PAYMENT"
+    },
+    {
+      "id": "BANK-016",
+      "amount": 48280.0,
+      "date": "2024-01-22",
+      "reference": "REM-0016",
+      "description": "Zeta Holdings PAYMENT"
+    },
+    {
+      "id": "BANK-017",
+      "amount": 39586.0,
+      "date": "2024-02-23",
+      "reference": "REM-0017",
+      "description": "Gamma Industries PAYMENT"
+    },
+    {
+      "id": "BANK-018",
+      "amount": 28151.0,
+      "date": "2024-01-29",
+      "reference": "REM-0018",
+      "description": "Acme Corporation PAYMENT"
+    },
+    {
+      "id": "BANK-019",
+      "amount": 47823.0,
+      "date": "2024-02-28",
+      "reference": "DEL-0019",
+      "description": "Delta Services LLC PAYMENT"
+    },
+    {
+      "id": "BANK-020",
+      "amount": 33217.0,
+      "date": "2024-02-26",
+      "reference": "REM-0020",
+      "description": "Gamma Industries PAYMENT"
+    },
+    {
+      "id": "BANK-021",
+      "amount": 20653.0,
+      "date": "2024-01-18",
+      "reference": "DEL-0021",
+      "description": "Delta Services LLC PAYMENT"
+    },
+    {
+      "id": "BANK-022",
+      "amount": 28196.0,
+      "date": "2024-01-19",
+      "reference": "REM-0022",
+      "description": "Acme Corporation PAYMENT"
+    },
+    {
+      "id": "BANK-023",
+      "amount": 39752.0,
+      "date": "2024-02-11",
+      "reference": "DEL-0023",
+      "description": "Delta Services LLC PAYMENT"
+    },
+    {
+      "id": "BANK-024",
+      "amount": 3306.0,
+      "date": "2024-01-30",
+      "reference": "THE-0024",
+      "description": "Theta Partners PAYMENT"
+    },
+    {
+      "id": "BANK-025",
+      "amount": 20160.0,
+      "date": "2024-01-20",
+      "reference": "REM-0025",
+      "description": "Kappa Ltd PAYMENT"
+    },
+    {
+      "id": "BANK-026",
+      "amount": 2720.0,
+      "date": "2024-01-23",
+      "reference": "THE-0026",
+      "description": "Theta Partners PAYMENT"
+    },
+    {
+      "id": "BANK-027",
+      "amount": 6197.0,
+      "date": "2024-01-07",
+      "reference": "REM-0027",
+      "description": "Acme Corporation PAYMENT"
+    },
+    {
+      "id": "BANK-028",
+      "amount": 13682.0,
+      "date": "2024-01-16",
+      "reference": "PAY-005-0028",
+      "description": "Epsilon Group PAYMENT"
+    },
+    {
+      "id": "BANK-029",
+      "amount": 32312.0,
+      "date": "2024-01-11",
+      "reference": "REM-0029",
+      "description": "Zeta Holdings PAYMENT"
+    },
+    {
+      "id": "BANK-030",
+      "amount": 37670.0,
+      "date": "2024-01-06",
+      "reference": "PAY-002-0030",
+      "description": "Beta Technologies PAYMENT"
+    },
+    {
+      "id": "BANK-031",
+      "amount": 1110.0,
+      "date": "2024-01-23",
+      "reference": "KAP-0031",
+      "description": "Kappa Ltd PAYMENT"
+    },
+    {
+      "id": "BANK-032",
+      "amount": 6528.0,
+      "date": "2024-01-28",
+      "reference": "THE-0032",
+      "description": "Theta Partners PAYMENT"
+    },
+    {
+      "id": "BANK-033",
+      "amount": 43581.0,
+      "date": "2024-02-24",
+      "reference": "PAY-009-0033",
+      "description": "Kappa Ltd PAYMENT"
+    },
+    {
+      "id": "BANK-034",
+      "amount": 18750.0,
+      "date": "2024-02-28",
+      "reference": "ZET-0034",
+      "description": "Zeta Holdings PAYMENT"
+    },
+    {
+      "id": "BANK-035",
+      "amount": 18710.0,
+      "date": "2024-01-03",
+      "reference": "REM-0035",
+      "description": "Acme Corporation PAYMENT"
+    },
+    {
+      "id": "BANK-036",
+      "amount": 4296.0,
+      "date": "2024-02-01",
+      "reference": "DEL-0036",
+      "description": "Delta Services LLC PAYMENT"
+    },
+    {
+      "id": "BANK-037",
+      "amount": 6113.0,
+      "date": "2024-01-21",
+      "reference": "DEL-0037",
+      "description": "Delta Services LLC PAYMENT"
+    },
+    {
+      "id": "BANK-038",
+      "amount": 6681.0,
+      "date": "2024-02-05",
+      "reference": "ZET-0038",
+      "description": "Zeta Holdings PAYMENT"
+    },
+    {
+      "id": "BANK-039",
+      "amount": 42506.0,
+      "date": "2024-02-05",
+      "reference": "REM-0039",
+      "description": "Gamma Industries PAYMENT"
+    },
+    {
+      "id": "BANK-040",
+      "amount": 48224.0,
+      "date": "2024-02-02",
+      "reference": "PAY-006-0040",
+      "description": "Zeta Holdings PAYMENT"
+    },
+    {
+      "id": "BANK-041",
+      "amount": 18283.49,
+      "date": "2024-01-29",
+      "reference": "THE-0041",
+      "description": "Theta Partners WIRE TRANSFER"
+    },
+    {
+      "id": "BANK-042",
+      "amount": 2452.79,
+      "date": "2024-01-26",
+      "reference": "PAY-001-0042",
+      "description": "Acme Corporation WIRE TRANSFER"
+    },
+    {
+      "id": "BANK-043",
+      "amount": 16425.28,
+      "date": "2024-02-14",
+      "reference": "REM-0043",
+      "description": "Zeta Holdings WIRE TRANSFER"
+    },
+    {
+      "id": "BANK-044",
+      "amount": 44628.45,
+      "date": "2024-01-12",
+      "reference": "REM-0044",
+      "description": "Zeta Holdings WIRE TRANSFER"
+    },
+    {
+      "id": "BANK-045",
+      "amount": 25398.09,
+      "date": "2024-02-10",
+      "reference": "PAY-001-0045",
+      "description": "Acme Corporation WIRE TRANSFER"
+    },
+    {
+      "id": "BANK-046",
+      "amount": 4164.51,
+      "date": "2024-02-29",
+      "reference": "PAY-002-0046",
+      "description": "Beta Technologies WIRE TRANSFER"
+    },
+    {
+      "id": "BANK-047",
+      "amount": 21220.69,
+      "date": "2024-02-07",
+      "reference": "REM-0047",
+      "description": "Kappa Ltd WIRE TRANSFER"
+    },
+    {
+      "id": "BANK-048",
+      "amount": 9649.55,
+      "date": "2024-01-07",
+      "reference": "PAY-003-0048",
+      "description": "Gamma Industries WIRE TRANSFER"
+    },
+    {
+      "id": "BANK-049",
+      "amount": 3103.9,
+      "date": "2024-01-10",
+      "reference": "KAP-0049",
+      "description": "Kappa Ltd WIRE TRANSFER"
+    },
+    {
+      "id": "BANK-050",
+      "amount": 46461.59,
+      "date": "2024-01-05",
+      "reference": "PAY-001-0050",
+      "description": "Acme Corporation WIRE TRANSFER"
+    },
+    {
+      "id": "BANK-051",
+      "amount": 42848.31,
+      "date": "2024-01-22",
+      "reference": "ZET-0051",
+      "description": "Zeta Holdings WIRE TRANSFER"
+    },
+    {
+      "id": "BANK-052",
+      "amount": 30088.47,
+      "date": "2024-01-22",
+      "reference": "EPS-0052",
+      "description": "Epsilon Group WIRE TRANSFER"
+    },
+    {
+      "id": "BANK-053",
+      "amount": 42443.43,
+      "date": "2024-01-19",
+      "reference": "BET-0053",
+      "description": "Beta Technologies WIRE TRANSFER"
+    },
+    {
+      "id": "BANK-054",
+      "amount": 25367.35,
+      "date": "2024-02-24",
+      "reference": "BET-0054",
+      "description": "Beta Technologies WIRE TRANSFER"
+    },
+    {
+      "id": "BANK-055",
+      "amount": 11715.28,
+      "date": "2024-01-03",
+      "reference": "BET-0055",
+      "description": "Beta Technologies WIRE TRANSFER"
+    },
+    {
+      "id": "BANK-056",
+      "amount": 14379.76,
+      "date": "2024-01-05",
+      "reference": "REM-0056",
+      "description": "Epsilon Group WIRE TRANSFER"
+    },
+    {
+      "id": "BANK-057",
+      "amount": 7809.68,
+      "date": "2024-02-12",
+      "reference": "PAY-004-0057",
+      "description": "Delta Services LLC WIRE TRANSFER"
+    },
+    {
+      "id": "BANK-058",
+      "amount": 39552.2,
+      "date": "2024-01-04",
+      "reference": "REM-0058",
+      "description": "Gamma Industries WIRE TRANSFER"
+    },
+    {
+      "id": "BANK-059",
+      "amount": 44750.28,
+      "date": "2024-01-14",
+      "reference": "PAY-008-0059",
+      "description": "Iota Corp WIRE TRANSFER"
+    },
+    {
+      "id": "BANK-060",
+      "amount": 35733.03,
+      "date": "2024-01-11",
+      "reference": "REM-0060",
+      "description": "Lambda Inc WIRE TRANSFER"
+    },
+    {
+      "id": "BANK-061",
+      "amount": 11208.3,
+      "date": "2024-02-01",
+      "reference": "PAY-002-0061",
+      "description": "Beta Technologies WIRE TRANSFER"
+    },
+    {
+      "id": "BANK-062",
+      "amount": 17963.31,
+      "date": "2024-02-07",
+      "reference": "PAY-007-0062",
+      "description": "Theta Partners WIRE TRANSFER"
+    },
+    {
+      "id": "BANK-063",
+      "amount": 10962.3,
+      "date": "2024-02-15",
+      "reference": "ACM-0063",
+      "description": "Acme Corporation WIRE TRANSFER"
+    },
+    {
+      "id": "BANK-064",
+      "amount": 40408.72,
+      "date": "2024-01-12",
+      "reference": "DEL-0064",
+      "description": "Delta Services LLC WIRE TRANSFER"
+    },
+    {
+      "id": "BANK-065",
+      "amount": 45365.45,
+      "date": "2024-02-18",
+      "reference": "REM-0065",
+      "description": "Beta Technologies WIRE TRANSFER"
+    },
+    {
+      "id": "BANK-066",
+      "amount": 36100.0,
+      "date": "2024-02-20",
+      "reference": "PMT-010-0066",
+      "description": "Lambda Inc ACH"
+    },
+    {
+      "id": "BANK-067",
+      "amount": 28992.0,
+      "date": "2024-01-08",
+      "reference": "DEL0067",
+      "description": "Delta Services LLC ACH"
+    },
+    {
+      "id": "BANK-068",
+      "amount": 37834.0,
+      "date": "2024-03-01",
+      "reference": "PAY0080068",
+      "description": "Iota Corp ACH"
+    },
+    {
+      "id": "BANK-069",
+      "amount": 46494.0,
+      "date": "2024-02-14",
+      "reference": "rem-0069",
+      "description": "Beta Technologies ACH"
+    },
+    {
+      "id": "BANK-070",
+      "amount": 30235.0,
+      "date": "2024-02-16",
+      "reference": "DEL-0070",
+      "description": "Delta Services LLC ACH"
+    },
+    {
+      "id": "BANK-071",
+      "amount": 14434.0,
+      "date": "2024-02-08",
+      "reference": "PMT-003-0071",
+      "description": "Gamma Industries ACH"
+    },
+    {
+      "id": "BANK-072",
+      "amount": 43737.0,
+      "date": "2024-01-17",
+      "reference": "REM-0072",
+      "description": "Epsilon Group ACH"
+    },
+    {
+      "id": "BANK-073",
+      "amount": 5035.0,
+      "date": "2024-02-20",
+      "reference": "rem-0073",
+      "description": "Delta Services LLC ACH"
+    },
+    {
+      "id": "BANK-074",
+      "amount": 36756.0,
+      "date": "2024-02-09",
+      "reference": "00REM-0074",
+      "description": "Gamma Industries ACH"
+    },
+    {
+      "id": "BANK-075",
+      "amount": 36801.0,
+      "date": "2024-02-21",
+      "reference": "REM0075",
+      "description": "Epsilon Group ACH"
+    },
+    {
+      "id": "BANK-076",
+      "amount": 12678.0,
+      "date": "2024-02-05",
+      "reference": "iot-0076",
+      "description": "Iota Corp ACH"
+    },
+    {
+      "id": "BANK-077",
+      "amount": 29939.0,
+      "date": "2024-01-25",
+      "reference": "REM-0077",
+      "description": "Acme Corporation ACH"
+    },
+    {
+      "id": "BANK-078",
+      "amount": 21233.0,
+      "date": "2024-02-12",
+      "reference": "REM0078",
+      "description": "Kappa Ltd ACH"
+    },
+    {
+      "id": "BANK-079",
+      "amount": 41479.0,
+      "date": "2024-02-25",
+      "reference": "PAY0040079",
+      "description": "Delta Services LLC ACH"
+    },
+    {
+      "id": "BANK-080",
+      "amount": 7685.0,
+      "date": "2024-01-08",
+      "reference": "GAM-0080",
+      "description": "Gamma Industries ACH"
+    },
+    {
+      "id": "BANK-081",
+      "amount": 44491.0,
+      "date": "2024-01-25",
+      "reference": "PMT-010-0081",
+      "description": "Lambda Inc ACH"
+    },
+    {
+      "id": "BANK-082",
+      "amount": 24736.0,
+      "date": "2024-02-11",
+      "reference": "PAY0030082",
+      "description": "Gamma Industries ACH"
+    },
+    {
+      "id": "BANK-083",
+      "amount": 85876.0,
+      "date": "2024-02-28",
+      "reference": "PAY0090083",
+      "description": "Kappa Ltd ACH"
+    },
+    {
+      "id": "BANK-084",
+      "amount": 12953.5,
+      "date": "2024-02-24",
+      "reference": "00PAY-007-0084",
+      "description": "Theta Partners ACH"
+    },
+    {
+      "id": "BANK-085",
+      "amount": 18175.0,
+      "date": "2024-01-31",
+      "reference": "00PAY-001-0085",
+      "description": "Acme Corporation ACH"
+    },
+    {
+      "id": "BANK-086",
+      "amount": 21320.0,
+      "date": "2024-02-16",
+      "reference": "pay-002-0086",
+      "description": "Beta Technologies ACH"
+    },
+    {
+      "id": "BANK-087",
+      "amount": 70988.0,
+      "date": "2024-01-11",
+      "reference": "PAY0040087",
+      "description": "Delta Services LLC ACH"
+    },
+    {
+      "id": "BANK-088",
+      "amount": 40942.0,
+      "date": "2024-01-29",
+      "reference": "00PAY-005-0088",
+      "description": "Epsilon Group ACH"
+    },
+    {
+      "id": "BANK-089",
+      "amount": 86167.0,
+      "date": "2024-01-13",
+      "reference": "PAY0060089",
+      "description": "Zeta Holdings ACH"
+    },
+    {
+      "id": "BANK-090",
+      "amount": 85284.0,
+      "date": "2024-02-17",
+      "reference": "PMT-002-0090",
+      "description": "Beta Technologies ACH"
+    },
+    {
+      "id": "BANK-091",
+      "amount": 80490.0,
+      "date": "2024-02-04",
+      "reference": "00PAY-001-0091",
+      "description": "Acme Corporation ACH"
+    },
+    {
+      "id": "BANK-092",
+      "amount": 6750.5,
+      "date": "2024-02-12",
+      "reference": "PMT-007-0092",
+      "description": "Theta Partners ACH"
+    },
+    {
+      "id": "BANK-093",
+      "amount": 77900.0,
+      "date": "2024-01-19",
+      "reference": "PMT-003-0093",
+      "description": "Gamma Industries ACH"
+    },
+    {
+      "id": "BANK-094",
+      "amount": 21603.0,
+      "date": "2024-02-10",
+      "reference": "PMT-004-0094",
+      "description": "Delta Services LLC ACH"
+    },
+    {
+      "id": "BANK-095",
+      "amount": 39112.0,
+      "date": "2024-02-22",
+      "reference": "pay-006-0095",
+      "description": "Zeta Holdings ACH"
+    },
+    {
+      "id": "BANK-096",
+      "amount": 29725.0,
+      "date": "2024-02-29",
+      "reference": "TXN-000096",
+      "description": "Lambda Inc PAYMENT REF:PAY-010-0096"
+    },
+    {
+      "id": "BANK-097",
+      "amount": 43923.0,
+      "date": "2024-02-05",
+      "reference": "TXN-000097",
+      "description": "Beta Technologies PAYMENT REF:PAY-002-0097"
+    },
+    {
+      "id": "BANK-098",
+      "amount": 61650.0,
+      "date": "2024-02-20",
+      "reference": "TXN-000098",
+      "description": "Iota Corp PAYMENT REF:PAY-008-0098"
+    },
+    {
+      "id": "BANK-099",
+      "amount": 9712.0,
+      "date": "2024-02-01",
+      "reference": "TXN-000099",
+      "description": "Epsilon Group PAYMENT REF:PAY-005-0099"
+    },
+    {
+      "id": "BANK-100",
+      "amount": 53684.0,
+      "date": "2024-01-31",
+      "reference": "TXN-000100",
+      "description": "Kappa Ltd PAYMENT REF:PAY-009-0100"
+    },
+    {
+      "id": "BANK-101",
+      "amount": 33670.0,
+      "date": "2024-01-29",
+      "reference": "TXN-000101",
+      "description": "Acme Corporation PAYMENT REF:PAY-001-0101"
+    },
+    {
+      "id": "BANK-102",
+      "amount": 34616.0,
+      "date": "2024-02-23",
+      "reference": "TXN-000102",
+      "description": "Epsilon Group PAYMENT REF:PAY-005-0102"
+    },
+    {
+      "id": "BANK-103",
+      "amount": 40889.0,
+      "date": "2024-02-17",
+      "reference": "TXN-000103",
+      "description": "Epsilon Group PAYMENT REF:PAY-005-0103"
+    },
+    {
+      "id": "BANK-104",
+      "amount": 9437.0,
+      "date": "2024-02-08",
+      "reference": "TXN-000104",
+      "description": "Acme Corporation PAYMENT REF:PAY-001-0104"
+    },
+    {
+      "id": "BANK-105",
+      "amount": 31572.0,
+      "date": "2024-01-19",
+      "reference": "TXN-000105",
+      "description": "Theta Partners PAYMENT REF:PAY-007-0105"
+    },
+    {
+      "id": "BANK-106",
+      "amount": 101198.0,
+      "date": "2024-01-22",
+      "reference": "TXN-000106",
+      "description": "Beta Technologies PAYMENT REF:PAY-002-0106"
+    },
+    {
+      "id": "BANK-107",
+      "amount": 110674.0,
+      "date": "2024-02-25",
+      "reference": "TXN-000107",
+      "description": "Epsilon Group PAYMENT REF:PAY-005-0107"
+    },
+    {
+      "id": "BANK-108",
+      "amount": 86702.0,
+      "date": "2024-01-17",
+      "reference": "TXN-000108",
+      "description": "Zeta Holdings PAYMENT REF:PAY-006-0108"
+    },
+    {
+      "id": "BANK-109",
+      "amount": 55805.0,
+      "date": "2024-02-24",
+      "reference": "TXN-000109",
+      "description": "Beta Technologies PAYMENT REF:PAY-002-0109"
+    },
+    {
+      "id": "BANK-110",
+      "amount": 49110.0,
+      "date": "2024-03-01",
+      "reference": "TXN-000110",
+      "description": "Delta Services LLC PAYMENT REF:PAY-004-0110"
+    },
+    {
+      "id": "BANK-111",
+      "amount": 80091.0,
+      "date": "2024-01-07",
+      "reference": "TXN-000111",
+      "description": "Beta Technologies PAYMENT REF:PAY-002-0111"
+    },
+    {
+      "id": "BANK-112",
+      "amount": 65901.5,
+      "date": "2024-01-19",
+      "reference": "TXN-000112",
+      "description": "Acme Corporation PAYMENT REF:PAY-001-0112"
+    },
+    {
+      "id": "BANK-113",
+      "amount": 54717.0,
+      "date": "2024-02-27",
+      "reference": "TXN-000113",
+      "description": "Lambda Inc PAYMENT REF:PAY-010-0113"
+    },
+    {
+      "id": "BANK-114",
+      "amount": 53386.0,
+      "date": "2024-01-30",
+      "reference": "TXN-000114",
+      "description": "Kappa Ltd PAYMENT REF:PAY-009-0114"
+    },
+    {
+      "id": "BANK-115",
+      "amount": 101032.0,
+      "date": "2024-01-17",
+      "reference": "TXN-000115",
+      "description": "Acme Corporation PAYMENT REF:PAY-001-0115"
+    },
+    {
+      "id": "BANK-116",
+      "amount": 94706.0,
+      "date": "2024-02-07",
+      "reference": "TXN-000116",
+      "description": "Epsilon Group PAYMENT REF:PAY-005-0116"
+    },
+    {
+      "id": "BANK-117",
+      "amount": 98871.0,
+      "date": "2024-02-13",
+      "reference": "TXN-000117",
+      "description": "Gamma Industries PAYMENT REF:PAY-003-0117"
+    },
+    {
+      "id": "BANK-118",
+      "amount": 75036.0,
+      "date": "2024-01-23",
+      "reference": "TXN-000118",
+      "description": "Kappa Ltd PAYMENT REF:PAY-009-0118"
+    },
+    {
+      "id": "BANK-119",
+      "amount": 17505.0,
+      "date": "2024-02-02",
+      "reference": "TXN-000119",
+      "description": "Beta Technologies PAYMENT REF:PAY-002-0119"
+    },
+    {
+      "id": "BANK-120",
+      "amount": 111756.0,
+      "date": "2024-01-13",
+      "reference": "TXN-000120",
+      "description": "Gamma Industries PAYMENT REF:PAY-003-0120"
+    },
+    {
+      "id": "BANK-121",
+      "amount": 2639.0,
+      "date": "2024-01-21",
+      "reference": "AMBIG-000",
+      "description": "PAYMENT REM-0001 PAY-008-0002"
+    },
+    {
+      "id": "BANK-122",
+      "amount": 27461.0,
+      "date": "2024-01-11",
+      "reference": "AMBIG-001",
+      "description": "PAYMENT PAY-008-0002 PAY-006-0003"
+    },
+    {
+      "id": "BANK-123",
+      "amount": 27941.0,
+      "date": "2024-01-17",
+      "reference": "AMBIG-002",
+      "description": "PAYMENT PAY-006-0003 REM-0004"
+    },
+    {
+      "id": "BANK-124",
+      "amount": 21233.0,
+      "date": "2024-02-26",
+      "reference": "VIR-000124",
+      "description": "Kappa Ltd INV:2024-181"
+    },
+    {
+      "id": "BANK-125",
+      "amount": 13886.0,
+      "date": "2024-01-21",
+      "reference": "VIR-000125",
+      "description": "Kappa Ltd INV-2024-182 $13886"
+    },
+    {
+      "id": "BANK-126",
+      "amount": 47436.0,
+      "date": "2024-02-10",
+      "reference": "VIR-000126",
+      "description": "Kappa Ltd INV-2024-183 $47436"
+    },
+    {
+      "id": "BANK-127",
+      "amount": 16142.0,
+      "date": "2024-02-19",
+      "reference": "VIR-000127",
+      "description": "PAYMENT FROM Kappa FOR INVOICE INV-2024-184"
+    },
+    {
+      "id": "BANK-128",
+      "amount": 26438.0,
+      "date": "2024-02-11",
+      "reference": "VIR-000128",
+      "description": "PAYMENT FROM Kappa FOR INVOICE INV-2024-185"
+    },
+    {
+      "id": "BANK-129",
+      "amount": 44519.0,
+      "date": "2024-01-18",
+      "reference": "VIR-000129",
+      "description": "Kappa Ltd INV-2024-186 $44519"
+    },
+    {
+      "id": "BANK-130",
+      "amount": 20160.0,
+      "date": "2024-01-12",
+      "reference": "VIR-000130",
+      "description": "PAYMENT FROM Kappa FOR INVOICE INV-2024-187"
+    },
+    {
+      "id": "BANK-131",
+      "amount": 21220.0,
+      "date": "2024-01-13",
+      "reference": "VIR-000131",
+      "description": "Kappa Ltd INV-2024-188 $21220"
+    },
+    {
+      "id": "BANK-132",
+      "amount": 1110.0,
+      "date": "2024-01-12",
+      "reference": "VIR-000132",
+      "description": "Kappa Ltd INV-2024-189 $1110"
+    },
+    {
+      "id": "BANK-133",
+      "amount": 41208.0,
+      "date": "2024-01-28",
+      "reference": "VIR-000133",
+      "description": "Kappa Ltd INV:2024-190"
+    },
+    {
+      "id": "BANK-134",
+      "amount": 7052.0,
+      "date": "2024-02-15",
+      "reference": "VIR-000134",
+      "description": "Lambda Inc INV:2024-191"
+    },
+    {
+      "id": "BANK-135",
+      "amount": 35734.0,
+      "date": "2024-01-20",
+      "reference": "VIR-000135",
+      "description": "Lambda Inc INV-2024-192 $35734"
+    },
+    {
+      "id": "BANK-136",
+      "amount": 33653.0,
+      "date": "2024-01-16",
+      "reference": "VIR-000136",
+      "description": "A/C:90010010 INV-2024-193"
+    },
+    {
+      "id": "BANK-137",
+      "amount": 9180.0,
+      "date": "2024-02-16",
+      "reference": "VIR-000137",
+      "description": "A/C:90010010 INV-2024-194"
+    },
+    {
+      "id": "BANK-138",
+      "amount": 5008.0,
+      "date": "2024-02-15",
+      "reference": "VIR-000138",
+      "description": "Lambda Inc INV:2024-195"
+    },
+    {
+      "id": "BANK-139",
+      "amount": 24717.0,
+      "date": "2024-01-06",
+      "reference": "VIR-000139",
+      "description": "PAYMENT FROM Lambda FOR INVOICE INV-2024-196"
+    },
+    {
+      "id": "BANK-140",
+      "amount": 10838.0,
+      "date": "2024-03-01",
+      "reference": "VIR-000140",
+      "description": "A/C:90010010 INV-2024-197"
+    },
+    {
+      "id": "BANK-141",
+      "amount": 36100.0,
+      "date": "2024-02-21",
+      "reference": "VIR-000141",
+      "description": "PAYMENT FROM Lambda FOR INVOICE INV-2024-198"
+    },
+    {
+      "id": "BANK-142",
+      "amount": 40586.0,
+      "date": "2024-01-29",
+      "reference": "VIR-000142",
+      "description": "Lambda Inc INV-2024-199 $40586"
+    },
+    {
+      "id": "BANK-143",
+      "amount": 35164.0,
+      "date": "2024-02-05",
+      "reference": "VIR-000143",
+      "description": "PAYMENT FROM Lambda FOR INVOICE INV-2024-200"
+    },
+    {
+      "id": "BANK-144",
+      "amount": 1320.0,
+      "date": "2024-02-29",
+      "reference": "UNK-000144",
+      "description": "DEPOSIT"
+    },
+    {
+      "id": "BANK-145",
+      "amount": 2276.0,
+      "date": "2024-02-23",
+      "reference": "UNK-000145",
+      "description": "TRANSFER FROM UNKNOWN"
+    },
+    {
+      "id": "BANK-146",
+      "amount": 1265.0,
+      "date": "2024-01-06",
+      "reference": "UNK-000146",
+      "description": "SUNDRY CREDIT"
+    },
+    {
+      "id": "BANK-147",
+      "amount": 588.0,
+      "date": "2024-01-12",
+      "reference": "UNK-000147",
+      "description": "CASH DEPOSIT"
+    },
+    {
+      "id": "BANK-148",
+      "amount": 2619.0,
+      "date": "2024-02-09",
+      "reference": "UNK-000148",
+      "description": "UNKNOWN SENDER"
+    },
+    {
+      "id": "BANK-149",
+      "amount": 4762.0,
+      "date": "2024-02-29",
+      "reference": "UNK-000149",
+      "description": "REVERSAL"
+    },
+    {
+      "id": "BANK-150",
+      "amount": 2464.0,
+      "date": "2024-01-30",
+      "reference": "UNK-000150",
+      "description": "CREDIT MEMO"
+    }
+  ]
+}

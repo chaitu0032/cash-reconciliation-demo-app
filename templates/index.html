@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cash App | Hyperbots</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=16">
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <img src="/static/images/hyprbots_logo.png" alt="Hyperbots" class="logo-img">
+                <span class="brand-name">Hyperbots</span>
+            </div>
+            <div class="header-title">
+                <h1>Cash App</h1>
+            </div>
+            <div class="header-actions">
+                <label class="upload-btn" id="uploadBtn">
+                    <input type="file" id="fileInput" accept=".json" hidden>
+                    <svg width="20" height="20" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20.111 11.5132L20.1111 11.5134C20.175 11.5772 20.2257 11.6531 20.2603 11.7365C20.2949 11.82 20.3128 11.9095 20.3128 11.9998C20.3128 12.0902 20.2949 12.1796 20.2603 12.2631C20.2257 12.3465 20.175 12.4224 20.1111 12.4862L12.4189 20.1737C11.4459 21.1466 10.1262 21.6931 8.75027 21.6931C7.3743 21.693 6.05472 21.1463 5.08183 20.1733C4.10893 19.2002 3.56241 17.8806 3.5625 16.5046C3.56259 15.1287 4.10927 13.8091 5.08229 12.8362L14.3879 3.39366C15.0794 2.70154 16.0173 2.31253 16.9954 2.31201C17.9735 2.31149 18.9119 2.69958 19.6039 3.3909C20.296 4.08221 20.6851 5.02013 20.6856 5.99832C20.6861 6.9765 20.298 7.91483 19.6067 8.60688L10.2992 18.0494C9.88811 18.4604 9.33079 18.6912 8.74966 18.6912C8.16847 18.6912 7.61107 18.4603 7.20011 18.0494C6.78914 17.6384 6.55826 17.081 6.55826 16.4998C6.55826 15.9186 6.78914 15.3612 7.20011 14.9502L15.0098 7.01677C15.0736 6.94878 15.149 6.8951 15.2328 6.8578C15.3166 6.82051 15.407 6.80034 15.4986 6.7985C15.5903 6.79665 15.6814 6.81316 15.7666 6.84706C15.8518 6.88095 15.9294 6.93155 15.9947 6.99587C16.0601 7.06019 16.1119 7.13693 16.1471 7.22157C16.1824 7.30622 16.2003 7.39706 16.2 7.48875C16.1996 7.58044 16.1808 7.67113 16.1449 7.75548C16.1089 7.83982 16.0565 7.91613 15.9906 7.97989L8.17971 15.922C8.10381 15.9974 8.04369 16.0866 8.00251 16.1849C7.96128 16.2833 7.93984 16.3889 7.93942 16.4956C7.939 16.6023 7.95959 16.7081 8.00004 16.8068C8.04048 16.9056 8.09998 16.9954 8.17514 17.0712C8.25029 17.1469 8.33963 17.2071 8.43806 17.2484C8.53648 17.2896 8.64206 17.311 8.74877 17.3115C8.85548 17.3119 8.96123 17.2913 9.05998 17.2508C9.15873 17.2104 9.24855 17.1509 9.32431 17.0757L18.631 7.63779C19.0655 7.20412 19.3098 6.61584 19.3105 6.00219C19.3111 5.38845 19.0679 4.79961 18.6344 4.36519C18.2008 3.93076 17.6125 3.68635 16.9988 3.68572C16.385 3.68509 15.7962 3.92829 15.3618 4.36181L6.058 13.8006C5.70357 14.1545 5.42243 14.5745 5.23048 15.0369C5.03849 15.4994 4.93948 15.9951 4.93908 16.4958C4.93868 16.9966 5.03691 17.4924 5.22816 17.9552C5.41941 18.418 5.69993 18.8385 6.05371 19.1929C6.4075 19.5472 6.82761 19.8284 7.29006 20.0204C7.75251 20.2124 8.24825 20.3114 8.74897 20.3118C9.24969 20.3122 9.74559 20.214 10.2083 20.0227C10.6711 19.8315 11.0917 19.5509 11.446 19.1972L19.139 11.5098C19.2685 11.3814 19.4435 11.3097 19.6257 11.3103C19.8079 11.3109 19.9825 11.3839 20.111 11.5132Z" fill="currentColor" stroke="currentColor" stroke-width="0.125"/>
+                    </svg>
+                    Upload JSON
+                </label>
+                <button class="sample-btn" id="loadSampleBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10.775 19.943C10.775 20.3573 11.1108 20.693 11.525 20.693C11.9392 20.693 12.275 20.3573 12.275 19.943H10.775ZM12.275 12C12.275 11.5858 11.9392 11.25 11.525 11.25C11.1108 11.25 10.775 11.5858 10.775 12H12.275ZM5.20443 7.58417C4.84361 7.38076 4.3862 7.50836 4.18278 7.86919C3.97937 8.23001 4.10697 8.68742 4.4678 8.89084L5.20443 7.58417ZM11.525 12.0084L11.1567 12.6617C11.3794 12.7873 11.6507 12.7907 11.8765 12.6709L11.525 12.0084ZM18.9834 8.90002C19.3493 8.70588 19.4886 8.25188 19.2944 7.88598C19.1003 7.52008 18.6463 7.38085 18.2804 7.57499L18.9834 8.90002ZM12.7431 19.6843L13.1074 20.34L12.7431 19.6843ZM10.3068 19.6843L10.6711 19.0287L10.3068 19.6843ZM4 14.7046L4.75 14.7046V14.7046L4 14.7046ZM5.29018 16.8973L4.92594 17.5529H4.92594L5.29018 16.8973ZM17.7598 16.8973L17.3956 16.2417L17.7598 16.8973ZM10.3068 4.31566L9.94261 3.66004L10.3068 4.31566ZM12.7431 4.31565L12.3789 4.97127L12.7431 4.31565ZM17.7598 7.10269L18.124 6.44707L17.7598 7.10269ZM4.00001 9.29536L4.75001 9.29536V9.29536H4.00001ZM5.29018 7.10269L4.92595 6.44707L5.29018 7.10269ZM12.275 19.943V12H10.775V19.943H12.275ZM4.4678 8.89084L11.1567 12.6617L11.8933 11.355L5.20443 7.58417L4.4678 8.89084ZM11.8765 12.6709L18.9834 8.90002L18.2804 7.57499L11.1735 11.3459L11.8765 12.6709ZM5.65442 7.7583L10.6711 4.97127L9.94261 3.66004L4.92595 6.44707L5.65442 7.7583ZM12.3789 4.97127L17.3956 7.7583L18.124 6.44707L13.1074 3.66004L12.3789 4.97127ZM17.3956 16.2417L12.3789 19.0287L13.1074 20.34L18.124 17.5529L17.3956 16.2417ZM10.6711 19.0287L5.65441 16.2417L4.92594 17.5529L9.94261 20.34L10.6711 19.0287ZM12.3789 19.0287C11.8479 19.3238 11.2021 19.3238 10.6711 19.0287L9.94261 20.34C10.9267 20.8867 12.1233 20.8867 13.1074 20.34L12.3789 19.0287ZM3.25 14.7046C3.25 15.888 3.89153 16.9783 4.92594 17.5529L5.65441 16.2417C5.0962 15.9316 4.75 15.3432 4.75 14.7046L3.25 14.7046ZM18.3 14.7046C18.3 15.3432 17.9538 15.9316 17.3956 16.2417L18.124 17.5529C19.1584 16.9783 19.8 15.888 19.8 14.7046H18.3ZM10.6711 4.97127C11.2021 4.67624 11.8479 4.67624 12.3789 4.97127L13.1074 3.66004C12.1233 3.11332 10.9267 3.11332 9.94261 3.66004L10.6711 4.97127ZM19.8 9.29536C19.8 8.11204 19.1584 7.02174 18.124 6.44707L17.3956 7.7583C17.9538 8.06842 18.3 8.65679 18.3 9.29536H19.8ZM4.75001 9.29536C4.75001 8.65679 5.09621 8.06842 5.65442 7.7583L4.92595 6.44707C3.89154 7.02174 3.25001 8.11204 3.25001 9.29536H4.75001ZM18.3 9.29536V14.7046H19.8V9.29536H18.3ZM4.75 14.7046L4.75001 9.29536L3.25001 9.29536L3.25 14.7046L4.75 14.7046Z" fill="currentColor"/>
+                    </svg>
+                    Demo Data
+                </button>
+            </div>
+        </header>
+
+        <!-- Loading State -->
+        <div class="loading-state" id="loadingState">
+            <div class="loading-terminal">
+                <div class="terminal-header">
+                    <span class="terminal-dot red"></span>
+                    <span class="terminal-dot yellow"></span>
+                    <span class="terminal-dot green"></span>
+                    <span class="terminal-title">CASH APP</span>
+                </div>
+                <div class="terminal-body">
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <div class="progress-percent" id="progressPercent">0%</div>
+                    </div>
+                    <div class="loading-steps" id="loadingSteps">
+                        <div class="step" data-step="1">
+                            <span class="step-icon">○</span>
+                            <span class="step-text">Initializing...</span>
+                        </div>
+                        <div class="step" data-step="2">
+                            <span class="step-icon">○</span>
+                            <span class="step-text">Loading bank statements...</span>
+                        </div>
+                        <div class="step" data-step="3">
+                            <span class="step-icon">○</span>
+                            <span class="step-text">Loading remittances...</span>
+                        </div>
+                        <div class="step" data-step="4">
+                            <span class="step-icon">○</span>
+                            <span class="step-text">Loading invoices...</span>
+                        </div>
+                        <div class="step" data-step="5">
+                            <span class="step-icon">○</span>
+                            <span class="step-text">Matching transactions...</span>
+                        </div>
+                        <div class="step" data-step="6">
+                            <span class="step-icon">○</span>
+                            <span class="step-text">Identifying exceptions...</span>
+                        </div>
+                        <div class="step" data-step="7">
+                            <span class="step-icon">○</span>
+                            <span class="step-text">Generating report...</span>
+                        </div>
+                    </div>
+                    <div class="loading-stats" id="loadingStats">
+                        <div class="stat-item">
+                            <span class="stat-label">PROCESSED</span>
+                            <span class="stat-value" id="statProcessed">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">MATCHED</span>
+                            <span class="stat-value" id="statMatched">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">EXCEPTIONS</span>
+                            <span class="stat-value" id="statExceptions">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Empty State -->
+        <div class="empty-state" id="emptyState">
+            <div class="empty-mascot">
+                <img src="/static/images/robotIcon.svg" alt="Vera" class="mascot-img">
+            </div>
+            <h2>Ready to Reconcile</h2>
+            <p>Upload your transaction data or try the demo to see Cash App in action</p>
+            <div class="empty-actions">
+                <label class="empty-btn primary" id="emptyUploadBtn">
+                    <input type="file" accept=".json" hidden>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M17 8L12 3L7 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 3V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Upload JSON File
+                </label>
+                <button class="empty-btn secondary" id="emptyDemoBtn" type="button" onclick="loadSampleData()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 3L19 12L5 21V3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Try Demo Data
+                </button>
+            </div>
+        </div>
+
+        <!-- Dashboard Content -->
+        <main class="dashboard" id="dashboard" style="display: none;">
+            <!-- Summary Cards -->
+            <section class="summary-section">
+                <div class="summary-card" data-delay="0">
+                    <div class="card-icon">
+                        <!-- Bank/Money icon -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="card-value" id="totalBankTxns">0</div>
+                    <div class="card-label">BANK TRANSACTIONS</div>
+                    <div class="card-accent accent-cyan"></div>
+                </div>
+                <div class="summary-card" data-delay="1">
+                    <div class="card-icon success">
+                        <!-- Check icon from ap-ui -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 6.94922L10.4142 16.535C9.63317 17.3161 8.36683 17.3161 7.58579 16.535L4 12.9492" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="card-value" id="invoiceRecRate">0%</div>
+                    <div class="card-label">INVOICE RECONCILIATION</div>
+                    <div class="card-accent accent-emerald"></div>
+                </div>
+                <div class="summary-card" data-delay="2">
+                    <div class="card-icon warning">
+                        <!-- Invoice icon -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M14 2V8H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16 13H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16 17H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="card-value" id="totalInvoices">0</div>
+                    <div class="card-label">TOTAL INVOICES</div>
+                    <div class="card-accent accent-gold"></div>
+                </div>
+                <div class="summary-card" data-delay="3">
+                    <div class="card-icon error">
+                        <!-- Alert triangle icon -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 9V13M12 17H12.01M10.29 3.86L1.82 18C1.64 18.3 1.55 18.64 1.55 19C1.55 19.36 1.64 19.7 1.82 20C2 20.3 2.26 20.56 2.56 20.74C2.86 20.92 3.2 21.01 3.55 21.01H20.45C20.8 21.01 21.14 20.92 21.44 20.74C21.74 20.56 22 20.3 22.18 20C22.36 19.7 22.45 19.36 22.45 19C22.45 18.64 22.36 18.3 22.18 18L13.71 3.86C13.53 3.56 13.27 3.32 12.97 3.14C12.67 2.96 12.34 2.87 12 2.87C11.66 2.87 11.33 2.96 11.03 3.14C10.73 3.32 10.47 3.56 10.29 3.86Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="card-value" id="totalExceptions">0</div>
+                    <div class="card-label">EXCEPTIONS</div>
+                    <div class="card-accent accent-coral"></div>
+                </div>
+            </section>
+
+            <!-- Charts Section -->
+            <section class="charts-section">
+                <div class="chart-card" data-delay="4">
+                    <h3 class="chart-title">INVOICE STATUS</h3>
+                    <div class="chart-container">
+                        <canvas id="invoiceStatusChart"></canvas>
+                    </div>
+                    <div class="chart-legend" id="invoiceStatusLegend"></div>
+                </div>
+                <div class="chart-card" data-delay="5">
+                    <h3 class="chart-title">PAYMENT APPLICATION</h3>
+                    <div class="chart-container">
+                        <canvas id="paymentChart"></canvas>
+                    </div>
+                    <div class="chart-legend" id="paymentLegend"></div>
+                </div>
+            </section>
+
+            <!-- Auto-Apply Action Bar -->
+            <section class="action-bar" data-delay="6">
+                <div class="action-bar-left">
+                    <label class="auto-select-checkbox">
+                        <input type="checkbox" id="selectAllAutoApply">
+                        <span class="checkmark"></span>
+                        <span>Select All Auto-Apply</span>
+                    </label>
+                    <div class="apply-options">
+                        <label class="radio-option">
+                            <input type="radio" name="applyFilter" value="full" checked>
+                            <span>Full Payment Only</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="applyFilter" value="partial">
+                            <span>Include Partial</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="action-bar-right">
+                    <span class="selected-count" id="selectedCount">0 selected</span>
+                    <button class="erp-btn" id="writeToErpBtn" disabled>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Write to ERP
+                    </button>
+                </div>
+            </section>
+
+            <!-- Tabs Section -->
+            <section class="tabs-section" data-delay="7">
+                <div class="tabs-header">
+                    <button class="tab-btn active" data-tab="invoices">
+                        INVOICES <span class="tab-count" id="invCount">0</span>
+                    </button>
+                    <button class="tab-btn" data-tab="remittances">
+                        REMITTANCES <span class="tab-count" id="remCount">0</span>
+                    </button>
+                    <button class="tab-btn" data-tab="bank">
+                        BANK TXNS <span class="tab-count" id="bankCount">0</span>
+                    </button>
+                </div>
+
+                <!-- Search/Filter Bar -->
+                <div class="filter-bar">
+                    <div class="search-wrapper">
+                        <svg class="search-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.3333 13.3307L10.7555 10.753M12.1481 7.4048C12.1481 10.023 10.0256 12.1455 7.40736 12.1455C4.78913 12.1455 2.66663 10.023 2.66663 7.4048C2.66663 4.78656 4.78913 2.66406 7.40736 2.66406C10.0256 2.66406 12.1481 4.78656 12.1481 7.4048Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <input type="text" class="search-input" id="searchInput" placeholder="Search...">
+                    </div>
+                    <select class="filter-select" id="statusFilter">
+                        <option value="">All Status</option>
+                        <option value="matched">Matched</option>
+                        <option value="unmatched">Unmatched</option>
+                        <option value="exception">Exception</option>
+                    </select>
+                </div>
+
+                <!-- Tab Content -->
+                <div class="tab-content active" id="invoicesTab">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th class="checkbox-col"></th>
+                                <th>INVOICE ID</th>
+                                <th>CUSTOMER</th>
+                                <th>AMOUNT</th>
+                                <th>PENDING</th>
+                                <th>STATUS</th>
+                                <th>EXCEPTION</th>
+                            </tr>
+                        </thead>
+                        <tbody id="invTableBody"></tbody>
+                    </table>
+                </div>
+
+                <div class="tab-content" id="remittancesTab">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>CUSTOMER</th>
+                                <th>AMOUNT</th>
+                                <th>DATE</th>
+                                <th>STATUS</th>
+                                <th>BANK MATCH</th>
+                                <th>EXCEPTION</th>
+                            </tr>
+                        </thead>
+                        <tbody id="remTableBody"></tbody>
+                    </table>
+                </div>
+
+                <div class="tab-content" id="bankTab">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>AMOUNT</th>
+                                <th>DATE</th>
+                                <th>REFERENCE</th>
+                                <th>STATUS</th>
+                                <th>REMITTANCE</th>
+                                <th>EXCEPTION</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bankTableBody"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- ERP Export Modal -->
+    <div class="modal-overlay" id="erpModalOverlay">
+        <div class="modal erp-modal">
+            <div class="erp-modal-content" id="erpModalContent"></div>
+        </div>
+    </div>
+
+    <!-- Detail Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal" id="detailModal">
+            <div class="modal-header">
+                <h2 id="modalTitle">Transaction Details</h2>
+                <button class="modal-close" id="modalClose">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-content" id="modalContent">
+                <!-- Dynamic content -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/static/js/app.js?v=16"></script>
+</body>
+</html>
