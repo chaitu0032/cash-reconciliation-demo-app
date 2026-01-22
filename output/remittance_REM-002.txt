@@ -1,0 +1,35 @@
+============================================================
+REMITTANCE ADVICE
+============================================================
+
+Remittance ID:    REM-002
+From:             Globex Industries
+Customer ID:      CUST-002
+
+------------------------------------------------------------
+PAYMENT DETAILS
+------------------------------------------------------------
+Payment Date:     2026-01-02
+Payment Method:   Wire Transfer
+Reference:        20260102MQFT7829
+Currency:         USD
+
+TOTAL AMOUNT:     USD 48,250.50
+
+------------------------------------------------------------
+INVOICE DETAILS
+------------------------------------------------------------
+Invoice Number                     Amount Paid
+------------------------------------------------------------
+INV-2026-0003             USD       20,000.00
+INV-2026-0004             USD       15,250.50
+INV-2026-0005             USD       13,000.00
+------------------------------------------------------------
+TOTAL                     USD       48,250.50
+============================================================
+
+From: Your Company Name
+Contact: accounts@company.com
+
+This is an automated remittance advice. Please retain for your records.
+Generated: 2026-01-20 12:08:04

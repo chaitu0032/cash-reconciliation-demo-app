@@ -1,0 +1,514 @@
+{% extends "base.html" %}
+
+{% block title %}Upload Bank Statement{% endblock %}
+
+{% block extra_styles %}
+<style>
+    .landing-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem 0;
+    }
+    .upload-section {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    .upload-section h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+    .upload-section p {
+        color: var(--text-muted);
+        font-size: 1rem;
+    }
+    .upload-card {
+        background: var(--bg-card);
+        border: 2px dashed var(--border-color);
+        border-radius: var(--radius-12);
+        padding: 3rem;
+        text-align: center;
+        transition: all 0.2s ease;
+        cursor: pointer;
+    }
+    .upload-card:hover, .upload-card.dragover {
+        border-color: var(--primary5);
+        background: var(--primary1);
+    }
+    .upload-card.has-file {
+        border-style: solid;
+        border-color: var(--success5);
+        background: var(--success1);
+    }
+    .upload-icon {
+        width: 64px;
+        height: 64px;
+        margin: 0 auto 1rem;
+        color: var(--primary7);
+    }
+    .upload-text {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+    .upload-hint {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+    }
+    .file-input {
+        display: none;
+    }
+    .selected-file {
+        margin-top: 1rem;
+        padding: 0.75rem 1rem;
+        background: var(--grey3);
+        border-radius: var(--radius-8);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    .parse-btn {
+        margin-top: 1.5rem;
+    }
+    .parsing-status {
+        margin-top: 1.5rem;
+    }
+    .result-section {
+        margin-top: 2rem;
+        display: none;
+    }
+    .result-section.show {
+        display: block;
+    }
+    .json-preview {
+        background: var(--grey12);
+        color: #e6e6e6;
+        padding: 1rem;
+        border-radius: var(--radius-8);
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        max-height: 300px;
+        overflow: auto;
+        text-align: left;
+        white-space: pre-wrap;
+    }
+    .flow-steps {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin: 2rem 0;
+    }
+    .flow-step {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.25rem;
+        background: var(--grey3);
+        border-radius: var(--radius-full);
+        font-size: 0.85rem;
+        color: var(--text-muted);
+    }
+    .flow-step.active {
+        background: var(--primary3);
+        color: var(--primary9);
+    }
+    .flow-step.completed {
+        background: var(--success2);
+        color: var(--success9);
+    }
+    .flow-arrow {
+        color: var(--grey6);
+    }
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin: 1.5rem 0;
+    }
+    .stat-card {
+        background: var(--grey2);
+        padding: 1rem;
+        border-radius: var(--radius-8);
+        text-align: center;
+    }
+    .stat-value {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--grey12);
+    }
+    .stat-label {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+    }
+    .processing-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-12);
+        padding: 2rem;
+        max-width: 400px;
+        margin: 1.5rem auto 0;
+        box-shadow: var(--shadow-md);
+    }
+    .processing-spinner {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    .processing-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 1.5rem;
+        color: var(--grey12);
+    }
+    .processing-steps {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    .processing-step {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.5rem 0.75rem;
+        border-radius: var(--radius-8);
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        background: var(--grey2);
+    }
+    .processing-step.active {
+        color: var(--primary9);
+        background: var(--primary2);
+    }
+    .processing-step.completed {
+        color: var(--success9);
+        background: var(--success1);
+    }
+    .step-icon {
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: var(--grey4);
+        flex-shrink: 0;
+    }
+    .processing-step.active .step-icon {
+        background: var(--primary7);
+        color: white;
+        animation: pulse 1s ease-in-out infinite;
+    }
+    .processing-step.completed .step-icon {
+        background: var(--success8);
+        color: white;
+    }
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.1); opacity: 0.8; }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="landing-container">
+    <!-- Flow Steps -->
+    <div class="flow-steps">
+        <div class="flow-step active" id="step-1">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                <polyline points="17 8 12 3 7 8"/>
+                <line x1="12" y1="3" x2="12" y2="15"/>
+            </svg>
+            Upload Statement
+        </div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step" id="step-2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+            </svg>
+            Parse Transactions
+        </div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step" id="step-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            Reconcile
+        </div>
+    </div>
+
+    <!-- Upload Section -->
+    <div class="upload-section">
+        <h1>Cash Reconciliation</h1>
+        <p>Upload your bank statement to start the reconciliation process</p>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="upload-card" id="upload-area" onclick="document.getElementById('file-input').click()">
+                <input type="file" id="file-input" class="file-input" accept=".pdf,.csv,.xlsx">
+                <div class="upload-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                        <polyline points="17 8 12 3 7 8"/>
+                        <line x1="12" y1="3" x2="12" y2="15"/>
+                    </svg>
+                </div>
+                <div class="upload-text">Click to upload or drag and drop</div>
+                <div class="upload-hint">Bank statement PDF, CSV, or Excel file</div>
+                <div id="selected-file" class="selected-file" style="display: none;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                    </svg>
+                    <span id="file-name"></span>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <button id="parse-btn" class="btn btn-primary parse-btn" onclick="parseStatement()" disabled>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polygon points="10 8 16 12 10 16 10 8"/>
+                    </svg>
+                    Parse Bank Statement
+                </button>
+            </div>
+
+            <div id="parsing-status" class="parsing-status" style="display: none;">
+                <div class="processing-card">
+                    <div class="processing-spinner">
+                        <svg width="48" height="48" viewBox="0 0 50 50">
+                            <circle cx="25" cy="25" r="20" fill="none" stroke="var(--grey4)" stroke-width="4"/>
+                            <circle cx="25" cy="25" r="20" fill="none" stroke="var(--primary7)" stroke-width="4" stroke-dasharray="80" stroke-dashoffset="60" stroke-linecap="round" style="animation: spin 1s linear infinite;"/>
+                        </svg>
+                    </div>
+                    <div class="processing-title">Processing Bank Statement</div>
+                    <div class="processing-steps">
+                        <div class="processing-step" id="proc-step-1">
+                            <span class="step-icon"></span>
+                            Uploading file...
+                        </div>
+                        <div class="processing-step" id="proc-step-2">
+                            <span class="step-icon"></span>
+                            Extracting transactions...
+                        </div>
+                        <div class="processing-step" id="proc-step-3">
+                            <span class="step-icon"></span>
+                            Validating data...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Section -->
+    <div id="result-section" class="result-section">
+        <div class="card">
+            <div class="card-header">
+                <h2>Parsed Bank Transactions</h2>
+                <span class="status-badge badge-auto" id="tx-count">0 transactions</span>
+            </div>
+            <div class="card-body">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="stat-total">0</div>
+                        <div class="stat-label">Transactions</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="stat-credits">$0</div>
+                        <div class="stat-label">Total Credits</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="stat-customers">0</div>
+                        <div class="stat-label">Unique Customers</div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 1rem;">
+                    <div class="detail-label" style="margin-bottom: 0.5rem;">JSON Output Preview</div>
+                    <div class="json-preview" id="json-preview"></div>
+                </div>
+
+                <div style="display: flex; gap: 0.75rem; justify-content: center;">
+                    <a href="/dashboard" class="btn btn-primary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        Proceed to Reconciliation
+                    </a>
+                    <button class="btn btn-secondary" onclick="downloadJSON()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Download JSON
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    let parsedData = null;
+    const fileInput = document.getElementById('file-input');
+    const uploadArea = document.getElementById('upload-area');
+    const parseBtn = document.getElementById('parse-btn');
+
+    // File selection
+    fileInput.addEventListener('change', (e) => {
+        if (e.target.files.length > 0) {
+            const file = e.target.files[0];
+            document.getElementById('file-name').textContent = file.name;
+            document.getElementById('selected-file').style.display = 'inline-flex';
+            uploadArea.classList.add('has-file');
+            parseBtn.disabled = false;
+        }
+    });
+
+    // Drag and drop
+    uploadArea.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        uploadArea.classList.add('dragover');
+    });
+
+    uploadArea.addEventListener('dragleave', () => {
+        uploadArea.classList.remove('dragover');
+    });
+
+    uploadArea.addEventListener('drop', (e) => {
+        e.preventDefault();
+        uploadArea.classList.remove('dragover');
+        if (e.dataTransfer.files.length > 0) {
+            fileInput.files = e.dataTransfer.files;
+            const event = new Event('change');
+            fileInput.dispatchEvent(event);
+        }
+    });
+
+    async function parseStatement() {
+        const file = fileInput.files[0];
+        if (!file) return;
+
+        // Update UI
+        parseBtn.disabled = true;
+        parseBtn.style.display = 'none';
+        document.getElementById('parsing-status').style.display = 'block';
+        document.getElementById('step-1').classList.remove('active');
+        document.getElementById('step-1').classList.add('completed');
+        document.getElementById('step-2').classList.add('active');
+
+        // Animate processing steps
+        const procStep1 = document.getElementById('proc-step-1');
+        const procStep2 = document.getElementById('proc-step-2');
+        const procStep3 = document.getElementById('proc-step-3');
+
+        // Step 1: Uploading (immediate)
+        procStep1.classList.add('active');
+
+        // Create form data
+        const formData = new FormData();
+        formData.append('file', file);
+
+        // Step 2: Extracting (after 3 seconds)
+        setTimeout(() => {
+            procStep1.classList.remove('active');
+            procStep1.classList.add('completed');
+            procStep1.querySelector('.step-icon').innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>';
+            procStep2.classList.add('active');
+        }, 3000);
+
+        // Step 3: Validating (after 6 seconds)
+        setTimeout(() => {
+            procStep2.classList.remove('active');
+            procStep2.classList.add('completed');
+            procStep2.querySelector('.step-icon').innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>';
+            procStep3.classList.add('active');
+        }, 6000);
+
+        try {
+            const response = await fetch('/api/parse-bank-statement', {
+                method: 'POST',
+                body: formData
+            });
+
+            const data = await response.json();
+
+            // Complete step 3
+            procStep3.classList.remove('active');
+            procStep3.classList.add('completed');
+            procStep3.querySelector('.step-icon').innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>';
+
+            if (data.success) {
+                // Short delay to show completed state
+                await new Promise(resolve => setTimeout(resolve, 500));
+
+                parsedData = data;
+                showResults(data);
+
+                // Update flow steps
+                document.getElementById('step-2').classList.remove('active');
+                document.getElementById('step-2').classList.add('completed');
+                document.getElementById('step-3').classList.add('active');
+            } else {
+                alert('Error parsing file: ' + data.message);
+                parseBtn.disabled = false;
+                parseBtn.style.display = 'inline-flex';
+            }
+        } catch (err) {
+            alert('Error: ' + err.message);
+            parseBtn.disabled = false;
+            parseBtn.style.display = 'inline-flex';
+        }
+
+        document.getElementById('parsing-status').style.display = 'none';
+    }
+
+    function showResults(data) {
+        const resultSection = document.getElementById('result-section');
+        resultSection.classList.add('show');
+
+        // Update stats
+        document.getElementById('tx-count').textContent = data.transactions_count + ' transactions';
+        document.getElementById('stat-total').textContent = data.transactions.length;
+
+        // Calculate totals
+        const totalCredits = data.transactions.reduce((sum, tx) => sum + tx.amount, 0);
+        const uniqueCustomers = new Set(data.transactions.map(tx => tx.customer_id).filter(Boolean)).size;
+
+        document.getElementById('stat-credits').textContent = '$' + totalCredits.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        document.getElementById('stat-customers').textContent = uniqueCustomers;
+
+        // Show JSON preview (first 5 transactions)
+        const preview = data.transactions.slice(0, 5);
+        document.getElementById('json-preview').textContent = JSON.stringify(preview, null, 2);
+
+        // Scroll to results
+        resultSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function downloadJSON() {
+        if (!parsedData) return;
+
+        const blob = new Blob([JSON.stringify(parsedData.transactions, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'bank_transactions.json';
+        a.click();
+        URL.revokeObjectURL(url);
+    }
+</script>
+<style>
+    @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,2242 @@
+[
+  {
+    "id": "TXN-001",
+    "date": "2026-01-02",
+    "amount": 15750.0,
+    "description": "ACH CREDIT ACME CORPORATION TRN*091000019847562",
+    "customer_id": "CUST-001",
+    "customer_name": "Acme Corporation",
+    "reference": "091000019847562",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-002",
+    "date": "2026-01-02",
+    "amount": 48250.5,
+    "description": "WIRE TFR GLOBEX INDUSTRIES FED REF 20260102MQFT7829",
+    "customer_id": "CUST-002",
+    "customer_name": "Globex Industries",
+    "reference": "20260102MQFT7829",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-003",
+    "date": "2026-01-02",
+    "amount": 125000.0,
+    "description": "INTL WIRE SCHMIDT GMBH UETR:a]7d3e891-4f2c-48ab-9e15-3c7f82a1b456",
+    "customer_id": "CUST-003",
+    "customer_name": "Schmidt GmbH",
+    "reference": "7d3e891-4f2c-48ab-9e15-3c7f82a1b456",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-004",
+    "date": "2026-01-03",
+    "amount": 2340.0,
+    "description": "CHECK DEPOSIT #104521 RIVERDALE SUPPLIES",
+    "customer_id": "CUST-004",
+    "customer_name": "Riverdale Supplies",
+    "reference": "104521",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-005",
+    "date": "2026-01-03",
+    "amount": 8920.75,
+    "description": "ACH PMT TECHFLOW SOLUTIONS TRACE#091400058712934",
+    "customer_id": "CUST-005",
+    "customer_name": "TechFlow Solutions",
+    "reference": "091400058712934",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-006",
+    "date": "2026-01-03",
+    "amount": 67500.0,
+    "description": "INCOMING WIRE PACIFIC RIM TRADING REF:20260103BNYA4521",
+    "customer_id": "CUST-006",
+    "customer_name": "Pacific Rim Trading",
+    "reference": "20260103BNYA4521",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-007",
+    "date": "2026-01-03",
+    "amount": 234100.0,
+    "description": "SWIFT CREDIT YAMAMOTO ELECTRONICS UETR:b2f4a917-8c3d-4e56-a789-1d2e3f4g5h67",
+    "customer_id": "CUST-007",
+    "customer_name": "Yamamoto Electronics",
+    "reference": "b2f4a917-8c3d-4e56-a789-1d2e3f4g5h67",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-008",
+    "date": "2026-01-04",
+    "amount": 5100.0,
+    "description": "RCD DEP CHECK 7892 MIDWEST DISTRIBUTORS",
+    "customer_id": "CUST-008",
+    "customer_name": "Midwest Distributors",
+    "reference": "7892",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-009",
+    "date": "2026-01-04",
+    "amount": 19850.25,
+    "description": "ACH CREDIT STERLING PARTNERS LLC TRN*071000013928475",
+    "customer_id": "CUST-009",
+    "customer_name": "Sterling Partners LLC",
+    "reference": "071000013928475",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-010",
+    "date": "2026-01-04",
+    "amount": 42000.0,
+    "description": "WIRE TRANSFER IN COASTAL SHIPPING CO FED REF 20260104CHASUS33XXX",
+    "customer_id": "CUST-010",
+    "customer_name": "Coastal Shipping Co",
+    "reference": "20260104CHASUS33XXX",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-011",
+    "date": "2026-01-05",
+    "amount": 178500.0,
+    "description": "INTL PMT BEIJING MANUFACTURING UETR:c8e2d456-7a1b-4c3d-8e9f-0a1b2c3d4e5f",
+    "customer_id": "CUST-011",
+    "customer_name": "Beijing Manufacturing Ltd",
+    "reference": "c8e2d456-7a1b-4c3d-8e9f-0a1b2c3d4e5f",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-012",
+    "date": "2026-01-05",
+    "amount": 3275.5,
+    "description": "CHECK DEP #45123 HOMETOWN HARDWARE",
+    "customer_id": "CUST-012",
+    "customer_name": "Hometown Hardware",
+    "reference": "45123",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-013",
+    "date": "2026-01-05",
+    "amount": 27600.0,
+    "description": "ACH ORIG DELTA MANUFACTURING TRN*021000089123456",
+    "customer_id": "CUST-013",
+    "customer_name": "Delta Manufacturing",
+    "reference": "021000089123456",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-014",
+    "date": "2026-01-06",
+    "amount": 89000.0,
+    "description": "DOM WIRE SUMMIT HEALTHCARE GROUP REF:20260106FNBOUS44",
+    "customer_id": "CUST-014",
+    "customer_name": "Summit Healthcare Group",
+    "reference": "20260106FNBOUS44",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-015",
+    "date": "2026-01-06",
+    "amount": 456000.0,
+    "description": "SWIFT TFR EUROTECH SARL UETR:d9f3e567-8b2c-4d5e-9f0a-1b2c3d4e5f6g",
+    "customer_id": "CUST-015",
+    "customer_name": "EuroTech SARL",
+    "reference": "d9f3e567-8b2c-4d5e-9f0a-1b2c3d4e5f6g",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-016",
+    "date": "2026-01-06",
+    "amount": 1850.0,
+    "description": "MOBILE DEP CHECK 8834 CRAFTY CREATIONS",
+    "customer_id": "CUST-016",
+    "customer_name": "Crafty Creations",
+    "reference": "8834",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-017",
+    "date": "2026-01-06",
+    "amount": 11250.0,
+    "description": "ACH CREDIT NORDSTROM GROUP TRN*061000052847391",
+    "customer_id": "CUST-017",
+    "customer_name": "Nordstrom Group",
+    "reference": "061000052847391",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-018",
+    "date": "2026-01-07",
+    "amount": 55800.0,
+    "description": "WIRE IN ATLAS LOGISTICS INC FED REF 20260107WFBIUS6S",
+    "customer_id": "CUST-018",
+    "customer_name": "Atlas Logistics Inc",
+    "reference": "20260107WFBIUS6S",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-019",
+    "date": "2026-01-07",
+    "amount": 289750.0,
+    "description": "INTL WIRE MUMBAI TEXTILES PVT UETR:e0a4f678-9c3d-4e6f-0a1b-2c3d4e5f6g7h",
+    "customer_id": "CUST-019",
+    "customer_name": "Mumbai Textiles Pvt Ltd",
+    "reference": "e0a4f678-9c3d-4e6f-0a1b-2c3d4e5f6g7h",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-020",
+    "date": "2026-01-07",
+    "amount": 4625.0,
+    "description": "DEP CHECK #22156 GARDEN STATE NURSERY",
+    "customer_id": "CUST-020",
+    "customer_name": "Garden State Nursery",
+    "reference": "22156",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-021",
+    "date": "2026-01-07",
+    "amount": 33400.0,
+    "description": "ACH PMT INNOVATE SYSTEMS INC TRACE#081000095172834",
+    "customer_id": "CUST-021",
+    "customer_name": "Innovate Systems Inc",
+    "reference": "081000095172834",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-022",
+    "date": "2026-01-08",
+    "amount": 72100.0,
+    "description": "INCOMING WIRE REDWOOD CAPITAL REF:20260108BOFAUS3N",
+    "customer_id": "CUST-022",
+    "customer_name": "Redwood Capital Partners",
+    "reference": "20260108BOFAUS3N",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-023",
+    "date": "2026-01-08",
+    "amount": 567000.0,
+    "description": "SWIFT PMT SHANGHAI EXPORTS CO UETR:f1b5g789-0d4e-5f7g-1b2c-3d4e5f6g7h8i",
+    "customer_id": "CUST-023",
+    "customer_name": "Shanghai Exports Co Ltd",
+    "reference": "f1b5g789-0d4e-5f7g-1b2c-3d4e5f6g7h8i",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-024",
+    "date": "2026-01-08",
+    "amount": 2100.5,
+    "description": "CHECK DEPOSIT #67234 VALLEY AUTO PARTS",
+    "customer_id": "CUST-024",
+    "customer_name": "Valley Auto Parts",
+    "reference": "67234",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-025",
+    "date": "2026-01-08",
+    "amount": 14500.0,
+    "description": "ACH CREDIT BLUEPRINT DESIGNS TRN*031000053928174",
+    "customer_id": "CUST-025",
+    "customer_name": "Blueprint Designs LLC",
+    "reference": "031000053928174",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-026",
+    "date": "2026-01-09",
+    "amount": 98500.0,
+    "description": "WIRE TFR MERIDIAN INVESTMENTS FED REF 20260109CITIUS33",
+    "customer_id": "CUST-026",
+    "customer_name": "Meridian Investments",
+    "reference": "20260109CITIUS33",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-027",
+    "date": "2026-01-09",
+    "amount": 145200.0,
+    "description": "INTL PMT LONDON TRADING GROUP UETR:g2c6h890-1e5f-6g8h-2c3d-4e5f6g7h8i9j",
+    "customer_id": "CUST-027",
+    "customer_name": "London Trading Group PLC",
+    "reference": "g2c6h890-1e5f-6g8h-2c3d-4e5f6g7h8i9j",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-028",
+    "date": "2026-01-09",
+    "amount": 6780.0,
+    "description": "RCD CHECK 33892 SUNRISE BAKERY",
+    "customer_id": "CUST-028",
+    "customer_name": "Sunrise Bakery",
+    "reference": "33892",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-029",
+    "date": "2026-01-09",
+    "amount": 21350.75,
+    "description": "ACH ORIG PREMIER CONSULTING TRN*041000062718293",
+    "customer_id": "CUST-029",
+    "customer_name": "Premier Consulting Group",
+    "reference": "041000062718293",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-030",
+    "date": "2026-01-10",
+    "amount": 63200.0,
+    "description": "DOM WIRE CORNERSTONE PROPERTIES REF:20260110PNCCUS33",
+    "customer_id": "CUST-030",
+    "customer_name": "Cornerstone Properties",
+    "reference": "20260110PNCCUS33",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-031",
+    "date": "2026-01-10",
+    "amount": 892000.0,
+    "description": "SWIFT CREDIT TOKYO MOTORS CORP UETR:h3d7i901-2f6g-7h9i-3d4e-5f6g7h8i9j0k",
+    "customer_id": "CUST-031",
+    "customer_name": "Tokyo Motors Corporation",
+    "reference": "h3d7i901-2f6g-7h9i-3d4e-5f6g7h8i9j0k",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-032",
+    "date": "2026-01-10",
+    "amount": 3450.0,
+    "description": "MOBILE CHECK DEP #78456 QUALITY PRINT SHOP",
+    "customer_id": "CUST-032",
+    "customer_name": "Quality Print Shop",
+    "reference": "78456",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-033",
+    "date": "2026-01-10",
+    "amount": 16800.0,
+    "description": "ACH CREDIT FRONTIER ENERGY TRN*051000071829345",
+    "customer_id": "CUST-033",
+    "customer_name": "Frontier Energy Corp",
+    "reference": "051000071829345",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-034",
+    "date": "2026-01-11",
+    "amount": 44750.0,
+    "description": "WIRE IN CASCADE VENTURES LLC FED REF 20260111USBKUS44",
+    "customer_id": "CUST-034",
+    "customer_name": "Cascade Ventures LLC",
+    "reference": "20260111USBKUS44",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-035",
+    "date": "2026-01-11",
+    "amount": 234500.0,
+    "description": "INTL WIRE SAO PAULO FOODS SA UETR:i4e8j012-3g7h-8i0j-4e5f-6g7h8i9j0k1l",
+    "customer_id": "CUST-035",
+    "customer_name": "Sao Paulo Foods SA",
+    "reference": "i4e8j012-3g7h-8i0j-4e5f-6g7h8i9j0k1l",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-036",
+    "date": "2026-01-11",
+    "amount": 8920.0,
+    "description": "DEP CHECK #12789 LAKESIDE MARINA",
+    "customer_id": "CUST-036",
+    "customer_name": "Lakeside Marina",
+    "reference": "12789",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-037",
+    "date": "2026-01-11",
+    "amount": 29100.0,
+    "description": "ACH PMT NEXUS TECHNOLOGIES TRACE#061000082934516",
+    "customer_id": "CUST-037",
+    "customer_name": "Nexus Technologies",
+    "reference": "061000082934516",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-038",
+    "date": "2026-01-12",
+    "amount": 81500.0,
+    "description": "INCOMING WIRE HARBOR FREIGHT INC REF:20260112FRBKUS66",
+    "customer_id": "CUST-038",
+    "customer_name": "Harbor Freight Inc",
+    "reference": "20260112FRBKUS66",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-039",
+    "date": "2026-01-12",
+    "amount": 678900.0,
+    "description": "SWIFT TFR DUBAI COMMODITIES UETR:j5f9k123-4h8i-9j1k-5f6g-7h8i9j0k1l2m",
+    "customer_id": "CUST-039",
+    "customer_name": "Dubai Commodities Trading",
+    "reference": "j5f9k123-4h8i-9j1k-5f6g-7h8i9j0k1l2m",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-040",
+    "date": "2026-01-12",
+    "amount": 1575.25,
+    "description": "CHECK DEPOSIT #89234 ARTISAN COFFEE ROASTERS",
+    "customer_id": "CUST-040",
+    "customer_name": "Artisan Coffee Roasters",
+    "reference": "89234",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-041",
+    "date": "2026-01-12",
+    "amount": 38750.0,
+    "description": "ACH CREDIT SUMMIT LEGAL SERVICES TRN*071000093045627",
+    "customer_id": "CUST-041",
+    "customer_name": "Summit Legal Services",
+    "reference": "071000093045627",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-042",
+    "date": "2026-01-13",
+    "amount": 52400.0,
+    "description": "WIRE TFR PINNACLE ADVISORS FED REF 20260113SVBKUS6S",
+    "customer_id": "CUST-042",
+    "customer_name": "Pinnacle Advisors",
+    "reference": "20260113SVBKUS6S",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-043",
+    "date": "2026-01-13",
+    "amount": 345600.0,
+    "description": "INTL PMT AMSTERDAM CHEMICALS BV UETR:k6g0l234-5i9j-0k2l-6g7h-8i9j0k1l2m3n",
+    "customer_id": "CUST-043",
+    "customer_name": "Amsterdam Chemicals BV",
+    "reference": "k6g0l234-5i9j-0k2l-6g7h-8i9j0k1l2m3n",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-044",
+    "date": "2026-01-13",
+    "amount": 4890.0,
+    "description": "RCD DEP CHECK 56123 MOUNTAIN VIEW LANDSCAPING",
+    "customer_id": "CUST-044",
+    "customer_name": "Mountain View Landscaping",
+    "reference": "56123",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-045",
+    "date": "2026-01-13",
+    "amount": 12650.5,
+    "description": "ACH ORIG BRIGHTSTAR MEDIA TRN*081000104156738",
+    "customer_id": "CUST-045",
+    "customer_name": "BrightStar Media",
+    "reference": "081000104156738",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-046",
+    "date": "2026-01-14",
+    "amount": 96300.0,
+    "description": "DOM WIRE GRANITE CONSTRUCTION REF:20260114NYCBUS33",
+    "customer_id": "CUST-046",
+    "customer_name": "Granite Construction Co",
+    "reference": "20260114NYCBUS33",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-047",
+    "date": "2026-01-14",
+    "amount": 189400.0,
+    "description": "SWIFT CREDIT MELBOURNE MINERALS UETR:l7h1m345-6j0k-1l3m-7h8i-9j0k1l2m3n4o",
+    "customer_id": "CUST-047",
+    "customer_name": "Melbourne Minerals Pty Ltd",
+    "reference": "l7h1m345-6j0k-1l3m-7h8i-9j0k1l2m3n4o",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-048",
+    "date": "2026-01-14",
+    "amount": 2250.0,
+    "description": "CHECK DEP #34567 RIVERSIDE PLUMBING",
+    "customer_id": "CUST-048",
+    "customer_name": "Riverside Plumbing",
+    "reference": "34567",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-049",
+    "date": "2026-01-14",
+    "amount": 45200.0,
+    "description": "ACH CREDIT HERITAGE INSURANCE TRN*091000115267849",
+    "customer_id": "CUST-049",
+    "customer_name": "Heritage Insurance Group",
+    "reference": "091000115267849",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-050",
+    "date": "2026-01-15",
+    "amount": 67800.0,
+    "description": "WIRE IN OLYMPUS FINANCIAL FED REF 20260115TDOMUS33",
+    "customer_id": "CUST-050",
+    "customer_name": "Olympus Financial Services",
+    "reference": "20260115TDOMUS33",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-051",
+    "date": "2026-01-15",
+    "amount": 423500.0,
+    "description": "INTL WIRE SEOUL SEMICONDUCTOR UETR:m8i2n456-7k1l-2m4n-8i9j-0k1l2m3n4o5p",
+    "customer_id": "CUST-051",
+    "customer_name": "Seoul Semiconductor Co",
+    "reference": "m8i2n456-7k1l-2m4n-8i9j-0k1l2m3n4o5p",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-052",
+    "date": "2026-01-15",
+    "amount": 5670.0,
+    "description": "MOBILE DEP CHECK 90123 CREATIVE CATERING",
+    "customer_id": "CUST-052",
+    "customer_name": "Creative Catering Co",
+    "reference": "90123",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-053",
+    "date": "2026-01-15",
+    "amount": 18900.25,
+    "description": "ACH PMT EVERGREEN SUPPLIES TRACE#021000126378950",
+    "customer_id": "CUST-053",
+    "customer_name": "Evergreen Supplies",
+    "reference": "021000126378950",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-054",
+    "date": "2026-01-16",
+    "amount": 74600.0,
+    "description": "INCOMING WIRE TITAN INDUSTRIES REF:20260116ABORUS33",
+    "customer_id": "CUST-054",
+    "customer_name": "Titan Industries",
+    "reference": "20260116ABORUS33",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-055",
+    "date": "2026-01-16",
+    "amount": 567800.0,
+    "description": "SWIFT TFR PARIS LUXE GROUPE UETR:n9j3o567-8l2m-3n5o-9j0k-1l2m3n4o5p6q",
+    "customer_id": "CUST-055",
+    "customer_name": "Paris Luxe Groupe SA",
+    "reference": "n9j3o567-8l2m-3n5o-9j0k-1l2m3n4o5p6q",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-056",
+    "date": "2026-01-16",
+    "amount": 3120.0,
+    "description": "CHECK DEPOSIT #45678 PRECISION TOOLS",
+    "customer_id": "CUST-056",
+    "customer_name": "Precision Tools Inc",
+    "reference": "45678",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-057",
+    "date": "2026-01-16",
+    "amount": 26400.0,
+    "description": "ACH CREDIT VELOCITY LOGISTICS TRN*031000137489061",
+    "customer_id": "CUST-057",
+    "customer_name": "Velocity Logistics",
+    "reference": "031000137489061",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-058",
+    "date": "2026-01-17",
+    "amount": 58900.0,
+    "description": "WIRE TFR CARDINAL HEALTH GROUP FED REF 20260117HABORXX",
+    "customer_id": "CUST-058",
+    "customer_name": "Cardinal Health Group",
+    "reference": "20260117HABORXX",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-059",
+    "date": "2026-01-17",
+    "amount": 234100.0,
+    "description": "INTL PMT FRANKFURT PHARMA AG UETR:o0k4p678-9m3n-4o6p-0k1l-2m3n4o5p6q7r",
+    "customer_id": "CUST-059",
+    "customer_name": "Frankfurt Pharma AG",
+    "reference": "o0k4p678-9m3n-4o6p-0k1l-2m3n4o5p6q7r",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-060",
+    "date": "2026-01-17",
+    "amount": 7840.5,
+    "description": "DEP CHECK #67890 SUNSET VETERINARY CLINIC",
+    "customer_id": "CUST-060",
+    "customer_name": "Sunset Veterinary Clinic",
+    "reference": "67890",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-061",
+    "date": "2026-01-17",
+    "amount": 31750.0,
+    "description": "ACH ORIG QUANTUM ANALYTICS TRN*041000148590172",
+    "customer_id": "CUST-061",
+    "customer_name": "Quantum Analytics",
+    "reference": "041000148590172",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-062",
+    "date": "2026-01-18",
+    "amount": 85200.0,
+    "description": "DOM WIRE LIBERTY MUTUAL FUNDS REF:20260118MRLYUS33",
+    "customer_id": "CUST-062",
+    "customer_name": "Liberty Mutual Funds",
+    "reference": "20260118MRLYUS33",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-063",
+    "date": "2026-01-18",
+    "amount": 789000.0,
+    "description": "SWIFT CREDIT SINGAPORE TECH HUB UETR:p1l5q789-0n4o-5p7q-1l2m-3n4o5p6q7r8s",
+    "customer_id": "CUST-063",
+    "customer_name": "Singapore Tech Hub Pte",
+    "reference": "p1l5q789-0n4o-5p7q-1l2m-3n4o5p6q7r8s",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-064",
+    "date": "2026-01-18",
+    "amount": 1890.0,
+    "description": "RCD CHECK 78901 HAPPY PAWS PET STORE",
+    "customer_id": "CUST-064",
+    "customer_name": "Happy Paws Pet Store",
+    "reference": "78901",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-065",
+    "date": "2026-01-18",
+    "amount": 43600.0,
+    "description": "ACH CREDIT APEX MANUFACTURING TRN*051000159601283",
+    "customer_id": "CUST-065",
+    "customer_name": "Apex Manufacturing",
+    "reference": "051000159601283",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-066",
+    "date": "2026-01-02",
+    "amount": 22450.0,
+    "description": "ACH PMT ACME CORPORATION TRACE#091000019847563",
+    "customer_id": "CUST-001",
+    "customer_name": "Acme Corporation",
+    "reference": "091000019847563",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-067",
+    "date": "2026-01-03",
+    "amount": 91200.0,
+    "description": "WIRE IN GLOBEX INDUSTRIES FED REF 20260103MQFT7830",
+    "customer_id": "CUST-002",
+    "customer_name": "Globex Industries",
+    "reference": "20260103MQFT7830",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-068",
+    "date": "2026-01-04",
+    "amount": 187500.0,
+    "description": "INTL WIRE SCHMIDT GMBH UETR:q2m6r890-1o5p-6q8r-2m3n-4o5p6q7r8s9t",
+    "customer_id": "CUST-003",
+    "customer_name": "Schmidt GmbH",
+    "reference": "q2m6r890-1o5p-6q8r-2m3n-4o5p6q7r8s9t",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-069",
+    "date": "2026-01-05",
+    "amount": 4560.0,
+    "description": "CHECK DEP #104522 RIVERDALE SUPPLIES",
+    "customer_id": "CUST-004",
+    "customer_name": "Riverdale Supplies",
+    "reference": "104522",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-070",
+    "date": "2026-01-06",
+    "amount": 13450.25,
+    "description": "ACH CREDIT TECHFLOW SOLUTIONS TRN*091400058712935",
+    "customer_id": "CUST-005",
+    "customer_name": "TechFlow Solutions",
+    "reference": "091400058712935",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-071",
+    "date": "2026-01-07",
+    "amount": 78900.0,
+    "description": "INCOMING WIRE PACIFIC RIM TRADING REF:20260107BNYA4522",
+    "customer_id": "CUST-006",
+    "customer_name": "Pacific Rim Trading",
+    "reference": "20260107BNYA4522",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-072",
+    "date": "2026-01-08",
+    "amount": 345200.0,
+    "description": "SWIFT TFR YAMAMOTO ELECTRONICS UETR:r3n7s901-2p6q-7r9s-3n4o-5p6q7r8s9t0u",
+    "customer_id": "CUST-007",
+    "customer_name": "Yamamoto Electronics",
+    "reference": "r3n7s901-2p6q-7r9s-3n4o-5p6q7r8s9t0u",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-073",
+    "date": "2026-01-09",
+    "amount": 6780.5,
+    "description": "MOBILE DEP CHECK 7893 MIDWEST DISTRIBUTORS",
+    "customer_id": "CUST-008",
+    "customer_name": "Midwest Distributors",
+    "reference": "7893",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-074",
+    "date": "2026-01-10",
+    "amount": 28900.0,
+    "description": "ACH ORIG STERLING PARTNERS LLC TRN*071000013928476",
+    "customer_id": "CUST-009",
+    "customer_name": "Sterling Partners LLC",
+    "reference": "071000013928476",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-075",
+    "date": "2026-01-11",
+    "amount": 56700.0,
+    "description": "WIRE TFR COASTAL SHIPPING CO FED REF 20260111CHASUS33YYY",
+    "customer_id": "CUST-010",
+    "customer_name": "Coastal Shipping Co",
+    "reference": "20260111CHASUS33YYY",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-076",
+    "date": "2026-01-12",
+    "amount": 234500.0,
+    "description": "INTL PMT BEIJING MANUFACTURING UETR:s4o8t012-3q7r-8s0t-4o5p-6q7r8s9t0u1v",
+    "customer_id": "CUST-011",
+    "customer_name": "Beijing Manufacturing Ltd",
+    "reference": "s4o8t012-3q7r-8s0t-4o5p-6q7r8s9t0u1v",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-077",
+    "date": "2026-01-13",
+    "amount": 4125.0,
+    "description": "CHECK DEPOSIT #45124 HOMETOWN HARDWARE",
+    "customer_id": "CUST-012",
+    "customer_name": "Hometown Hardware",
+    "reference": "45124",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-078",
+    "date": "2026-01-14",
+    "amount": 35600.75,
+    "description": "ACH CREDIT DELTA MANUFACTURING TRN*021000089123457",
+    "customer_id": "CUST-013",
+    "customer_name": "Delta Manufacturing",
+    "reference": "021000089123457",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-079",
+    "date": "2026-01-15",
+    "amount": 112000.0,
+    "description": "DOM WIRE SUMMIT HEALTHCARE GROUP REF:20260115FNBOUS45",
+    "customer_id": "CUST-014",
+    "customer_name": "Summit Healthcare Group",
+    "reference": "20260115FNBOUS45",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-080",
+    "date": "2026-01-16",
+    "amount": 567000.0,
+    "description": "SWIFT CREDIT EUROTECH SARL UETR:t5p9u123-4r8s-9t1u-5p6q-7r8s9t0u1v2w",
+    "customer_id": "CUST-015",
+    "customer_name": "EuroTech SARL",
+    "reference": "t5p9u123-4r8s-9t1u-5p6q-7r8s9t0u1v2w",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-081",
+    "date": "2026-01-17",
+    "amount": 2675.0,
+    "description": "DEP CHECK #8835 CRAFTY CREATIONS",
+    "customer_id": "CUST-016",
+    "customer_name": "Crafty Creations",
+    "reference": "8835",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-082",
+    "date": "2026-01-18",
+    "amount": 17890.0,
+    "description": "ACH PMT NORDSTROM GROUP TRACE#061000052847392",
+    "customer_id": "CUST-017",
+    "customer_name": "Nordstrom Group",
+    "reference": "061000052847392",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-083",
+    "date": "2026-01-02",
+    "amount": 68900.0,
+    "description": "WIRE IN ATLAS LOGISTICS INC FED REF 20260102WFBIUS6T",
+    "customer_id": "CUST-018",
+    "customer_name": "Atlas Logistics Inc",
+    "reference": "20260102WFBIUS6T",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-084",
+    "date": "2026-01-03",
+    "amount": 412500.0,
+    "description": "INTL WIRE MUMBAI TEXTILES PVT UETR:u6q0v234-5s9t-0u2v-6q7r-8s9t0u1v2w3x",
+    "customer_id": "CUST-019",
+    "customer_name": "Mumbai Textiles Pvt Ltd",
+    "reference": "u6q0v234-5s9t-0u2v-6q7r-8s9t0u1v2w3x",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-085",
+    "date": "2026-01-04",
+    "amount": 5890.0,
+    "description": "RCD CHECK 22157 GARDEN STATE NURSERY",
+    "customer_id": "CUST-020",
+    "customer_name": "Garden State Nursery",
+    "reference": "22157",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-086",
+    "date": "2026-01-05",
+    "amount": 41200.0,
+    "description": "ACH CREDIT INNOVATE SYSTEMS INC TRN*081000095172835",
+    "customer_id": "CUST-021",
+    "customer_name": "Innovate Systems Inc",
+    "reference": "081000095172835",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-087",
+    "date": "2026-01-06",
+    "amount": 89500.0,
+    "description": "INCOMING WIRE REDWOOD CAPITAL REF:20260106BOFAUS3O",
+    "customer_id": "CUST-022",
+    "customer_name": "Redwood Capital Partners",
+    "reference": "20260106BOFAUS3O",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-088",
+    "date": "2026-01-07",
+    "amount": 678500.0,
+    "description": "SWIFT TFR SHANGHAI EXPORTS CO UETR:v7r1w345-6t0u-1v3w-7r8s-9t0u1v2w3x4y",
+    "customer_id": "CUST-023",
+    "customer_name": "Shanghai Exports Co Ltd",
+    "reference": "v7r1w345-6t0u-1v3w-7r8s-9t0u1v2w3x4y",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-089",
+    "date": "2026-01-08",
+    "amount": 3450.75,
+    "description": "MOBILE CHECK DEP #67235 VALLEY AUTO PARTS",
+    "customer_id": "CUST-024",
+    "customer_name": "Valley Auto Parts",
+    "reference": "67235",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-090",
+    "date": "2026-01-09",
+    "amount": 19800.0,
+    "description": "ACH ORIG BLUEPRINT DESIGNS TRN*031000053928175",
+    "customer_id": "CUST-025",
+    "customer_name": "Blueprint Designs LLC",
+    "reference": "031000053928175",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-091",
+    "date": "2026-01-10",
+    "amount": 124500.0,
+    "description": "WIRE TFR MERIDIAN INVESTMENTS FED REF 20260110CITIUS34",
+    "customer_id": "CUST-026",
+    "customer_name": "Meridian Investments",
+    "reference": "20260110CITIUS34",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-092",
+    "date": "2026-01-11",
+    "amount": 198700.0,
+    "description": "INTL PMT LONDON TRADING GROUP UETR:w8s2x456-7u1v-2w4x-8s9t-0u1v2w3x4y5z",
+    "customer_id": "CUST-027",
+    "customer_name": "London Trading Group PLC",
+    "reference": "w8s2x456-7u1v-2w4x-8s9t-0u1v2w3x4y5z",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-093",
+    "date": "2026-01-12",
+    "amount": 8920.0,
+    "description": "CHECK DEP #33893 SUNRISE BAKERY",
+    "customer_id": "CUST-028",
+    "customer_name": "Sunrise Bakery",
+    "reference": "33893",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-094",
+    "date": "2026-01-13",
+    "amount": 27650.5,
+    "description": "ACH CREDIT PREMIER CONSULTING TRN*041000062718294",
+    "customer_id": "CUST-029",
+    "customer_name": "Premier Consulting Group",
+    "reference": "041000062718294",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-095",
+    "date": "2026-01-14",
+    "amount": 78400.0,
+    "description": "DOM WIRE CORNERSTONE PROPERTIES REF:20260114PNCCUS34",
+    "customer_id": "CUST-030",
+    "customer_name": "Cornerstone Properties",
+    "reference": "20260114PNCCUS34",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-096",
+    "date": "2026-01-15",
+    "amount": 1234000.0,
+    "description": "SWIFT CREDIT TOKYO MOTORS CORP UETR:x9t3y567-8v2w-3x5y-9t0u-1v2w3x4y5z6a",
+    "customer_id": "CUST-031",
+    "customer_name": "Tokyo Motors Corporation",
+    "reference": "x9t3y567-8v2w-3x5y-9t0u-1v2w3x4y5z6a",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-097",
+    "date": "2026-01-16",
+    "amount": 4780.0,
+    "description": "RCD DEP CHECK 78457 QUALITY PRINT SHOP",
+    "customer_id": "CUST-032",
+    "customer_name": "Quality Print Shop",
+    "reference": "78457",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-098",
+    "date": "2026-01-17",
+    "amount": 22100.0,
+    "description": "ACH PMT FRONTIER ENERGY TRACE#051000071829346",
+    "customer_id": "CUST-033",
+    "customer_name": "Frontier Energy Corp",
+    "reference": "051000071829346",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-099",
+    "date": "2026-01-18",
+    "amount": 56200.0,
+    "description": "WIRE IN CASCADE VENTURES LLC FED REF 20260118USBKUS45",
+    "customer_id": "CUST-034",
+    "customer_name": "Cascade Ventures LLC",
+    "reference": "20260118USBKUS45",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-100",
+    "date": "2026-01-02",
+    "amount": 312000.0,
+    "description": "INTL WIRE SAO PAULO FOODS SA UETR:y0u4z678-9w3x-4y6z-0u1v-2w3x4y5z6a7b",
+    "customer_id": "CUST-035",
+    "customer_name": "Sao Paulo Foods SA",
+    "reference": "y0u4z678-9w3x-4y6z-0u1v-2w3x4y5z6a7b",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-101",
+    "date": "2026-01-03",
+    "amount": 11250.0,
+    "description": "CHECK DEPOSIT #12790 LAKESIDE MARINA",
+    "customer_id": "CUST-036",
+    "customer_name": "Lakeside Marina",
+    "reference": "12790",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-102",
+    "date": "2026-01-04",
+    "amount": 38900.0,
+    "description": "ACH CREDIT NEXUS TECHNOLOGIES TRN*061000082934517",
+    "customer_id": "CUST-037",
+    "customer_name": "Nexus Technologies",
+    "reference": "061000082934517",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-103",
+    "date": "2026-01-05",
+    "amount": 102300.0,
+    "description": "INCOMING WIRE HARBOR FREIGHT INC REF:20260105FRBKUS67",
+    "customer_id": "CUST-038",
+    "customer_name": "Harbor Freight Inc",
+    "reference": "20260105FRBKUS67",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-104",
+    "date": "2026-01-06",
+    "amount": 845000.0,
+    "description": "SWIFT TFR DUBAI COMMODITIES UETR:z1v5a789-0x4y-5z7a-1v2w-3x4y5z6a7b8c",
+    "customer_id": "CUST-039",
+    "customer_name": "Dubai Commodities Trading",
+    "reference": "z1v5a789-0x4y-5z7a-1v2w-3x4y5z6a7b8c",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-105",
+    "date": "2026-01-07",
+    "amount": 2340.5,
+    "description": "MOBILE DEP CHECK 89235 ARTISAN COFFEE ROASTERS",
+    "customer_id": "CUST-040",
+    "customer_name": "Artisan Coffee Roasters",
+    "reference": "89235",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-106",
+    "date": "2026-01-08",
+    "amount": 47800.0,
+    "description": "ACH ORIG SUMMIT LEGAL SERVICES TRN*071000093045628",
+    "customer_id": "CUST-041",
+    "customer_name": "Summit Legal Services",
+    "reference": "071000093045628",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-107",
+    "date": "2026-01-09",
+    "amount": 67100.0,
+    "description": "WIRE TFR PINNACLE ADVISORS FED REF 20260109SVBKUS6T",
+    "customer_id": "CUST-042",
+    "customer_name": "Pinnacle Advisors",
+    "reference": "20260109SVBKUS6T",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-108",
+    "date": "2026-01-10",
+    "amount": 456700.0,
+    "description": "INTL PMT AMSTERDAM CHEMICALS BV UETR:a2w6b890-1y5z-6a8b-2w3x-4y5z6a7b8c9d",
+    "customer_id": "CUST-043",
+    "customer_name": "Amsterdam Chemicals BV",
+    "reference": "a2w6b890-1y5z-6a8b-2w3x-4y5z6a7b8c9d",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-109",
+    "date": "2026-01-11",
+    "amount": 6120.0,
+    "description": "DEP CHECK #56124 MOUNTAIN VIEW LANDSCAPING",
+    "customer_id": "CUST-044",
+    "customer_name": "Mountain View Landscaping",
+    "reference": "56124",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-110",
+    "date": "2026-01-12",
+    "amount": 15890.25,
+    "description": "ACH CREDIT BRIGHTSTAR MEDIA TRN*081000104156739",
+    "customer_id": "CUST-045",
+    "customer_name": "BrightStar Media",
+    "reference": "081000104156739",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-111",
+    "date": "2026-01-13",
+    "amount": 118500.0,
+    "description": "DOM WIRE GRANITE CONSTRUCTION REF:20260113NYCBUS34",
+    "customer_id": "CUST-046",
+    "customer_name": "Granite Construction Co",
+    "reference": "20260113NYCBUS34",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-112",
+    "date": "2026-01-14",
+    "amount": 245600.0,
+    "description": "SWIFT CREDIT MELBOURNE MINERALS UETR:b3x7c901-2z6a-7b9c-3x4y-5z6a7b8c9d0e",
+    "customer_id": "CUST-047",
+    "customer_name": "Melbourne Minerals Pty Ltd",
+    "reference": "b3x7c901-2z6a-7b9c-3x4y-5z6a7b8c9d0e",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-113",
+    "date": "2026-01-15",
+    "amount": 3560.0,
+    "description": "CHECK DEP #34568 RIVERSIDE PLUMBING",
+    "customer_id": "CUST-048",
+    "customer_name": "Riverside Plumbing",
+    "reference": "34568",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-114",
+    "date": "2026-01-16",
+    "amount": 54300.0,
+    "description": "ACH PMT HERITAGE INSURANCE TRACE#091000115267850",
+    "customer_id": "CUST-049",
+    "customer_name": "Heritage Insurance Group",
+    "reference": "091000115267850",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-115",
+    "date": "2026-01-17",
+    "amount": 82100.0,
+    "description": "WIRE IN OLYMPUS FINANCIAL FED REF 20260117TDOMUS34",
+    "customer_id": "CUST-050",
+    "customer_name": "Olympus Financial Services",
+    "reference": "20260117TDOMUS34",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-116",
+    "date": "2026-01-18",
+    "amount": 523400.0,
+    "description": "INTL WIRE SEOUL SEMICONDUCTOR UETR:c4y8d012-3a7b-8c0d-4y5z-6a7b8c9d0e1f",
+    "customer_id": "CUST-051",
+    "customer_name": "Seoul Semiconductor Co",
+    "reference": "c4y8d012-3a7b-8c0d-4y5z-6a7b8c9d0e1f",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-117",
+    "date": "2026-01-02",
+    "amount": 7120.0,
+    "description": "RCD CHECK 90124 CREATIVE CATERING",
+    "customer_id": "CUST-052",
+    "customer_name": "Creative Catering Co",
+    "reference": "90124",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-118",
+    "date": "2026-01-03",
+    "amount": 24500.5,
+    "description": "ACH CREDIT EVERGREEN SUPPLIES TRN*021000126378951",
+    "customer_id": "CUST-053",
+    "customer_name": "Evergreen Supplies",
+    "reference": "021000126378951",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-119",
+    "date": "2026-01-04",
+    "amount": 91800.0,
+    "description": "INCOMING WIRE TITAN INDUSTRIES REF:20260104ABORUS34",
+    "customer_id": "CUST-054",
+    "customer_name": "Titan Industries",
+    "reference": "20260104ABORUS34",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-120",
+    "date": "2026-01-05",
+    "amount": 678900.0,
+    "description": "SWIFT TFR PARIS LUXE GROUPE UETR:d5z9e123-4b8c-9d1e-5z6a-7b8c9d0e1f2g",
+    "customer_id": "CUST-055",
+    "customer_name": "Paris Luxe Groupe SA",
+    "reference": "d5z9e123-4b8c-9d1e-5z6a-7b8c9d0e1f2g",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-121",
+    "date": "2026-01-06",
+    "amount": 4230.0,
+    "description": "MOBILE CHECK DEP #45679 PRECISION TOOLS",
+    "customer_id": "CUST-056",
+    "customer_name": "Precision Tools Inc",
+    "reference": "45679",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-122",
+    "date": "2026-01-07",
+    "amount": 32100.0,
+    "description": "ACH ORIG VELOCITY LOGISTICS TRN*031000137489062",
+    "customer_id": "CUST-057",
+    "customer_name": "Velocity Logistics",
+    "reference": "031000137489062",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-123",
+    "date": "2026-01-08",
+    "amount": 71500.0,
+    "description": "WIRE TFR CARDINAL HEALTH GROUP FED REF 20260108HABORYY",
+    "customer_id": "CUST-058",
+    "customer_name": "Cardinal Health Group",
+    "reference": "20260108HABORYY",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-124",
+    "date": "2026-01-09",
+    "amount": 312400.0,
+    "description": "INTL PMT FRANKFURT PHARMA AG UETR:e6a0f234-5c9d-0e2f-6a7b-8c9d0e1f2g3h",
+    "customer_id": "CUST-059",
+    "customer_name": "Frankfurt Pharma AG",
+    "reference": "e6a0f234-5c9d-0e2f-6a7b-8c9d0e1f2g3h",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-125",
+    "date": "2026-01-10",
+    "amount": 9450.75,
+    "description": "DEP CHECK #67891 SUNSET VETERINARY CLINIC",
+    "customer_id": "CUST-060",
+    "customer_name": "Sunset Veterinary Clinic",
+    "reference": "67891",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-126",
+    "date": "2026-01-11",
+    "amount": 39600.0,
+    "description": "ACH CREDIT QUANTUM ANALYTICS TRN*041000148590173",
+    "customer_id": "CUST-061",
+    "customer_name": "Quantum Analytics",
+    "reference": "041000148590173",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-127",
+    "date": "2026-01-12",
+    "amount": 104500.0,
+    "description": "DOM WIRE LIBERTY MUTUAL FUNDS REF:20260112MRLYUS34",
+    "customer_id": "CUST-062",
+    "customer_name": "Liberty Mutual Funds",
+    "reference": "20260112MRLYUS34",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-128",
+    "date": "2026-01-13",
+    "amount": 912000.0,
+    "description": "SWIFT CREDIT SINGAPORE TECH HUB UETR:f7b1g345-6d0e-1f3g-7b8c-9d0e1f2g3h4i",
+    "customer_id": "CUST-063",
+    "customer_name": "Singapore Tech Hub Pte",
+    "reference": "f7b1g345-6d0e-1f3g-7b8c-9d0e1f2g3h4i",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-129",
+    "date": "2026-01-14",
+    "amount": 2560.0,
+    "description": "RCD DEP CHECK 78902 HAPPY PAWS PET STORE",
+    "customer_id": "CUST-064",
+    "customer_name": "Happy Paws Pet Store",
+    "reference": "78902",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-130",
+    "date": "2026-01-15",
+    "amount": 52800.0,
+    "description": "ACH PMT APEX MANUFACTURING TRACE#051000159601284",
+    "customer_id": "CUST-065",
+    "customer_name": "Apex Manufacturing",
+    "reference": "051000159601284",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-131",
+    "date": "2026-01-16",
+    "amount": 28900.0,
+    "description": "ACH CREDIT ACME CORPORATION TRN*091000019847564",
+    "customer_id": "CUST-001",
+    "customer_name": "Acme Corporation",
+    "reference": "091000019847564",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-132",
+    "date": "2026-01-17",
+    "amount": 115600.0,
+    "description": "WIRE IN GLOBEX INDUSTRIES FED REF 20260117MQFT7831",
+    "customer_id": "CUST-002",
+    "customer_name": "Globex Industries",
+    "reference": "20260117MQFT7831",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-133",
+    "date": "2026-01-18",
+    "amount": 256000.0,
+    "description": "INTL WIRE SCHMIDT GMBH UETR:g8c2h456-7e1f-2g4h-8c9d-0e1f2g3h4i5j",
+    "customer_id": "CUST-003",
+    "customer_name": "Schmidt GmbH",
+    "reference": "g8c2h456-7e1f-2g4h-8c9d-0e1f2g3h4i5j",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-134",
+    "date": "2026-01-02",
+    "amount": 5890.0,
+    "description": "CHECK DEPOSIT #104523 RIVERDALE SUPPLIES",
+    "customer_id": "CUST-004",
+    "customer_name": "Riverdale Supplies",
+    "reference": "104523",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-135",
+    "date": "2026-01-03",
+    "amount": 17650.5,
+    "description": "ACH ORIG TECHFLOW SOLUTIONS TRN*091400058712936",
+    "customer_id": "CUST-005",
+    "customer_name": "TechFlow Solutions",
+    "reference": "091400058712936",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-136",
+    "date": "2026-01-04",
+    "amount": 98700.0,
+    "description": "INCOMING WIRE PACIFIC RIM TRADING REF:20260104BNYA4523",
+    "customer_id": "CUST-006",
+    "customer_name": "Pacific Rim Trading",
+    "reference": "20260104BNYA4523",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-137",
+    "date": "2026-01-05",
+    "amount": 456200.0,
+    "description": "SWIFT TFR YAMAMOTO ELECTRONICS UETR:h9d3i567-8f2g-3h5i-9d0e-1f2g3h4i5j6k",
+    "customer_id": "CUST-007",
+    "customer_name": "Yamamoto Electronics",
+    "reference": "h9d3i567-8f2g-3h5i-9d0e-1f2g3h4i5j6k",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-138",
+    "date": "2026-01-06",
+    "amount": 8340.0,
+    "description": "MOBILE DEP CHECK 7894 MIDWEST DISTRIBUTORS",
+    "customer_id": "CUST-008",
+    "customer_name": "Midwest Distributors",
+    "reference": "7894",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-139",
+    "date": "2026-01-07",
+    "amount": 35400.0,
+    "description": "ACH CREDIT STERLING PARTNERS LLC TRN*071000013928477",
+    "customer_id": "CUST-009",
+    "customer_name": "Sterling Partners LLC",
+    "reference": "071000013928477",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-140",
+    "date": "2026-01-08",
+    "amount": 71200.0,
+    "description": "WIRE TFR COASTAL SHIPPING CO FED REF 20260108CHASUS33ZZZ",
+    "customer_id": "CUST-010",
+    "customer_name": "Coastal Shipping Co",
+    "reference": "20260108CHASUS33ZZZ",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-141",
+    "date": "2026-01-09",
+    "amount": 312500.0,
+    "description": "INTL PMT BEIJING MANUFACTURING UETR:i0e4j678-9g3h-4i6j-0e1f-2g3h4i5j6k7l",
+    "customer_id": "CUST-011",
+    "customer_name": "Beijing Manufacturing Ltd",
+    "reference": "i0e4j678-9g3h-4i6j-0e1f-2g3h4i5j6k7l",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-142",
+    "date": "2026-01-10",
+    "amount": 5120.0,
+    "description": "DEP CHECK #45125 HOMETOWN HARDWARE",
+    "customer_id": "CUST-012",
+    "customer_name": "Hometown Hardware",
+    "reference": "45125",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-143",
+    "date": "2026-01-11",
+    "amount": 43200.75,
+    "description": "ACH PMT DELTA MANUFACTURING TRACE#021000089123458",
+    "customer_id": "CUST-013",
+    "customer_name": "Delta Manufacturing",
+    "reference": "021000089123458",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-144",
+    "date": "2026-01-12",
+    "amount": 134500.0,
+    "description": "DOM WIRE SUMMIT HEALTHCARE GROUP REF:20260112FNBOUS46",
+    "customer_id": "CUST-014",
+    "customer_name": "Summit Healthcare Group",
+    "reference": "20260112FNBOUS46",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-145",
+    "date": "2026-01-13",
+    "amount": 698000.0,
+    "description": "SWIFT CREDIT EUROTECH SARL UETR:j1f5k789-0h4i-5j7k-1f2g-3h4i5j6k7l8m",
+    "customer_id": "CUST-015",
+    "customer_name": "EuroTech SARL",
+    "reference": "j1f5k789-0h4i-5j7k-1f2g-3h4i5j6k7l8m",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-146",
+    "date": "2026-01-14",
+    "amount": 3420.0,
+    "description": "CHECK DEP #8836 CRAFTY CREATIONS",
+    "customer_id": "CUST-016",
+    "customer_name": "Crafty Creations",
+    "reference": "8836",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-147",
+    "date": "2026-01-15",
+    "amount": 21560.0,
+    "description": "ACH CREDIT NORDSTROM GROUP TRN*061000052847393",
+    "customer_id": "CUST-017",
+    "customer_name": "Nordstrom Group",
+    "reference": "061000052847393",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-148",
+    "date": "2026-01-16",
+    "amount": 83400.0,
+    "description": "WIRE IN ATLAS LOGISTICS INC FED REF 20260116WFBIUS6U",
+    "customer_id": "CUST-018",
+    "customer_name": "Atlas Logistics Inc",
+    "reference": "20260116WFBIUS6U",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-149",
+    "date": "2026-01-17",
+    "amount": 523000.0,
+    "description": "INTL WIRE MUMBAI TEXTILES PVT UETR:k2g6l890-1i5j-6k8l-2g3h-4i5j6k7l8m9n",
+    "customer_id": "CUST-019",
+    "customer_name": "Mumbai Textiles Pvt Ltd",
+    "reference": "k2g6l890-1i5j-6k8l-2g3h-4i5j6k7l8m9n",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-150",
+    "date": "2026-01-18",
+    "amount": 6780.0,
+    "description": "RCD CHECK 22158 GARDEN STATE NURSERY",
+    "customer_id": "CUST-020",
+    "customer_name": "Garden State Nursery",
+    "reference": "22158",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-151",
+    "date": "2026-01-02",
+    "amount": 49800.0,
+    "description": "ACH ORIG INNOVATE SYSTEMS INC TRN*081000095172836",
+    "customer_id": "CUST-021",
+    "customer_name": "Innovate Systems Inc",
+    "reference": "081000095172836",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-152",
+    "date": "2026-01-03",
+    "amount": 108700.0,
+    "description": "INCOMING WIRE REDWOOD CAPITAL REF:20260103BOFAUS3P",
+    "customer_id": "CUST-022",
+    "customer_name": "Redwood Capital Partners",
+    "reference": "20260103BOFAUS3P",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-153",
+    "date": "2026-01-04",
+    "amount": 789600.0,
+    "description": "SWIFT TFR SHANGHAI EXPORTS CO UETR:l3h7m901-2j6k-7l9m-3h4i-5j6k7l8m9n0o",
+    "customer_id": "CUST-023",
+    "customer_name": "Shanghai Exports Co Ltd",
+    "reference": "l3h7m901-2j6k-7l9m-3h4i-5j6k7l8m9n0o",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-154",
+    "date": "2026-01-05",
+    "amount": 4670.5,
+    "description": "MOBILE CHECK DEP #67236 VALLEY AUTO PARTS",
+    "customer_id": "CUST-024",
+    "customer_name": "Valley Auto Parts",
+    "reference": "67236",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-155",
+    "date": "2026-01-06",
+    "amount": 24300.0,
+    "description": "ACH CREDIT BLUEPRINT DESIGNS TRN*031000053928176",
+    "customer_id": "CUST-025",
+    "customer_name": "Blueprint Designs LLC",
+    "reference": "031000053928176",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-156",
+    "date": "2026-01-07",
+    "amount": 147800.0,
+    "description": "WIRE TFR MERIDIAN INVESTMENTS FED REF 20260107CITIUS35",
+    "customer_id": "CUST-026",
+    "customer_name": "Meridian Investments",
+    "reference": "20260107CITIUS35",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-157",
+    "date": "2026-01-08",
+    "amount": 267400.0,
+    "description": "INTL PMT LONDON TRADING GROUP UETR:m4i8n012-3k7l-8m0n-4i5j-6k7l8m9n0o1p",
+    "customer_id": "CUST-027",
+    "customer_name": "London Trading Group PLC",
+    "reference": "m4i8n012-3k7l-8m0n-4i5j-6k7l8m9n0o1p",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-158",
+    "date": "2026-01-09",
+    "amount": 10560.0,
+    "description": "DEP CHECK #33894 SUNRISE BAKERY",
+    "customer_id": "CUST-028",
+    "customer_name": "Sunrise Bakery",
+    "reference": "33894",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-159",
+    "date": "2026-01-10",
+    "amount": 33450.75,
+    "description": "ACH PMT PREMIER CONSULTING TRACE#041000062718295",
+    "customer_id": "CUST-029",
+    "customer_name": "Premier Consulting Group",
+    "reference": "041000062718295",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-160",
+    "date": "2026-01-11",
+    "amount": 92100.0,
+    "description": "DOM WIRE CORNERSTONE PROPERTIES REF:20260111PNCCUS35",
+    "customer_id": "CUST-030",
+    "customer_name": "Cornerstone Properties",
+    "reference": "20260111PNCCUS35",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-161",
+    "date": "2026-01-12",
+    "amount": 1456000.0,
+    "description": "SWIFT CREDIT TOKYO MOTORS CORP UETR:n5j9o123-4l8m-9n1o-5j6k-7l8m9n0o1p2q",
+    "customer_id": "CUST-031",
+    "customer_name": "Tokyo Motors Corporation",
+    "reference": "n5j9o123-4l8m-9n1o-5j6k-7l8m9n0o1p2q",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-162",
+    "date": "2026-01-13",
+    "amount": 5890.0,
+    "description": "CHECK DEPOSIT #78458 QUALITY PRINT SHOP",
+    "customer_id": "CUST-032",
+    "customer_name": "Quality Print Shop",
+    "reference": "78458",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-163",
+    "date": "2026-01-14",
+    "amount": 28700.0,
+    "description": "ACH CREDIT FRONTIER ENERGY TRN*051000071829347",
+    "customer_id": "CUST-033",
+    "customer_name": "Frontier Energy Corp",
+    "reference": "051000071829347",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-164",
+    "date": "2026-01-15",
+    "amount": 68400.0,
+    "description": "WIRE IN CASCADE VENTURES LLC FED REF 20260115USBKUS46",
+    "customer_id": "CUST-034",
+    "customer_name": "Cascade Ventures LLC",
+    "reference": "20260115USBKUS46",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-165",
+    "date": "2026-01-16",
+    "amount": 398500.0,
+    "description": "INTL WIRE SAO PAULO FOODS SA UETR:o6k0p234-5m9n-0o2p-6k7l-8m9n0o1p2q3r",
+    "customer_id": "CUST-035",
+    "customer_name": "Sao Paulo Foods SA",
+    "reference": "o6k0p234-5m9n-0o2p-6k7l-8m9n0o1p2q3r",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-166",
+    "date": "2026-01-17",
+    "amount": 13450.0,
+    "description": "RCD DEP CHECK 12791 LAKESIDE MARINA",
+    "customer_id": "CUST-036",
+    "customer_name": "Lakeside Marina",
+    "reference": "12791",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-167",
+    "date": "2026-01-18",
+    "amount": 47200.0,
+    "description": "ACH ORIG NEXUS TECHNOLOGIES TRN*061000082934518",
+    "customer_id": "CUST-037",
+    "customer_name": "Nexus Technologies",
+    "reference": "061000082934518",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-168",
+    "date": "2026-01-02",
+    "amount": 123400.0,
+    "description": "INCOMING WIRE HARBOR FREIGHT INC REF:20260102FRBKUS68",
+    "customer_id": "CUST-038",
+    "customer_name": "Harbor Freight Inc",
+    "reference": "20260102FRBKUS68",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-169",
+    "date": "2026-01-03",
+    "amount": 978000.0,
+    "description": "SWIFT TFR DUBAI COMMODITIES UETR:p7l1q345-6n0o-1p3q-7l8m-9n0o1p2q3r4s",
+    "customer_id": "CUST-039",
+    "customer_name": "Dubai Commodities Trading",
+    "reference": "p7l1q345-6n0o-1p3q-7l8m-9n0o1p2q3r4s",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-170",
+    "date": "2026-01-04",
+    "amount": 3120.75,
+    "description": "MOBILE DEP CHECK 89236 ARTISAN COFFEE ROASTERS",
+    "customer_id": "CUST-040",
+    "customer_name": "Artisan Coffee Roasters",
+    "reference": "89236",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-171",
+    "date": "2026-01-05",
+    "amount": 56700.0,
+    "description": "ACH CREDIT SUMMIT LEGAL SERVICES TRN*071000093045629",
+    "customer_id": "CUST-041",
+    "customer_name": "Summit Legal Services",
+    "reference": "071000093045629",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-172",
+    "date": "2026-01-06",
+    "amount": 81200.0,
+    "description": "WIRE TFR PINNACLE ADVISORS FED REF 20260106SVBKUS6U",
+    "customer_id": "CUST-042",
+    "customer_name": "Pinnacle Advisors",
+    "reference": "20260106SVBKUS6U",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-173",
+    "date": "2026-01-07",
+    "amount": 534200.0,
+    "description": "INTL PMT AMSTERDAM CHEMICALS BV UETR:q8m2r456-7o1p-2q4r-8m9n-0o1p2q3r4s5t",
+    "customer_id": "CUST-043",
+    "customer_name": "Amsterdam Chemicals BV",
+    "reference": "q8m2r456-7o1p-2q4r-8m9n-0o1p2q3r4s5t",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-174",
+    "date": "2026-01-08",
+    "amount": 7340.0,
+    "description": "DEP CHECK #56125 MOUNTAIN VIEW LANDSCAPING",
+    "customer_id": "CUST-044",
+    "customer_name": "Mountain View Landscaping",
+    "reference": "56125",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-175",
+    "date": "2026-01-09",
+    "amount": 19450.5,
+    "description": "ACH PMT BRIGHTSTAR MEDIA TRACE#081000104156740",
+    "customer_id": "CUST-045",
+    "customer_name": "BrightStar Media",
+    "reference": "081000104156740",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-176",
+    "date": "2026-01-10",
+    "amount": 142300.0,
+    "description": "DOM WIRE GRANITE CONSTRUCTION REF:20260110NYCBUS35",
+    "customer_id": "CUST-046",
+    "customer_name": "Granite Construction Co",
+    "reference": "20260110NYCBUS35",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-177",
+    "date": "2026-01-11",
+    "amount": 312400.0,
+    "description": "SWIFT CREDIT MELBOURNE MINERALS UETR:r9n3s567-8p2q-3r5s-9n0o-1p2q3r4s5t6u",
+    "customer_id": "CUST-047",
+    "customer_name": "Melbourne Minerals Pty Ltd",
+    "reference": "r9n3s567-8p2q-3r5s-9n0o-1p2q3r4s5t6u",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-178",
+    "date": "2026-01-12",
+    "amount": 4560.0,
+    "description": "CHECK DEP #34569 RIVERSIDE PLUMBING",
+    "customer_id": "CUST-048",
+    "customer_name": "Riverside Plumbing",
+    "reference": "34569",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-179",
+    "date": "2026-01-13",
+    "amount": 63200.0,
+    "description": "ACH CREDIT HERITAGE INSURANCE TRN*091000115267851",
+    "customer_id": "CUST-049",
+    "customer_name": "Heritage Insurance Group",
+    "reference": "091000115267851",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-180",
+    "date": "2026-01-14",
+    "amount": 97500.0,
+    "description": "WIRE IN OLYMPUS FINANCIAL FED REF 20260114TDOMUS35",
+    "customer_id": "CUST-050",
+    "customer_name": "Olympus Financial Services",
+    "reference": "20260114TDOMUS35",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-181",
+    "date": "2026-01-15",
+    "amount": 623000.0,
+    "description": "INTL WIRE SEOUL SEMICONDUCTOR UETR:s0o4t678-9q3r-4s6t-0o1p-2q3r4s5t6u7v",
+    "customer_id": "CUST-051",
+    "customer_name": "Seoul Semiconductor Co",
+    "reference": "s0o4t678-9q3r-4s6t-0o1p-2q3r4s5t6u7v",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-182",
+    "date": "2026-01-16",
+    "amount": 8450.0,
+    "description": "RCD CHECK 90125 CREATIVE CATERING",
+    "customer_id": "CUST-052",
+    "customer_name": "Creative Catering Co",
+    "reference": "90125",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-183",
+    "date": "2026-01-17",
+    "amount": 29800.75,
+    "description": "ACH ORIG EVERGREEN SUPPLIES TRN*021000126378952",
+    "customer_id": "CUST-053",
+    "customer_name": "Evergreen Supplies",
+    "reference": "021000126378952",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-184",
+    "date": "2026-01-18",
+    "amount": 108900.0,
+    "description": "INCOMING WIRE TITAN INDUSTRIES REF:20260118ABORUS35",
+    "customer_id": "CUST-054",
+    "customer_name": "Titan Industries",
+    "reference": "20260118ABORUS35",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-185",
+    "date": "2026-01-02",
+    "amount": 789400.0,
+    "description": "SWIFT TFR PARIS LUXE GROUPE UETR:t1p5u789-0r4s-5t7u-1p2q-3r4s5t6u7v8w",
+    "customer_id": "CUST-055",
+    "customer_name": "Paris Luxe Groupe SA",
+    "reference": "t1p5u789-0r4s-5t7u-1p2q-3r4s5t6u7v8w",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-186",
+    "date": "2026-01-03",
+    "amount": 5120.0,
+    "description": "MOBILE CHECK DEP #45680 PRECISION TOOLS",
+    "customer_id": "CUST-056",
+    "customer_name": "Precision Tools Inc",
+    "reference": "45680",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-187",
+    "date": "2026-01-04",
+    "amount": 38900.0,
+    "description": "ACH CREDIT VELOCITY LOGISTICS TRN*031000137489063",
+    "customer_id": "CUST-057",
+    "customer_name": "Velocity Logistics",
+    "reference": "031000137489063",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-188",
+    "date": "2026-01-05",
+    "amount": 86700.0,
+    "description": "WIRE TFR CARDINAL HEALTH GROUP FED REF 20260105HABORZZ",
+    "customer_id": "CUST-058",
+    "customer_name": "Cardinal Health Group",
+    "reference": "20260105HABORZZ",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-189",
+    "date": "2026-01-06",
+    "amount": 398700.0,
+    "description": "INTL PMT FRANKFURT PHARMA AG UETR:u2q6v890-1s5t-6u8v-2q3r-4s5t6u7v8w9x",
+    "customer_id": "CUST-059",
+    "customer_name": "Frankfurt Pharma AG",
+    "reference": "u2q6v890-1s5t-6u8v-2q3r-4s5t6u7v8w9x",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-190",
+    "date": "2026-01-07",
+    "amount": 11230.5,
+    "description": "DEP CHECK #67892 SUNSET VETERINARY CLINIC",
+    "customer_id": "CUST-060",
+    "customer_name": "Sunset Veterinary Clinic",
+    "reference": "67892",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-191",
+    "date": "2026-01-08",
+    "amount": 47600.0,
+    "description": "ACH PMT QUANTUM ANALYTICS TRACE#041000148590174",
+    "customer_id": "CUST-061",
+    "customer_name": "Quantum Analytics",
+    "reference": "041000148590174",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-192",
+    "date": "2026-01-09",
+    "amount": 126700.0,
+    "description": "DOM WIRE LIBERTY MUTUAL FUNDS REF:20260109MRLYUS35",
+    "customer_id": "CUST-062",
+    "customer_name": "Liberty Mutual Funds",
+    "reference": "20260109MRLYUS35",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-193",
+    "date": "2026-01-10",
+    "amount": 1023000.0,
+    "description": "SWIFT CREDIT SINGAPORE TECH HUB UETR:v3r7w901-2t6u-7v9w-3r4s-5t6u7v8w9x0y",
+    "customer_id": "CUST-063",
+    "customer_name": "Singapore Tech Hub Pte",
+    "reference": "v3r7w901-2t6u-7v9w-3r4s-5t6u7v8w9x0y",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-194",
+    "date": "2026-01-11",
+    "amount": 3340.0,
+    "description": "CHECK DEPOSIT #78903 HAPPY PAWS PET STORE",
+    "customer_id": "CUST-064",
+    "customer_name": "Happy Paws Pet Store",
+    "reference": "78903",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-195",
+    "date": "2026-01-12",
+    "amount": 61200.0,
+    "description": "ACH CREDIT APEX MANUFACTURING TRN*051000159601285",
+    "customer_id": "CUST-065",
+    "customer_name": "Apex Manufacturing",
+    "reference": "051000159601285",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-196",
+    "date": "2026-01-13",
+    "amount": 34500.0,
+    "description": "ACH ORIG ACME CORPORATION TRN*091000019847565",
+    "customer_id": "CUST-001",
+    "customer_name": "Acme Corporation",
+    "reference": "091000019847565",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-197",
+    "date": "2026-01-14",
+    "amount": 138900.0,
+    "description": "WIRE IN GLOBEX INDUSTRIES FED REF 20260114MQFT7832",
+    "customer_id": "CUST-002",
+    "customer_name": "Globex Industries",
+    "reference": "20260114MQFT7832",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-198",
+    "date": "2026-01-15",
+    "amount": 312500.0,
+    "description": "INTL WIRE SCHMIDT GMBH UETR:w4s8x012-3u7v-8w0x-4s5t-6u7v8w9x0y1z",
+    "customer_id": "CUST-003",
+    "customer_name": "Schmidt GmbH",
+    "reference": "w4s8x012-3u7v-8w0x-4s5t-6u7v8w9x0y1z",
+    "payment_method": "SWIFT"
+  },
+  {
+    "id": "TXN-199",
+    "date": "2026-01-16",
+    "amount": 7230.0,
+    "description": "RCD DEP CHECK 104524 RIVERDALE SUPPLIES",
+    "customer_id": "CUST-004",
+    "customer_name": "Riverdale Supplies",
+    "reference": "104524",
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-200",
+    "date": "2026-01-17",
+    "amount": 21890.25,
+    "description": "ACH PMT TECHFLOW SOLUTIONS TRACE#091400058712937",
+    "customer_id": "CUST-005",
+    "customer_name": "TechFlow Solutions",
+    "reference": "091400058712937",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-201",
+    "date": "2026-01-15",
+    "amount": 25000.0,
+    "description": "ACH CREDIT EXCEPTION TEST CORP TRN*EXCTEST001",
+    "customer_id": "CUST-011",
+    "customer_name": "Exception Test Corp",
+    "reference": "EXCTEST001",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-202",
+    "date": "2026-01-16",
+    "amount": 15000.0,
+    "description": "WIRE TFR MINOR DIFF LLC REF:MINORDIFF001",
+    "customer_id": "CUST-012",
+    "customer_name": "Minor Diff LLC",
+    "reference": "MINORDIFF001",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-203",
+    "date": "2026-01-17",
+    "amount": 18500.0,
+    "description": "ACH PMT CORRECT CUSTOMER INC TRACE#CUSTMIS001",
+    "customer_id": "CUST-013",
+    "customer_name": "Correct Customer Inc",
+    "reference": "CUSTMIS001",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-204",
+    "date": "2026-01-18",
+    "amount": 12000.0,
+    "description": "WIRE TRANSFER PHANTOM INVOICES LLC REF:PHANTOM001",
+    "customer_id": "CUST-014",
+    "customer_name": "Phantom Invoices LLC",
+    "reference": "PHANTOM001",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-205",
+    "date": "2026-01-19",
+    "amount": 10000.0,
+    "description": "ACH CREDIT OVERPAY INDUSTRIES TRN*OVERPAY001",
+    "customer_id": "CUST-015",
+    "customer_name": "Overpay Industries",
+    "reference": "OVERPAY001",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-206",
+    "date": "2026-01-20",
+    "amount": 12000.0,
+    "description": "WIRE SUM MISMATCH CO REF:SUMMIS001",
+    "customer_id": "CUST-016",
+    "customer_name": "Sum Mismatch Co",
+    "reference": "SUMMIS001",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-207",
+    "date": "2026-01-21",
+    "amount": 18500.0,
+    "description": "ACH PMT MYSTERIOUS DEDUCTION INC TRN*DEDUCT001",
+    "customer_id": "CUST-017",
+    "customer_name": "Mysterious Deduction Inc",
+    "reference": "DEDUCT001",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-208",
+    "date": "2026-01-22",
+    "amount": 30000.0,
+    "description": "WIRE MULTI PROBLEM CORP REF:MULTI001",
+    "customer_id": "CUST-018",
+    "customer_name": "Multi Problem Corp",
+    "reference": "MULTI001",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-209",
+    "date": "2026-01-23",
+    "amount": 9500.0,
+    "description": "ACH CREDIT DOUBLE PAY ENTERPRISES TRN*DUPE001",
+    "customer_id": "CUST-019",
+    "customer_name": "Double Pay Enterprises",
+    "reference": "DUPE001",
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-210",
+    "date": "2026-01-24",
+    "amount": 14000.0,
+    "description": "WIRE LATE PAYER INC REF:LATE001",
+    "customer_id": "CUST-020",
+    "customer_name": "Late Payer Inc",
+    "reference": "LATE001",
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-211",
+    "date": "2026-01-25",
+    "amount": 7500.0,
+    "description": "ACH PAYMENT SINGLE INVOICE CORP",
+    "customer_id": "CUST-SINGLE-001",
+    "customer_name": "Single Invoice Corp",
+    "reference": null,
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-212",
+    "date": "2026-01-25",
+    "amount": 12050.0,
+    "description": "WIRE SOLO PAYMENT LLC",
+    "customer_id": "CUST-SINGLE-002",
+    "customer_name": "Solo Payment LLC",
+    "reference": null,
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-213",
+    "date": "2026-01-26",
+    "amount": 8765.43,
+    "description": "CHECK DEPOSIT #55123",
+    "customer_id": null,
+    "customer_name": null,
+    "reference": null,
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-214",
+    "date": "2026-01-26",
+    "amount": 23456.78,
+    "description": "ACH CREDIT PRECISE PAYMENTS CO",
+    "customer_id": "CUST-UNIQUE-002",
+    "customer_name": "Precise Payments Co",
+    "reference": null,
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-215",
+    "date": "2026-01-27",
+    "amount": 8500.0,
+    "description": "WIRE COMBO PAYER INC",
+    "customer_id": "CUST-COMBO-001",
+    "customer_name": "Combo Payer Inc",
+    "reference": null,
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-216",
+    "date": "2026-01-27",
+    "amount": 8500.0,
+    "description": "ACH TRIPLE PAY CORP",
+    "customer_id": "CUST-COMBO-002",
+    "customer_name": "Triple Pay Corp",
+    "reference": null,
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-217",
+    "date": "2026-01-27",
+    "amount": 9000.0,
+    "description": "WIRE QUAD PAYMENT LLC",
+    "customer_id": "CUST-COMBO-003",
+    "customer_name": "Quad Payment LLC",
+    "reference": null,
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-218",
+    "date": "2026-01-28",
+    "amount": 10500.0,
+    "description": "ACH FLOW NETWORK INC PARTIAL 1",
+    "customer_id": "CUST-FLOW-001",
+    "customer_name": "Flow Network Inc",
+    "reference": null,
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-219",
+    "date": "2026-01-29",
+    "amount": 7800.0,
+    "description": "ACH FLOW NETWORK INC PARTIAL 2",
+    "customer_id": "CUST-FLOW-001",
+    "customer_name": "Flow Network Inc",
+    "reference": null,
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-220",
+    "date": "2026-01-29",
+    "amount": 8800.0,
+    "description": "CHECK DEPOSIT #99887",
+    "customer_id": null,
+    "customer_name": null,
+    "reference": null,
+    "payment_method": "CHECK"
+  },
+  {
+    "id": "TXN-221",
+    "date": "2026-01-30",
+    "amount": 18000.0,
+    "description": "WIRE BIG INVOICE CORP PAYMENT 1",
+    "customer_id": "CUST-FLOW-004",
+    "customer_name": "Big Invoice Corp",
+    "reference": null,
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-222",
+    "date": "2026-01-30",
+    "amount": 14000.0,
+    "description": "WIRE BIG INVOICE CORP PAYMENT 2",
+    "customer_id": "CUST-FLOW-004",
+    "customer_name": "Big Invoice Corp",
+    "reference": null,
+    "payment_method": "WIRE"
+  },
+  {
+    "id": "TXN-223",
+    "date": "2026-01-31",
+    "amount": 15000.0,
+    "description": "ACH MANY INVOICES LTD BULK PAYMENT",
+    "customer_id": "CUST-FLOW-005",
+    "customer_name": "Many Invoices Ltd",
+    "reference": null,
+    "payment_method": "ACH"
+  },
+  {
+    "id": "TXN-224",
+    "date": "2026-01-31",
+    "amount": 5000.0,
+    "description": "WIRE PAYMENT AMBIGUOUS",
+    "customer_id": null,
+    "customer_name": null,
+    "reference": null,
+    "payment_method": "WIRE"
+  }
+]

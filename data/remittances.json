@@ -1,0 +1,3486 @@
+[
+  {
+    "id": "REM-001",
+    "payer_name": "Acme Corporation",
+    "payer_id": "CUST-001",
+    "payment_date": "2026-01-02",
+    "payment_amount_total": 15750.0,
+    "payment_reference": "091000019847562",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0001",
+        "amount_paid": 8750.0
+      },
+      {
+        "invoice_number": "INV-2026-0002",
+        "amount_paid": 7000.0
+      }
+    ]
+  },
+  {
+    "id": "REM-002",
+    "payer_name": "Globex Industries",
+    "payer_id": "CUST-002",
+    "payment_date": "2026-01-02",
+    "payment_amount_total": 48250.5,
+    "payment_reference": "20260102MQFT7829",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0003",
+        "amount_paid": 20000.0
+      },
+      {
+        "invoice_number": "INV-2026-0004",
+        "amount_paid": 15250.5
+      },
+      {
+        "invoice_number": "INV-2026-0005",
+        "amount_paid": 13000.0
+      }
+    ]
+  },
+  {
+    "id": "REM-003",
+    "payer_name": "Schmidt GmbH",
+    "payer_id": "CUST-003",
+    "payment_date": "2026-01-02",
+    "payment_amount_total": 125000.0,
+    "payment_reference": "7d3e891-4f2c-48ab-9e15-3c7f82a1b456",
+    "currency": "EUR",
+    "payment_method": "SWIFT",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0006",
+        "amount_paid": 45000.0
+      },
+      {
+        "invoice_number": "INV-2026-0007",
+        "amount_paid": 35000.0
+      },
+      {
+        "invoice_number": "INV-2026-0008",
+        "amount_paid": 25000.0
+      },
+      {
+        "invoice_number": "INV-2026-0009",
+        "amount_paid": 20000.0
+      }
+    ]
+  },
+  {
+    "id": "REM-004",
+    "payer_name": "Riverdale Supplies",
+    "payer_id": "CUST-004",
+    "payment_date": "2026-01-03",
+    "payment_amount_total": 2340.0,
+    "payment_reference": "104521",
+    "currency": "USD",
+    "payment_method": "CHECK",
+    "source": "MANUAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0010",
+        "amount_paid": 2340.0
+      }
+    ]
+  },
+  {
+    "id": "REM-005",
+    "payer_name": "TechFlow Solutions",
+    "payer_id": "CUST-005",
+    "payment_date": "2026-01-03",
+    "payment_amount_total": 8920.75,
+    "payment_reference": "091400058712934",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0011",
+        "amount_paid": 5000.0
+      },
+      {
+        "invoice_number": "INV-2026-0012",
+        "amount_paid": 3920.75
+      }
+    ]
+  },
+  {
+    "id": "REM-006",
+    "payer_name": "Pacific Rim Trading",
+    "payer_id": "CUST-006",
+    "payment_date": "2026-01-03",
+    "payment_amount_total": 67500.0,
+    "payment_reference": "20260103BNYA4521",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0013",
+        "amount_paid": 25000.0
+      },
+      {
+        "invoice_number": "INV-2026-0014",
+        "amount_paid": 22500.0
+      },
+      {
+        "invoice_number": "INV-2026-0015",
+        "amount_paid": 20000.0
+      }
+    ]
+  },
+  {
+    "id": "REM-007",
+    "payer_name": "Yamamoto Electronics",
+    "payer_id": "CUST-007",
+    "payment_date": "2026-01-03",
+    "payment_amount_total": 234100.0,
+    "payment_reference": "b2f4a917-8c3d-4e56-a789-1d2e3f4g5h67",
+    "currency": "JPY",
+    "payment_method": "SWIFT",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0016",
+        "amount_paid": 80000.0
+      },
+      {
+        "invoice_number": "INV-2026-0017",
+        "amount_paid": 75000.0
+      },
+      {
+        "invoice_number": "INV-2026-0018",
+        "amount_paid": 50000.0
+      },
+      {
+        "invoice_number": "INV-2026-0019",
+        "amount_paid": 29100.0
+      }
+    ]
+  },
+  {
+    "id": "REM-008",
+    "payer_name": "Midwest Distributors",
+    "payer_id": "CUST-008",
+    "payment_date": "2026-01-04",
+    "payment_amount_total": 5100.0,
+    "payment_reference": "7892",
+    "currency": "USD",
+    "payment_method": "CHECK",
+    "source": "MANUAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0020",
+        "amount_paid": 3100.0
+      },
+      {
+        "invoice_number": "INV-2026-0021",
+        "amount_paid": 2000.0
+      }
+    ]
+  },
+  {
+    "id": "REM-009",
+    "payer_name": "Sterling Partners LLC",
+    "payer_id": "CUST-009",
+    "payment_date": "2026-01-04",
+    "payment_amount_total": 19850.25,
+    "payment_reference": "071000013928475",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0022",
+        "amount_paid": 10000.0
+      },
+      {
+        "invoice_number": "INV-2026-0023",
+        "amount_paid": 9850.25
+      }
+    ]
+  },
+  {
+    "id": "REM-010",
+    "payer_name": "Coastal Shipping Co",
+    "payer_id": "CUST-010",
+    "payment_date": "2026-01-04",
+    "payment_amount_total": 42000.0,
+    "payment_reference": "20260104CHASUS33XXX",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0024",
+        "amount_paid": 15000.0
+      },
+      {
+        "invoice_number": "INV-2026-0025",
+        "amount_paid": 14000.0
+      },
+      {
+        "invoice_number": "INV-2026-0026",
+        "amount_paid": 13000.0
+      }
+    ]
+  },
+  {
+    "id": "REM-011",
+    "payer_name": "Beijing Manufacturing Ltd",
+    "payer_id": "CUST-011",
+    "payment_date": "2026-01-05",
+    "payment_amount_total": 178500.0,
+    "payment_reference": "c8e2d456-7a1b-4c3d-8e9f-0a1b2c3d4e5f",
+    "currency": "CNY",
+    "payment_method": "SWIFT",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0027",
+        "amount_paid": 60000.0
+      },
+      {
+        "invoice_number": "INV-2026-0028",
+        "amount_paid": 55000.0
+      },
+      {
+        "invoice_number": "INV-2026-0029",
+        "amount_paid": 40000.0
+      },
+      {
+        "invoice_number": "INV-2026-0030",
+        "amount_paid": 23500.0
+      }
+    ]
+  },
+  {
+    "id": "REM-012",
+    "payer_name": "Hometown Hardware",
+    "payer_id": "CUST-012",
+    "payment_date": "2026-01-05",
+    "payment_amount_total": 3275.5,
+    "payment_reference": "45123",
+    "currency": "USD",
+    "payment_method": "CHECK",
+    "source": "MANUAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0031",
+        "amount_paid": 3275.5
+      }
+    ]
+  },
+  {
+    "id": "REM-013",
+    "payer_name": "Delta Manufacturing",
+    "payer_id": "CUST-013",
+    "payment_date": "2026-01-05",
+    "payment_amount_total": 27600.0,
+    "payment_reference": "021000089123456",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0032",
+        "amount_paid": 12000.0
+      },
+      {
+        "invoice_number": "INV-2026-0033",
+        "amount_paid": 10000.0
+      },
+      {
+        "invoice_number": "INV-2026-0034",
+        "amount_paid": 5600.0
+      }
+    ]
+  },
+  {
+    "id": "REM-014",
+    "payer_name": "Summit Healthcare Group",
+    "payer_id": "CUST-014",
+    "payment_date": "2026-01-06",
+    "payment_amount_total": 89000.0,
+    "payment_reference": "20260106FNBOUS44",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0035",
+        "amount_paid": 35000.0
+      },
+      {
+        "invoice_number": "INV-2026-0036",
+        "amount_paid": 30000.0
+      },
+      {
+        "invoice_number": "INV-2026-0037",
+        "amount_paid": 24000.0
+      }
+    ]
+  },
+  {
+    "id": "REM-015",
+    "payer_name": "EuroTech SARL",
+    "payer_id": "CUST-015",
+    "payment_date": "2026-01-06",
+    "payment_amount_total": 456000.0,
+    "payment_reference": "d9f3e567-8b2c-4d5e-9f0a-1b2c3d4e5f6g",
+    "currency": "EUR",
+    "payment_method": "SWIFT",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0038",
+        "amount_paid": 150000.0
+      },
+      {
+        "invoice_number": "INV-2026-0039",
+        "amount_paid": 120000.0
+      },
+      {
+        "invoice_number": "INV-2026-0040",
+        "amount_paid": 100000.0
+      },
+      {
+        "invoice_number": "INV-2026-0041",
+        "amount_paid": 86000.0
+      }
+    ]
+  },
+  {
+    "id": "REM-016",
+    "payer_name": "Crafty Creations",
+    "payer_id": "CUST-016",
+    "payment_date": "2026-01-06",
+    "payment_amount_total": 1850.0,
+    "payment_reference": "8834",
+    "currency": "USD",
+    "payment_method": "CHECK",
+    "source": "MANUAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0042",
+        "amount_paid": 1850.0
+      }
+    ]
+  },
+  {
+    "id": "REM-017",
+    "payer_name": "Nordstrom Group",
+    "payer_id": "CUST-017",
+    "payment_date": "2026-01-06",
+    "payment_amount_total": 11250.0,
+    "payment_reference": "061000052847391",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0043",
+        "amount_paid": 6000.0
+      },
+      {
+        "invoice_number": "INV-2026-0044",
+        "amount_paid": 5250.0
+      }
+    ]
+  },
+  {
+    "id": "REM-018",
+    "payer_name": "Atlas Logistics Inc",
+    "payer_id": "CUST-018",
+    "payment_date": "2026-01-07",
+    "payment_amount_total": 55800.0,
+    "payment_reference": "20260107WFBIUS6S",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0045",
+        "amount_paid": 20000.0
+      },
+      {
+        "invoice_number": "INV-2026-0046",
+        "amount_paid": 18800.0
+      },
+      {
+        "invoice_number": "INV-2026-0047",
+        "amount_paid": 17000.0
+      }
+    ]
+  },
+  {
+    "id": "REM-019",
+    "payer_name": "Mumbai Textiles Pvt Ltd",
+    "payer_id": "CUST-019",
+    "payment_date": "2026-01-07",
+    "payment_amount_total": 289750.0,
+    "payment_reference": "e0a4f678-9c3d-4e6f-0a1b-2c3d4e5f6g7h",
+    "currency": "INR",
+    "payment_method": "SWIFT",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0048",
+        "amount_paid": 100000.0
+      },
+      {
+        "invoice_number": "INV-2026-0049",
+        "amount_paid": 89750.0
+      },
+      {
+        "invoice_number": "INV-2026-0050",
+        "amount_paid": 60000.0
+      },
+      {
+        "invoice_number": "INV-2026-0051",
+        "amount_paid": 40000.0
+      }
+    ]
+  },
+  {
+    "id": "REM-020",
+    "payer_name": "Garden State Nursery",
+    "payer_id": "CUST-020",
+    "payment_date": "2026-01-07",
+    "payment_amount_total": 4625.0,
+    "payment_reference": "22156",
+    "currency": "USD",
+    "payment_method": "CHECK",
+    "source": "MANUAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0052",
+        "amount_paid": 2500.0
+      },
+      {
+        "invoice_number": "INV-2026-0053",
+        "amount_paid": 2125.0
+      }
+    ]
+  },
+  {
+    "id": "REM-021",
+    "payer_name": "Innovate Systems Inc",
+    "payer_id": "CUST-021",
+    "payment_date": "2026-01-07",
+    "payment_amount_total": 33400.0,
+    "payment_reference": "081000095172834",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0054",
+        "amount_paid": 15000.0
+      },
+      {
+        "invoice_number": "INV-2026-0055",
+        "amount_paid": 10400.0
+      },
+      {
+        "invoice_number": "INV-2026-0056",
+        "amount_paid": 8000.0
+      }
+    ]
+  },
+  {
+    "id": "REM-022",
+    "payer_name": "Redwood Capital Partners",
+    "payer_id": "CUST-022",
+    "payment_date": "2026-01-08",
+    "payment_amount_total": 72100.0,
+    "payment_reference": "20260108BOFAUS3N",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0057",
+        "amount_paid": 30000.0
+      },
+      {
+        "invoice_number": "INV-2026-0058",
+        "amount_paid": 25000.0
+      },
+      {
+        "invoice_number": "INV-2026-0059",
+        "amount_paid": 17100.0
+      }
+    ]
+  },
+  {
+    "id": "REM-023",
+    "payer_name": "Shanghai Exports Co Ltd",
+    "payer_id": "CUST-023",
+    "payment_date": "2026-01-08",
+    "payment_amount_total": 567000.0,
+    "payment_reference": "f1b5g789-0d4e-5f7g-1b2c-3d4e5f6g7h8i",
+    "currency": "CNY",
+    "payment_method": "SWIFT",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0060",
+        "amount_paid": 200000.0
+      },
+      {
+        "invoice_number": "INV-2026-0061",
+        "amount_paid": 167000.0
+      },
+      {
+        "invoice_number": "INV-2026-0062",
+        "amount_paid": 120000.0
+      },
+      {
+        "invoice_number": "INV-2026-0063",
+        "amount_paid": 80000.0
+      }
+    ]
+  },
+  {
+    "id": "REM-024",
+    "payer_name": "Valley Auto Parts",
+    "payer_id": "CUST-024",
+    "payment_date": "2026-01-08",
+    "payment_amount_total": 2100.5,
+    "payment_reference": "67234",
+    "currency": "USD",
+    "payment_method": "CHECK",
+    "source": "MANUAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0064",
+        "amount_paid": 2100.5
+      }
+    ]
+  },
+  {
+    "id": "REM-025",
+    "payer_name": "Blueprint Designs LLC",
+    "payer_id": "CUST-025",
+    "payment_date": "2026-01-08",
+    "payment_amount_total": 14500.0,
+    "payment_reference": "031000053928174",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0065",
+        "amount_paid": 8000.0
+      },
+      {
+        "invoice_number": "INV-2026-0066",
+        "amount_paid": 6500.0
+      }
+    ]
+  },
+  {
+    "id": "REM-026",
+    "payer_name": "Meridian Investments",
+    "payer_id": "CUST-026",
+    "payment_date": "2026-01-09",
+    "payment_amount_total": 98500.0,
+    "payment_reference": "20260109CITIUS33",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0067",
+        "amount_paid": 40000.0
+      },
+      {
+        "invoice_number": "INV-2026-0068",
+        "amount_paid": 35000.0
+      },
+      {
+        "invoice_number": "INV-2026-0069",
+        "amount_paid": 23500.0
+      }
+    ]
+  },
+  {
+    "id": "REM-027",
+    "payer_name": "London Trading Group PLC",
+    "payer_id": "CUST-027",
+    "payment_date": "2026-01-09",
+    "payment_amount_total": 145200.0,
+    "payment_reference": "g2c6h890-1e5f-6g8h-2c3d-4e5f6g7h8i9j",
+    "currency": "GBP",
+    "payment_method": "SWIFT",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0070",
+        "amount_paid": 50000.0
+      },
+      {
+        "invoice_number": "INV-2026-0071",
+        "amount_paid": 45200.0
+      },
+      {
+        "invoice_number": "INV-2026-0072",
+        "amount_paid": 30000.0
+      },
+      {
+        "invoice_number": "INV-2026-0073",
+        "amount_paid": 20000.0
+      }
+    ]
+  },
+  {
+    "id": "REM-028",
+    "payer_name": "Sunrise Bakery",
+    "payer_id": "CUST-028",
+    "payment_date": "2026-01-09",
+    "payment_amount_total": 6780.0,
+    "payment_reference": "33892",
+    "currency": "USD",
+    "payment_method": "CHECK",
+    "source": "MANUAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0074",
+        "amount_paid": 3500.0
+      },
+      {
+        "invoice_number": "INV-2026-0075",
+        "amount_paid": 3280.0
+      }
+    ]
+  },
+  {
+    "id": "REM-029",
+    "payer_name": "Premier Consulting Group",
+    "payer_id": "CUST-029",
+    "payment_date": "2026-01-09",
+    "payment_amount_total": 21350.75,
+    "payment_reference": "041000062718293",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0076",
+        "amount_paid": 12000.0
+      },
+      {
+        "invoice_number": "INV-2026-0077",
+        "amount_paid": 9350.75
+      }
+    ]
+  },
+  {
+    "id": "REM-030",
+    "payer_name": "Cornerstone Properties",
+    "payer_id": "CUST-030",
+    "payment_date": "2026-01-10",
+    "payment_amount_total": 63200.0,
+    "payment_reference": "20260110PNCCUS33",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0078",
+        "amount_paid": 25000.0
+      },
+      {
+        "invoice_number": "INV-2026-0079",
+        "amount_paid": 20000.0
+      },
+      {
+        "invoice_number": "INV-2026-0080",
+        "amount_paid": 18200.0
+      }
+    ]
+  },
+  {
+    "id": "REM-031",
+    "payer_name": "Tokyo Motors Corporation",
+    "payer_id": "CUST-031",
+    "payment_date": "2026-01-10",
+    "payment_amount_total": 892000.0,
+    "payment_reference": "h3d7i901-2f6g-7h9i-3d4e-5f6g7h8i9j0k",
+    "currency": "JPY",
+    "payment_method": "SWIFT",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0081",
+        "amount_paid": 300000.0
+      },
+      {
+        "invoice_number": "INV-2026-0082",
+        "amount_paid": 250000.0
+      },
+      {
+        "invoice_number": "INV-2026-0083",
+        "amount_paid": 200000.0
+      },
+      {
+        "invoice_number": "INV-2026-0084",
+        "amount_paid": 142000.0
+      }
+    ]
+  },
+  {
+    "id": "REM-032",
+    "payer_name": "Quality Print Shop",
+    "payer_id": "CUST-032",
+    "payment_date": "2026-01-10",
+    "payment_amount_total": 3450.0,
+    "payment_reference": "78456",
+    "currency": "USD",
+    "payment_method": "CHECK",
+    "source": "MANUAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0085",
+        "amount_paid": 3450.0
+      }
+    ]
+  },
+  {
+    "id": "REM-033",
+    "payer_name": "Frontier Energy Corp",
+    "payer_id": "CUST-033",
+    "payment_date": "2026-01-10",
+    "payment_amount_total": 16800.0,
+    "payment_reference": "051000071829345",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0086",
+        "amount_paid": 9000.0
+      },
+      {
+        "invoice_number": "INV-2026-0087",
+        "amount_paid": 7800.0
+      }
+    ]
+  },
+  {
+    "id": "REM-034",
+    "payer_name": "Cascade Ventures LLC",
+    "payer_id": "CUST-034",
+    "payment_date": "2026-01-11",
+    "payment_amount_total": 44750.0,
+    "payment_reference": "20260111USBKUS44",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0088",
+        "amount_paid": 18000.0
+      },
+      {
+        "invoice_number": "INV-2026-0089",
+        "amount_paid": 15000.0
+      },
+      {
+        "invoice_number": "INV-2026-0090",
+        "amount_paid": 11750.0
+      }
+    ]
+  },
+  {
+    "id": "REM-035",
+    "payer_name": "Sao Paulo Foods SA",
+    "payer_id": "CUST-035",
+    "payment_date": "2026-01-11",
+    "payment_amount_total": 234500.0,
+    "payment_reference": "i4e8j012-3g7h-8i0j-4e5f-6g7h8i9j0k1l",
+    "currency": "BRL",
+    "payment_method": "SWIFT",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0091",
+        "amount_paid": 80000.0
+      },
+      {
+        "invoice_number": "INV-2026-0092",
+        "amount_paid": 70000.0
+      },
+      {
+        "invoice_number": "INV-2026-0093",
+        "amount_paid": 50000.0
+      },
+      {
+        "invoice_number": "INV-2026-0094",
+        "amount_paid": 34500.0
+      }
+    ]
+  },
+  {
+    "id": "REM-036",
+    "payer_name": "Lakeside Marina",
+    "payer_id": "CUST-036",
+    "payment_date": "2026-01-11",
+    "payment_amount_total": 8920.0,
+    "payment_reference": "12789",
+    "currency": "USD",
+    "payment_method": "CHECK",
+    "source": "MANUAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0095",
+        "amount_paid": 5000.0
+      },
+      {
+        "invoice_number": "INV-2026-0096",
+        "amount_paid": 3920.0
+      }
+    ]
+  },
+  {
+    "id": "REM-037",
+    "payer_name": "Nexus Technologies",
+    "payer_id": "CUST-037",
+    "payment_date": "2026-01-11",
+    "payment_amount_total": 29100.0,
+    "payment_reference": "061000082934516",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0097",
+        "amount_paid": 15000.0
+      },
+      {
+        "invoice_number": "INV-2026-0098",
+        "amount_paid": 14100.0
+      }
+    ]
+  },
+  {
+    "id": "REM-038",
+    "payer_name": "Harbor Freight Inc",
+    "payer_id": "CUST-038",
+    "payment_date": "2026-01-12",
+    "payment_amount_total": 81500.0,
+    "payment_reference": "20260112FRBKUS66",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0099",
+        "amount_paid": 35000.0
+      },
+      {
+        "invoice_number": "INV-2026-0100",
+        "amount_paid": 28000.0
+      },
+      {
+        "invoice_number": "INV-2026-0101",
+        "amount_paid": 18500.0
+      }
+    ]
+  },
+  {
+    "id": "REM-039",
+    "payer_name": "Dubai Commodities Trading",
+    "payer_id": "CUST-039",
+    "payment_date": "2026-01-12",
+    "payment_amount_total": 678900.0,
+    "payment_reference": "j5f9k123-4h8i-9j1k-5f6g-7h8i9j0k1l2m",
+    "currency": "AED",
+    "payment_method": "SWIFT",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0102",
+        "amount_paid": 250000.0
+      },
+      {
+        "invoice_number": "INV-2026-0103",
+        "amount_paid": 200000.0
+      },
+      {
+        "invoice_number": "INV-2026-0104",
+        "amount_paid": 150000.0
+      },
+      {
+        "invoice_number": "INV-2026-0105",
+        "amount_paid": 78900.0
+      }
+    ]
+  },
+  {
+    "id": "REM-040",
+    "payer_name": "Artisan Coffee Roasters",
+    "payer_id": "CUST-040",
+    "payment_date": "2026-01-12",
+    "payment_amount_total": 1575.25,
+    "payment_reference": "89234",
+    "currency": "USD",
+    "payment_method": "CHECK",
+    "source": "MANUAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0106",
+        "amount_paid": 1575.25
+      }
+    ]
+  },
+  {
+    "id": "REM-041",
+    "payer_name": "Summit Legal Services",
+    "payer_id": "CUST-041",
+    "payment_date": "2026-01-12",
+    "payment_amount_total": 38750.0,
+    "payment_reference": "071000093045627",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0107",
+        "amount_paid": 20000.0
+      },
+      {
+        "invoice_number": "INV-2026-0108",
+        "amount_paid": 18750.0
+      }
+    ]
+  },
+  {
+    "id": "REM-042",
+    "payer_name": "Pinnacle Advisors",
+    "payer_id": "CUST-042",
+    "payment_date": "2026-01-13",
+    "payment_amount_total": 52400.0,
+    "payment_reference": "20260113SVBKUS6S",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0109",
+        "amount_paid": 22000.0
+      },
+      {
+        "invoice_number": "INV-2026-0110",
+        "amount_paid": 18000.0
+      },
+      {
+        "invoice_number": "INV-2026-0111",
+        "amount_paid": 12400.0
+      }
+    ]
+  },
+  {
+    "id": "REM-043",
+    "payer_name": "Amsterdam Chemicals BV",
+    "payer_id": "CUST-043",
+    "payment_date": "2026-01-13",
+    "payment_amount_total": 345600.0,
+    "payment_reference": "k6g0l234-5i9j-0k2l-6g7h-8i9j0k1l2m3n",
+    "currency": "EUR",
+    "payment_method": "SWIFT",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0112",
+        "amount_paid": 120000.0
+      },
+      {
+        "invoice_number": "INV-2026-0113",
+        "amount_paid": 100000.0
+      },
+      {
+        "invoice_number": "INV-2026-0114",
+        "amount_paid": 75600.0
+      },
+      {
+        "invoice_number": "INV-2026-0115",
+        "amount_paid": 50000.0
+      }
+    ]
+  },
+  {
+    "id": "REM-044",
+    "payer_name": "Mountain View Landscaping",
+    "payer_id": "CUST-044",
+    "payment_date": "2026-01-13",
+    "payment_amount_total": 4890.0,
+    "payment_reference": "56123",
+    "currency": "USD",
+    "payment_method": "CHECK",
+    "source": "MANUAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0116",
+        "amount_paid": 2500.0
+      },
+      {
+        "invoice_number": "INV-2026-0117",
+        "amount_paid": 2390.0
+      }
+    ]
+  },
+  {
+    "id": "REM-045",
+    "payer_name": "BrightStar Media",
+    "payer_id": "CUST-045",
+    "payment_date": "2026-01-13",
+    "payment_amount_total": 12650.5,
+    "payment_reference": "081000104156738",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0118",
+        "amount_paid": 7000.0
+      },
+      {
+        "invoice_number": "INV-2026-0119",
+        "amount_paid": 5650.5
+      }
+    ]
+  },
+  {
+    "id": "REM-046",
+    "payer_name": "Granite Construction Co",
+    "payer_id": "CUST-046",
+    "payment_date": "2026-01-14",
+    "payment_amount_total": 96300.0,
+    "payment_reference": "20260114NYCBUS33",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0120",
+        "amount_paid": 40000.0
+      },
+      {
+        "invoice_number": "INV-2026-0121",
+        "amount_paid": 32000.0
+      },
+      {
+        "invoice_number": "INV-2026-0122",
+        "amount_paid": 24300.0
+      }
+    ]
+  },
+  {
+    "id": "REM-047",
+    "payer_name": "Melbourne Minerals Pty Ltd",
+    "payer_id": "CUST-047",
+    "payment_date": "2026-01-14",
+    "payment_amount_total": 189400.0,
+    "payment_reference": "l7h1m345-6j0k-1l3m-7h8i-9j0k1l2m3n4o",
+    "currency": "AUD",
+    "payment_method": "SWIFT",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0123",
+        "amount_paid": 70000.0
+      },
+      {
+        "invoice_number": "INV-2026-0124",
+        "amount_paid": 55000.0
+      },
+      {
+        "invoice_number": "INV-2026-0125",
+        "amount_paid": 40000.0
+      },
+      {
+        "invoice_number": "INV-2026-0126",
+        "amount_paid": 24400.0
+      }
+    ]
+  },
+  {
+    "id": "REM-048",
+    "payer_name": "Riverside Plumbing",
+    "payer_id": "CUST-048",
+    "payment_date": "2026-01-14",
+    "payment_amount_total": 2250.0,
+    "payment_reference": "34567",
+    "currency": "USD",
+    "payment_method": "CHECK",
+    "source": "MANUAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0127",
+        "amount_paid": 2250.0
+      }
+    ]
+  },
+  {
+    "id": "REM-049",
+    "payer_name": "Heritage Insurance Group",
+    "payer_id": "CUST-049",
+    "payment_date": "2026-01-14",
+    "payment_amount_total": 45200.0,
+    "payment_reference": "091000115267849",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0128",
+        "amount_paid": 25000.0
+      },
+      {
+        "invoice_number": "INV-2026-0129",
+        "amount_paid": 20200.0
+      }
+    ]
+  },
+  {
+    "id": "REM-050",
+    "payer_name": "Olympus Financial Services",
+    "payer_id": "CUST-050",
+    "payment_date": "2026-01-15",
+    "payment_amount_total": 67800.0,
+    "payment_reference": "20260115TDOMUS33",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0130",
+        "amount_paid": 30000.0
+      },
+      {
+        "invoice_number": "INV-2026-0131",
+        "amount_paid": 22000.0
+      },
+      {
+        "invoice_number": "INV-2026-0132",
+        "amount_paid": 15800.0
+      }
+    ]
+  },
+  {
+    "id": "REM-051",
+    "payer_name": "Seoul Semiconductor Co",
+    "payer_id": "CUST-051",
+    "payment_date": "2026-01-15",
+    "payment_amount_total": 423500.0,
+    "payment_reference": "m8i2n456-7k1l-2m4n-8i9j-0k1l2m3n4o5p",
+    "currency": "KRW",
+    "payment_method": "SWIFT",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0133",
+        "amount_paid": 150000.0
+      },
+      {
+        "invoice_number": "INV-2026-0134",
+        "amount_paid": 123500.0
+      },
+      {
+        "invoice_number": "INV-2026-0135",
+        "amount_paid": 100000.0
+      },
+      {
+        "invoice_number": "INV-2026-0136",
+        "amount_paid": 50000.0
+      }
+    ]
+  },
+  {
+    "id": "REM-052",
+    "payer_name": "Creative Catering Co",
+    "payer_id": "CUST-052",
+    "payment_date": "2026-01-15",
+    "payment_amount_total": 5670.0,
+    "payment_reference": "90123",
+    "currency": "USD",
+    "payment_method": "CHECK",
+    "source": "MANUAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0137",
+        "amount_paid": 3200.0
+      },
+      {
+        "invoice_number": "INV-2026-0138",
+        "amount_paid": 2470.0
+      }
+    ]
+  },
+  {
+    "id": "REM-053",
+    "payer_name": "Evergreen Supplies",
+    "payer_id": "CUST-053",
+    "payment_date": "2026-01-15",
+    "payment_amount_total": 18900.25,
+    "payment_reference": "021000126378950",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0139",
+        "amount_paid": 10000.0
+      },
+      {
+        "invoice_number": "INV-2026-0140",
+        "amount_paid": 8900.25
+      }
+    ]
+  },
+  {
+    "id": "REM-054",
+    "payer_name": "Titan Industries",
+    "payer_id": "CUST-054",
+    "payment_date": "2026-01-16",
+    "payment_amount_total": 74600.0,
+    "payment_reference": "20260116ABORUS33",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0141",
+        "amount_paid": 30000.0
+      },
+      {
+        "invoice_number": "INV-2026-0142",
+        "amount_paid": 25000.0
+      },
+      {
+        "invoice_number": "INV-2026-0143",
+        "amount_paid": 19600.0
+      }
+    ]
+  },
+  {
+    "id": "REM-055",
+    "payer_name": "Paris Luxe Groupe SA",
+    "payer_id": "CUST-055",
+    "payment_date": "2026-01-16",
+    "payment_amount_total": 567800.0,
+    "payment_reference": "n9j3o567-8l2m-3n5o-9j0k-1l2m3n4o5p6q",
+    "currency": "EUR",
+    "payment_method": "SWIFT",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0144",
+        "amount_paid": 200000.0
+      },
+      {
+        "invoice_number": "INV-2026-0145",
+        "amount_paid": 167800.0
+      },
+      {
+        "invoice_number": "INV-2026-0146",
+        "amount_paid": 120000.0
+      },
+      {
+        "invoice_number": "INV-2026-0147",
+        "amount_paid": 80000.0
+      }
+    ]
+  },
+  {
+    "id": "REM-056",
+    "payer_name": "Precision Tools Inc",
+    "payer_id": "CUST-056",
+    "payment_date": "2026-01-16",
+    "payment_amount_total": 3120.0,
+    "payment_reference": "45678",
+    "currency": "USD",
+    "payment_method": "CHECK",
+    "source": "MANUAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0148",
+        "amount_paid": 3120.0
+      }
+    ]
+  },
+  {
+    "id": "REM-057",
+    "payer_name": "Velocity Logistics",
+    "payer_id": "CUST-057",
+    "payment_date": "2026-01-16",
+    "payment_amount_total": 26400.0,
+    "payment_reference": "031000137489061",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0149",
+        "amount_paid": 14000.0
+      },
+      {
+        "invoice_number": "INV-2026-0150",
+        "amount_paid": 12400.0
+      }
+    ]
+  },
+  {
+    "id": "REM-058",
+    "payer_name": "Cardinal Health Group",
+    "payer_id": "CUST-058",
+    "payment_date": "2026-01-17",
+    "payment_amount_total": 58900.0,
+    "payment_reference": "20260117HABORXX",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0151",
+        "amount_paid": 25000.0
+      },
+      {
+        "invoice_number": "INV-2026-0152",
+        "amount_paid": 20000.0
+      },
+      {
+        "invoice_number": "INV-2026-0153",
+        "amount_paid": 13900.0
+      }
+    ]
+  },
+  {
+    "id": "REM-059",
+    "payer_name": "Frankfurt Pharma AG",
+    "payer_id": "CUST-059",
+    "payment_date": "2026-01-17",
+    "payment_amount_total": 234100.0,
+    "payment_reference": "o0k4p678-9m3n-4o6p-0k1l-2m3n4o5p6q7r",
+    "currency": "EUR",
+    "payment_method": "SWIFT",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0154",
+        "amount_paid": 80000.0
+      },
+      {
+        "invoice_number": "INV-2026-0155",
+        "amount_paid": 70000.0
+      },
+      {
+        "invoice_number": "INV-2026-0156",
+        "amount_paid": 50000.0
+      },
+      {
+        "invoice_number": "INV-2026-0157",
+        "amount_paid": 34100.0
+      }
+    ]
+  },
+  {
+    "id": "REM-060",
+    "payer_name": "Sunset Veterinary Clinic",
+    "payer_id": "CUST-060",
+    "payment_date": "2026-01-17",
+    "payment_amount_total": 7840.5,
+    "payment_reference": "67890",
+    "currency": "USD",
+    "payment_method": "CHECK",
+    "source": "MANUAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0158",
+        "amount_paid": 4500.0
+      },
+      {
+        "invoice_number": "INV-2026-0159",
+        "amount_paid": 3340.5
+      }
+    ]
+  },
+  {
+    "id": "REM-061",
+    "payer_name": "Quantum Analytics",
+    "payer_id": "CUST-061",
+    "payment_date": "2026-01-17",
+    "payment_amount_total": 31750.0,
+    "payment_reference": "041000148590172",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0160",
+        "amount_paid": 18000.0
+      },
+      {
+        "invoice_number": "INV-2026-0161",
+        "amount_paid": 13750.0
+      }
+    ]
+  },
+  {
+    "id": "REM-062",
+    "payer_name": "Liberty Mutual Funds",
+    "payer_id": "CUST-062",
+    "payment_date": "2026-01-18",
+    "payment_amount_total": 85200.0,
+    "payment_reference": "20260118MRLYUS33",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0162",
+        "amount_paid": 35000.0
+      },
+      {
+        "invoice_number": "INV-2026-0163",
+        "amount_paid": 30000.0
+      },
+      {
+        "invoice_number": "INV-2026-0164",
+        "amount_paid": 20200.0
+      }
+    ]
+  },
+  {
+    "id": "REM-063",
+    "payer_name": "Singapore Tech Hub Pte",
+    "payer_id": "CUST-063",
+    "payment_date": "2026-01-18",
+    "payment_amount_total": 789000.0,
+    "payment_reference": "p1l5q789-0n4o-5p7q-1l2m-3n4o5p6q7r8s",
+    "currency": "SGD",
+    "payment_method": "SWIFT",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0165",
+        "amount_paid": 280000.0
+      },
+      {
+        "invoice_number": "INV-2026-0166",
+        "amount_paid": 220000.0
+      },
+      {
+        "invoice_number": "INV-2026-0167",
+        "amount_paid": 180000.0
+      },
+      {
+        "invoice_number": "INV-2026-0168",
+        "amount_paid": 109000.0
+      }
+    ]
+  },
+  {
+    "id": "REM-064",
+    "payer_name": "Happy Paws Pet Store",
+    "payer_id": "CUST-064",
+    "payment_date": "2026-01-18",
+    "payment_amount_total": 1890.0,
+    "payment_reference": "78901",
+    "currency": "USD",
+    "payment_method": "CHECK",
+    "source": "MANUAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0169",
+        "amount_paid": 1890.0
+      }
+    ]
+  },
+  {
+    "id": "REM-065",
+    "payer_name": "Apex Manufacturing",
+    "payer_id": "CUST-065",
+    "payment_date": "2026-01-18",
+    "payment_amount_total": 43600.0,
+    "payment_reference": "051000159601283",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0170",
+        "amount_paid": 25000.0
+      },
+      {
+        "invoice_number": "INV-2026-0171",
+        "amount_paid": 18600.0
+      }
+    ]
+  },
+  {
+    "id": "REM-066",
+    "payer_name": "Acme Corporation",
+    "payer_id": "CUST-001",
+    "payment_date": "2026-01-02",
+    "payment_amount_total": 22450.0,
+    "payment_reference": "091000019847563",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0172",
+        "amount_paid": 12000.0
+      },
+      {
+        "invoice_number": "INV-2026-0173",
+        "amount_paid": 10450.0
+      }
+    ]
+  },
+  {
+    "id": "REM-067",
+    "payer_name": "Globex Industries",
+    "payer_id": "CUST-002",
+    "payment_date": "2026-01-03",
+    "payment_amount_total": 91200.0,
+    "payment_reference": "20260103MQFT7830",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0174",
+        "amount_paid": 40000.0
+      },
+      {
+        "invoice_number": "INV-2026-0175",
+        "amount_paid": 30000.0
+      },
+      {
+        "invoice_number": "INV-2026-0176",
+        "amount_paid": 21200.0
+      }
+    ]
+  },
+  {
+    "id": "REM-068",
+    "payer_name": "Schmidt GmbH",
+    "payer_id": "CUST-003",
+    "payment_date": "2026-01-04",
+    "payment_amount_total": 187500.0,
+    "payment_reference": "q2m6r890-1o5p-6q8r-2m3n-4o5p6q7r8s9t",
+    "currency": "EUR",
+    "payment_method": "SWIFT",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0177",
+        "amount_paid": 65000.0
+      },
+      {
+        "invoice_number": "INV-2026-0178",
+        "amount_paid": 55000.0
+      },
+      {
+        "invoice_number": "INV-2026-0179",
+        "amount_paid": 45000.0
+      },
+      {
+        "invoice_number": "INV-2026-0180",
+        "amount_paid": 22500.0
+      }
+    ]
+  },
+  {
+    "id": "REM-069",
+    "payer_name": "Riverdale Supplies",
+    "payer_id": "CUST-004",
+    "payment_date": "2026-01-05",
+    "payment_amount_total": 4560.0,
+    "payment_reference": "104522",
+    "currency": "USD",
+    "payment_method": "CHECK",
+    "source": "MANUAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0181",
+        "amount_paid": 2500.0
+      },
+      {
+        "invoice_number": "INV-2026-0182",
+        "amount_paid": 2060.0
+      }
+    ]
+  },
+  {
+    "id": "REM-070",
+    "payer_name": "TechFlow Solutions",
+    "payer_id": "CUST-005",
+    "payment_date": "2026-01-06",
+    "payment_amount_total": 13450.25,
+    "payment_reference": "091400058712935",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0183",
+        "amount_paid": 7500.0
+      },
+      {
+        "invoice_number": "INV-2026-0184",
+        "amount_paid": 5950.25
+      }
+    ]
+  },
+  {
+    "id": "REM-071",
+    "payer_name": "Pacific Rim Trading",
+    "payer_id": "CUST-006",
+    "payment_date": "2026-01-07",
+    "payment_amount_total": 78900.0,
+    "payment_reference": "20260107BNYA4522",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0185",
+        "amount_paid": 35000.0
+      },
+      {
+        "invoice_number": "INV-2026-0186",
+        "amount_paid": 28000.0
+      },
+      {
+        "invoice_number": "INV-2026-0187",
+        "amount_paid": 15900.0
+      }
+    ]
+  },
+  {
+    "id": "REM-072",
+    "payer_name": "Yamamoto Electronics",
+    "payer_id": "CUST-007",
+    "payment_date": "2026-01-08",
+    "payment_amount_total": 345200.0,
+    "payment_reference": "r3n7s901-2p6q-7r9s-3n4o-5p6q7r8s9t0u",
+    "currency": "JPY",
+    "payment_method": "SWIFT",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0188",
+        "amount_paid": 120000.0
+      },
+      {
+        "invoice_number": "INV-2026-0189",
+        "amount_paid": 100000.0
+      },
+      {
+        "invoice_number": "INV-2026-0190",
+        "amount_paid": 80000.0
+      },
+      {
+        "invoice_number": "INV-2026-0191",
+        "amount_paid": 45200.0
+      }
+    ]
+  },
+  {
+    "id": "REM-073",
+    "payer_name": "Midwest Distributors",
+    "payer_id": "CUST-008",
+    "payment_date": "2026-01-09",
+    "payment_amount_total": 6780.5,
+    "payment_reference": "7893",
+    "currency": "USD",
+    "payment_method": "CHECK",
+    "source": "MANUAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0192",
+        "amount_paid": 3800.0
+      },
+      {
+        "invoice_number": "INV-2026-0193",
+        "amount_paid": 2980.5
+      }
+    ]
+  },
+  {
+    "id": "REM-074",
+    "payer_name": "Sterling Partners LLC",
+    "payer_id": "CUST-009",
+    "payment_date": "2026-01-10",
+    "payment_amount_total": 28900.0,
+    "payment_reference": "071000013928476",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0194",
+        "amount_paid": 15000.0
+      },
+      {
+        "invoice_number": "INV-2026-0195",
+        "amount_paid": 13900.0
+      }
+    ]
+  },
+  {
+    "id": "REM-075",
+    "payer_name": "Coastal Shipping Co",
+    "payer_id": "CUST-010",
+    "payment_date": "2026-01-11",
+    "payment_amount_total": 56700.0,
+    "payment_reference": "20260111CHASUS33YYY",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0196",
+        "amount_paid": 25000.0
+      },
+      {
+        "invoice_number": "INV-2026-0197",
+        "amount_paid": 18000.0
+      },
+      {
+        "invoice_number": "INV-2026-0198",
+        "amount_paid": 13700.0
+      }
+    ]
+  },
+  {
+    "id": "REM-076",
+    "payer_name": "Beijing Manufacturing Ltd",
+    "payer_id": "CUST-011",
+    "payment_date": "2026-01-12",
+    "payment_amount_total": 234500.0,
+    "payment_reference": "s4o8t012-3q7r-8s0t-4o5p-6q7r8s9t0u1v",
+    "currency": "CNY",
+    "payment_method": "SWIFT",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0199",
+        "amount_paid": 85000.0
+      },
+      {
+        "invoice_number": "INV-2026-0200",
+        "amount_paid": 70000.0
+      },
+      {
+        "invoice_number": "INV-2026-0201",
+        "amount_paid": 50000.0
+      },
+      {
+        "invoice_number": "INV-2026-0202",
+        "amount_paid": 29500.0
+      }
+    ]
+  },
+  {
+    "id": "REM-077",
+    "payer_name": "Hometown Hardware",
+    "payer_id": "CUST-012",
+    "payment_date": "2026-01-13",
+    "payment_amount_total": 4125.0,
+    "payment_reference": "45124",
+    "currency": "USD",
+    "payment_method": "CHECK",
+    "source": "MANUAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0203",
+        "amount_paid": 4125.0
+      }
+    ]
+  },
+  {
+    "id": "REM-078",
+    "payer_name": "Delta Manufacturing",
+    "payer_id": "CUST-013",
+    "payment_date": "2026-01-14",
+    "payment_amount_total": 35600.75,
+    "payment_reference": "021000089123457",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0204",
+        "amount_paid": 20000.0
+      },
+      {
+        "invoice_number": "INV-2026-0205",
+        "amount_paid": 15600.75
+      }
+    ]
+  },
+  {
+    "id": "REM-079",
+    "payer_name": "Summit Healthcare Group",
+    "payer_id": "CUST-014",
+    "payment_date": "2026-01-15",
+    "payment_amount_total": 112000.0,
+    "payment_reference": "20260115FNBOUS45",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0206",
+        "amount_paid": 45000.0
+      },
+      {
+        "invoice_number": "INV-2026-0207",
+        "amount_paid": 40000.0
+      },
+      {
+        "invoice_number": "INV-2026-0208",
+        "amount_paid": 27000.0
+      }
+    ]
+  },
+  {
+    "id": "REM-080",
+    "payer_name": "EuroTech SARL",
+    "payer_id": "CUST-015",
+    "payment_date": "2026-01-16",
+    "payment_amount_total": 567000.0,
+    "payment_reference": "t5p9u123-4r8s-9t1u-5p6q-7r8s9t0u1v2w",
+    "currency": "EUR",
+    "payment_method": "SWIFT",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0209",
+        "amount_paid": 200000.0
+      },
+      {
+        "invoice_number": "INV-2026-0210",
+        "amount_paid": 167000.0
+      },
+      {
+        "invoice_number": "INV-2026-0211",
+        "amount_paid": 120000.0
+      },
+      {
+        "invoice_number": "INV-2026-0212",
+        "amount_paid": 80000.0
+      }
+    ]
+  },
+  {
+    "id": "REM-081",
+    "payer_name": "Crafty Creations",
+    "payer_id": "CUST-016",
+    "payment_date": "2026-01-17",
+    "payment_amount_total": 2675.0,
+    "payment_reference": "8835",
+    "currency": "USD",
+    "payment_method": "CHECK",
+    "source": "MANUAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0213",
+        "amount_paid": 1500.0
+      },
+      {
+        "invoice_number": "INV-2026-0214",
+        "amount_paid": 1175.0
+      }
+    ]
+  },
+  {
+    "id": "REM-082",
+    "payer_name": "Nordstrom Group",
+    "payer_id": "CUST-017",
+    "payment_date": "2026-01-18",
+    "payment_amount_total": 17890.0,
+    "payment_reference": "061000052847392",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0215",
+        "amount_paid": 10000.0
+      },
+      {
+        "invoice_number": "INV-2026-0216",
+        "amount_paid": 7890.0
+      }
+    ]
+  },
+  {
+    "id": "REM-083",
+    "payer_name": "Atlas Logistics Inc",
+    "payer_id": "CUST-018",
+    "payment_date": "2026-01-02",
+    "payment_amount_total": 68900.0,
+    "payment_reference": "20260102WFBIUS6T",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0217",
+        "amount_paid": 30000.0
+      },
+      {
+        "invoice_number": "INV-2026-0218",
+        "amount_paid": 23000.0
+      },
+      {
+        "invoice_number": "INV-2026-0219",
+        "amount_paid": 15900.0
+      }
+    ]
+  },
+  {
+    "id": "REM-084",
+    "payer_name": "Mumbai Textiles Pvt Ltd",
+    "payer_id": "CUST-019",
+    "payment_date": "2026-01-03",
+    "payment_amount_total": 412500.0,
+    "payment_reference": "u6q0v234-5s9t-0u2v-6q7r-8s9t0u1v2w3x",
+    "currency": "INR",
+    "payment_method": "SWIFT",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0220",
+        "amount_paid": 150000.0
+      },
+      {
+        "invoice_number": "INV-2026-0221",
+        "amount_paid": 120000.0
+      },
+      {
+        "invoice_number": "INV-2026-0222",
+        "amount_paid": 90000.0
+      },
+      {
+        "invoice_number": "INV-2026-0223",
+        "amount_paid": 52500.0
+      }
+    ]
+  },
+  {
+    "id": "REM-085",
+    "payer_name": "Garden State Nursery",
+    "payer_id": "CUST-020",
+    "payment_date": "2026-01-04",
+    "payment_amount_total": 5890.0,
+    "payment_reference": "22157",
+    "currency": "USD",
+    "payment_method": "CHECK",
+    "source": "MANUAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0224",
+        "amount_paid": 3500.0
+      },
+      {
+        "invoice_number": "INV-2026-0225",
+        "amount_paid": 2390.0
+      }
+    ]
+  },
+  {
+    "id": "REM-086",
+    "payer_name": "Innovate Systems Inc",
+    "payer_id": "CUST-021",
+    "payment_date": "2026-01-05",
+    "payment_amount_total": 41200.0,
+    "payment_reference": "081000095172835",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0226",
+        "amount_paid": 22000.0
+      },
+      {
+        "invoice_number": "INV-2026-0227",
+        "amount_paid": 19200.0
+      }
+    ]
+  },
+  {
+    "id": "REM-087",
+    "payer_name": "Redwood Capital Partners",
+    "payer_id": "CUST-022",
+    "payment_date": "2026-01-06",
+    "payment_amount_total": 89500.0,
+    "payment_reference": "20260106BOFAUS3O",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0228",
+        "amount_paid": 40000.0
+      },
+      {
+        "invoice_number": "INV-2026-0229",
+        "amount_paid": 30000.0
+      },
+      {
+        "invoice_number": "INV-2026-0230",
+        "amount_paid": 19500.0
+      }
+    ]
+  },
+  {
+    "id": "REM-088",
+    "payer_name": "Shanghai Exports Co Ltd",
+    "payer_id": "CUST-023",
+    "payment_date": "2026-01-07",
+    "payment_amount_total": 678500.0,
+    "payment_reference": "v7r1w345-6t0u-1v3w-7r8s-9t0u1v2w3x4y",
+    "currency": "CNY",
+    "payment_method": "SWIFT",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0231",
+        "amount_paid": 250000.0
+      },
+      {
+        "invoice_number": "INV-2026-0232",
+        "amount_paid": 200000.0
+      },
+      {
+        "invoice_number": "INV-2026-0233",
+        "amount_paid": 150000.0
+      },
+      {
+        "invoice_number": "INV-2026-0234",
+        "amount_paid": 78500.0
+      }
+    ]
+  },
+  {
+    "id": "REM-089",
+    "payer_name": "Valley Auto Parts",
+    "payer_id": "CUST-024",
+    "payment_date": "2026-01-08",
+    "payment_amount_total": 3450.75,
+    "payment_reference": "67235",
+    "currency": "USD",
+    "payment_method": "CHECK",
+    "source": "MANUAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0235",
+        "amount_paid": 3450.75
+      }
+    ]
+  },
+  {
+    "id": "REM-090",
+    "payer_name": "Blueprint Designs LLC",
+    "payer_id": "CUST-025",
+    "payment_date": "2026-01-09",
+    "payment_amount_total": 19800.0,
+    "payment_reference": "031000053928175",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0236",
+        "amount_paid": 11000.0
+      },
+      {
+        "invoice_number": "INV-2026-0237",
+        "amount_paid": 8800.0
+      }
+    ]
+  },
+  {
+    "id": "REM-091",
+    "payer_name": "Meridian Investments",
+    "payer_id": "CUST-026",
+    "payment_date": "2026-01-10",
+    "payment_amount_total": 124500.0,
+    "payment_reference": "20260110CITIUS34",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0238",
+        "amount_paid": 50000.0
+      },
+      {
+        "invoice_number": "INV-2026-0239",
+        "amount_paid": 45000.0
+      },
+      {
+        "invoice_number": "INV-2026-0240",
+        "amount_paid": 29500.0
+      }
+    ]
+  },
+  {
+    "id": "REM-092",
+    "payer_name": "London Trading Group PLC",
+    "payer_id": "CUST-027",
+    "payment_date": "2026-01-11",
+    "payment_amount_total": 198700.0,
+    "payment_reference": "w8s2x456-7u1v-2w4x-8s9t-0u1v2w3x4y5z",
+    "currency": "GBP",
+    "payment_method": "SWIFT",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0241",
+        "amount_paid": 70000.0
+      },
+      {
+        "invoice_number": "INV-2026-0242",
+        "amount_paid": 60000.0
+      },
+      {
+        "invoice_number": "INV-2026-0243",
+        "amount_paid": 45000.0
+      },
+      {
+        "invoice_number": "INV-2026-0244",
+        "amount_paid": 23700.0
+      }
+    ]
+  },
+  {
+    "id": "REM-093",
+    "payer_name": "Sunrise Bakery",
+    "payer_id": "CUST-028",
+    "payment_date": "2026-01-12",
+    "payment_amount_total": 8920.0,
+    "payment_reference": "33893",
+    "currency": "USD",
+    "payment_method": "CHECK",
+    "source": "MANUAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0245",
+        "amount_paid": 5000.0
+      },
+      {
+        "invoice_number": "INV-2026-0246",
+        "amount_paid": 3920.0
+      }
+    ]
+  },
+  {
+    "id": "REM-094",
+    "payer_name": "Premier Consulting Group",
+    "payer_id": "CUST-029",
+    "payment_date": "2026-01-13",
+    "payment_amount_total": 27650.5,
+    "payment_reference": "041000062718294",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0247",
+        "amount_paid": 15000.0
+      },
+      {
+        "invoice_number": "INV-2026-0248",
+        "amount_paid": 12650.5
+      }
+    ]
+  },
+  {
+    "id": "REM-095",
+    "payer_name": "Cornerstone Properties",
+    "payer_id": "CUST-030",
+    "payment_date": "2026-01-14",
+    "payment_amount_total": 78400.0,
+    "payment_reference": "20260114PNCCUS34",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0249",
+        "amount_paid": 35000.0
+      },
+      {
+        "invoice_number": "INV-2026-0250",
+        "amount_paid": 28000.0
+      },
+      {
+        "invoice_number": "INV-2026-0251",
+        "amount_paid": 15400.0
+      }
+    ]
+  },
+  {
+    "id": "REM-096",
+    "payer_name": "Tokyo Motors Corporation",
+    "payer_id": "CUST-031",
+    "payment_date": "2026-01-15",
+    "payment_amount_total": 1234000.0,
+    "payment_reference": "x9t3y567-8v2w-3x5y-9t0u-1v2w3x4y5z6a",
+    "currency": "JPY",
+    "payment_method": "SWIFT",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0252",
+        "amount_paid": 450000.0
+      },
+      {
+        "invoice_number": "INV-2026-0253",
+        "amount_paid": 350000.0
+      },
+      {
+        "invoice_number": "INV-2026-0254",
+        "amount_paid": 280000.0
+      },
+      {
+        "invoice_number": "INV-2026-0255",
+        "amount_paid": 154000.0
+      }
+    ]
+  },
+  {
+    "id": "REM-097",
+    "payer_name": "Quality Print Shop",
+    "payer_id": "CUST-032",
+    "payment_date": "2026-01-16",
+    "payment_amount_total": 4780.0,
+    "payment_reference": "78457",
+    "currency": "USD",
+    "payment_method": "CHECK",
+    "source": "MANUAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0256",
+        "amount_paid": 2800.0
+      },
+      {
+        "invoice_number": "INV-2026-0257",
+        "amount_paid": 1980.0
+      }
+    ]
+  },
+  {
+    "id": "REM-098",
+    "payer_name": "Frontier Energy Corp",
+    "payer_id": "CUST-033",
+    "payment_date": "2026-01-17",
+    "payment_amount_total": 22100.0,
+    "payment_reference": "051000071829346",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0258",
+        "amount_paid": 12000.0
+      },
+      {
+        "invoice_number": "INV-2026-0259",
+        "amount_paid": 10100.0
+      }
+    ]
+  },
+  {
+    "id": "REM-099",
+    "payer_name": "Cascade Ventures LLC",
+    "payer_id": "CUST-034",
+    "payment_date": "2026-01-18",
+    "payment_amount_total": 56200.0,
+    "payment_reference": "20260118USBKUS45",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0260",
+        "amount_paid": 25000.0
+      },
+      {
+        "invoice_number": "INV-2026-0261",
+        "amount_paid": 18000.0
+      },
+      {
+        "invoice_number": "INV-2026-0262",
+        "amount_paid": 13200.0
+      }
+    ]
+  },
+  {
+    "id": "REM-100",
+    "payer_name": "Sao Paulo Foods SA",
+    "payer_id": "CUST-035",
+    "payment_date": "2026-01-02",
+    "payment_amount_total": 312000.0,
+    "payment_reference": "y0u4z678-9w3x-4y6z-0u1v-2w3x4y5z6a7b",
+    "currency": "BRL",
+    "payment_method": "SWIFT",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0263",
+        "amount_paid": 110000.0
+      },
+      {
+        "invoice_number": "INV-2026-0264",
+        "amount_paid": 95000.0
+      },
+      {
+        "invoice_number": "INV-2026-0265",
+        "amount_paid": 70000.0
+      },
+      {
+        "invoice_number": "INV-2026-0266",
+        "amount_paid": 37000.0
+      }
+    ]
+  },
+  {
+    "id": "REM-101",
+    "payer_name": "Lakeside Marina",
+    "payer_id": "CUST-036",
+    "payment_date": "2026-01-03",
+    "payment_amount_total": 11250.0,
+    "payment_reference": "12790",
+    "currency": "USD",
+    "payment_method": "CHECK",
+    "source": "MANUAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0267",
+        "amount_paid": 6500.0
+      },
+      {
+        "invoice_number": "INV-2026-0268",
+        "amount_paid": 4750.0
+      }
+    ]
+  },
+  {
+    "id": "REM-102",
+    "payer_name": "Nexus Technologies",
+    "payer_id": "CUST-037",
+    "payment_date": "2026-01-04",
+    "payment_amount_total": 38900.0,
+    "payment_reference": "061000082934517",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0269",
+        "amount_paid": 22000.0
+      },
+      {
+        "invoice_number": "INV-2026-0270",
+        "amount_paid": 16900.0
+      }
+    ]
+  },
+  {
+    "id": "REM-103",
+    "payer_name": "Harbor Freight Inc",
+    "payer_id": "CUST-038",
+    "payment_date": "2026-01-05",
+    "payment_amount_total": 102300.0,
+    "payment_reference": "20260105FRBKUS67",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0271",
+        "amount_paid": 45000.0
+      },
+      {
+        "invoice_number": "INV-2026-0272",
+        "amount_paid": 35000.0
+      },
+      {
+        "invoice_number": "INV-2026-0273",
+        "amount_paid": 22300.0
+      }
+    ]
+  },
+  {
+    "id": "REM-104",
+    "payer_name": "Dubai Commodities Trading",
+    "payer_id": "CUST-039",
+    "payment_date": "2026-01-06",
+    "payment_amount_total": 845000.0,
+    "payment_reference": "z1v5a789-0x4y-5z7a-1v2w-3x4y5z6a7b8c",
+    "currency": "AED",
+    "payment_method": "SWIFT",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0274",
+        "amount_paid": 300000.0
+      },
+      {
+        "invoice_number": "INV-2026-0275",
+        "amount_paid": 250000.0
+      },
+      {
+        "invoice_number": "INV-2026-0276",
+        "amount_paid": 180000.0
+      },
+      {
+        "invoice_number": "INV-2026-0277",
+        "amount_paid": 115000.0
+      }
+    ]
+  },
+  {
+    "id": "REM-105",
+    "payer_name": "Artisan Coffee Roasters",
+    "payer_id": "CUST-040",
+    "payment_date": "2026-01-07",
+    "payment_amount_total": 2340.5,
+    "payment_reference": "89235",
+    "currency": "USD",
+    "payment_method": "CHECK",
+    "source": "MANUAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0278",
+        "amount_paid": 2340.5
+      }
+    ]
+  },
+  {
+    "id": "REM-106",
+    "payer_name": "Summit Legal Services",
+    "payer_id": "CUST-041",
+    "payment_date": "2026-01-08",
+    "payment_amount_total": 47800.0,
+    "payment_reference": "071000093045628",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0279",
+        "amount_paid": 26000.0
+      },
+      {
+        "invoice_number": "INV-2026-0280",
+        "amount_paid": 21800.0
+      }
+    ]
+  },
+  {
+    "id": "REM-107",
+    "payer_name": "Pinnacle Advisors",
+    "payer_id": "CUST-042",
+    "payment_date": "2026-01-09",
+    "payment_amount_total": 67100.0,
+    "payment_reference": "20260109SVBKUS6T",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0281",
+        "amount_paid": 30000.0
+      },
+      {
+        "invoice_number": "INV-2026-0282",
+        "amount_paid": 22000.0
+      },
+      {
+        "invoice_number": "INV-2026-0283",
+        "amount_paid": 15100.0
+      }
+    ]
+  },
+  {
+    "id": "REM-108",
+    "payer_name": "Amsterdam Chemicals BV",
+    "payer_id": "CUST-043",
+    "payment_date": "2026-01-10",
+    "payment_amount_total": 456700.0,
+    "payment_reference": "a2w6b890-1y5z-6a8b-2w3x-4y5z6a7b8c9d",
+    "currency": "EUR",
+    "payment_method": "SWIFT",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0284",
+        "amount_paid": 160000.0
+      },
+      {
+        "invoice_number": "INV-2026-0285",
+        "amount_paid": 130000.0
+      },
+      {
+        "invoice_number": "INV-2026-0286",
+        "amount_paid": 100000.0
+      },
+      {
+        "invoice_number": "INV-2026-0287",
+        "amount_paid": 66700.0
+      }
+    ]
+  },
+  {
+    "id": "REM-109",
+    "payer_name": "Mountain View Landscaping",
+    "payer_id": "CUST-044",
+    "payment_date": "2026-01-11",
+    "payment_amount_total": 6120.0,
+    "payment_reference": "56124",
+    "currency": "USD",
+    "payment_method": "CHECK",
+    "source": "MANUAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0288",
+        "amount_paid": 3500.0
+      },
+      {
+        "invoice_number": "INV-2026-0289",
+        "amount_paid": 2620.0
+      }
+    ]
+  },
+  {
+    "id": "REM-110",
+    "payer_name": "BrightStar Media",
+    "payer_id": "CUST-045",
+    "payment_date": "2026-01-12",
+    "payment_amount_total": 15890.25,
+    "payment_reference": "081000104156739",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0290",
+        "amount_paid": 9000.0
+      },
+      {
+        "invoice_number": "INV-2026-0291",
+        "amount_paid": 6890.25
+      }
+    ]
+  },
+  {
+    "id": "REM-111",
+    "payer_name": "Granite Construction Co",
+    "payer_id": "CUST-046",
+    "payment_date": "2026-01-13",
+    "payment_amount_total": 118500.0,
+    "payment_reference": "20260113NYCBUS34",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0292",
+        "amount_paid": 50000.0
+      },
+      {
+        "invoice_number": "INV-2026-0293",
+        "amount_paid": 40000.0
+      },
+      {
+        "invoice_number": "INV-2026-0294",
+        "amount_paid": 28500.0
+      }
+    ]
+  },
+  {
+    "id": "REM-112",
+    "payer_name": "Melbourne Minerals Pty Ltd",
+    "payer_id": "CUST-047",
+    "payment_date": "2026-01-14",
+    "payment_amount_total": 245600.0,
+    "payment_reference": "b3x7c901-2z6a-7b9c-3x4y-5z6a7b8c9d0e",
+    "currency": "AUD",
+    "payment_method": "SWIFT",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0295",
+        "amount_paid": 90000.0
+      },
+      {
+        "invoice_number": "INV-2026-0296",
+        "amount_paid": 70000.0
+      },
+      {
+        "invoice_number": "INV-2026-0297",
+        "amount_paid": 55000.0
+      },
+      {
+        "invoice_number": "INV-2026-0298",
+        "amount_paid": 30600.0
+      }
+    ]
+  },
+  {
+    "id": "REM-113",
+    "payer_name": "Riverside Plumbing",
+    "payer_id": "CUST-048",
+    "payment_date": "2026-01-15",
+    "payment_amount_total": 3560.0,
+    "payment_reference": "34568",
+    "currency": "USD",
+    "payment_method": "CHECK",
+    "source": "MANUAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0299",
+        "amount_paid": 3560.0
+      }
+    ]
+  },
+  {
+    "id": "REM-114",
+    "payer_name": "Heritage Insurance Group",
+    "payer_id": "CUST-049",
+    "payment_date": "2026-01-16",
+    "payment_amount_total": 54300.0,
+    "payment_reference": "091000115267850",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0300",
+        "amount_paid": 30000.0
+      },
+      {
+        "invoice_number": "INV-2026-0301",
+        "amount_paid": 24300.0
+      }
+    ]
+  },
+  {
+    "id": "REM-115",
+    "payer_name": "Olympus Financial Services",
+    "payer_id": "CUST-050",
+    "payment_date": "2026-01-17",
+    "payment_amount_total": 82100.0,
+    "payment_reference": "20260117TDOMUS34",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0302",
+        "amount_paid": 35000.0
+      },
+      {
+        "invoice_number": "INV-2026-0303",
+        "amount_paid": 28000.0
+      },
+      {
+        "invoice_number": "INV-2026-0304",
+        "amount_paid": 19100.0
+      }
+    ]
+  },
+  {
+    "id": "REM-116",
+    "payer_name": "Seoul Semiconductor Co",
+    "payer_id": "CUST-051",
+    "payment_date": "2026-01-18",
+    "payment_amount_total": 523400.0,
+    "payment_reference": "c4y8d012-3a7b-8c0d-4y5z-6a7b8c9d0e1f",
+    "currency": "KRW",
+    "payment_method": "SWIFT",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0305",
+        "amount_paid": 185000.0
+      },
+      {
+        "invoice_number": "INV-2026-0306",
+        "amount_paid": 150000.0
+      },
+      {
+        "invoice_number": "INV-2026-0307",
+        "amount_paid": 120000.0
+      },
+      {
+        "invoice_number": "INV-2026-0308",
+        "amount_paid": 68400.0
+      }
+    ]
+  },
+  {
+    "id": "REM-117",
+    "payer_name": "Creative Catering Co",
+    "payer_id": "CUST-052",
+    "payment_date": "2026-01-02",
+    "payment_amount_total": 7120.0,
+    "payment_reference": "90124",
+    "currency": "USD",
+    "payment_method": "CHECK",
+    "source": "MANUAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0309",
+        "amount_paid": 4000.0
+      },
+      {
+        "invoice_number": "INV-2026-0310",
+        "amount_paid": 3120.0
+      }
+    ]
+  },
+  {
+    "id": "REM-118",
+    "payer_name": "Evergreen Supplies",
+    "payer_id": "CUST-053",
+    "payment_date": "2026-01-03",
+    "payment_amount_total": 24500.5,
+    "payment_reference": "021000126378951",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0311",
+        "amount_paid": 14000.0
+      },
+      {
+        "invoice_number": "INV-2026-0312",
+        "amount_paid": 10500.5
+      }
+    ]
+  },
+  {
+    "id": "REM-119",
+    "payer_name": "Titan Industries",
+    "payer_id": "CUST-054",
+    "payment_date": "2026-01-04",
+    "payment_amount_total": 91800.0,
+    "payment_reference": "20260104ABORUS34",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0313",
+        "amount_paid": 40000.0
+      },
+      {
+        "invoice_number": "INV-2026-0314",
+        "amount_paid": 32000.0
+      },
+      {
+        "invoice_number": "INV-2026-0315",
+        "amount_paid": 19800.0
+      }
+    ]
+  },
+  {
+    "id": "REM-120",
+    "payer_name": "Paris Luxe Groupe SA",
+    "payer_id": "CUST-055",
+    "payment_date": "2026-01-05",
+    "payment_amount_total": 678900.0,
+    "payment_reference": "d5z9e123-4b8c-9d1e-5z6a-7b8c9d0e1f2g",
+    "currency": "EUR",
+    "payment_method": "SWIFT",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0316",
+        "amount_paid": 240000.0
+      },
+      {
+        "invoice_number": "INV-2026-0317",
+        "amount_paid": 200000.0
+      },
+      {
+        "invoice_number": "INV-2026-0318",
+        "amount_paid": 150000.0
+      },
+      {
+        "invoice_number": "INV-2026-0319",
+        "amount_paid": 88900.0
+      }
+    ]
+  },
+  {
+    "id": "REM-121",
+    "payer_name": "Precision Tools Inc",
+    "payer_id": "CUST-056",
+    "payment_date": "2026-01-06",
+    "payment_amount_total": 4230.0,
+    "payment_reference": "45679",
+    "currency": "USD",
+    "payment_method": "CHECK",
+    "source": "MANUAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0320",
+        "amount_paid": 2500.0
+      },
+      {
+        "invoice_number": "INV-2026-0321",
+        "amount_paid": 1730.0
+      }
+    ]
+  },
+  {
+    "id": "REM-122",
+    "payer_name": "Velocity Logistics",
+    "payer_id": "CUST-057",
+    "payment_date": "2026-01-07",
+    "payment_amount_total": 32100.0,
+    "payment_reference": "031000137489062",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0322",
+        "amount_paid": 18000.0
+      },
+      {
+        "invoice_number": "INV-2026-0323",
+        "amount_paid": 14100.0
+      }
+    ]
+  },
+  {
+    "id": "REM-123",
+    "payer_name": "Cardinal Health Group",
+    "payer_id": "CUST-058",
+    "payment_date": "2026-01-08",
+    "payment_amount_total": 71500.0,
+    "payment_reference": "20260108HABORYY",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0324",
+        "amount_paid": 30000.0
+      },
+      {
+        "invoice_number": "INV-2026-0325",
+        "amount_paid": 25000.0
+      },
+      {
+        "invoice_number": "INV-2026-0326",
+        "amount_paid": 16500.0
+      }
+    ]
+  },
+  {
+    "id": "REM-124",
+    "payer_name": "Frankfurt Pharma AG",
+    "payer_id": "CUST-059",
+    "payment_date": "2026-01-09",
+    "payment_amount_total": 312400.0,
+    "payment_reference": "e6a0f234-5c9d-0e2f-6a7b-8c9d0e1f2g3h",
+    "currency": "EUR",
+    "payment_method": "SWIFT",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0327",
+        "amount_paid": 110000.0
+      },
+      {
+        "invoice_number": "INV-2026-0328",
+        "amount_paid": 95000.0
+      },
+      {
+        "invoice_number": "INV-2026-0329",
+        "amount_paid": 70000.0
+      },
+      {
+        "invoice_number": "INV-2026-0330",
+        "amount_paid": 37400.0
+      }
+    ]
+  },
+  {
+    "id": "REM-125",
+    "payer_name": "Sunset Veterinary Clinic",
+    "payer_id": "CUST-060",
+    "payment_date": "2026-01-10",
+    "payment_amount_total": 9450.75,
+    "payment_reference": "67891",
+    "currency": "USD",
+    "payment_method": "CHECK",
+    "source": "MANUAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0331",
+        "amount_paid": 5500.0
+      },
+      {
+        "invoice_number": "INV-2026-0332",
+        "amount_paid": 3950.75
+      }
+    ]
+  },
+  {
+    "id": "REM-126",
+    "payer_name": "Quantum Analytics",
+    "payer_id": "CUST-061",
+    "payment_date": "2026-01-11",
+    "payment_amount_total": 39600.0,
+    "payment_reference": "041000148590173",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0333",
+        "amount_paid": 22000.0
+      },
+      {
+        "invoice_number": "INV-2026-0334",
+        "amount_paid": 17600.0
+      }
+    ]
+  },
+  {
+    "id": "REM-127",
+    "payer_name": "Liberty Mutual Funds",
+    "payer_id": "CUST-062",
+    "payment_date": "2026-01-12",
+    "payment_amount_total": 104500.0,
+    "payment_reference": "20260112MRLYUS34",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0335",
+        "amount_paid": 45000.0
+      },
+      {
+        "invoice_number": "INV-2026-0336",
+        "amount_paid": 35000.0
+      },
+      {
+        "invoice_number": "INV-2026-0337",
+        "amount_paid": 24500.0
+      }
+    ]
+  },
+  {
+    "id": "REM-128",
+    "payer_name": "Singapore Tech Hub Pte",
+    "payer_id": "CUST-063",
+    "payment_date": "2026-01-13",
+    "payment_amount_total": 912000.0,
+    "payment_reference": "f7b1g345-6d0e-1f3g-7b8c-9d0e1f2g3h4i",
+    "currency": "SGD",
+    "payment_method": "SWIFT",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0338",
+        "amount_paid": 320000.0
+      },
+      {
+        "invoice_number": "INV-2026-0339",
+        "amount_paid": 260000.0
+      },
+      {
+        "invoice_number": "INV-2026-0340",
+        "amount_paid": 210000.0
+      },
+      {
+        "invoice_number": "INV-2026-0341",
+        "amount_paid": 122000.0
+      }
+    ]
+  },
+  {
+    "id": "REM-129",
+    "payer_name": "Happy Paws Pet Store",
+    "payer_id": "CUST-064",
+    "payment_date": "2026-01-14",
+    "payment_amount_total": 2560.0,
+    "payment_reference": "78902",
+    "currency": "USD",
+    "payment_method": "CHECK",
+    "source": "MANUAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0342",
+        "amount_paid": 2560.0
+      }
+    ]
+  },
+  {
+    "id": "REM-130",
+    "payer_name": "Apex Manufacturing",
+    "payer_id": "CUST-065",
+    "payment_date": "2026-01-15",
+    "payment_amount_total": 52800.0,
+    "payment_reference": "051000159601284",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0343",
+        "amount_paid": 30000.0
+      },
+      {
+        "invoice_number": "INV-2026-0344",
+        "amount_paid": 22800.0
+      }
+    ]
+  },
+  {
+    "id": "REM-131",
+    "payer_name": "Acme Corporation",
+    "payer_id": "CUST-001",
+    "payment_date": "2026-01-16",
+    "payment_amount_total": 28900.0,
+    "payment_reference": "091000019847564",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0345",
+        "amount_paid": 16000.0
+      },
+      {
+        "invoice_number": "INV-2026-0346",
+        "amount_paid": 12900.0
+      }
+    ]
+  },
+  {
+    "id": "REM-132",
+    "payer_name": "Globex Industries",
+    "payer_id": "CUST-002",
+    "payment_date": "2026-01-17",
+    "payment_amount_total": 115600.0,
+    "payment_reference": "20260117MQFT7831",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0347",
+        "amount_paid": 50000.0
+      },
+      {
+        "invoice_number": "INV-2026-0348",
+        "amount_paid": 40000.0
+      },
+      {
+        "invoice_number": "INV-2026-0349",
+        "amount_paid": 25600.0
+      }
+    ]
+  },
+  {
+    "id": "REM-133",
+    "payer_name": "Schmidt GmbH",
+    "payer_id": "CUST-003",
+    "payment_date": "2026-01-18",
+    "payment_amount_total": 256000.0,
+    "payment_reference": "g8c2h456-7e1f-2g4h-8c9d-0e1f2g3h4i5j",
+    "currency": "EUR",
+    "payment_method": "SWIFT",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0350",
+        "amount_paid": 90000.0
+      },
+      {
+        "invoice_number": "INV-2026-0351",
+        "amount_paid": 75000.0
+      },
+      {
+        "invoice_number": "INV-2026-0352",
+        "amount_paid": 55000.0
+      },
+      {
+        "invoice_number": "INV-2026-0353",
+        "amount_paid": 36000.0
+      }
+    ]
+  },
+  {
+    "id": "REM-134",
+    "payer_name": "Riverdale Supplies",
+    "payer_id": "CUST-004",
+    "payment_date": "2026-01-02",
+    "payment_amount_total": 5890.0,
+    "payment_reference": "104523",
+    "currency": "USD",
+    "payment_method": "CHECK",
+    "source": "MANUAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0354",
+        "amount_paid": 3400.0
+      },
+      {
+        "invoice_number": "INV-2026-0355",
+        "amount_paid": 2490.0
+      }
+    ]
+  },
+  {
+    "id": "REM-135",
+    "payer_name": "TechFlow Solutions",
+    "payer_id": "CUST-005",
+    "payment_date": "2026-01-03",
+    "payment_amount_total": 17650.5,
+    "payment_reference": "091400058712936",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0356",
+        "amount_paid": 10000.0
+      },
+      {
+        "invoice_number": "INV-2026-0357",
+        "amount_paid": 7650.5
+      }
+    ]
+  },
+  {
+    "id": "REM-136",
+    "payer_name": "Pacific Rim Trading",
+    "payer_id": "CUST-006",
+    "payment_date": "2026-01-04",
+    "payment_amount_total": 98700.0,
+    "payment_reference": "20260104BNYA4523",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0358",
+        "amount_paid": 42000.0
+      },
+      {
+        "invoice_number": "INV-2026-0359",
+        "amount_paid": 35000.0
+      },
+      {
+        "invoice_number": "INV-2026-0360",
+        "amount_paid": 21700.0
+      }
+    ]
+  },
+  {
+    "id": "REM-137",
+    "payer_name": "Yamamoto Electronics",
+    "payer_id": "CUST-007",
+    "payment_date": "2026-01-05",
+    "payment_amount_total": 456200.0,
+    "payment_reference": "h9d3i567-8f2g-3h5i-9d0e-1f2g3h4i5j6k",
+    "currency": "JPY",
+    "payment_method": "SWIFT",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0361",
+        "amount_paid": 160000.0
+      },
+      {
+        "invoice_number": "INV-2026-0362",
+        "amount_paid": 130000.0
+      },
+      {
+        "invoice_number": "INV-2026-0363",
+        "amount_paid": 100000.0
+      },
+      {
+        "invoice_number": "INV-2026-0364",
+        "amount_paid": 66200.0
+      }
+    ]
+  },
+  {
+    "id": "REM-138",
+    "payer_name": "Midwest Distributors",
+    "payer_id": "CUST-008",
+    "payment_date": "2026-01-06",
+    "payment_amount_total": 8340.0,
+    "payment_reference": "7894",
+    "currency": "USD",
+    "payment_method": "CHECK",
+    "source": "MANUAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0365",
+        "amount_paid": 5000.0
+      },
+      {
+        "invoice_number": "INV-2026-0366",
+        "amount_paid": 3340.0
+      }
+    ]
+  },
+  {
+    "id": "REM-139",
+    "payer_name": "Sterling Partners LLC",
+    "payer_id": "CUST-009",
+    "payment_date": "2026-01-07",
+    "payment_amount_total": 35400.0,
+    "payment_reference": "071000013928477",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0367",
+        "amount_paid": 20000.0
+      },
+      {
+        "invoice_number": "INV-2026-0368",
+        "amount_paid": 15400.0
+      }
+    ]
+  },
+  {
+    "id": "REM-140",
+    "payer_name": "Coastal Shipping Co",
+    "payer_id": "CUST-010",
+    "payment_date": "2026-01-08",
+    "payment_amount_total": 71200.0,
+    "payment_reference": "20260108CHASUS33ZZZ",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0369",
+        "amount_paid": 30000.0
+      },
+      {
+        "invoice_number": "INV-2026-0370",
+        "amount_paid": 25000.0
+      },
+      {
+        "invoice_number": "INV-2026-0371",
+        "amount_paid": 16200.0
+      }
+    ]
+  },
+  {
+    "id": "REM-141",
+    "payer_name": "Exception Test Corp",
+    "payer_id": "CUST-011",
+    "payment_date": "2026-01-15",
+    "payment_amount_total": 25200.0,
+    "payment_reference": "EXCTEST001",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0372",
+        "amount_paid": 25200.0
+      }
+    ]
+  },
+  {
+    "id": "REM-142",
+    "payer_name": "Minor Diff LLC",
+    "payer_id": "CUST-012",
+    "payment_date": "2026-01-16",
+    "payment_amount_total": 15100.0,
+    "payment_reference": "MINORDIFF001",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0373",
+        "amount_paid": 15100.0
+      }
+    ]
+  },
+  {
+    "id": "REM-143",
+    "payer_name": "Wrong Customer Corp",
+    "payer_id": null,
+    "payment_date": "2026-01-17",
+    "payment_amount_total": 18500.0,
+    "payment_reference": "CUSTMIS001",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0374",
+        "amount_paid": 18500.0
+      }
+    ]
+  },
+  {
+    "id": "REM-144",
+    "payer_name": "Phantom Invoices LLC",
+    "payer_id": "CUST-014",
+    "payment_date": "2026-01-18",
+    "payment_amount_total": 12000.0,
+    "payment_reference": "PHANTOM001",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-GHOST-0001",
+        "amount_paid": 7000.0
+      },
+      {
+        "invoice_number": "INV-GHOST-0002",
+        "amount_paid": 5000.0
+      }
+    ]
+  },
+  {
+    "id": "REM-145",
+    "payer_name": "Overpay Industries",
+    "payer_id": "CUST-015",
+    "payment_date": "2026-01-19",
+    "payment_amount_total": 10000.0,
+    "payment_reference": "OVERPAY001",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0375",
+        "amount_paid": 10000.0
+      }
+    ]
+  },
+  {
+    "id": "REM-146",
+    "payer_name": "Sum Mismatch Co",
+    "payer_id": "CUST-016",
+    "payment_date": "2026-01-20",
+    "payment_amount_total": 12000.0,
+    "payment_reference": "SUMMIS001",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0376",
+        "amount_paid": 5000.0
+      },
+      {
+        "invoice_number": "INV-2026-0377",
+        "amount_paid": 6000.0
+      }
+    ]
+  },
+  {
+    "id": "REM-147",
+    "payer_name": "Mysterious Deduction Inc",
+    "payer_id": "CUST-017",
+    "payment_date": "2026-01-21",
+    "payment_amount_total": 18500.0,
+    "payment_reference": "DEDUCT001",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EDI",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0378",
+        "amount_paid": 18500.0,
+        "deduction_amount": 1500.0,
+        "deduction_reason": null
+      }
+    ]
+  },
+  {
+    "id": "REM-148",
+    "payer_name": "Different Company Name",
+    "payer_id": null,
+    "payment_date": "2026-01-22",
+    "payment_amount_total": 30200.0,
+    "payment_reference": "MULTI001",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "PORTAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0379",
+        "amount_paid": 30200.0
+      }
+    ]
+  },
+  {
+    "id": "REM-149",
+    "payer_name": "Double Pay Enterprises",
+    "payer_id": "CUST-019",
+    "payment_date": "2026-01-23",
+    "payment_amount_total": 9500.0,
+    "payment_reference": "DUPE001",
+    "currency": "USD",
+    "payment_method": "ACH",
+    "source": "EMAIL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0380",
+        "amount_paid": 9500.0
+      }
+    ]
+  },
+  {
+    "id": "REM-150",
+    "payer_name": "Late Payer Inc",
+    "payer_id": "CUST-020",
+    "payment_date": "2026-01-24",
+    "payment_amount_total": 14000.0,
+    "payment_reference": "LATE001",
+    "currency": "USD",
+    "payment_method": "WIRE",
+    "source": "MANUAL",
+    "line_items": [
+      {
+        "invoice_number": "INV-2026-0381",
+        "amount_paid": 14000.0
+      }
+    ]
+  }
+]

@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+
+{% block title %}Exceptions{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Exception Queue</h1>
+    <p>Matches that require review due to validation issues</p>
+</div>
+
+<div class="card">
+    <div class="filter-bar">
+        <div class="search-wrapper">
+            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="M21 21l-4.35-4.35"></path>
+            </svg>
+            <input type="text" class="search-input" id="search-input" placeholder="Search by bank ID, customer, or invoice...">
+        </div>
+        <select class="filter-select" id="severity-filter">
+            <option value="">All Severities</option>
+            <option value="HIGH">High</option>
+            <option value="MEDIUM">Medium</option>
+            <option value="LOW">Low</option>
+        </select>
+    </div>
+
+    <div style="overflow-x: auto;">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Bank Transaction</th>
+                    <th>Date</th>
+                    <th>Customer</th>
+                    <th class="text-right">Amount</th>
+                    <th>Exceptions</th>
+                    <th>Allocations</th>
+                </tr>
+            </thead>
+            <tbody id="exceptions-body">
+                <tr><td colspan="6" class="loading">Loading exceptions...</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="results-count" style="padding: 1rem 1.25rem; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.85rem;"></div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    let allExceptions = [];
+
+    async function loadExceptions() {
+        try {
+            const res = await fetch('/api/exceptions');
+            const data = await res.json();
+
+            if (data.success) {
+                allExceptions = data.matches;
+                renderExceptions(allExceptions);
+            }
+        } catch (err) {
+            console.error('Error loading exceptions:', err);
+            document.getElementById('exceptions-body').innerHTML = '<tr><td colspan="6" class="loading">Error loading data</td></tr>';
+        }
+    }
+
+    function renderExceptions(exceptions) {
+        const tbody = document.getElementById('exceptions-body');
+
+        if (exceptions.length === 0) {
+            tbody.innerHTML = `
+                <tr>
+                    <td colspan="6" class="empty-state">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <div>No exceptions - all matches passed validation!</div>
+                    </td>
+                </tr>
+            `;
+            document.getElementById('results-count').textContent = '0 exceptions';
+            return;
+        }
+
+        tbody.innerHTML = exceptions.map(m => `
+            <tr>
+                <td>
+                    <code>${m.bank_id}</code>
+                    <div class="text-muted" style="font-size: 0.75rem; margin-top: 0.25rem;">${m.bank_description || ''}</div>
+                </td>
+                <td class="text-muted">${m.bank_date || '-'}</td>
+                <td><code>${m.customer_id || '-'}</code></td>
+                <td class="text-right text-mono" style="font-weight: 600;">$${m.bank_amount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+                <td>
+                    <div class="exception-list">
+                        ${m.exceptions.map(e => `
+                            <span class="exception-tag" title="${e.details || ''}">
+                                <span class="status-badge badge-${e.severity.toLowerCase()}" style="padding: 0.1rem 0.4rem; font-size: 0.65rem;">${e.severity}</span>
+                                ${formatExceptionType(e.type)}
+                            </span>
+                        `).join('')}
+                    </div>
+                </td>
+                <td>
+                    <div class="allocation-list">
+                        ${m.allocations.map(a => `
+                            <a href="http://localhost:5001/invoices/${a.invoice_number}" target="_blank" class="allocation-tag ${a.is_partial ? 'partial' : ''}" style="text-decoration: none; cursor: pointer;">
+                                ${a.invoice_number}: $${a.amount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}
+                                ${a.is_partial ? ' (P)' : ''}
+                            </a>
+                        `).join('')}
+                    </div>
+                </td>
+            </tr>
+        `).join('');
+
+        document.getElementById('results-count').textContent = `${exceptions.length} exception${exceptions.length !== 1 ? 's' : ''}`;
+    }
+
+    function formatExceptionType(type) {
+        return type.replace(/_/g, ' ').toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
+    }
+
+    function filterExceptions() {
+        const search = document.getElementById('search-input').value.toLowerCase();
+        const severity = document.getElementById('severity-filter').value;
+
+        let filtered = allExceptions;
+
+        if (search) {
+            filtered = filtered.filter(m =>
+                m.bank_id.toLowerCase().includes(search) ||
+                (m.customer_id && m.customer_id.toLowerCase().includes(search)) ||
+                (m.bank_description && m.bank_description.toLowerCase().includes(search)) ||
+                m.allocations.some(a => a.invoice_number.toLowerCase().includes(search))
+            );
+        }
+
+        if (severity) {
+            filtered = filtered.filter(m => m.exceptions.some(e => e.severity === severity));
+        }
+
+        renderExceptions(filtered);
+    }
+
+    document.getElementById('search-input').addEventListener('input', filterExceptions);
+    document.getElementById('severity-filter').addEventListener('change', filterExceptions);
+
+    loadExceptions();
+</script>
+{% endblock %}

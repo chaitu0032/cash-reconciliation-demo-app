@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Not Found - ERP System{% endblock %}
+
+{% block content %}
+<div style="text-align: center; padding: 80px 20px;">
+    <div style="font-size: 72px; font-weight: 700; color: #e2e8f0;">404</div>
+    <h1 style="font-size: 24px; margin-top: 16px;">Page Not Found</h1>
+    <p style="color: #64748b; margin-top: 8px;">{{ message or 'The page you are looking for does not exist.' }}</p>
+    <a href="/" class="btn btn-primary" style="margin-top: 24px;">Back to Dashboard</a>
+</div>
+{% endblock %}

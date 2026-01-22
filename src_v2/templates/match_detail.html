@@ -1,0 +1,417 @@
+{% extends "base.html" %}
+
+{% block title %}Match Detail - {{ bank.id }}{% endblock %}
+
+{% block extra_styles %}
+<style>
+    .detail-label {
+        font-size: 0.7rem;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        margin-bottom: 0.25rem;
+    }
+    .detail-value {
+        font-size: 0.95rem;
+        color: var(--text-primary);
+    }
+    .detail-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+    }
+    .main-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+    .left-panel {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+    .pdf-viewer {
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-12);
+        overflow: hidden;
+        background: var(--grey3);
+        height: 500px;
+    }
+    .pdf-viewer iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+    .pdf-placeholder {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        color: var(--text-muted);
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .invoice-card {
+        background: var(--grey1);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-8);
+        padding: 1rem;
+        margin-bottom: 0.75rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    .invoice-card:hover {
+        border-color: var(--primary5);
+        background: var(--primary1);
+    }
+    .invoice-card:last-child {
+        margin-bottom: 0;
+    }
+    .invoice-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.75rem;
+    }
+    .invoice-link {
+        font-family: var(--font-mono);
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--primary7);
+    }
+    .invoice-link:hover {
+        color: var(--primary9);
+    }
+    .amount-badge {
+        padding: 0.35rem 0.75rem;
+        border-radius: var(--radius-full);
+        font-family: var(--font-mono);
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+    .amount-badge.success {
+        background: var(--success2);
+        color: var(--success9);
+    }
+    .amount-badge.partial {
+        background: var(--warning3);
+        color: var(--warning8);
+    }
+    .flow-arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem;
+        color: var(--text-muted);
+    }
+    .flow-arrow svg {
+        width: 24px;
+        height: 24px;
+    }
+    .section-title {
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--text-muted);
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    .section-title .count {
+        background: var(--grey4);
+        padding: 0.15rem 0.5rem;
+        border-radius: var(--radius-full);
+        font-size: 0.75rem;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="page-header" style="display: flex; justify-content: space-between; align-items: flex-start;">
+    <div>
+        <h1>Match Detail</h1>
+        <p>Bank transaction {{ bank.id }} matched via {{ match.match_type.value if match.match_type.value else match.match_type }}</p>
+    </div>
+    <div style="display: flex; gap: 0.75rem; align-items: center;">
+        <a href="/auto-approved" class="btn btn-secondary">Back to Matches</a>
+        <button id="approve-btn" onclick="approveMatch('{{ bank.id }}')" class="btn btn-success">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            Approve & Close Invoices
+        </button>
+        <span id="approve-status" style="font-size: 0.85rem;"></span>
+    </div>
+</div>
+
+<div class="main-layout">
+    <!-- Left Panel: Data -->
+    <div class="left-panel">
+        <!-- Bank Transaction Card -->
+        <div class="card">
+            <div class="card-header">
+                <h2>Bank Transaction</h2>
+                <span class="status-badge badge-auto">{{ match.status.value if match.status.value else match.status }}</span>
+            </div>
+            <div class="card-body">
+                <div class="detail-grid">
+                    <div>
+                        <div class="detail-label">Transaction ID</div>
+                        <div class="detail-value"><code>{{ bank.id }}</code></div>
+                    </div>
+                    <div>
+                        <div class="detail-label">Date</div>
+                        <div class="detail-value">{{ bank.date }}</div>
+                    </div>
+                    <div>
+                        <div class="detail-label">Amount</div>
+                        <div class="detail-value text-mono" style="font-size: 1.25rem; font-weight: 700; color: var(--success8);">
+                            ${{ "%.2f"|format(bank.amount) }}
+                        </div>
+                    </div>
+                    <div>
+                        <div class="detail-label">Customer ID</div>
+                        <div class="detail-value"><code>{{ bank.customer_id or 'N/A' }}</code></div>
+                    </div>
+                    <div>
+                        <div class="detail-label">Reference</div>
+                        <div class="detail-value"><code>{{ bank.reference or 'N/A' }}</code></div>
+                    </div>
+                    <div>
+                        <div class="detail-label">Payment Method</div>
+                        <div class="detail-value">{{ bank.payment_method or 'N/A' }}</div>
+                    </div>
+                </div>
+                {% if bank.description %}
+                <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+                    <div class="detail-label">Description</div>
+                    <div class="detail-value" style="font-size: 0.85rem;">{{ bank.description }}</div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Flow Arrow -->
+        <div class="flow-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <polyline points="19 12 12 19 5 12"></polyline>
+            </svg>
+        </div>
+
+        <!-- Remittance Card -->
+        {% if remittance %}
+        <div class="card">
+            <div class="card-header">
+                <h2>Remittance Advice</h2>
+                <span class="status-badge badge-suggestion">{{ remittance.source }}</span>
+            </div>
+            <div class="card-body">
+                <div class="detail-grid">
+                    <div>
+                        <div class="detail-label">Remittance ID</div>
+                        <div class="detail-value">
+                            <a href="/remittances/{{ remittance.id }}" target="_blank"><code>{{ remittance.id }}</code></a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="detail-label">Payment Date</div>
+                        <div class="detail-value">{{ remittance.payment_date }}</div>
+                    </div>
+                    <div>
+                        <div class="detail-label">Total Amount</div>
+                        <div class="detail-value text-mono" style="font-weight: 600;">${{ "%.2f"|format(remittance.payment_amount_total) }}</div>
+                    </div>
+                    <div>
+                        <div class="detail-label">Payer</div>
+                        <div class="detail-value" style="font-weight: 500;">{{ remittance.payer_name }}</div>
+                    </div>
+                    <div>
+                        <div class="detail-label">Payer ID</div>
+                        <div class="detail-value"><code>{{ remittance.payer_id }}</code></div>
+                    </div>
+                    <div>
+                        <div class="detail-label">Payment Reference</div>
+                        <div class="detail-value"><code style="font-size: 0.75rem;">{{ remittance.payment_reference }}</code></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="card">
+            <div class="card-header">
+                <h2>Remittance Advice</h2>
+            </div>
+            <div class="card-body" style="text-align: center; color: var(--text-muted); padding: 2rem;">
+                No remittance advice linked (Direct Reference Match)
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Flow Arrow -->
+        <div class="flow-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <polyline points="19 12 12 19 5 12"></polyline>
+            </svg>
+        </div>
+
+        <!-- Invoices Card -->
+        <div class="card">
+            <div class="card-header">
+                <h2>Matched Invoices</h2>
+                <span class="section-title" style="margin: 0;"><span class="count">{{ invoices_detail|length }}</span></span>
+            </div>
+            <div class="card-body">
+                {% for item in invoices_detail %}
+                <a href="http://localhost:5001/invoices/{{ item.invoice.invoice_number }}" target="_blank" class="invoice-card" style="display: block; text-decoration: none; color: inherit;">
+                    <div class="invoice-header">
+                        <span class="invoice-link">{{ item.invoice.invoice_number }}</span>
+                        <span class="amount-badge {{ 'partial' if item.allocation.is_partial else 'success' }}">
+                            ${{ "%.2f"|format(item.allocation.amount) }}
+                            {% if item.allocation.is_partial %}(Partial){% endif %}
+                        </span>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; font-size: 0.85rem;">
+                        <div>
+                            <span class="text-muted">Invoice Total:</span>
+                            <span class="text-mono">${{ "%.2f"|format(item.invoice.amount) }}</span>
+                        </div>
+                        <div>
+                            <span class="text-muted">Due Date:</span>
+                            <span>{{ item.invoice.due_date }}</span>
+                        </div>
+                        <div>
+                            <span class="text-muted">Customer:</span>
+                            <code style="font-size: 0.8rem;">{{ item.invoice.customer_id }}</code>
+                        </div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Panel: Remittance PDF -->
+    <div>
+        {% if remittance %}
+        <div class="card" style="height: 100%; min-height: 700px;">
+            <div class="card-header">
+                <h2>Remittance Document</h2>
+                <div style="display: flex; gap: 0.5rem;">
+                    <a href="/remittances/{{ remittance.id }}" class="btn btn-sm btn-secondary" target="_blank">
+                        View Details
+                    </a>
+                    {% if has_pdf %}
+                    <a href="/remittances/{{ remittance.id }}/pdf" class="btn btn-sm btn-secondary" target="_blank">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Download
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="card-body" style="height: calc(100% - 60px); padding: 0;">
+                {% if has_pdf %}
+                <iframe src="/remittances/{{ remittance.id }}/pdf" style="width: 100%; height: 100%; border: none; border-radius: 0 0 var(--radius-8) var(--radius-8);"></iframe>
+                {% else %}
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; color: var(--text-muted);">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity: 0.5; margin-bottom: 1rem;">
+                        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                    </svg>
+                    <div>PDF not available</div>
+                    <a href="/remittances/{{ remittance.id }}" target="_blank" class="btn btn-sm btn-secondary" style="margin-top: 1rem;">View Parsed Data</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% else %}
+        <div class="card" style="height: 100%;">
+            <div class="card-header">
+                <h2>Remittance Document</h2>
+            </div>
+            <div class="card-body" style="display: flex; align-items: center; justify-content: center; height: calc(100% - 60px); color: var(--text-muted);">
+                <div style="text-align: center;">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity: 0.5; margin-bottom: 1rem;">
+                        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                    </svg>
+                    <div>No remittance linked</div>
+                    <div style="font-size: 0.85rem; margin-top: 0.25rem;">This is a direct reference match</div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    async function approveMatch(bankId) {
+        const btn = document.getElementById('approve-btn');
+        const status = document.getElementById('approve-status');
+
+        btn.disabled = true;
+        btn.innerHTML = `
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="animation: spin 1s linear infinite;">
+                <circle cx="12" cy="12" r="10" stroke-dasharray="30" stroke-dashoffset="10"></circle>
+            </svg>
+            Approving...
+        `;
+        status.innerHTML = '';
+
+        try {
+            const response = await fetch(`/api/approve/${bankId}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' }
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                btn.innerHTML = `
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    Approved
+                `;
+                btn.classList.remove('btn-success');
+                btn.classList.add('btn-secondary');
+                status.innerHTML = `<span style="color: var(--success8);">${data.updated_count} invoice(s) closed in ERP</span>`;
+            } else {
+                btn.disabled = false;
+                btn.innerHTML = `
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    Approve & Close Invoices
+                `;
+                status.innerHTML = `<span style="color: var(--error7);">Some invoices failed to update</span>`;
+            }
+        } catch (err) {
+            btn.disabled = false;
+            btn.innerHTML = `
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Approve & Close Invoices
+            `;
+            status.innerHTML = `<span style="color: var(--error7);">Error: Make sure ERP is running on port 5001</span>`;
+        }
+    }
+</script>
+<style>
+    @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+</style>
+{% endblock %}

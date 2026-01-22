@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Statement - Business Operating Account</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            color: white;
+            padding: 30px 40px;
+        }
+        .bank-name {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .statement-title {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.9;
+        }
+        .account-info {
+            display: flex;
+            justify-content: space-between;
+            padding: 25px 40px;
+            background: #f8fafc;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .account-details h3 {
+            color: #1a365d;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        .account-details p {
+            color: #64748b;
+            font-size: 14px;
+        }
+        .statement-period {
+            text-align: right;
+        }
+        .statement-period h4 {
+            color: #64748b;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        .statement-period p {
+            color: #1a365d;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 25px 40px;
+            background: white;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .summary-item {
+            text-align: center;
+            padding: 15px;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+        .summary-item .label {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 5px;
+        }
+        .summary-item .value {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1a365d;
+        }
+        .summary-item.credit .value {
+            color: #059669;
+        }
+        .summary-item.debit .value {
+            color: #dc2626;
+        }
+        .transactions {
+            padding: 20px 40px 40px;
+        }
+        .transactions h3 {
+            color: #1a365d;
+            margin-bottom: 20px;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th {
+            background: #1a365d;
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        th:last-child, th:nth-child(4) {
+            text-align: right;
+        }
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 13px;
+        }
+        tr:hover {
+            background: #f8fafc;
+        }
+        .date {
+            color: #64748b;
+            white-space: nowrap;
+        }
+        .description {
+            max-width: 300px;
+        }
+        .reference {
+            color: #64748b;
+            font-family: monospace;
+            font-size: 11px;
+        }
+        .amount {
+            text-align: right;
+            font-weight: 500;
+            font-family: monospace;
+        }
+        .amount.credit {
+            color: #059669;
+        }
+        .amount.debit {
+            color: #dc2626;
+        }
+        .balance {
+            text-align: right;
+            font-family: monospace;
+            color: #1a365d;
+        }
+        .footer {
+            background: #f8fafc;
+            padding: 20px 40px;
+            text-align: center;
+            font-size: 11px;
+            color: #64748b;
+            border-top: 1px solid #e2e8f0;
+        }
+        .no-transactions {
+            text-align: center;
+            padding: 40px;
+            color: #64748b;
+        }
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="bank-name">First National Bank</div>
+            <div class="statement-title">Account Statement</div>
+        </div>
+
+        <div class="account-info">
+            <div class="account-details">
+                <h3>Business Operating Account</h3>
+                <p>Account Number: ****4829</p>
+            </div>
+            <div class="statement-period">
+                <h4>Statement Period</h4>
+                <p>2026-01-02 to 2026-01-18</p>
+            </div>
+        </div>
+
+        <div class="summary">
+            <div class="summary-item">
+                <div class="label">Opening Balance</div>
+                <div class="value">$250,000.00</div>
+            </div>
+            <div class="summary-item credit">
+                <div class="label">Total Credits</div>
+                <div class="value">+$30,862,659.75</div>
+            </div>
+            <div class="summary-item debit">
+                <div class="label">Total Debits</div>
+                <div class="value">$0.00</div>
+            </div>
+            <div class="summary-item">
+                <div class="label">Closing Balance</div>
+                <div class="value">$31,112,659.75</div>
+            </div>
+        </div>
+
+        <div class="transactions">
+            <h3>Transaction Details</h3>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Reference</th>
+                        <th>Amount</th>
+                        <th>Balance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+    <tr>
+        <td class="date">2026-01-02</td>
+        <td class="description">ACH CREDIT ACME CORPORATION TRN*091000019847562</td>
+        <td class="reference">091000019847562</td>
+        <td class="amount credit">+$15,750.00</td>
+        <td class="balance">$265,750.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-02</td>
+        <td class="description">WIRE TFR GLOBEX INDUSTRIES FED REF 20260102MQFT7829</td>
+        <td class="reference">20260102MQFT7829</td>
+        <td class="amount credit">+$48,250.50</td>
+        <td class="balance">$314,000.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-02</td>
+        <td class="description">INTL WIRE SCHMIDT GMBH UETR:a]7d3e891-4f2c-48ab-9e15-3c7f82a1b456</td>
+        <td class="reference">7d3e891-4f2c-48ab-9e15-3c7f82a1b456</td>
+        <td class="amount credit">+$125,000.00</td>
+        <td class="balance">$439,000.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-02</td>
+        <td class="description">ACH PMT ACME CORPORATION TRACE#091000019847563</td>
+        <td class="reference">091000019847563</td>
+        <td class="amount credit">+$22,450.00</td>
+        <td class="balance">$461,450.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-02</td>
+        <td class="description">WIRE IN ATLAS LOGISTICS INC FED REF 20260102WFBIUS6T</td>
+        <td class="reference">20260102WFBIUS6T</td>
+        <td class="amount credit">+$68,900.00</td>
+        <td class="balance">$530,350.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-02</td>
+        <td class="description">INTL WIRE SAO PAULO FOODS SA UETR:y0u4z678-9w3x-4y6z-0u1v-2w3x4y5z6a7b</td>
+        <td class="reference">y0u4z678-9w3x-4y6z-0u1v-2w3x4y5z6a7b</td>
+        <td class="amount credit">+$312,000.00</td>
+        <td class="balance">$842,350.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-02</td>
+        <td class="description">RCD CHECK 90124 CREATIVE CATERING</td>
+        <td class="reference">90124</td>
+        <td class="amount credit">+$7,120.00</td>
+        <td class="balance">$849,470.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-02</td>
+        <td class="description">CHECK DEPOSIT #104523 RIVERDALE SUPPLIES</td>
+        <td class="reference">104523</td>
+        <td class="amount credit">+$5,890.00</td>
+        <td class="balance">$855,360.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-02</td>
+        <td class="description">ACH ORIG INNOVATE SYSTEMS INC TRN*081000095172836</td>
+        <td class="reference">081000095172836</td>
+        <td class="amount credit">+$49,800.00</td>
+        <td class="balance">$905,160.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-02</td>
+        <td class="description">INCOMING WIRE HARBOR FREIGHT INC REF:20260102FRBKUS68</td>
+        <td class="reference">20260102FRBKUS68</td>
+        <td class="amount credit">+$123,400.00</td>
+        <td class="balance">$1,028,560.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-02</td>
+        <td class="description">SWIFT TFR PARIS LUXE GROUPE UETR:t1p5u789-0r4s-5t7u-1p2q-3r4s5t6u7v8w</td>
+        <td class="reference">t1p5u789-0r4s-5t7u-1p2q-3r4s5t6u7v8w</td>
+        <td class="amount credit">+$789,400.00</td>
+        <td class="balance">$1,817,960.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-03</td>
+        <td class="description">CHECK DEPOSIT #104521 RIVERDALE SUPPLIES</td>
+        <td class="reference">104521</td>
+        <td class="amount credit">+$2,340.00</td>
+        <td class="balance">$1,820,300.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-03</td>
+        <td class="description">ACH PMT TECHFLOW SOLUTIONS TRACE#091400058712934</td>
+        <td class="reference">091400058712934</td>
+        <td class="amount credit">+$8,920.75</td>
+        <td class="balance">$1,829,221.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-03</td>
+        <td class="description">INCOMING WIRE PACIFIC RIM TRADING REF:20260103BNYA4521</td>
+        <td class="reference">20260103BNYA4521</td>
+        <td class="amount credit">+$67,500.00</td>
+        <td class="balance">$1,896,721.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-03</td>
+        <td class="description">SWIFT CREDIT YAMAMOTO ELECTRONICS UETR:b2f4a917-8c3d-4e56-a789-1d2e3f4g5h67</td>
+        <td class="reference">b2f4a917-8c3d-4e56-a789-1d2e3f4g5h67</td>
+        <td class="amount credit">+$234,100.00</td>
+        <td class="balance">$2,130,821.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-03</td>
+        <td class="description">WIRE IN GLOBEX INDUSTRIES FED REF 20260103MQFT7830</td>
+        <td class="reference">20260103MQFT7830</td>
+        <td class="amount credit">+$91,200.00</td>
+        <td class="balance">$2,222,021.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-03</td>
+        <td class="description">INTL WIRE MUMBAI TEXTILES PVT UETR:u6q0v234-5s9t-0u2v-6q7r-8s9t0u1v2w3x</td>
+        <td class="reference">u6q0v234-5s9t-0u2v-6q7r-8s9t0u1v2w3x</td>
+        <td class="amount credit">+$412,500.00</td>
+        <td class="balance">$2,634,521.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-03</td>
+        <td class="description">CHECK DEPOSIT #12790 LAKESIDE MARINA</td>
+        <td class="reference">12790</td>
+        <td class="amount credit">+$11,250.00</td>
+        <td class="balance">$2,645,771.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-03</td>
+        <td class="description">ACH CREDIT EVERGREEN SUPPLIES TRN*021000126378951</td>
+        <td class="reference">021000126378951</td>
+        <td class="amount credit">+$24,500.50</td>
+        <td class="balance">$2,670,271.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-03</td>
+        <td class="description">ACH ORIG TECHFLOW SOLUTIONS TRN*091400058712936</td>
+        <td class="reference">091400058712936</td>
+        <td class="amount credit">+$17,650.50</td>
+        <td class="balance">$2,687,922.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-03</td>
+        <td class="description">INCOMING WIRE REDWOOD CAPITAL REF:20260103BOFAUS3P</td>
+        <td class="reference">20260103BOFAUS3P</td>
+        <td class="amount credit">+$108,700.00</td>
+        <td class="balance">$2,796,622.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-03</td>
+        <td class="description">SWIFT TFR DUBAI COMMODITIES UETR:p7l1q345-6n0o-1p3q-7l8m-9n0o1p2q3r4s</td>
+        <td class="reference">p7l1q345-6n0o-1p3q-7l8m-9n0o1p2q3r4s</td>
+        <td class="amount credit">+$978,000.00</td>
+        <td class="balance">$3,774,622.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-03</td>
+        <td class="description">MOBILE CHECK DEP #45680 PRECISION TOOLS</td>
+        <td class="reference">45680</td>
+        <td class="amount credit">+$5,120.00</td>
+        <td class="balance">$3,779,742.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-04</td>
+        <td class="description">RCD DEP CHECK 7892 MIDWEST DISTRIBUTORS</td>
+        <td class="reference">7892</td>
+        <td class="amount credit">+$5,100.00</td>
+        <td class="balance">$3,784,842.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-04</td>
+        <td class="description">ACH CREDIT STERLING PARTNERS LLC TRN*071000013928475</td>
+        <td class="reference">071000013928475</td>
+        <td class="amount credit">+$19,850.25</td>
+        <td class="balance">$3,804,692.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-04</td>
+        <td class="description">WIRE TRANSFER IN COASTAL SHIPPING CO FED REF 20260104CHASUS33XXX</td>
+        <td class="reference">20260104CHASUS33XXX</td>
+        <td class="amount credit">+$42,000.00</td>
+        <td class="balance">$3,846,692.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-04</td>
+        <td class="description">INTL WIRE SCHMIDT GMBH UETR:q2m6r890-1o5p-6q8r-2m3n-4o5p6q7r8s9t</td>
+        <td class="reference">q2m6r890-1o5p-6q8r-2m3n-4o5p6q7r8s9t</td>
+        <td class="amount credit">+$187,500.00</td>
+        <td class="balance">$4,034,192.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-04</td>
+        <td class="description">RCD CHECK 22157 GARDEN STATE NURSERY</td>
+        <td class="reference">22157</td>
+        <td class="amount credit">+$5,890.00</td>
+        <td class="balance">$4,040,082.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-04</td>
+        <td class="description">ACH CREDIT NEXUS TECHNOLOGIES TRN*061000082934517</td>
+        <td class="reference">061000082934517</td>
+        <td class="amount credit">+$38,900.00</td>
+        <td class="balance">$4,078,982.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-04</td>
+        <td class="description">INCOMING WIRE TITAN INDUSTRIES REF:20260104ABORUS34</td>
+        <td class="reference">20260104ABORUS34</td>
+        <td class="amount credit">+$91,800.00</td>
+        <td class="balance">$4,170,782.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-04</td>
+        <td class="description">INCOMING WIRE PACIFIC RIM TRADING REF:20260104BNYA4523</td>
+        <td class="reference">20260104BNYA4523</td>
+        <td class="amount credit">+$98,700.00</td>
+        <td class="balance">$4,269,482.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-04</td>
+        <td class="description">SWIFT TFR SHANGHAI EXPORTS CO UETR:l3h7m901-2j6k-7l9m-3h4i-5j6k7l8m9n0o</td>
+        <td class="reference">l3h7m901-2j6k-7l9m-3h4i-5j6k7l8m9n0o</td>
+        <td class="amount credit">+$789,600.00</td>
+        <td class="balance">$5,059,082.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-04</td>
+        <td class="description">MOBILE DEP CHECK 89236 ARTISAN COFFEE ROASTERS</td>
+        <td class="reference">89236</td>
+        <td class="amount credit">+$3,120.75</td>
+        <td class="balance">$5,062,203.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-04</td>
+        <td class="description">ACH CREDIT VELOCITY LOGISTICS TRN*031000137489063</td>
+        <td class="reference">031000137489063</td>
+        <td class="amount credit">+$38,900.00</td>
+        <td class="balance">$5,101,103.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-05</td>
+        <td class="description">INTL PMT BEIJING MANUFACTURING UETR:c8e2d456-7a1b-4c3d-8e9f-0a1b2c3d4e5f</td>
+        <td class="reference">c8e2d456-7a1b-4c3d-8e9f-0a1b2c3d4e5f</td>
+        <td class="amount credit">+$178,500.00</td>
+        <td class="balance">$5,279,603.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-05</td>
+        <td class="description">CHECK DEP #45123 HOMETOWN HARDWARE</td>
+        <td class="reference">45123</td>
+        <td class="amount credit">+$3,275.50</td>
+        <td class="balance">$5,282,878.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-05</td>
+        <td class="description">ACH ORIG DELTA MANUFACTURING TRN*021000089123456</td>
+        <td class="reference">021000089123456</td>
+        <td class="amount credit">+$27,600.00</td>
+        <td class="balance">$5,310,478.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-05</td>
+        <td class="description">CHECK DEP #104522 RIVERDALE SUPPLIES</td>
+        <td class="reference">104522</td>
+        <td class="amount credit">+$4,560.00</td>
+        <td class="balance">$5,315,038.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-05</td>
+        <td class="description">ACH CREDIT INNOVATE SYSTEMS INC TRN*081000095172835</td>
+        <td class="reference">081000095172835</td>
+        <td class="amount credit">+$41,200.00</td>
+        <td class="balance">$5,356,238.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-05</td>
+        <td class="description">INCOMING WIRE HARBOR FREIGHT INC REF:20260105FRBKUS67</td>
+        <td class="reference">20260105FRBKUS67</td>
+        <td class="amount credit">+$102,300.00</td>
+        <td class="balance">$5,458,538.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-05</td>
+        <td class="description">SWIFT TFR PARIS LUXE GROUPE UETR:d5z9e123-4b8c-9d1e-5z6a-7b8c9d0e1f2g</td>
+        <td class="reference">d5z9e123-4b8c-9d1e-5z6a-7b8c9d0e1f2g</td>
+        <td class="amount credit">+$678,900.00</td>
+        <td class="balance">$6,137,438.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-05</td>
+        <td class="description">SWIFT TFR YAMAMOTO ELECTRONICS UETR:h9d3i567-8f2g-3h5i-9d0e-1f2g3h4i5j6k</td>
+        <td class="reference">h9d3i567-8f2g-3h5i-9d0e-1f2g3h4i5j6k</td>
+        <td class="amount credit">+$456,200.00</td>
+        <td class="balance">$6,593,638.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-05</td>
+        <td class="description">MOBILE CHECK DEP #67236 VALLEY AUTO PARTS</td>
+        <td class="reference">67236</td>
+        <td class="amount credit">+$4,670.50</td>
+        <td class="balance">$6,598,309.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-05</td>
+        <td class="description">ACH CREDIT SUMMIT LEGAL SERVICES TRN*071000093045629</td>
+        <td class="reference">071000093045629</td>
+        <td class="amount credit">+$56,700.00</td>
+        <td class="balance">$6,655,009.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-05</td>
+        <td class="description">WIRE TFR CARDINAL HEALTH GROUP FED REF 20260105HABORZZ</td>
+        <td class="reference">20260105HABORZZ</td>
+        <td class="amount credit">+$86,700.00</td>
+        <td class="balance">$6,741,709.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-06</td>
+        <td class="description">DOM WIRE SUMMIT HEALTHCARE GROUP REF:20260106FNBOUS44</td>
+        <td class="reference">20260106FNBOUS44</td>
+        <td class="amount credit">+$89,000.00</td>
+        <td class="balance">$6,830,709.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-06</td>
+        <td class="description">SWIFT TFR EUROTECH SARL UETR:d9f3e567-8b2c-4d5e-9f0a-1b2c3d4e5f6g</td>
+        <td class="reference">d9f3e567-8b2c-4d5e-9f0a-1b2c3d4e5f6g</td>
+        <td class="amount credit">+$456,000.00</td>
+        <td class="balance">$7,286,709.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-06</td>
+        <td class="description">MOBILE DEP CHECK 8834 CRAFTY CREATIONS</td>
+        <td class="reference">8834</td>
+        <td class="amount credit">+$1,850.00</td>
+        <td class="balance">$7,288,559.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-06</td>
+        <td class="description">ACH CREDIT NORDSTROM GROUP TRN*061000052847391</td>
+        <td class="reference">061000052847391</td>
+        <td class="amount credit">+$11,250.00</td>
+        <td class="balance">$7,299,809.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-06</td>
+        <td class="description">ACH CREDIT TECHFLOW SOLUTIONS TRN*091400058712935</td>
+        <td class="reference">091400058712935</td>
+        <td class="amount credit">+$13,450.25</td>
+        <td class="balance">$7,313,259.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-06</td>
+        <td class="description">INCOMING WIRE REDWOOD CAPITAL REF:20260106BOFAUS3O</td>
+        <td class="reference">20260106BOFAUS3O</td>
+        <td class="amount credit">+$89,500.00</td>
+        <td class="balance">$7,402,759.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-06</td>
+        <td class="description">SWIFT TFR DUBAI COMMODITIES UETR:z1v5a789-0x4y-5z7a-1v2w-3x4y5z6a7b8c</td>
+        <td class="reference">z1v5a789-0x4y-5z7a-1v2w-3x4y5z6a7b8c</td>
+        <td class="amount credit">+$845,000.00</td>
+        <td class="balance">$8,247,759.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-06</td>
+        <td class="description">MOBILE CHECK DEP #45679 PRECISION TOOLS</td>
+        <td class="reference">45679</td>
+        <td class="amount credit">+$4,230.00</td>
+        <td class="balance">$8,251,989.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-06</td>
+        <td class="description">MOBILE DEP CHECK 7894 MIDWEST DISTRIBUTORS</td>
+        <td class="reference">7894</td>
+        <td class="amount credit">+$8,340.00</td>
+        <td class="balance">$8,260,329.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-06</td>
+        <td class="description">ACH CREDIT BLUEPRINT DESIGNS TRN*031000053928176</td>
+        <td class="reference">031000053928176</td>
+        <td class="amount credit">+$24,300.00</td>
+        <td class="balance">$8,284,629.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-06</td>
+        <td class="description">WIRE TFR PINNACLE ADVISORS FED REF 20260106SVBKUS6U</td>
+        <td class="reference">20260106SVBKUS6U</td>
+        <td class="amount credit">+$81,200.00</td>
+        <td class="balance">$8,365,829.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-06</td>
+        <td class="description">INTL PMT FRANKFURT PHARMA AG UETR:u2q6v890-1s5t-6u8v-2q3r-4s5t6u7v8w9x</td>
+        <td class="reference">u2q6v890-1s5t-6u8v-2q3r-4s5t6u7v8w9x</td>
+        <td class="amount credit">+$398,700.00</td>
+        <td class="balance">$8,764,529.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-07</td>
+        <td class="description">WIRE IN ATLAS LOGISTICS INC FED REF 20260107WFBIUS6S</td>
+        <td class="reference">20260107WFBIUS6S</td>
+        <td class="amount credit">+$55,800.00</td>
+        <td class="balance">$8,820,329.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-07</td>
+        <td class="description">INTL WIRE MUMBAI TEXTILES PVT UETR:e0a4f678-9c3d-4e6f-0a1b-2c3d4e5f6g7h</td>
+        <td class="reference">e0a4f678-9c3d-4e6f-0a1b-2c3d4e5f6g7h</td>
+        <td class="amount credit">+$289,750.00</td>
+        <td class="balance">$9,110,079.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-07</td>
+        <td class="description">DEP CHECK #22156 GARDEN STATE NURSERY</td>
+        <td class="reference">22156</td>
+        <td class="amount credit">+$4,625.00</td>
+        <td class="balance">$9,114,704.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-07</td>
+        <td class="description">ACH PMT INNOVATE SYSTEMS INC TRACE#081000095172834</td>
+        <td class="reference">081000095172834</td>
+        <td class="amount credit">+$33,400.00</td>
+        <td class="balance">$9,148,104.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-07</td>
+        <td class="description">INCOMING WIRE PACIFIC RIM TRADING REF:20260107BNYA4522</td>
+        <td class="reference">20260107BNYA4522</td>
+        <td class="amount credit">+$78,900.00</td>
+        <td class="balance">$9,227,004.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-07</td>
+        <td class="description">SWIFT TFR SHANGHAI EXPORTS CO UETR:v7r1w345-6t0u-1v3w-7r8s-9t0u1v2w3x4y</td>
+        <td class="reference">v7r1w345-6t0u-1v3w-7r8s-9t0u1v2w3x4y</td>
+        <td class="amount credit">+$678,500.00</td>
+        <td class="balance">$9,905,504.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-07</td>
+        <td class="description">MOBILE DEP CHECK 89235 ARTISAN COFFEE ROASTERS</td>
+        <td class="reference">89235</td>
+        <td class="amount credit">+$2,340.50</td>
+        <td class="balance">$9,907,845.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-07</td>
+        <td class="description">ACH ORIG VELOCITY LOGISTICS TRN*031000137489062</td>
+        <td class="reference">031000137489062</td>
+        <td class="amount credit">+$32,100.00</td>
+        <td class="balance">$9,939,945.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-07</td>
+        <td class="description">ACH CREDIT STERLING PARTNERS LLC TRN*071000013928477</td>
+        <td class="reference">071000013928477</td>
+        <td class="amount credit">+$35,400.00</td>
+        <td class="balance">$9,975,345.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-07</td>
+        <td class="description">WIRE TFR MERIDIAN INVESTMENTS FED REF 20260107CITIUS35</td>
+        <td class="reference">20260107CITIUS35</td>
+        <td class="amount credit">+$147,800.00</td>
+        <td class="balance">$10,123,145.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-07</td>
+        <td class="description">INTL PMT AMSTERDAM CHEMICALS BV UETR:q8m2r456-7o1p-2q4r-8m9n-0o1p2q3r4s5t</td>
+        <td class="reference">q8m2r456-7o1p-2q4r-8m9n-0o1p2q3r4s5t</td>
+        <td class="amount credit">+$534,200.00</td>
+        <td class="balance">$10,657,345.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-07</td>
+        <td class="description">DEP CHECK #67892 SUNSET VETERINARY CLINIC</td>
+        <td class="reference">67892</td>
+        <td class="amount credit">+$11,230.50</td>
+        <td class="balance">$10,668,575.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-08</td>
+        <td class="description">INCOMING WIRE REDWOOD CAPITAL REF:20260108BOFAUS3N</td>
+        <td class="reference">20260108BOFAUS3N</td>
+        <td class="amount credit">+$72,100.00</td>
+        <td class="balance">$10,740,675.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-08</td>
+        <td class="description">SWIFT PMT SHANGHAI EXPORTS CO UETR:f1b5g789-0d4e-5f7g-1b2c-3d4e5f6g7h8i</td>
+        <td class="reference">f1b5g789-0d4e-5f7g-1b2c-3d4e5f6g7h8i</td>
+        <td class="amount credit">+$567,000.00</td>
+        <td class="balance">$11,307,675.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-08</td>
+        <td class="description">CHECK DEPOSIT #67234 VALLEY AUTO PARTS</td>
+        <td class="reference">67234</td>
+        <td class="amount credit">+$2,100.50</td>
+        <td class="balance">$11,309,776.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-08</td>
+        <td class="description">ACH CREDIT BLUEPRINT DESIGNS TRN*031000053928174</td>
+        <td class="reference">031000053928174</td>
+        <td class="amount credit">+$14,500.00</td>
+        <td class="balance">$11,324,276.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-08</td>
+        <td class="description">SWIFT TFR YAMAMOTO ELECTRONICS UETR:r3n7s901-2p6q-7r9s-3n4o-5p6q7r8s9t0u</td>
+        <td class="reference">r3n7s901-2p6q-7r9s-3n4o-5p6q7r8s9t0u</td>
+        <td class="amount credit">+$345,200.00</td>
+        <td class="balance">$11,669,476.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-08</td>
+        <td class="description">MOBILE CHECK DEP #67235 VALLEY AUTO PARTS</td>
+        <td class="reference">67235</td>
+        <td class="amount credit">+$3,450.75</td>
+        <td class="balance">$11,672,926.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-08</td>
+        <td class="description">ACH ORIG SUMMIT LEGAL SERVICES TRN*071000093045628</td>
+        <td class="reference">071000093045628</td>
+        <td class="amount credit">+$47,800.00</td>
+        <td class="balance">$11,720,726.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-08</td>
+        <td class="description">WIRE TFR CARDINAL HEALTH GROUP FED REF 20260108HABORYY</td>
+        <td class="reference">20260108HABORYY</td>
+        <td class="amount credit">+$71,500.00</td>
+        <td class="balance">$11,792,226.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-08</td>
+        <td class="description">WIRE TFR COASTAL SHIPPING CO FED REF 20260108CHASUS33ZZZ</td>
+        <td class="reference">20260108CHASUS33ZZZ</td>
+        <td class="amount credit">+$71,200.00</td>
+        <td class="balance">$11,863,426.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-08</td>
+        <td class="description">INTL PMT LONDON TRADING GROUP UETR:m4i8n012-3k7l-8m0n-4i5j-6k7l8m9n0o1p</td>
+        <td class="reference">m4i8n012-3k7l-8m0n-4i5j-6k7l8m9n0o1p</td>
+        <td class="amount credit">+$267,400.00</td>
+        <td class="balance">$12,130,826.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-08</td>
+        <td class="description">DEP CHECK #56125 MOUNTAIN VIEW LANDSCAPING</td>
+        <td class="reference">56125</td>
+        <td class="amount credit">+$7,340.00</td>
+        <td class="balance">$12,138,166.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-08</td>
+        <td class="description">ACH PMT QUANTUM ANALYTICS TRACE#041000148590174</td>
+        <td class="reference">041000148590174</td>
+        <td class="amount credit">+$47,600.00</td>
+        <td class="balance">$12,185,766.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-09</td>
+        <td class="description">WIRE TFR MERIDIAN INVESTMENTS FED REF 20260109CITIUS33</td>
+        <td class="reference">20260109CITIUS33</td>
+        <td class="amount credit">+$98,500.00</td>
+        <td class="balance">$12,284,266.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-09</td>
+        <td class="description">INTL PMT LONDON TRADING GROUP UETR:g2c6h890-1e5f-6g8h-2c3d-4e5f6g7h8i9j</td>
+        <td class="reference">g2c6h890-1e5f-6g8h-2c3d-4e5f6g7h8i9j</td>
+        <td class="amount credit">+$145,200.00</td>
+        <td class="balance">$12,429,466.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-09</td>
+        <td class="description">RCD CHECK 33892 SUNRISE BAKERY</td>
+        <td class="reference">33892</td>
+        <td class="amount credit">+$6,780.00</td>
+        <td class="balance">$12,436,246.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-09</td>
+        <td class="description">ACH ORIG PREMIER CONSULTING TRN*041000062718293</td>
+        <td class="reference">041000062718293</td>
+        <td class="amount credit">+$21,350.75</td>
+        <td class="balance">$12,457,597.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-09</td>
+        <td class="description">MOBILE DEP CHECK 7893 MIDWEST DISTRIBUTORS</td>
+        <td class="reference">7893</td>
+        <td class="amount credit">+$6,780.50</td>
+        <td class="balance">$12,464,378.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-09</td>
+        <td class="description">ACH ORIG BLUEPRINT DESIGNS TRN*031000053928175</td>
+        <td class="reference">031000053928175</td>
+        <td class="amount credit">+$19,800.00</td>
+        <td class="balance">$12,484,178.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-09</td>
+        <td class="description">WIRE TFR PINNACLE ADVISORS FED REF 20260109SVBKUS6T</td>
+        <td class="reference">20260109SVBKUS6T</td>
+        <td class="amount credit">+$67,100.00</td>
+        <td class="balance">$12,551,278.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-09</td>
+        <td class="description">INTL PMT FRANKFURT PHARMA AG UETR:e6a0f234-5c9d-0e2f-6a7b-8c9d0e1f2g3h</td>
+        <td class="reference">e6a0f234-5c9d-0e2f-6a7b-8c9d0e1f2g3h</td>
+        <td class="amount credit">+$312,400.00</td>
+        <td class="balance">$12,863,678.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-09</td>
+        <td class="description">INTL PMT BEIJING MANUFACTURING UETR:i0e4j678-9g3h-4i6j-0e1f-2g3h4i5j6k7l</td>
+        <td class="reference">i0e4j678-9g3h-4i6j-0e1f-2g3h4i5j6k7l</td>
+        <td class="amount credit">+$312,500.00</td>
+        <td class="balance">$13,176,178.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-09</td>
+        <td class="description">DEP CHECK #33894 SUNRISE BAKERY</td>
+        <td class="reference">33894</td>
+        <td class="amount credit">+$10,560.00</td>
+        <td class="balance">$13,186,738.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-09</td>
+        <td class="description">ACH PMT BRIGHTSTAR MEDIA TRACE#081000104156740</td>
+        <td class="reference">081000104156740</td>
+        <td class="amount credit">+$19,450.50</td>
+        <td class="balance">$13,206,188.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-09</td>
+        <td class="description">DOM WIRE LIBERTY MUTUAL FUNDS REF:20260109MRLYUS35</td>
+        <td class="reference">20260109MRLYUS35</td>
+        <td class="amount credit">+$126,700.00</td>
+        <td class="balance">$13,332,888.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-10</td>
+        <td class="description">DOM WIRE CORNERSTONE PROPERTIES REF:20260110PNCCUS33</td>
+        <td class="reference">20260110PNCCUS33</td>
+        <td class="amount credit">+$63,200.00</td>
+        <td class="balance">$13,396,088.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-10</td>
+        <td class="description">SWIFT CREDIT TOKYO MOTORS CORP UETR:h3d7i901-2f6g-7h9i-3d4e-5f6g7h8i9j0k</td>
+        <td class="reference">h3d7i901-2f6g-7h9i-3d4e-5f6g7h8i9j0k</td>
+        <td class="amount credit">+$892,000.00</td>
+        <td class="balance">$14,288,088.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-10</td>
+        <td class="description">MOBILE CHECK DEP #78456 QUALITY PRINT SHOP</td>
+        <td class="reference">78456</td>
+        <td class="amount credit">+$3,450.00</td>
+        <td class="balance">$14,291,538.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-10</td>
+        <td class="description">ACH CREDIT FRONTIER ENERGY TRN*051000071829345</td>
+        <td class="reference">051000071829345</td>
+        <td class="amount credit">+$16,800.00</td>
+        <td class="balance">$14,308,338.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-10</td>
+        <td class="description">ACH ORIG STERLING PARTNERS LLC TRN*071000013928476</td>
+        <td class="reference">071000013928476</td>
+        <td class="amount credit">+$28,900.00</td>
+        <td class="balance">$14,337,238.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-10</td>
+        <td class="description">WIRE TFR MERIDIAN INVESTMENTS FED REF 20260110CITIUS34</td>
+        <td class="reference">20260110CITIUS34</td>
+        <td class="amount credit">+$124,500.00</td>
+        <td class="balance">$14,461,738.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-10</td>
+        <td class="description">INTL PMT AMSTERDAM CHEMICALS BV UETR:a2w6b890-1y5z-6a8b-2w3x-4y5z6a7b8c9d</td>
+        <td class="reference">a2w6b890-1y5z-6a8b-2w3x-4y5z6a7b8c9d</td>
+        <td class="amount credit">+$456,700.00</td>
+        <td class="balance">$14,918,438.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-10</td>
+        <td class="description">DEP CHECK #67891 SUNSET VETERINARY CLINIC</td>
+        <td class="reference">67891</td>
+        <td class="amount credit">+$9,450.75</td>
+        <td class="balance">$14,927,889.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-10</td>
+        <td class="description">DEP CHECK #45125 HOMETOWN HARDWARE</td>
+        <td class="reference">45125</td>
+        <td class="amount credit">+$5,120.00</td>
+        <td class="balance">$14,933,009.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-10</td>
+        <td class="description">ACH PMT PREMIER CONSULTING TRACE#041000062718295</td>
+        <td class="reference">041000062718295</td>
+        <td class="amount credit">+$33,450.75</td>
+        <td class="balance">$14,966,460.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-10</td>
+        <td class="description">DOM WIRE GRANITE CONSTRUCTION REF:20260110NYCBUS35</td>
+        <td class="reference">20260110NYCBUS35</td>
+        <td class="amount credit">+$142,300.00</td>
+        <td class="balance">$15,108,760.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-10</td>
+        <td class="description">SWIFT CREDIT SINGAPORE TECH HUB UETR:v3r7w901-2t6u-7v9w-3r4s-5t6u7v8w9x0y</td>
+        <td class="reference">v3r7w901-2t6u-7v9w-3r4s-5t6u7v8w9x0y</td>
+        <td class="amount credit">+$1,023,000.00</td>
+        <td class="balance">$16,131,760.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-11</td>
+        <td class="description">WIRE IN CASCADE VENTURES LLC FED REF 20260111USBKUS44</td>
+        <td class="reference">20260111USBKUS44</td>
+        <td class="amount credit">+$44,750.00</td>
+        <td class="balance">$16,176,510.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-11</td>
+        <td class="description">INTL WIRE SAO PAULO FOODS SA UETR:i4e8j012-3g7h-8i0j-4e5f-6g7h8i9j0k1l</td>
+        <td class="reference">i4e8j012-3g7h-8i0j-4e5f-6g7h8i9j0k1l</td>
+        <td class="amount credit">+$234,500.00</td>
+        <td class="balance">$16,411,010.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-11</td>
+        <td class="description">DEP CHECK #12789 LAKESIDE MARINA</td>
+        <td class="reference">12789</td>
+        <td class="amount credit">+$8,920.00</td>
+        <td class="balance">$16,419,930.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-11</td>
+        <td class="description">ACH PMT NEXUS TECHNOLOGIES TRACE#061000082934516</td>
+        <td class="reference">061000082934516</td>
+        <td class="amount credit">+$29,100.00</td>
+        <td class="balance">$16,449,030.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-11</td>
+        <td class="description">WIRE TFR COASTAL SHIPPING CO FED REF 20260111CHASUS33YYY</td>
+        <td class="reference">20260111CHASUS33YYY</td>
+        <td class="amount credit">+$56,700.00</td>
+        <td class="balance">$16,505,730.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-11</td>
+        <td class="description">INTL PMT LONDON TRADING GROUP UETR:w8s2x456-7u1v-2w4x-8s9t-0u1v2w3x4y5z</td>
+        <td class="reference">w8s2x456-7u1v-2w4x-8s9t-0u1v2w3x4y5z</td>
+        <td class="amount credit">+$198,700.00</td>
+        <td class="balance">$16,704,430.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-11</td>
+        <td class="description">DEP CHECK #56124 MOUNTAIN VIEW LANDSCAPING</td>
+        <td class="reference">56124</td>
+        <td class="amount credit">+$6,120.00</td>
+        <td class="balance">$16,710,550.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-11</td>
+        <td class="description">ACH CREDIT QUANTUM ANALYTICS TRN*041000148590173</td>
+        <td class="reference">041000148590173</td>
+        <td class="amount credit">+$39,600.00</td>
+        <td class="balance">$16,750,150.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-11</td>
+        <td class="description">ACH PMT DELTA MANUFACTURING TRACE#021000089123458</td>
+        <td class="reference">021000089123458</td>
+        <td class="amount credit">+$43,200.75</td>
+        <td class="balance">$16,793,350.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-11</td>
+        <td class="description">DOM WIRE CORNERSTONE PROPERTIES REF:20260111PNCCUS35</td>
+        <td class="reference">20260111PNCCUS35</td>
+        <td class="amount credit">+$92,100.00</td>
+        <td class="balance">$16,885,450.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-11</td>
+        <td class="description">SWIFT CREDIT MELBOURNE MINERALS UETR:r9n3s567-8p2q-3r5s-9n0o-1p2q3r4s5t6u</td>
+        <td class="reference">r9n3s567-8p2q-3r5s-9n0o-1p2q3r4s5t6u</td>
+        <td class="amount credit">+$312,400.00</td>
+        <td class="balance">$17,197,850.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-11</td>
+        <td class="description">CHECK DEPOSIT #78903 HAPPY PAWS PET STORE</td>
+        <td class="reference">78903</td>
+        <td class="amount credit">+$3,340.00</td>
+        <td class="balance">$17,201,190.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-12</td>
+        <td class="description">INCOMING WIRE HARBOR FREIGHT INC REF:20260112FRBKUS66</td>
+        <td class="reference">20260112FRBKUS66</td>
+        <td class="amount credit">+$81,500.00</td>
+        <td class="balance">$17,282,690.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-12</td>
+        <td class="description">SWIFT TFR DUBAI COMMODITIES UETR:j5f9k123-4h8i-9j1k-5f6g-7h8i9j0k1l2m</td>
+        <td class="reference">j5f9k123-4h8i-9j1k-5f6g-7h8i9j0k1l2m</td>
+        <td class="amount credit">+$678,900.00</td>
+        <td class="balance">$17,961,590.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-12</td>
+        <td class="description">CHECK DEPOSIT #89234 ARTISAN COFFEE ROASTERS</td>
+        <td class="reference">89234</td>
+        <td class="amount credit">+$1,575.25</td>
+        <td class="balance">$17,963,166.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-12</td>
+        <td class="description">ACH CREDIT SUMMIT LEGAL SERVICES TRN*071000093045627</td>
+        <td class="reference">071000093045627</td>
+        <td class="amount credit">+$38,750.00</td>
+        <td class="balance">$18,001,916.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-12</td>
+        <td class="description">INTL PMT BEIJING MANUFACTURING UETR:s4o8t012-3q7r-8s0t-4o5p-6q7r8s9t0u1v</td>
+        <td class="reference">s4o8t012-3q7r-8s0t-4o5p-6q7r8s9t0u1v</td>
+        <td class="amount credit">+$234,500.00</td>
+        <td class="balance">$18,236,416.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-12</td>
+        <td class="description">CHECK DEP #33893 SUNRISE BAKERY</td>
+        <td class="reference">33893</td>
+        <td class="amount credit">+$8,920.00</td>
+        <td class="balance">$18,245,336.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-12</td>
+        <td class="description">ACH CREDIT BRIGHTSTAR MEDIA TRN*081000104156739</td>
+        <td class="reference">081000104156739</td>
+        <td class="amount credit">+$15,890.25</td>
+        <td class="balance">$18,261,226.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-12</td>
+        <td class="description">DOM WIRE LIBERTY MUTUAL FUNDS REF:20260112MRLYUS34</td>
+        <td class="reference">20260112MRLYUS34</td>
+        <td class="amount credit">+$104,500.00</td>
+        <td class="balance">$18,365,726.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-12</td>
+        <td class="description">DOM WIRE SUMMIT HEALTHCARE GROUP REF:20260112FNBOUS46</td>
+        <td class="reference">20260112FNBOUS46</td>
+        <td class="amount credit">+$134,500.00</td>
+        <td class="balance">$18,500,226.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-12</td>
+        <td class="description">SWIFT CREDIT TOKYO MOTORS CORP UETR:n5j9o123-4l8m-9n1o-5j6k-7l8m9n0o1p2q</td>
+        <td class="reference">n5j9o123-4l8m-9n1o-5j6k-7l8m9n0o1p2q</td>
+        <td class="amount credit">+$1,456,000.00</td>
+        <td class="balance">$19,956,226.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-12</td>
+        <td class="description">CHECK DEP #34569 RIVERSIDE PLUMBING</td>
+        <td class="reference">34569</td>
+        <td class="amount credit">+$4,560.00</td>
+        <td class="balance">$19,960,786.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-12</td>
+        <td class="description">ACH CREDIT APEX MANUFACTURING TRN*051000159601285</td>
+        <td class="reference">051000159601285</td>
+        <td class="amount credit">+$61,200.00</td>
+        <td class="balance">$20,021,986.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-13</td>
+        <td class="description">WIRE TFR PINNACLE ADVISORS FED REF 20260113SVBKUS6S</td>
+        <td class="reference">20260113SVBKUS6S</td>
+        <td class="amount credit">+$52,400.00</td>
+        <td class="balance">$20,074,386.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-13</td>
+        <td class="description">INTL PMT AMSTERDAM CHEMICALS BV UETR:k6g0l234-5i9j-0k2l-6g7h-8i9j0k1l2m3n</td>
+        <td class="reference">k6g0l234-5i9j-0k2l-6g7h-8i9j0k1l2m3n</td>
+        <td class="amount credit">+$345,600.00</td>
+        <td class="balance">$20,419,986.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-13</td>
+        <td class="description">RCD DEP CHECK 56123 MOUNTAIN VIEW LANDSCAPING</td>
+        <td class="reference">56123</td>
+        <td class="amount credit">+$4,890.00</td>
+        <td class="balance">$20,424,876.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-13</td>
+        <td class="description">ACH ORIG BRIGHTSTAR MEDIA TRN*081000104156738</td>
+        <td class="reference">081000104156738</td>
+        <td class="amount credit">+$12,650.50</td>
+        <td class="balance">$20,437,526.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-13</td>
+        <td class="description">CHECK DEPOSIT #45124 HOMETOWN HARDWARE</td>
+        <td class="reference">45124</td>
+        <td class="amount credit">+$4,125.00</td>
+        <td class="balance">$20,441,651.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-13</td>
+        <td class="description">ACH CREDIT PREMIER CONSULTING TRN*041000062718294</td>
+        <td class="reference">041000062718294</td>
+        <td class="amount credit">+$27,650.50</td>
+        <td class="balance">$20,469,302.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-13</td>
+        <td class="description">DOM WIRE GRANITE CONSTRUCTION REF:20260113NYCBUS34</td>
+        <td class="reference">20260113NYCBUS34</td>
+        <td class="amount credit">+$118,500.00</td>
+        <td class="balance">$20,587,802.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-13</td>
+        <td class="description">SWIFT CREDIT SINGAPORE TECH HUB UETR:f7b1g345-6d0e-1f3g-7b8c-9d0e1f2g3h4i</td>
+        <td class="reference">f7b1g345-6d0e-1f3g-7b8c-9d0e1f2g3h4i</td>
+        <td class="amount credit">+$912,000.00</td>
+        <td class="balance">$21,499,802.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-13</td>
+        <td class="description">SWIFT CREDIT EUROTECH SARL UETR:j1f5k789-0h4i-5j7k-1f2g-3h4i5j6k7l8m</td>
+        <td class="reference">j1f5k789-0h4i-5j7k-1f2g-3h4i5j6k7l8m</td>
+        <td class="amount credit">+$698,000.00</td>
+        <td class="balance">$22,197,802.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-13</td>
+        <td class="description">CHECK DEPOSIT #78458 QUALITY PRINT SHOP</td>
+        <td class="reference">78458</td>
+        <td class="amount credit">+$5,890.00</td>
+        <td class="balance">$22,203,692.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-13</td>
+        <td class="description">ACH CREDIT HERITAGE INSURANCE TRN*091000115267851</td>
+        <td class="reference">091000115267851</td>
+        <td class="amount credit">+$63,200.00</td>
+        <td class="balance">$22,266,892.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-13</td>
+        <td class="description">ACH ORIG ACME CORPORATION TRN*091000019847565</td>
+        <td class="reference">091000019847565</td>
+        <td class="amount credit">+$34,500.00</td>
+        <td class="balance">$22,301,392.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-14</td>
+        <td class="description">DOM WIRE GRANITE CONSTRUCTION REF:20260114NYCBUS33</td>
+        <td class="reference">20260114NYCBUS33</td>
+        <td class="amount credit">+$96,300.00</td>
+        <td class="balance">$22,397,692.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-14</td>
+        <td class="description">SWIFT CREDIT MELBOURNE MINERALS UETR:l7h1m345-6j0k-1l3m-7h8i-9j0k1l2m3n4o</td>
+        <td class="reference">l7h1m345-6j0k-1l3m-7h8i-9j0k1l2m3n4o</td>
+        <td class="amount credit">+$189,400.00</td>
+        <td class="balance">$22,587,092.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-14</td>
+        <td class="description">CHECK DEP #34567 RIVERSIDE PLUMBING</td>
+        <td class="reference">34567</td>
+        <td class="amount credit">+$2,250.00</td>
+        <td class="balance">$22,589,342.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-14</td>
+        <td class="description">ACH CREDIT HERITAGE INSURANCE TRN*091000115267849</td>
+        <td class="reference">091000115267849</td>
+        <td class="amount credit">+$45,200.00</td>
+        <td class="balance">$22,634,542.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-14</td>
+        <td class="description">ACH CREDIT DELTA MANUFACTURING TRN*021000089123457</td>
+        <td class="reference">021000089123457</td>
+        <td class="amount credit">+$35,600.75</td>
+        <td class="balance">$22,670,143.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-14</td>
+        <td class="description">DOM WIRE CORNERSTONE PROPERTIES REF:20260114PNCCUS34</td>
+        <td class="reference">20260114PNCCUS34</td>
+        <td class="amount credit">+$78,400.00</td>
+        <td class="balance">$22,748,543.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-14</td>
+        <td class="description">SWIFT CREDIT MELBOURNE MINERALS UETR:b3x7c901-2z6a-7b9c-3x4y-5z6a7b8c9d0e</td>
+        <td class="reference">b3x7c901-2z6a-7b9c-3x4y-5z6a7b8c9d0e</td>
+        <td class="amount credit">+$245,600.00</td>
+        <td class="balance">$22,994,143.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-14</td>
+        <td class="description">RCD DEP CHECK 78902 HAPPY PAWS PET STORE</td>
+        <td class="reference">78902</td>
+        <td class="amount credit">+$2,560.00</td>
+        <td class="balance">$22,996,703.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-14</td>
+        <td class="description">CHECK DEP #8836 CRAFTY CREATIONS</td>
+        <td class="reference">8836</td>
+        <td class="amount credit">+$3,420.00</td>
+        <td class="balance">$23,000,123.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-14</td>
+        <td class="description">ACH CREDIT FRONTIER ENERGY TRN*051000071829347</td>
+        <td class="reference">051000071829347</td>
+        <td class="amount credit">+$28,700.00</td>
+        <td class="balance">$23,028,823.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-14</td>
+        <td class="description">WIRE IN OLYMPUS FINANCIAL FED REF 20260114TDOMUS35</td>
+        <td class="reference">20260114TDOMUS35</td>
+        <td class="amount credit">+$97,500.00</td>
+        <td class="balance">$23,126,323.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-14</td>
+        <td class="description">WIRE IN GLOBEX INDUSTRIES FED REF 20260114MQFT7832</td>
+        <td class="reference">20260114MQFT7832</td>
+        <td class="amount credit">+$138,900.00</td>
+        <td class="balance">$23,265,223.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-15</td>
+        <td class="description">WIRE IN OLYMPUS FINANCIAL FED REF 20260115TDOMUS33</td>
+        <td class="reference">20260115TDOMUS33</td>
+        <td class="amount credit">+$67,800.00</td>
+        <td class="balance">$23,333,023.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-15</td>
+        <td class="description">INTL WIRE SEOUL SEMICONDUCTOR UETR:m8i2n456-7k1l-2m4n-8i9j-0k1l2m3n4o5p</td>
+        <td class="reference">m8i2n456-7k1l-2m4n-8i9j-0k1l2m3n4o5p</td>
+        <td class="amount credit">+$423,500.00</td>
+        <td class="balance">$23,756,523.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-15</td>
+        <td class="description">MOBILE DEP CHECK 90123 CREATIVE CATERING</td>
+        <td class="reference">90123</td>
+        <td class="amount credit">+$5,670.00</td>
+        <td class="balance">$23,762,193.00</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-15</td>
+        <td class="description">ACH PMT EVERGREEN SUPPLIES TRACE#021000126378950</td>
+        <td class="reference">021000126378950</td>
+        <td class="amount credit">+$18,900.25</td>
+        <td class="balance">$23,781,093.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-15</td>
+        <td class="description">DOM WIRE SUMMIT HEALTHCARE GROUP REF:20260115FNBOUS45</td>
+        <td class="reference">20260115FNBOUS45</td>
+        <td class="amount credit">+$112,000.00</td>
+        <td class="balance">$23,893,093.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-15</td>
+        <td class="description">SWIFT CREDIT TOKYO MOTORS CORP UETR:x9t3y567-8v2w-3x5y-9t0u-1v2w3x4y5z6a</td>
+        <td class="reference">x9t3y567-8v2w-3x5y-9t0u-1v2w3x4y5z6a</td>
+        <td class="amount credit">+$1,234,000.00</td>
+        <td class="balance">$25,127,093.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-15</td>
+        <td class="description">CHECK DEP #34568 RIVERSIDE PLUMBING</td>
+        <td class="reference">34568</td>
+        <td class="amount credit">+$3,560.00</td>
+        <td class="balance">$25,130,653.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-15</td>
+        <td class="description">ACH PMT APEX MANUFACTURING TRACE#051000159601284</td>
+        <td class="reference">051000159601284</td>
+        <td class="amount credit">+$52,800.00</td>
+        <td class="balance">$25,183,453.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-15</td>
+        <td class="description">ACH CREDIT NORDSTROM GROUP TRN*061000052847393</td>
+        <td class="reference">061000052847393</td>
+        <td class="amount credit">+$21,560.00</td>
+        <td class="balance">$25,205,013.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-15</td>
+        <td class="description">WIRE IN CASCADE VENTURES LLC FED REF 20260115USBKUS46</td>
+        <td class="reference">20260115USBKUS46</td>
+        <td class="amount credit">+$68,400.00</td>
+        <td class="balance">$25,273,413.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-15</td>
+        <td class="description">INTL WIRE SEOUL SEMICONDUCTOR UETR:s0o4t678-9q3r-4s6t-0o1p-2q3r4s5t6u7v</td>
+        <td class="reference">s0o4t678-9q3r-4s6t-0o1p-2q3r4s5t6u7v</td>
+        <td class="amount credit">+$623,000.00</td>
+        <td class="balance">$25,896,413.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-15</td>
+        <td class="description">INTL WIRE SCHMIDT GMBH UETR:w4s8x012-3u7v-8w0x-4s5t-6u7v8w9x0y1z</td>
+        <td class="reference">w4s8x012-3u7v-8w0x-4s5t-6u7v8w9x0y1z</td>
+        <td class="amount credit">+$312,500.00</td>
+        <td class="balance">$26,208,913.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-16</td>
+        <td class="description">INCOMING WIRE TITAN INDUSTRIES REF:20260116ABORUS33</td>
+        <td class="reference">20260116ABORUS33</td>
+        <td class="amount credit">+$74,600.00</td>
+        <td class="balance">$26,283,513.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-16</td>
+        <td class="description">SWIFT TFR PARIS LUXE GROUPE UETR:n9j3o567-8l2m-3n5o-9j0k-1l2m3n4o5p6q</td>
+        <td class="reference">n9j3o567-8l2m-3n5o-9j0k-1l2m3n4o5p6q</td>
+        <td class="amount credit">+$567,800.00</td>
+        <td class="balance">$26,851,313.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-16</td>
+        <td class="description">CHECK DEPOSIT #45678 PRECISION TOOLS</td>
+        <td class="reference">45678</td>
+        <td class="amount credit">+$3,120.00</td>
+        <td class="balance">$26,854,433.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-16</td>
+        <td class="description">ACH CREDIT VELOCITY LOGISTICS TRN*031000137489061</td>
+        <td class="reference">031000137489061</td>
+        <td class="amount credit">+$26,400.00</td>
+        <td class="balance">$26,880,833.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-16</td>
+        <td class="description">SWIFT CREDIT EUROTECH SARL UETR:t5p9u123-4r8s-9t1u-5p6q-7r8s9t0u1v2w</td>
+        <td class="reference">t5p9u123-4r8s-9t1u-5p6q-7r8s9t0u1v2w</td>
+        <td class="amount credit">+$567,000.00</td>
+        <td class="balance">$27,447,833.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-16</td>
+        <td class="description">RCD DEP CHECK 78457 QUALITY PRINT SHOP</td>
+        <td class="reference">78457</td>
+        <td class="amount credit">+$4,780.00</td>
+        <td class="balance">$27,452,613.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-16</td>
+        <td class="description">ACH PMT HERITAGE INSURANCE TRACE#091000115267850</td>
+        <td class="reference">091000115267850</td>
+        <td class="amount credit">+$54,300.00</td>
+        <td class="balance">$27,506,913.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-16</td>
+        <td class="description">ACH CREDIT ACME CORPORATION TRN*091000019847564</td>
+        <td class="reference">091000019847564</td>
+        <td class="amount credit">+$28,900.00</td>
+        <td class="balance">$27,535,813.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-16</td>
+        <td class="description">WIRE IN ATLAS LOGISTICS INC FED REF 20260116WFBIUS6U</td>
+        <td class="reference">20260116WFBIUS6U</td>
+        <td class="amount credit">+$83,400.00</td>
+        <td class="balance">$27,619,213.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-16</td>
+        <td class="description">INTL WIRE SAO PAULO FOODS SA UETR:o6k0p234-5m9n-0o2p-6k7l-8m9n0o1p2q3r</td>
+        <td class="reference">o6k0p234-5m9n-0o2p-6k7l-8m9n0o1p2q3r</td>
+        <td class="amount credit">+$398,500.00</td>
+        <td class="balance">$28,017,713.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-16</td>
+        <td class="description">RCD CHECK 90125 CREATIVE CATERING</td>
+        <td class="reference">90125</td>
+        <td class="amount credit">+$8,450.00</td>
+        <td class="balance">$28,026,163.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-16</td>
+        <td class="description">RCD DEP CHECK 104524 RIVERDALE SUPPLIES</td>
+        <td class="reference">104524</td>
+        <td class="amount credit">+$7,230.00</td>
+        <td class="balance">$28,033,393.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-17</td>
+        <td class="description">WIRE TFR CARDINAL HEALTH GROUP FED REF 20260117HABORXX</td>
+        <td class="reference">20260117HABORXX</td>
+        <td class="amount credit">+$58,900.00</td>
+        <td class="balance">$28,092,293.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-17</td>
+        <td class="description">INTL PMT FRANKFURT PHARMA AG UETR:o0k4p678-9m3n-4o6p-0k1l-2m3n4o5p6q7r</td>
+        <td class="reference">o0k4p678-9m3n-4o6p-0k1l-2m3n4o5p6q7r</td>
+        <td class="amount credit">+$234,100.00</td>
+        <td class="balance">$28,326,393.25</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-17</td>
+        <td class="description">DEP CHECK #67890 SUNSET VETERINARY CLINIC</td>
+        <td class="reference">67890</td>
+        <td class="amount credit">+$7,840.50</td>
+        <td class="balance">$28,334,233.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-17</td>
+        <td class="description">ACH ORIG QUANTUM ANALYTICS TRN*041000148590172</td>
+        <td class="reference">041000148590172</td>
+        <td class="amount credit">+$31,750.00</td>
+        <td class="balance">$28,365,983.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-17</td>
+        <td class="description">DEP CHECK #8835 CRAFTY CREATIONS</td>
+        <td class="reference">8835</td>
+        <td class="amount credit">+$2,675.00</td>
+        <td class="balance">$28,368,658.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-17</td>
+        <td class="description">ACH PMT FRONTIER ENERGY TRACE#051000071829346</td>
+        <td class="reference">051000071829346</td>
+        <td class="amount credit">+$22,100.00</td>
+        <td class="balance">$28,390,758.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-17</td>
+        <td class="description">WIRE IN OLYMPUS FINANCIAL FED REF 20260117TDOMUS34</td>
+        <td class="reference">20260117TDOMUS34</td>
+        <td class="amount credit">+$82,100.00</td>
+        <td class="balance">$28,472,858.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-17</td>
+        <td class="description">WIRE IN GLOBEX INDUSTRIES FED REF 20260117MQFT7831</td>
+        <td class="reference">20260117MQFT7831</td>
+        <td class="amount credit">+$115,600.00</td>
+        <td class="balance">$28,588,458.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-17</td>
+        <td class="description">INTL WIRE MUMBAI TEXTILES PVT UETR:k2g6l890-1i5j-6k8l-2g3h-4i5j6k7l8m9n</td>
+        <td class="reference">k2g6l890-1i5j-6k8l-2g3h-4i5j6k7l8m9n</td>
+        <td class="amount credit">+$523,000.00</td>
+        <td class="balance">$29,111,458.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-17</td>
+        <td class="description">RCD DEP CHECK 12791 LAKESIDE MARINA</td>
+        <td class="reference">12791</td>
+        <td class="amount credit">+$13,450.00</td>
+        <td class="balance">$29,124,908.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-17</td>
+        <td class="description">ACH ORIG EVERGREEN SUPPLIES TRN*021000126378952</td>
+        <td class="reference">021000126378952</td>
+        <td class="amount credit">+$29,800.75</td>
+        <td class="balance">$29,154,709.50</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-17</td>
+        <td class="description">ACH PMT TECHFLOW SOLUTIONS TRACE#091400058712937</td>
+        <td class="reference">091400058712937</td>
+        <td class="amount credit">+$21,890.25</td>
+        <td class="balance">$29,176,599.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-18</td>
+        <td class="description">DOM WIRE LIBERTY MUTUAL FUNDS REF:20260118MRLYUS33</td>
+        <td class="reference">20260118MRLYUS33</td>
+        <td class="amount credit">+$85,200.00</td>
+        <td class="balance">$29,261,799.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-18</td>
+        <td class="description">SWIFT CREDIT SINGAPORE TECH HUB UETR:p1l5q789-0n4o-5p7q-1l2m-3n4o5p6q7r8s</td>
+        <td class="reference">p1l5q789-0n4o-5p7q-1l2m-3n4o5p6q7r8s</td>
+        <td class="amount credit">+$789,000.00</td>
+        <td class="balance">$30,050,799.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-18</td>
+        <td class="description">RCD CHECK 78901 HAPPY PAWS PET STORE</td>
+        <td class="reference">78901</td>
+        <td class="amount credit">+$1,890.00</td>
+        <td class="balance">$30,052,689.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-18</td>
+        <td class="description">ACH CREDIT APEX MANUFACTURING TRN*051000159601283</td>
+        <td class="reference">051000159601283</td>
+        <td class="amount credit">+$43,600.00</td>
+        <td class="balance">$30,096,289.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-18</td>
+        <td class="description">ACH PMT NORDSTROM GROUP TRACE#061000052847392</td>
+        <td class="reference">061000052847392</td>
+        <td class="amount credit">+$17,890.00</td>
+        <td class="balance">$30,114,179.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-18</td>
+        <td class="description">WIRE IN CASCADE VENTURES LLC FED REF 20260118USBKUS45</td>
+        <td class="reference">20260118USBKUS45</td>
+        <td class="amount credit">+$56,200.00</td>
+        <td class="balance">$30,170,379.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-18</td>
+        <td class="description">INTL WIRE SEOUL SEMICONDUCTOR UETR:c4y8d012-3a7b-8c0d-4y5z-6a7b8c9d0e1f</td>
+        <td class="reference">c4y8d012-3a7b-8c0d-4y5z-6a7b8c9d0e1f</td>
+        <td class="amount credit">+$523,400.00</td>
+        <td class="balance">$30,693,779.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-18</td>
+        <td class="description">INTL WIRE SCHMIDT GMBH UETR:g8c2h456-7e1f-2g4h-8c9d-0e1f2g3h4i5j</td>
+        <td class="reference">g8c2h456-7e1f-2g4h-8c9d-0e1f2g3h4i5j</td>
+        <td class="amount credit">+$256,000.00</td>
+        <td class="balance">$30,949,779.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-18</td>
+        <td class="description">RCD CHECK 22158 GARDEN STATE NURSERY</td>
+        <td class="reference">22158</td>
+        <td class="amount credit">+$6,780.00</td>
+        <td class="balance">$30,956,559.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-18</td>
+        <td class="description">ACH ORIG NEXUS TECHNOLOGIES TRN*061000082934518</td>
+        <td class="reference">061000082934518</td>
+        <td class="amount credit">+$47,200.00</td>
+        <td class="balance">$31,003,759.75</td>
+    </tr>
+    <tr>
+        <td class="date">2026-01-18</td>
+        <td class="description">INCOMING WIRE TITAN INDUSTRIES REF:20260118ABORUS35</td>
+        <td class="reference">20260118ABORUS35</td>
+        <td class="amount credit">+$108,900.00</td>
+        <td class="balance">$31,112,659.75</td>
+    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="footer">
+            <p>This statement was generated on 2026-01-20 12:11:15</p>
+            <p>Please review all transactions and report any discrepancies within 30 days.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+
+{% block title %}Suggestions{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Match Suggestions</h1>
+    <p>AI-generated suggestions from Phase 3 flow network analysis</p>
+</div>
+
+<div class="card">
+    <div class="filter-bar">
+        <div class="search-wrapper">
+            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="M21 21l-4.35-4.35"></path>
+            </svg>
+            <input type="text" class="search-input" id="search-input" placeholder="Search by bank ID, customer, or invoice...">
+        </div>
+        <select class="filter-select" id="tier-filter">
+            <option value="">All Confidence Tiers</option>
+            <option value="TIER_1">Tier 1 (Highest)</option>
+            <option value="TIER_2">Tier 2</option>
+            <option value="TIER_3">Tier 3 (Lowest)</option>
+        </select>
+    </div>
+
+    <div style="overflow-x: auto;">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Bank Transaction</th>
+                    <th>Date</th>
+                    <th>Customer</th>
+                    <th class="text-right">Amount</th>
+                    <th>Confidence</th>
+                    <th>Suggested Allocations</th>
+                    <th>Explanation</th>
+                </tr>
+            </thead>
+            <tbody id="suggestions-body">
+                <tr><td colspan="7" class="loading">Loading suggestions...</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="results-count" style="padding: 1rem 1.25rem; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.85rem;"></div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    let allSuggestions = [];
+
+    async function loadSuggestions() {
+        try {
+            const res = await fetch('/api/suggestions');
+            const data = await res.json();
+
+            if (data.success) {
+                allSuggestions = data.suggestions;
+                renderSuggestions(allSuggestions);
+            }
+        } catch (err) {
+            console.error('Error loading suggestions:', err);
+            document.getElementById('suggestions-body').innerHTML = '<tr><td colspan="7" class="loading">Error loading data</td></tr>';
+        }
+    }
+
+    function renderSuggestions(suggestions) {
+        const tbody = document.getElementById('suggestions-body');
+
+        if (suggestions.length === 0) {
+            tbody.innerHTML = `
+                <tr>
+                    <td colspan="7" class="empty-state">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                        </svg>
+                        <div>No suggestions available</div>
+                    </td>
+                </tr>
+            `;
+            document.getElementById('results-count').textContent = '0 suggestions';
+            return;
+        }
+
+        tbody.innerHTML = suggestions.map(s => `
+            <tr>
+                <td>
+                    <code>${s.bank_id}</code>
+                    <div class="text-muted" style="font-size: 0.75rem; margin-top: 0.25rem;">${s.bank_description || ''}</div>
+                </td>
+                <td class="text-muted">${s.bank_date || '-'}</td>
+                <td><code>${s.customer_id || '-'}</code></td>
+                <td class="text-right text-mono" style="font-weight: 600;">$${s.bank_amount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+                <td>
+                    <div style="display: flex; flex-direction: column; gap: 0.25rem; align-items: flex-start;">
+                        <span class="status-badge badge-suggestion">${s.tier.replace('_', ' ')}</span>
+                        <div class="text-mono" style="font-size: 0.8rem; color: ${getConfidenceColor(s.confidence)};">
+                            ${(s.confidence * 100).toFixed(0)}%
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="allocation-list">
+                        ${s.allocations.map(a => `
+                            <a href="http://localhost:5001/invoices/${a.invoice_number}" target="_blank" class="allocation-tag ${a.is_partial ? 'partial' : ''}" style="text-decoration: none; cursor: pointer;">
+                                ${a.invoice_number}: $${a.amount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}
+                                ${a.is_partial ? ' (P)' : ''}
+                            </a>
+                        `).join('')}
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 0.8rem; color: var(--text-secondary); max-width: 200px;">
+                        ${s.explanation || '-'}
+                    </div>
+                </td>
+            </tr>
+        `).join('');
+
+        document.getElementById('results-count').textContent = `${suggestions.length} suggestion${suggestions.length !== 1 ? 's' : ''}`;
+    }
+
+    function getConfidenceColor(confidence) {
+        if (confidence >= 0.8) return 'var(--success8)';
+        if (confidence >= 0.5) return 'var(--warning8)';
+        return 'var(--error7)';
+    }
+
+    function filterSuggestions() {
+        const search = document.getElementById('search-input').value.toLowerCase();
+        const tier = document.getElementById('tier-filter').value;
+
+        let filtered = allSuggestions;
+
+        if (search) {
+            filtered = filtered.filter(s =>
+                s.bank_id.toLowerCase().includes(search) ||
+                (s.customer_id && s.customer_id.toLowerCase().includes(search)) ||
+                (s.bank_description && s.bank_description.toLowerCase().includes(search)) ||
+                s.allocations.some(a => a.invoice_number.toLowerCase().includes(search))
+            );
+        }
+
+        if (tier) {
+            filtered = filtered.filter(s => s.tier === tier);
+        }
+
+        renderSuggestions(filtered);
+    }
+
+    document.getElementById('search-input').addEventListener('input', filterSuggestions);
+    document.getElementById('tier-filter').addEventListener('change', filterSuggestions);
+
+    loadSuggestions();
+</script>
+{% endblock %}

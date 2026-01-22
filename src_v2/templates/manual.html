@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+
+{% block title %}Manual Review{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Manual Review Queue</h1>
+    <p>Bank transactions that require manual matching</p>
+</div>
+
+<div class="card">
+    <div class="filter-bar">
+        <div class="search-wrapper">
+            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="M21 21l-4.35-4.35"></path>
+            </svg>
+            <input type="text" class="search-input" id="search-input" placeholder="Search by bank ID, customer, or description...">
+        </div>
+    </div>
+
+    <div style="overflow-x: auto;">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Bank Transaction</th>
+                    <th>Date</th>
+                    <th>Customer</th>
+                    <th class="text-right">Amount</th>
+                    <th>Reason</th>
+                    <th>Candidate Invoices</th>
+                </tr>
+            </thead>
+            <tbody id="manual-body">
+                <tr><td colspan="6" class="loading">Loading manual review items...</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="results-count" style="padding: 1rem 1.25rem; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.85rem;"></div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    let allItems = [];
+
+    async function loadItems() {
+        try {
+            const res = await fetch('/api/manual');
+            const data = await res.json();
+
+            if (data.success) {
+                allItems = data.items;
+                renderItems(allItems);
+            }
+        } catch (err) {
+            console.error('Error loading items:', err);
+            document.getElementById('manual-body').innerHTML = '<tr><td colspan="6" class="loading">Error loading data</td></tr>';
+        }
+    }
+
+    function renderItems(items) {
+        const tbody = document.getElementById('manual-body');
+
+        if (items.length === 0) {
+            tbody.innerHTML = `
+                <tr>
+                    <td colspan="6" class="empty-state">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <div>No items require manual review</div>
+                    </td>
+                </tr>
+            `;
+            document.getElementById('results-count').textContent = '0 items';
+            return;
+        }
+
+        tbody.innerHTML = items.map(m => `
+            <tr>
+                <td>
+                    <code>${m.bank_id}</code>
+                    <div class="text-muted" style="font-size: 0.75rem; margin-top: 0.25rem; max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${m.bank_description || ''}</div>
+                </td>
+                <td class="text-muted">${m.bank_date || '-'}</td>
+                <td><code>${m.customer_id || '-'}</code></td>
+                <td class="text-right text-mono" style="font-weight: 600;">$${m.bank_amount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+                <td>
+                    <span class="status-badge badge-manual">${m.reason}</span>
+                </td>
+                <td>
+                    ${m.candidate_invoices.length > 0 ? `
+                        <div class="allocation-list">
+                            ${m.candidate_invoices.slice(0, 5).map(c => `
+                                <a href="http://localhost:5001/invoices/${c.invoice_number}" target="_blank" class="allocation-tag" style="text-decoration: none; cursor: pointer;" title="Pending: $${c.pending_amount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}">
+                                    ${c.invoice_number}: $${c.amount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}
+                                </a>
+                            `).join('')}
+                            ${m.candidate_invoices.length > 5 ? `<span class="text-muted" style="font-size: 0.75rem;">+${m.candidate_invoices.length - 5} more</span>` : ''}
+                        </div>
+                    ` : '<span class="text-muted">No candidates</span>'}
+                </td>
+            </tr>
+        `).join('');
+
+        document.getElementById('results-count').textContent = `${items.length} item${items.length !== 1 ? 's' : ''} requiring manual review`;
+    }
+
+    function filterItems() {
+        const search = document.getElementById('search-input').value.toLowerCase();
+
+        let filtered = allItems;
+
+        if (search) {
+            filtered = filtered.filter(m =>
+                m.bank_id.toLowerCase().includes(search) ||
+                (m.customer_id && m.customer_id.toLowerCase().includes(search)) ||
+                (m.bank_description && m.bank_description.toLowerCase().includes(search)) ||
+                (m.reason && m.reason.toLowerCase().includes(search))
+            );
+        }
+
+        renderItems(filtered);
+    }
+
+    document.getElementById('search-input').addEventListener('input', filterItems);
+
+    loadItems();
+</script>
+{% endblock %}

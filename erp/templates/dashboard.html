@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Invoice Dashboard</h1>
+    <p>Overview of invoice status and financial metrics</p>
+</div>
+
+<!-- Summary Cards -->
+<div class="summary-section" id="stats-grid">
+    <div class="summary-card">
+        <div class="card-accent accent-primary"></div>
+        <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+            </svg>
+        </div>
+        <div class="card-value" id="total-invoices">--</div>
+        <div class="card-label">Total Invoices</div>
+    </div>
+    <div class="summary-card">
+        <div class="card-accent accent-success"></div>
+        <div class="card-icon success">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+        </div>
+        <div class="card-value" id="paid-invoices">--</div>
+        <div class="card-label">Closed / Paid</div>
+    </div>
+    <div class="summary-card">
+        <div class="card-accent accent-warning"></div>
+        <div class="card-icon warning">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+        </div>
+        <div class="card-value" id="open-invoices">--</div>
+        <div class="card-label">Open</div>
+    </div>
+    <div class="summary-card">
+        <div class="card-accent accent-error"></div>
+        <div class="card-icon error">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="1" x2="12" y2="23"></line>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+        </div>
+        <div class="card-value" id="outstanding-amount">--</div>
+        <div class="card-label">Outstanding</div>
+    </div>
+</div>
+
+<!-- Recent Invoices -->
+<div class="card">
+    <div class="card-header">
+        <h2>Recent Invoices</h2>
+        <a href="/invoices" class="btn btn-secondary btn-sm">View All</a>
+    </div>
+    <div style="max-height: 400px; overflow-y: auto;">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Invoice #</th>
+                    <th>Customer</th>
+                    <th>Date</th>
+                    <th class="text-right">Amount</th>
+                    <th class="text-center">Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="recent-invoices">
+                <tr>
+                    <td colspan="6" class="loading">Loading invoices...</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Status Breakdown -->
+<div class="card" style="margin-top: 1.5rem;">
+    <div class="card-header">
+        <h2>Status Breakdown</h2>
+    </div>
+    <div class="card-body">
+        <div id="status-breakdown" style="display: flex; gap: 3rem; flex-wrap: wrap; justify-content: center;">
+            <!-- Populated by JS -->
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    async function loadDashboard() {
+        try {
+            // Load summary
+            const summaryRes = await fetch('/api/invoices/summary');
+            const summaryData = await summaryRes.json();
+
+            if (summaryData.success) {
+                const s = summaryData.summary;
+                document.getElementById('total-invoices').textContent = s.total_invoices.toLocaleString();
+                document.getElementById('paid-invoices').textContent = (s.by_status.PAID || 0).toLocaleString();
+                document.getElementById('open-invoices').textContent = (
+                    (s.by_status.OPEN || 0) +
+                    (s.by_status.PARTIAL || 0) +
+                    (s.by_status.OVERDUE || 0)
+                ).toLocaleString();
+                document.getElementById('outstanding-amount').textContent = '$' + s.total_outstanding.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+
+                // Status breakdown
+                const breakdown = document.getElementById('status-breakdown');
+                breakdown.innerHTML = '';
+                for (const [status, count] of Object.entries(s.by_status)) {
+                    const statusClass = status.toLowerCase();
+                    breakdown.innerHTML += `
+                        <div style="text-align: center; min-width: 80px;">
+                            <div style="font-size: 2rem; font-weight: 700; color: var(--grey12);">${count}</div>
+                            <div><span class="status-badge badge-${statusClass}">${status}</span></div>
+                        </div>
+                    `;
+                }
+            }
+
+            // Load recent invoices
+            const invoicesRes = await fetch('/api/invoices?limit=10');
+            const invoicesData = await invoicesRes.json();
+
+            if (invoicesData.success) {
+                const tbody = document.getElementById('recent-invoices');
+                tbody.innerHTML = '';
+
+                for (const inv of invoicesData.invoices) {
+                    const status = inv.status || 'UNKNOWN';
+                    const statusClass = status.toLowerCase();
+                    tbody.innerHTML += `
+                        <tr onclick="window.location='/invoices/${inv.invoice_number}'">
+                            <td><code>${inv.invoice_number}</code></td>
+                            <td>${inv.customer_name}</td>
+                            <td class="text-muted">${inv.invoice_date}</td>
+                            <td class="text-right text-mono">$${inv.total_amount.toLocaleString(undefined, {minimumFractionDigits: 2})}</td>
+                            <td class="text-center"><span class="status-badge badge-${statusClass}">${status}</span></td>
+                            <td>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <a href="/invoices/${inv.invoice_number}" class="btn btn-secondary btn-sm" onclick="event.stopPropagation()">View</a>
+                                    <a href="/invoices/${inv.invoice_number}/pdf/view" class="btn btn-primary btn-sm" target="_blank" onclick="event.stopPropagation()">PDF</a>
+                                </div>
+                            </td>
+                        </tr>
+                    `;
+                }
+            }
+        } catch (err) {
+            console.error('Error loading dashboard:', err);
+            document.getElementById('recent-invoices').innerHTML =
+                '<tr><td colspan="6" class="text-center text-muted">Failed to load invoices</td></tr>';
+        }
+    }
+
+    loadDashboard();
+</script>
+{% endblock %}

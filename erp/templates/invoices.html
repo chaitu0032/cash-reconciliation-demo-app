@@ -1,0 +1,184 @@
+{% extends "base.html" %}
+
+{% block title %}Invoices{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Invoices</h1>
+    <p>View and manage all invoices in the system</p>
+</div>
+
+<div class="card">
+    <div class="filter-bar">
+        <div class="search-wrapper">
+            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="M21 21l-4.35-4.35"></path>
+            </svg>
+            <input type="text" id="search-input" class="search-input" placeholder="Search by customer or invoice number...">
+        </div>
+        <select id="status-filter" class="filter-select">
+            <option value="">All Statuses</option>
+            <option value="OPEN">Open</option>
+            <option value="PARTIAL">Partial</option>
+            <option value="CLOSED">Closed</option>
+        </select>
+    </div>
+    <div style="max-height: 550px; overflow-y: auto;">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Invoice #</th>
+                    <th>Customer</th>
+                    <th>Customer ID</th>
+                    <th>Invoice Date</th>
+                    <th>Due Date</th>
+                    <th class="text-right">Total</th>
+                    <th class="text-right">Paid</th>
+                    <th class="text-right">Balance</th>
+                    <th class="text-center">Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="invoices-table">
+                <tr>
+                    <td colspan="10" class="loading">Loading invoices...</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="pagination" id="pagination"></div>
+</div>
+
+<div id="invoice-count" style="text-align: center; margin-top: 1rem; color: var(--text-muted); font-size: 0.875rem;"></div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    let currentPage = 0;
+    const limit = 25;
+    let totalInvoices = 0;
+
+    async function loadInvoices() {
+        const status = document.getElementById('status-filter').value;
+        const search = document.getElementById('search-input').value;
+
+        let url = `/api/invoices?limit=${limit}&offset=${currentPage * limit}`;
+        if (status) url += `&status=${status}`;
+
+        try {
+            const res = await fetch(url);
+            const data = await res.json();
+
+            if (data.success) {
+                totalInvoices = data.total;
+                let invoices = data.invoices;
+
+                // Client-side search filter
+                if (search) {
+                    const searchLower = search.toLowerCase();
+                    invoices = invoices.filter(inv =>
+                        inv.customer_name.toLowerCase().includes(searchLower) ||
+                        inv.invoice_number.toLowerCase().includes(searchLower) ||
+                        inv.customer_id.toLowerCase().includes(searchLower)
+                    );
+                }
+
+                renderInvoices(invoices);
+                renderPagination();
+                document.getElementById('invoice-count').textContent =
+                    `Showing ${Math.min((currentPage * limit) + 1, totalInvoices)}-${Math.min((currentPage + 1) * limit, totalInvoices)} of ${totalInvoices} invoices`;
+            }
+        } catch (err) {
+            console.error('Error loading invoices:', err);
+            document.getElementById('invoices-table').innerHTML =
+                '<tr><td colspan="10" class="text-center text-muted">Failed to load invoices</td></tr>';
+        }
+    }
+
+    function renderInvoices(invoices) {
+        const tbody = document.getElementById('invoices-table');
+
+        if (invoices.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="10" class="text-center text-muted" style="padding: 3rem;">No invoices found</td></tr>';
+            return;
+        }
+
+        tbody.innerHTML = invoices.map(inv => {
+            const status = inv.status || 'UNKNOWN';
+            const statusClass = status.toLowerCase();
+            return `
+                <tr onclick="window.location='/invoices/${inv.invoice_number}'">
+                    <td><code>${inv.invoice_number}</code></td>
+                    <td>${inv.customer_name}</td>
+                    <td class="text-mono text-muted">${inv.customer_id}</td>
+                    <td class="text-muted">${inv.invoice_date}</td>
+                    <td class="text-muted">${inv.due_date}</td>
+                    <td class="text-right text-mono">$${inv.total_amount.toLocaleString(undefined, {minimumFractionDigits: 2})}</td>
+                    <td class="text-right text-mono" style="color: var(--success8);">$${inv.amount_paid.toLocaleString(undefined, {minimumFractionDigits: 2})}</td>
+                    <td class="text-right text-mono" style="color: ${inv.balance_due > 0 ? 'var(--error7)' : 'var(--success8)'};">$${inv.balance_due.toLocaleString(undefined, {minimumFractionDigits: 2})}</td>
+                    <td class="text-center"><span class="status-badge badge-${statusClass}">${status}</span></td>
+                    <td>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <a href="/invoices/${inv.invoice_number}/html" class="btn btn-secondary btn-sm" target="_blank" onclick="event.stopPropagation()">HTML</a>
+                            <a href="/invoices/${inv.invoice_number}/pdf/view" class="btn btn-primary btn-sm" target="_blank" onclick="event.stopPropagation()">PDF</a>
+                        </div>
+                    </td>
+                </tr>
+            `;
+        }).join('');
+    }
+
+    function renderPagination() {
+        const totalPages = Math.ceil(totalInvoices / limit);
+        const pagination = document.getElementById('pagination');
+
+        if (totalPages <= 1) {
+            pagination.innerHTML = '';
+            return;
+        }
+
+        let html = `
+            <button onclick="goToPage(0)" ${currentPage === 0 ? 'disabled' : ''}>First</button>
+            <button onclick="goToPage(${currentPage - 1})" ${currentPage === 0 ? 'disabled' : ''}>Prev</button>
+        `;
+
+        const startPage = Math.max(0, currentPage - 2);
+        const endPage = Math.min(totalPages - 1, currentPage + 2);
+
+        for (let i = startPage; i <= endPage; i++) {
+            html += `<button onclick="goToPage(${i})" class="${i === currentPage ? 'active' : ''}">${i + 1}</button>`;
+        }
+
+        html += `
+            <button onclick="goToPage(${currentPage + 1})" ${currentPage >= totalPages - 1 ? 'disabled' : ''}>Next</button>
+            <button onclick="goToPage(${totalPages - 1})" ${currentPage >= totalPages - 1 ? 'disabled' : ''}>Last</button>
+        `;
+
+        pagination.innerHTML = html;
+    }
+
+    function goToPage(page) {
+        currentPage = page;
+        loadInvoices();
+    }
+
+    // Event listeners
+    document.getElementById('status-filter').addEventListener('change', () => {
+        currentPage = 0;
+        loadInvoices();
+    });
+
+    let searchTimeout;
+    document.getElementById('search-input').addEventListener('input', () => {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+            currentPage = 0;
+            loadInvoices();
+        }, 300);
+    });
+
+    // Initial load
+    loadInvoices();
+</script>
+{% endblock %}

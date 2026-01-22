@@ -1,0 +1,265 @@
+{% extends "base.html" %}
+
+{% block title %}Invoice {{ invoice.invoice_number }}{% endblock %}
+
+{% block extra_styles %}
+<style>
+    .detail-label {
+        font-size: 0.7rem;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        margin-bottom: 0.25rem;
+    }
+    .detail-value {
+        font-size: 0.95rem;
+        color: var(--text-primary);
+    }
+    .detail-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+    }
+    .payment-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+    .payment-row:last-child {
+        border-bottom: none;
+    }
+    .payment-total {
+        font-size: 1.125rem;
+        font-weight: 700;
+        border-top: 2px solid var(--grey12);
+        padding-top: 0.75rem;
+        margin-top: 0.5rem;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="page-header" style="display: flex; justify-content: space-between; align-items: flex-start;">
+    <div>
+        <h1>Invoice {{ invoice.invoice_number }}</h1>
+        <p>Invoice details and payment information</p>
+    </div>
+    <div style="display: flex; gap: 0.75rem;">
+        <a href="/invoices/{{ invoice.invoice_number }}/html" class="btn btn-secondary" target="_blank">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+            </svg>
+            View HTML
+        </a>
+        <a href="/invoices/{{ invoice.invoice_number }}/pdf/view" class="btn btn-primary" target="_blank">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/>
+                <line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+            View PDF
+        </a>
+        <a href="/invoices/{{ invoice.invoice_number }}/pdf" class="btn btn-success">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Download PDF
+        </a>
+    </div>
+</div>
+
+<div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem;">
+    <div>
+        <!-- Invoice Info Card -->
+        <div class="card">
+            <div class="card-header">
+                <h2>Invoice Information</h2>
+                {% set status = invoice.status|default('UNKNOWN')|upper %}
+                {% set status_class = status|lower %}
+                <span class="status-badge badge-{{ status_class }}">{{ status }}</span>
+            </div>
+            <div class="card-body">
+                <div class="detail-grid">
+                    <div>
+                        <div class="detail-label">Invoice Number</div>
+                        <div class="detail-value"><code>{{ invoice.invoice_number }}</code></div>
+                    </div>
+                    <div>
+                        <div class="detail-label">Invoice Date</div>
+                        <div class="detail-value">{{ invoice.invoice_date }}</div>
+                    </div>
+                    <div>
+                        <div class="detail-label">Due Date</div>
+                        <div class="detail-value" style="color: var(--error7); font-weight: 500;">{{ invoice.due_date }}</div>
+                    </div>
+                    <div>
+                        <div class="detail-label">Payment Terms</div>
+                        <div class="detail-value">{{ invoice.payment_terms }}</div>
+                    </div>
+                    <div>
+                        <div class="detail-label">Currency</div>
+                        <div class="detail-value">{{ invoice.currency }}</div>
+                    </div>
+                    <div>
+                        <div class="detail-label">Remittance ID</div>
+                        <div class="detail-value"><code>{{ invoice.remittance_id or 'N/A' }}</code></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Customer Info Card -->
+        <div class="card" style="margin-top: 1.25rem;">
+            <div class="card-header">
+                <h2>Customer Information</h2>
+            </div>
+            <div class="card-body">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+                    <div>
+                        <div class="detail-label">Customer Name</div>
+                        <div class="detail-value" style="font-size: 1.125rem; font-weight: 600;">{{ invoice.customer_name }}</div>
+                    </div>
+                    <div>
+                        <div class="detail-label">Customer ID</div>
+                        <div class="detail-value"><code>{{ invoice.customer_id }}</code></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Line Items Card -->
+        <div class="card" style="margin-top: 1.25rem;">
+            <div class="card-header">
+                <h2>Line Items</h2>
+            </div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Description</th>
+                        <th class="text-center">Quantity</th>
+                        <th class="text-right">Unit Price</th>
+                        <th class="text-right">Line Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in invoice.line_items %}
+                    <tr>
+                        <td class="text-muted">{{ item.line_id }}</td>
+                        <td>{{ item.description }}</td>
+                        <td class="text-center">{{ item.quantity }}</td>
+                        <td class="text-right text-mono">${{ "%.2f"|format(item.unit_price) }}</td>
+                        <td class="text-right text-mono" style="font-weight: 600;">${{ "%.2f"|format(item.line_total) }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div>
+        <!-- Payment Summary Card -->
+        <div class="card">
+            <div class="card-header">
+                <h2>Payment Summary</h2>
+            </div>
+            <div class="card-body">
+                <div class="payment-row">
+                    <span class="text-muted">Subtotal</span>
+                    <span class="text-mono">${{ "%.2f"|format(invoice.subtotal) }}</span>
+                </div>
+                <div class="payment-row">
+                    <span class="text-muted">Tax ({{ "%.1f"|format((invoice.tax_rate or 0) * 100) }}%)</span>
+                    <span class="text-mono">${{ "%.2f"|format(invoice.tax_amount or 0) }}</span>
+                </div>
+                <div class="payment-row payment-total">
+                    <span>Total</span>
+                    <span class="text-mono">${{ "%.2f"|format(invoice.total_amount) }}</span>
+                </div>
+
+                <div style="background: var(--grey3); padding: 1rem; border-radius: var(--radius-8); margin-top: 1rem;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span class="text-muted">Amount Paid</span>
+                        <span class="text-mono" style="color: var(--success8); font-weight: 600;">${{ "%.2f"|format(invoice.amount_paid or 0) }}</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span class="text-muted">Balance Due</span>
+                        <span class="text-mono" style="color: {% if (invoice.balance_due or 0) > 0 %}var(--error7){% else %}var(--success8){% endif %}; font-weight: 600;">${{ "%.2f"|format(invoice.balance_due or 0) }}</span>
+                    </div>
+                </div>
+
+                {% if invoice.payment_date %}
+                <div style="margin-top: 1rem; padding: 0.75rem; background: var(--success2); border-radius: var(--radius-8); text-align: center;">
+                    <div class="detail-label" style="color: var(--success8);">Payment Date</div>
+                    <div style="font-weight: 600; color: var(--success9);">{{ invoice.payment_date }}</div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Status Update Card -->
+        <div class="card" style="margin-top: 1.25rem;">
+            <div class="card-header">
+                <h2>Update Status</h2>
+            </div>
+            <div class="card-body">
+                <select id="status-select" class="filter-select" style="width: 100%; margin-bottom: 0.75rem;">
+                    <option value="OPEN" {% if status == 'OPEN' %}selected{% endif %}>Open</option>
+                    <option value="PARTIAL" {% if status == 'PARTIAL' %}selected{% endif %}>Partial</option>
+                    <option value="CLOSED" {% if status == 'CLOSED' %}selected{% endif %}>Closed</option>
+                </select>
+                <button onclick="updateStatus()" class="btn btn-primary" style="width: 100%;">Update Status</button>
+                <div id="status-message" style="margin-top: 0.75rem; text-align: center;"></div>
+            </div>
+        </div>
+
+        <!-- Quick Links Card -->
+        <div class="card" style="margin-top: 1.25rem;">
+            <div class="card-header">
+                <h2>Quick Links</h2>
+            </div>
+            <div class="card-body">
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <a href="/api/invoices/{{ invoice.invoice_number }}" class="btn btn-secondary" style="justify-content: center;" target="_blank">View JSON API</a>
+                    <a href="/invoices" class="btn btn-secondary" style="justify-content: center;">Back to Invoice List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    async function updateStatus() {
+        const status = document.getElementById('status-select').value;
+        const invoiceNumber = '{{ invoice.invoice_number }}';
+
+        try {
+            const res = await fetch(`/api/invoices/${invoiceNumber}/status`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ status })
+            });
+
+            const data = await res.json();
+            const msg = document.getElementById('status-message');
+
+            if (data.success) {
+                msg.innerHTML = '<span style="color: var(--success8);">Status updated successfully!</span>';
+                setTimeout(() => location.reload(), 1000);
+            } else {
+                msg.innerHTML = `<span style="color: var(--error7);">${data.error}</span>`;
+            }
+        } catch (err) {
+            document.getElementById('status-message').innerHTML = '<span style="color: var(--error7);">Error updating status</span>';
+        }
+    }
+</script>
+{% endblock %}

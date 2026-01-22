@@ -1,0 +1,286 @@
+{% extends "base.html" %}
+
+{% block title %}Auto-Approved Matches{% endblock %}
+
+{% block content %}
+<div class="page-header" style="display: flex; justify-content: space-between; align-items: flex-start;">
+    <div>
+        <h1>Auto-Approved Matches</h1>
+        <p>High-confidence matches that passed all validation rules</p>
+    </div>
+    <button id="approve-all-btn" onclick="approveAll()" class="btn btn-success" style="white-space: nowrap;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        Approve All
+    </button>
+</div>
+
+<div class="card">
+    <div class="filter-bar">
+        <div class="search-wrapper">
+            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="M21 21l-4.35-4.35"></path>
+            </svg>
+            <input type="text" class="search-input" id="search-input" placeholder="Search by bank ID, customer, or invoice...">
+        </div>
+        <select class="filter-select" id="match-type-filter">
+            <option value="">All Match Types</option>
+            <option value="REMITTANCE_BACKED">Remittance Backed</option>
+            <option value="DIRECT_REFERENCE">Direct Reference</option>
+        </select>
+    </div>
+
+    <div style="overflow-x: auto;">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th style="width: 40px;"></th>
+                    <th>Bank Transaction</th>
+                    <th>Date</th>
+                    <th>Customer</th>
+                    <th class="text-right">Amount</th>
+                    <th>Match Type</th>
+                    <th>Allocations</th>
+                    <th>Remittance</th>
+                    <th style="width: 100px;">Action</th>
+                </tr>
+            </thead>
+            <tbody id="matches-body">
+                <tr><td colspan="9" class="loading">Loading matches...</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="results-count" style="padding: 1rem 1.25rem; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.85rem;"></div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    let allMatches = [];
+
+    async function loadMatches() {
+        try {
+            const res = await fetch('/api/auto-approved');
+            const data = await res.json();
+
+            if (data.success) {
+                allMatches = data.matches;
+                renderMatches(allMatches);
+            }
+        } catch (err) {
+            console.error('Error loading matches:', err);
+            document.getElementById('matches-body').innerHTML = '<tr><td colspan="7" class="loading">Error loading data</td></tr>';
+        }
+    }
+
+    function renderMatches(matches) {
+        const tbody = document.getElementById('matches-body');
+
+        if (matches.length === 0) {
+            tbody.innerHTML = `
+                <tr>
+                    <td colspan="9" class="empty-state">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <div>No matches found</div>
+                    </td>
+                </tr>
+            `;
+            document.getElementById('results-count').textContent = '0 matches';
+            return;
+        }
+
+        tbody.innerHTML = matches.map(m => `
+            <tr onclick="openMatchDetail('${m.bank_id}')" style="cursor: pointer;" title="Click to view match details">
+                <td style="text-align: center;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary7)" stroke-width="2" style="opacity: 0.6;">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                </td>
+                <td>
+                    <code>${m.bank_id}</code>
+                    <div class="text-muted" style="font-size: 0.75rem; margin-top: 0.25rem;">${m.bank_description || ''}</div>
+                </td>
+                <td class="text-muted">${m.bank_date || '-'}</td>
+                <td><code>${m.customer_id || '-'}</code></td>
+                <td class="text-right text-mono" style="font-weight: 600;">$${m.bank_amount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+                <td>
+                    <span class="status-badge badge-auto">${formatMatchType(m.match_type)}</span>
+                </td>
+                <td onclick="event.stopPropagation();">
+                    <div class="allocation-list">
+                        ${m.allocations.map(a => `
+                            <a href="http://localhost:5001/invoices/${a.invoice_number}" target="_blank" class="allocation-tag ${a.is_partial ? 'partial' : ''}" style="text-decoration: none; cursor: pointer;">
+                                ${a.invoice_number}: $${a.amount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}
+                                ${a.is_partial ? ' (P)' : ''}
+                            </a>
+                        `).join('')}
+                    </div>
+                </td>
+                <td onclick="event.stopPropagation();">${m.remittance_id ? `<a href="/remittances/${m.remittance_id}" target="_blank"><code>${m.remittance_id}</code></a>` : '-'}</td>
+                <td onclick="event.stopPropagation();">
+                    <button id="approve-${m.bank_id}" onclick="approveMatch('${m.bank_id}')" class="btn btn-sm btn-success" style="white-space: nowrap;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        Approve
+                    </button>
+                </td>
+            </tr>
+        `).join('');
+
+        document.getElementById('results-count').textContent = `${matches.length} match${matches.length !== 1 ? 'es' : ''}`;
+    }
+
+    function formatMatchType(type) {
+        return type.replace(/_/g, ' ').toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
+    }
+
+    function openMatchDetail(bankId) {
+        window.open(`/match/${bankId}`, '_blank');
+    }
+
+    async function approveMatch(bankId) {
+        const btn = document.getElementById(`approve-${bankId}`);
+
+        btn.disabled = true;
+        btn.innerHTML = '...';
+
+        try {
+            const response = await fetch(`/api/approve/${bankId}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' }
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                btn.innerHTML = `
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    Done
+                `;
+                btn.classList.remove('btn-success');
+                btn.classList.add('btn-secondary');
+            } else {
+                btn.disabled = false;
+                btn.innerHTML = 'Retry';
+                btn.classList.remove('btn-success');
+                btn.classList.add('btn-secondary');
+                btn.style.borderColor = 'var(--error5)';
+            }
+        } catch (err) {
+            btn.disabled = false;
+            btn.innerHTML = 'Error';
+            btn.title = 'Make sure ERP is running on port 5001';
+        }
+    }
+
+    function filterMatches() {
+        const search = document.getElementById('search-input').value.toLowerCase();
+        const matchType = document.getElementById('match-type-filter').value;
+
+        let filtered = allMatches;
+
+        if (search) {
+            filtered = filtered.filter(m =>
+                m.bank_id.toLowerCase().includes(search) ||
+                (m.customer_id && m.customer_id.toLowerCase().includes(search)) ||
+                (m.bank_description && m.bank_description.toLowerCase().includes(search)) ||
+                m.allocations.some(a => a.invoice_number.toLowerCase().includes(search))
+            );
+        }
+
+        if (matchType) {
+            filtered = filtered.filter(m => m.match_type === matchType);
+        }
+
+        renderMatches(filtered);
+    }
+
+    async function approveAll() {
+        const btn = document.getElementById('approve-all-btn');
+        const pendingMatches = allMatches.filter(m => {
+            const rowBtn = document.getElementById(`approve-${m.bank_id}`);
+            return rowBtn && !rowBtn.disabled;
+        });
+
+        if (pendingMatches.length === 0) {
+            btn.innerHTML = `
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                All Done
+            `;
+            btn.disabled = true;
+            btn.classList.remove('btn-success');
+            btn.classList.add('btn-secondary');
+            return;
+        }
+
+        btn.disabled = true;
+        let approved = 0;
+        let failed = 0;
+
+        for (const match of pendingMatches) {
+            btn.innerHTML = `Approving ${approved + 1}/${pendingMatches.length}...`;
+
+            try {
+                const response = await fetch(`/api/approve/${match.bank_id}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' }
+                });
+
+                const data = await response.json();
+
+                const rowBtn = document.getElementById(`approve-${match.bank_id}`);
+                if (data.success) {
+                    approved++;
+                    if (rowBtn) {
+                        rowBtn.innerHTML = `
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            Done
+                        `;
+                        rowBtn.disabled = true;
+                        rowBtn.classList.remove('btn-success');
+                        rowBtn.classList.add('btn-secondary');
+                    }
+                } else {
+                    failed++;
+                }
+            } catch (err) {
+                failed++;
+            }
+        }
+
+        if (failed === 0) {
+            btn.innerHTML = `
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                All Approved (${approved})
+            `;
+            btn.classList.remove('btn-success');
+            btn.classList.add('btn-secondary');
+        } else {
+            btn.innerHTML = `Done (${approved} ok, ${failed} failed)`;
+            btn.classList.remove('btn-success');
+            btn.classList.add('btn-secondary');
+            btn.disabled = false;
+        }
+    }
+
+    document.getElementById('search-input').addEventListener('input', filterMatches);
+    document.getElementById('match-type-filter').addEventListener('change', filterMatches);
+
+    loadMatches();
+</script>
+{% endblock %}
