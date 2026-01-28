@@ -18,7 +18,7 @@ from ..config import ReconciliationConfig
 from ..models.bank import BankTransaction
 from ..models.invoice import Invoice
 from ..models.match import InvoiceAllocation
-from ..models.result import ConfidenceTier, ManualItem, Suggestion, SuggestionType
+from ..models.result import CandidateInvoice, ConfidenceTier, ManualItem, Suggestion, SuggestionType
 from ..utils.validators import amounts_match
 from .flow_network import build_reconciliation_network, solve_flow_network
 
@@ -144,14 +144,18 @@ class Phase3SuggestionGenerator:
         # Any remaining banks go to manual
         for bank in unmatched_banks:
             if bank.id not in suggested_bank_ids:
-                # Find candidate invoices (same customer or close amount)
-                candidates = self._find_candidates(bank, open_invoices)
+                # Find candidate invoices with scores (same customer or close amount)
+                candidates_with_scores = self._find_candidates(bank, open_invoices)
+                candidate_invoices = [
+                    CandidateInvoice(invoice=inv, score=score)
+                    for inv, score in candidates_with_scores
+                ]
                 result.manual_items.append(
                     ManualItem(
                         bank_id=bank.id,
                         amount=bank.amount,
                         reason="No confident match found",
-                        candidate_invoices=candidates,
+                        candidate_invoices=candidate_invoices,
                     )
                 )
 
@@ -557,8 +561,8 @@ class Phase3SuggestionGenerator:
         bank: BankTransaction,
         invoices: List[Invoice],
         max_candidates: int = 5,
-    ) -> List[Invoice]:
-        """Find candidate invoices for manual matching.
+    ) -> List[Tuple[Invoice, float]]:
+        """Find candidate invoices for manual matching with relevance scores.
 
         Args:
             bank: Bank transaction.
@@ -566,30 +570,36 @@ class Phase3SuggestionGenerator:
             max_candidates: Maximum candidates to return.
 
         Returns:
-            List of candidate invoices, sorted by relevance.
+            List of (invoice, score) tuples, sorted by relevance.
+            Score is normalized to 0-100 scale.
         """
         scored: List[Tuple[float, Invoice]] = []
 
         for invoice in invoices:
             score = 0.0
 
-            # Customer match
+            # Customer match (+50)
             if bank.customer_id and bank.customer_id == invoice.customer_id:
                 score += 50.0
 
-            # Amount proximity (inverse of difference)
+            # Amount proximity (+30 max)
             diff = abs(bank.amount - invoice.pending_amount)
             max_amount = max(bank.amount, invoice.pending_amount)
             if max_amount > Decimal("0"):
                 pct_diff = float(diff / max_amount)
                 score += max(0, 30.0 * (1.0 - pct_diff))
 
+            # Exact amount match bonus (+20)
+            if bank.amount == invoice.pending_amount:
+                score += 20.0
+
             scored.append((score, invoice))
 
         # Sort by score descending
         scored.sort(key=lambda x: x[0], reverse=True)
 
-        return [inv for _, inv in scored[:max_candidates]]
+        # Return tuples of (invoice, score) normalized to 0-100
+        return [(inv, min(score, 100.0)) for score, inv in scored[:max_candidates]]
 
     def _get_confidence_tier(self, confidence: float) -> ConfidenceTier:
         """Determine confidence tier from score.

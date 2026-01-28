@@ -374,6 +374,31 @@
         display: block;
     }
 
+    .relevance-badge {
+        display: inline-block;
+        padding: 0.15rem 0.4rem;
+        border-radius: var(--radius-full);
+        font-size: 0.65rem;
+        font-weight: 600;
+        margin-right: 0.5rem;
+        vertical-align: middle;
+    }
+
+    .relevance-badge.high {
+        background: var(--success2);
+        color: var(--success9);
+    }
+
+    .relevance-badge.medium {
+        background: var(--warning2);
+        color: var(--warning8);
+    }
+
+    .relevance-badge.low {
+        background: var(--grey4);
+        color: var(--grey9);
+    }
+
     .allocation-input {
         margin-top: 0.75rem;
         padding-top: 0.75rem;
@@ -640,7 +665,14 @@
                     </div>
 
                     <div class="invoice-card-header">
-                        <span class="invoice-number">{{ inv.invoice_number }}</span>
+                        <div>
+                            {% if inv.score %}
+                            <span class="relevance-badge {% if inv.score >= 70 %}high{% elif inv.score >= 40 %}medium{% else %}low{% endif %}">
+                                {{ inv.score|int }}% match
+                            </span>
+                            {% endif %}
+                            <span class="invoice-number">{{ inv.invoice_number }}</span>
+                        </div>
                         <span class="invoice-amount">${{ "%.2f"|format(inv.pending_amount) }}</span>
                     </div>
 
@@ -786,8 +818,16 @@
             return;
         }
 
-        grid.innerHTML = invoices.map(inv => `
-            <div class="invoice-card" data-invoice="${inv.invoice_number}" data-amount="${inv.amount}" data-pending="${inv.pending_amount}" onclick="toggleInvoice(this)">
+        grid.innerHTML = invoices.map(inv => {
+            // Handle different field names from ERP API
+            const amount = inv.total_amount || inv.amount || 0;
+            const pendingAmount = inv.balance_due || inv.pending_amount || amount;
+            const customerId = inv.customer_id || 'N/A';
+            const dueDate = inv.due_date || 'N/A';
+            const status = inv.status || 'OPEN';
+
+            return `
+            <div class="invoice-card" data-invoice="${inv.invoice_number}" data-amount="${amount}" data-pending="${pendingAmount}" onclick="toggleInvoice(this)">
                 <div class="checkbox-indicator">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                         <polyline points="20 6 9 17 4 12"></polyline>
@@ -796,34 +836,34 @@
 
                 <div class="invoice-card-header">
                     <span class="invoice-number">${inv.invoice_number}</span>
-                    <span class="invoice-amount">$${parseFloat(inv.pending_amount).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
+                    <span class="invoice-amount">$${parseFloat(pendingAmount).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
                 </div>
 
                 <div class="invoice-details">
                     <div class="invoice-detail-item">
                         <span class="invoice-detail-label">Customer</span>
-                        <span class="invoice-detail-value">${inv.customer_id}</span>
+                        <span class="invoice-detail-value">${customerId}</span>
                     </div>
                     <div class="invoice-detail-item">
                         <span class="invoice-detail-label">Due Date</span>
-                        <span class="invoice-detail-value">${inv.due_date}</span>
+                        <span class="invoice-detail-value">${dueDate}</span>
                     </div>
                     <div class="invoice-detail-item">
                         <span class="invoice-detail-label">Total</span>
-                        <span class="invoice-detail-value">$${parseFloat(inv.amount).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
+                        <span class="invoice-detail-value">$${parseFloat(amount).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
                     </div>
                     <div class="invoice-detail-item">
                         <span class="invoice-detail-label">Status</span>
-                        <span class="invoice-detail-value">${inv.status}</span>
+                        <span class="invoice-detail-value">${status}</span>
                     </div>
                 </div>
 
                 <div class="allocation-input">
                     <label>Allocation Amount</label>
-                    <input type="number" step="0.01" min="0" max="${inv.pending_amount}" value="${inv.pending_amount}" onchange="updateSummary()" onclick="event.stopPropagation()">
+                    <input type="number" step="0.01" min="0" max="${pendingAmount}" value="${pendingAmount}" onchange="updateSummary()" onclick="event.stopPropagation()">
                 </div>
             </div>
-        `).join('');
+        `}).join('');
     }
 
     function updateSummary() {

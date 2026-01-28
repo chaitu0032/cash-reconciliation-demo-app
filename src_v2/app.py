@@ -272,7 +272,8 @@ def get_manual():
                     'invoice_number': c.invoice_number,
                     'amount': float(c.amount),
                     'pending_amount': float(c.pending_amount),
-                    'customer_id': c.customer_id
+                    'customer_id': c.customer_id,
+                    'score': c.score if hasattr(c, 'score') else 0
                 }
                 for c in (m.candidate_invoices or [])
             ]
@@ -647,7 +648,7 @@ def manual_detail_page(request: Request, bank_id: str):
 
     bank = get_bank(bank_id)
 
-    # Get candidate invoices
+    # Get candidate invoices with scores
     candidates = [
         {
             'invoice_number': c.invoice_number,
@@ -655,7 +656,8 @@ def manual_detail_page(request: Request, bank_id: str):
             'pending_amount': float(c.pending_amount),
             'customer_id': c.customer_id,
             'due_date': str(c.due_date),
-            'status': 'OPEN' if c.pending_amount > 0 else 'PAID'
+            'status': 'OPEN' if c.pending_amount > 0 else 'PAID',
+            'score': c.score if hasattr(c, 'score') else 0
         }
         for c in (manual_item.candidate_invoices or [])
     ]

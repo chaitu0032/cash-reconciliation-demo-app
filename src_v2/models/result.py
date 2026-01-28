@@ -54,13 +54,41 @@ class Suggestion:
 
 
 @dataclass
+class CandidateInvoice:
+    """Invoice candidate with relevance score for manual matching."""
+
+    invoice: Invoice
+    score: float  # 0-100 relevance score
+
+    @property
+    def invoice_number(self) -> str:
+        return self.invoice.invoice_number
+
+    @property
+    def amount(self) -> Decimal:
+        return self.invoice.amount
+
+    @property
+    def pending_amount(self) -> Decimal:
+        return self.invoice.pending_amount
+
+    @property
+    def customer_id(self) -> str:
+        return self.invoice.customer_id
+
+    @property
+    def due_date(self):
+        return self.invoice.due_date
+
+
+@dataclass
 class ManualItem:
     """Represents an item requiring manual reconciliation."""
 
     bank_id: str
     amount: Decimal
     reason: str
-    candidate_invoices: List[Invoice] = field(default_factory=list)
+    candidate_invoices: List[CandidateInvoice] = field(default_factory=list)
 
     def __post_init__(self) -> None:
         """Ensure amount is Decimal."""
