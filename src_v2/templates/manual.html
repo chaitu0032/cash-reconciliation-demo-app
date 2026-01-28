@@ -79,7 +79,7 @@
         }
 
         tbody.innerHTML = items.map(m => `
-            <tr>
+            <tr onclick="window.location.href='/manual/${m.bank_id}'" style="cursor: pointer;">
                 <td>
                     <code>${m.bank_id}</code>
                     <div class="text-muted" style="font-size: 0.75rem; margin-top: 0.25rem; max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${m.bank_description || ''}</div>
@@ -94,9 +94,9 @@
                     ${m.candidate_invoices.length > 0 ? `
                         <div class="allocation-list">
                             ${m.candidate_invoices.slice(0, 5).map(c => `
-                                <a href="http://localhost:5001/invoices/${c.invoice_number}" target="_blank" class="allocation-tag" style="text-decoration: none; cursor: pointer;" title="Pending: $${c.pending_amount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}">
+                                <span class="allocation-tag" title="Pending: $${c.pending_amount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}">
                                     ${c.invoice_number}: $${c.amount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}
-                                </a>
+                                </span>
                             `).join('')}
                             ${m.candidate_invoices.length > 5 ? `<span class="text-muted" style="font-size: 0.75rem;">+${m.candidate_invoices.length - 5} more</span>` : ''}
                         </div>

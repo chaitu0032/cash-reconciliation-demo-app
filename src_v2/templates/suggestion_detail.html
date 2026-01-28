@@ -1,0 +1,449 @@
+{% extends "base.html" %}
+
+{% block title %}Suggestion - {{ bank.id }}{% endblock %}
+
+{% block extra_styles %}
+<style>
+    .detail-label {
+        font-size: 0.7rem;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        margin-bottom: 0.25rem;
+    }
+    .detail-value {
+        font-size: 0.95rem;
+        color: var(--text-primary);
+    }
+    .detail-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+    }
+    .suggestion-banner {
+        background: var(--purple1);
+        border: 1px solid var(--purple3);
+        border-radius: var(--radius-12);
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    .suggestion-banner-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+    .suggestion-banner-icon {
+        width: 56px;
+        height: 56px;
+        background: var(--purple3);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--purple7);
+    }
+    .confidence-ring {
+        position: relative;
+        width: 56px;
+        height: 56px;
+    }
+    .confidence-ring svg {
+        transform: rotate(-90deg);
+    }
+    .confidence-ring .bg {
+        stroke: var(--purple3);
+    }
+    .confidence-ring .progress {
+        stroke: var(--purple7);
+        stroke-linecap: round;
+        transition: stroke-dashoffset 0.5s ease;
+    }
+    .confidence-value {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--purple8);
+    }
+    .suggestion-banner-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--purple8);
+    }
+    .suggestion-banner-subtitle {
+        font-size: 0.85rem;
+        color: var(--purple7);
+    }
+    .tier-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.25rem 0.75rem;
+        background: var(--purple3);
+        color: var(--purple8);
+        border-radius: var(--radius-full);
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+    .explanation-card {
+        background: white;
+        border: 1px solid var(--purple3);
+        border-radius: var(--radius-8);
+        padding: 1rem;
+    }
+    .explanation-title {
+        font-weight: 600;
+        color: var(--purple8);
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    .main-layout {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 1.5rem;
+    }
+    .invoice-card {
+        background: var(--grey1);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-8);
+        padding: 1rem;
+        margin-bottom: 0.75rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    .invoice-card:hover {
+        border-color: var(--purple5);
+        background: var(--purple1);
+    }
+    .invoice-card.selected {
+        border-color: var(--purple7);
+        background: var(--purple1);
+        box-shadow: 0 0 0 2px var(--purple3);
+    }
+    .invoice-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.5rem;
+    }
+    .action-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    .action-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.875rem 1.25rem;
+        border-radius: var(--radius-8);
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s;
+        border: none;
+        width: 100%;
+    }
+    .action-btn-primary {
+        background: var(--purple7);
+        color: white;
+    }
+    .action-btn-primary:hover {
+        background: var(--purple8);
+    }
+    .action-btn-secondary {
+        background: var(--grey3);
+        color: var(--grey11);
+        border: 1px solid var(--border-color);
+    }
+    .action-btn-secondary:hover {
+        background: var(--grey4);
+    }
+    .action-btn-success {
+        background: var(--success8);
+        color: white;
+    }
+    .action-btn-success:hover {
+        background: var(--success9);
+    }
+    .match-factors {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-top: 1rem;
+    }
+    .factor-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+    }
+    .factor-icon {
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: var(--success2);
+        color: var(--success8);
+    }
+    .factor-icon.weak {
+        background: var(--grey4);
+        color: var(--grey9);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="page-header" style="display: flex; justify-content: space-between; align-items: flex-start;">
+    <div style="display: flex; align-items: flex-start; gap: 1rem;">
+        <a href="/suggestions" class="btn btn-secondary" style="padding: 0.5rem; margin-top: 0.25rem;" title="Back to Suggestions">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5"/>
+                <polyline points="12 19 5 12 12 5"/>
+            </svg>
+        </a>
+        <div>
+            <h1>Match Suggestion</h1>
+            <p>AI-generated suggestion for bank transaction {{ bank.id }}</p>
+        </div>
+    </div>
+</div>
+
+<!-- Suggestion Banner -->
+<div class="suggestion-banner">
+    <div class="suggestion-banner-header">
+        <div class="confidence-ring">
+            <svg width="56" height="56" viewBox="0 0 56 56">
+                <circle class="bg" cx="28" cy="28" r="24" fill="none" stroke-width="4"/>
+                <circle class="progress" cx="28" cy="28" r="24" fill="none" stroke-width="4"
+                    stroke-dasharray="150.8"
+                    stroke-dashoffset="{{ 150.8 - (confidence * 150.8) }}"/>
+            </svg>
+            <div class="confidence-value">{{ (confidence * 100)|int }}%</div>
+        </div>
+        <div style="flex: 1;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.25rem;">
+                <div class="suggestion-banner-title">Match Suggestion</div>
+                <span class="tier-badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                    {{ tier.replace('_', ' ') }}
+                </span>
+            </div>
+            <div class="suggestion-banner-subtitle">Based on flow network analysis and historical patterns</div>
+        </div>
+    </div>
+
+    <div class="explanation-card">
+        <div class="explanation-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+            Why This Suggestion?
+        </div>
+        <div style="font-size: 0.9rem; color: var(--text-secondary);">{{ explanation or 'This match was suggested based on amount proximity, customer relationship, and timing analysis.' }}</div>
+
+        <div class="match-factors">
+            <div class="factor-item">
+                <span class="factor-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                Amount matches within tolerance
+            </div>
+            <div class="factor-item">
+                <span class="factor-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                Customer ID correlation found
+            </div>
+            <div class="factor-item">
+                <span class="factor-icon weak"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+                No direct reference in description
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main-layout">
+    <div>
+        <!-- Bank Transaction Card -->
+        <div class="card" style="margin-bottom: 1.25rem;">
+            <div class="card-header">
+                <h2>Bank Transaction</h2>
+                <span class="status-badge badge-suggestion">Suggested</span>
+            </div>
+            <div class="card-body">
+                <div class="detail-grid">
+                    <div>
+                        <div class="detail-label">Transaction ID</div>
+                        <div class="detail-value"><code>{{ bank.id }}</code></div>
+                    </div>
+                    <div>
+                        <div class="detail-label">Date</div>
+                        <div class="detail-value">{{ bank.date }}</div>
+                    </div>
+                    <div>
+                        <div class="detail-label">Amount</div>
+                        <div class="detail-value text-mono" style="font-size: 1.25rem; font-weight: 700; color: var(--success8);">
+                            ${{ "%.2f"|format(bank.amount) }}
+                        </div>
+                    </div>
+                    <div>
+                        <div class="detail-label">Customer ID</div>
+                        <div class="detail-value"><code>{{ bank.customer_id or 'N/A' }}</code></div>
+                    </div>
+                    <div>
+                        <div class="detail-label">Reference</div>
+                        <div class="detail-value"><code>{{ bank.reference or 'N/A' }}</code></div>
+                    </div>
+                    <div>
+                        <div class="detail-label">Payment Method</div>
+                        <div class="detail-value">{{ bank.payment_method or 'N/A' }}</div>
+                    </div>
+                </div>
+                {% if bank.description %}
+                <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+                    <div class="detail-label">Description</div>
+                    <div class="detail-value" style="font-size: 0.85rem;">{{ bank.description }}</div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Suggested Allocations -->
+        <div class="card">
+            <div class="card-header">
+                <h2>Suggested Invoices</h2>
+                <span style="font-size: 0.85rem; color: var(--text-muted);">{{ allocations|length }} invoice{{ 's' if allocations|length != 1 else '' }}</span>
+            </div>
+            <div class="card-body">
+                {% if allocations %}
+                    {% for alloc in allocations %}
+                    <a href="http://localhost:5001/invoices/{{ alloc.invoice_number }}" target="_blank" class="invoice-card" style="display: block; text-decoration: none; color: inherit;">
+                        <div class="invoice-header">
+                            <span style="font-family: var(--font-mono); font-weight: 600; color: var(--purple7);">{{ alloc.invoice_number }}</span>
+                            <span class="text-mono" style="font-weight: 600; color: var(--success8);">${{ "%.2f"|format(alloc.amount) }}</span>
+                        </div>
+                        <div style="display: flex; gap: 1rem; font-size: 0.85rem; color: var(--text-muted);">
+                            {% if alloc.is_partial %}
+                            <span class="status-badge" style="background: var(--warning3); color: var(--warning8); font-size: 0.7rem;">Partial</span>
+                            {% endif %}
+                            <span>Click to view invoice details</span>
+                        </div>
+                    </a>
+                    {% endfor %}
+                {% else %}
+                <div style="text-align: center; color: var(--text-muted); padding: 2rem;">
+                    No allocations suggested
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Action Panel -->
+    <div>
+        <div class="card" style="position: sticky; top: 1rem;">
+            <div class="card-header">
+                <h2>Your Decision</h2>
+            </div>
+            <div class="card-body">
+                <div class="action-buttons">
+                    <button class="action-btn action-btn-success" onclick="acceptSuggestion('{{ bank.id }}')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        Accept Suggestion
+                    </button>
+
+                    <button class="action-btn action-btn-primary" onclick="modifySuggestion('{{ bank.id }}')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                        </svg>
+                        Modify & Accept
+                    </button>
+
+                    <button class="action-btn action-btn-secondary" onclick="rejectSuggestion('{{ bank.id }}')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="15" y1="9" x2="9" y2="15"></line>
+                            <line x1="9" y1="9" x2="15" y2="15"></line>
+                        </svg>
+                        Reject Suggestion
+                    </button>
+                </div>
+
+                <div id="action-status" style="margin-top: 1rem; text-align: center; font-size: 0.85rem;"></div>
+
+                <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                        <span class="detail-label" style="margin: 0;">Confidence Breakdown</span>
+                    </div>
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">
+                        <div style="display: flex; justify-content: space-between; padding: 0.25rem 0;">
+                            <span>Amount Match</span>
+                            <span class="text-mono" style="color: var(--success8);">High</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding: 0.25rem 0;">
+                            <span>Customer Match</span>
+                            <span class="text-mono" style="color: var(--success8);">High</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding: 0.25rem 0;">
+                            <span>Timing</span>
+                            <span class="text-mono" style="color: var(--warning8);">Medium</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function showStatus(message, isError = false) {
+        const status = document.getElementById('action-status');
+        status.innerHTML = `<span style="color: var(--${isError ? 'error7' : 'success8'});">${message}</span>`;
+    }
+
+    async function acceptSuggestion(bankId) {
+        try {
+            const response = await fetch(`/api/approve/${bankId}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ source: 'suggestion' })
+            });
+            const data = await response.json();
+
+            if (data.success) {
+                showStatus('Suggestion accepted! Invoices updated.');
+                setTimeout(() => window.location.href = '/suggestions', 1500);
+            } else {
+                showStatus('Failed: ' + (data.error || 'Unknown error'), true);
+            }
+        } catch (err) {
+            showStatus('Error: ' + err.message, true);
+        }
+    }
+
+    function modifySuggestion(bankId) {
+        window.location.href = `/manual/${bankId}`;
+    }
+
+    async function rejectSuggestion(bankId) {
+        if (!confirm('Reject this suggestion? It will be moved to manual review.')) return;
+        showStatus('Suggestion rejected, moved to manual queue');
+        setTimeout(() => window.location.href = '/suggestions', 1500);
+    }
+</script>
+{% endblock %}

@@ -88,7 +88,7 @@
         }
 
         tbody.innerHTML = suggestions.map(s => `
-            <tr>
+            <tr onclick="window.location.href='/suggestions/${s.bank_id}'" style="cursor: pointer;">
                 <td>
                     <code>${s.bank_id}</code>
                     <div class="text-muted" style="font-size: 0.75rem; margin-top: 0.25rem;">${s.bank_description || ''}</div>
@@ -107,10 +107,10 @@
                 <td>
                     <div class="allocation-list">
                         ${s.allocations.map(a => `
-                            <a href="http://localhost:5001/invoices/${a.invoice_number}" target="_blank" class="allocation-tag ${a.is_partial ? 'partial' : ''}" style="text-decoration: none; cursor: pointer;">
+                            <span class="allocation-tag ${a.is_partial ? 'partial' : ''}">
                                 ${a.invoice_number}: $${a.amount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}
                                 ${a.is_partial ? ' (P)' : ''}
-                            </a>
+                            </span>
                         `).join('')}
                     </div>
                 </td>

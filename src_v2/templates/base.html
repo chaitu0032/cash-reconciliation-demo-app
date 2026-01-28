@@ -667,9 +667,10 @@
 </head>
 <body>
     <div class="container">
+        {% block header %}
         <!-- Header -->
         <header class="header">
-            <a href="/" class="logo">
+            <a href="/dashboard" class="logo">
                 <img src="/static/images/hyprbots_logo.png" alt="Hyperbots" class="logo-img">
                 <span class="brand-name">Hyperbots</span>
             </a>
@@ -677,7 +678,6 @@
                 <h1>Cash Reconciliation</h1>
             </div>
             <nav class="header-nav">
-                <a href="/" class="nav-link {% if request.url.path == '/' %}active{% endif %}">Upload</a>
                 <a href="/dashboard" class="nav-link {% if request.url.path == '/dashboard' %}active{% endif %}">Dashboard</a>
                 <a href="/auto-approved" class="nav-link {% if '/auto-approved' in request.url.path %}active{% endif %}">Auto-Approved</a>
                 <a href="/exceptions" class="nav-link {% if '/exceptions' in request.url.path %}active{% endif %}">Exceptions</a>
@@ -685,6 +685,7 @@
                 <a href="/manual" class="nav-link {% if '/manual' in request.url.path %}active{% endif %}">Manual</a>
             </nav>
         </header>
+        {% endblock %}
 
         <!-- Main Content -->
         <main class="main-content">

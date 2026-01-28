@@ -59,12 +59,19 @@
 
 {% block content %}
 <div class="page-header" style="display: flex; justify-content: space-between; align-items: flex-start;">
-    <div>
-        <h1>Remittance {{ remittance.id }}</h1>
-        <p>Parsed remittance advice with source document</p>
+    <div style="display: flex; align-items: flex-start; gap: 1rem;">
+        <a href="/auto-approved" class="btn btn-secondary" style="padding: 0.5rem; margin-top: 0.25rem;" title="Back to Matches">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5"/>
+                <polyline points="12 19 5 12 12 5"/>
+            </svg>
+        </a>
+        <div>
+            <h1>Remittance {{ remittance.id }}</h1>
+            <p>Parsed remittance advice with source document</p>
+        </div>
     </div>
     <div style="display: flex; gap: 0.75rem;">
-        <a href="/auto-approved" class="btn btn-secondary">Back to Matches</a>
         {% if has_pdf %}
         <a href="/remittances/{{ remittance.id }}/pdf" class="btn btn-secondary" target="_blank">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -181,7 +188,7 @@
     </div>
 
     <!-- Right: PDF Document -->
-    <div class="card">
+    <div class="card" style="display: flex; flex-direction: column; height: 100%; min-height: 600px;">
         <div class="card-header">
             <h2>Source Document</h2>
             {% if has_pdf %}
@@ -195,9 +202,9 @@
             </a>
             {% endif %}
         </div>
-        <div class="card-body" style="height: calc(100% - 60px); padding: 0;">
+        <div class="card-body" style="flex: 1; padding: 0; min-height: 500px;">
             {% if has_pdf %}
-            <iframe src="/remittances/{{ remittance.id }}/pdf" style="width: 100%; height: 100%; border: none; border-radius: 0 0 var(--radius-8) var(--radius-8);"></iframe>
+            <iframe src="/remittances/{{ remittance.id }}/pdf" style="width: 100%; height: 100%; min-height: 500px; border: none; border-radius: 0 0 var(--radius-8) var(--radius-8);"></iframe>
             {% else %}
             <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; color: var(--text-muted);">
                 <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity: 0.5; margin-bottom: 1rem;">

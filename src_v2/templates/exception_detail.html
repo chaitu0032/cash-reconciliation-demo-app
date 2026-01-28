@@ -1,0 +1,436 @@
+{% extends "base.html" %}
+
+{% block title %}Exception - {{ bank.id }}{% endblock %}
+
+{% block extra_styles %}
+<style>
+    .detail-label {
+        font-size: 0.7rem;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        margin-bottom: 0.25rem;
+    }
+    .detail-value {
+        font-size: 0.95rem;
+        color: var(--text-primary);
+    }
+    .detail-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+    }
+    .exception-banner {
+        background: var(--error1);
+        border: 1px solid var(--error5);
+        border-radius: var(--radius-12);
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    .exception-banner-header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+    }
+    .exception-banner-icon {
+        width: 48px;
+        height: 48px;
+        background: var(--error3);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--error7);
+    }
+    .exception-banner-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--error8);
+    }
+    .exception-banner-subtitle {
+        font-size: 0.85rem;
+        color: var(--error7);
+    }
+    .exception-item {
+        background: white;
+        border: 1px solid var(--error3);
+        border-radius: var(--radius-8);
+        padding: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+    .exception-item:last-child {
+        margin-bottom: 0;
+    }
+    .exception-item-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid var(--error3);
+    }
+    .exception-type {
+        font-weight: 600;
+        font-size: 1rem;
+        color: var(--error8);
+    }
+    .exception-details-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    .exception-detail-item {
+        background: var(--grey1);
+        padding: 0.75rem;
+        border-radius: var(--radius-4);
+    }
+    .exception-detail-label {
+        font-size: 0.7rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        color: var(--text-muted);
+        margin-bottom: 0.25rem;
+    }
+    .exception-detail-value {
+        font-family: var(--font-mono);
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--grey12);
+    }
+    .exception-detail-value.negative {
+        color: var(--error7);
+    }
+    .exception-detail-value.highlight {
+        color: var(--warning8);
+    }
+    .severity-high {
+        background: var(--error3);
+        color: var(--error8);
+    }
+    .severity-medium {
+        background: var(--warning3);
+        color: var(--warning8);
+    }
+    .severity-low {
+        background: var(--grey4);
+        color: var(--grey11);
+    }
+    .main-layout {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 1.5rem;
+    }
+    .invoice-card {
+        background: var(--grey1);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-8);
+        padding: 1rem;
+        margin-bottom: 0.75rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    .invoice-card:hover {
+        border-color: var(--primary5);
+        background: var(--primary1);
+    }
+    .invoice-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.5rem;
+    }
+    .action-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    .action-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.875rem 1.25rem;
+        border-radius: var(--radius-8);
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s;
+        border: none;
+        width: 100%;
+    }
+    .action-btn-primary {
+        background: var(--error7);
+        color: white;
+    }
+    .action-btn-primary:hover {
+        background: var(--error8);
+    }
+    .action-btn-secondary {
+        background: var(--grey3);
+        color: var(--grey11);
+        border: 1px solid var(--border-color);
+    }
+    .action-btn-secondary:hover {
+        background: var(--grey4);
+    }
+    .action-btn-success {
+        background: var(--success8);
+        color: white;
+    }
+    .action-btn-success:hover {
+        background: var(--success9);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="page-header" style="display: flex; justify-content: space-between; align-items: flex-start;">
+    <div style="display: flex; align-items: flex-start; gap: 1rem;">
+        <a href="/exceptions" class="btn btn-secondary" style="padding: 0.5rem; margin-top: 0.25rem;" title="Back to Exceptions">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5"/>
+                <polyline points="12 19 5 12 12 5"/>
+            </svg>
+        </a>
+        <div>
+            <h1>Exception Review</h1>
+            <p>Bank transaction {{ bank.id }} has validation issues requiring attention</p>
+        </div>
+    </div>
+</div>
+
+<!-- Exception Banner -->
+<div class="exception-banner">
+    <div class="exception-banner-header">
+        <div class="exception-banner-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+        </div>
+        <div>
+            <div class="exception-banner-title">{{ exceptions|length }} Validation Issue{{ 's' if exceptions|length != 1 else '' }} Found</div>
+            <div class="exception-banner-subtitle">Review the issues below and decide how to proceed</div>
+        </div>
+    </div>
+
+    {% for exc in exceptions %}
+    <div class="exception-item">
+        <div class="exception-item-header">
+            <span class="exception-type">{{ exc.type.replace('_', ' ').title() }}</span>
+            <span class="status-badge severity-{{ exc.severity|lower }}">{{ exc.severity }}</span>
+        </div>
+        <div class="exception-details-grid" data-details='{{ exc.details | tojson if exc.details else "{}" }}'>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="main-layout">
+    <div>
+        <!-- Bank Transaction Card -->
+        <div class="card" style="margin-bottom: 1.25rem;">
+            <div class="card-header">
+                <h2>Bank Transaction</h2>
+                <span class="status-badge" style="background: var(--error3); color: var(--error8);">Exception</span>
+            </div>
+            <div class="card-body">
+                <div class="detail-grid">
+                    <div>
+                        <div class="detail-label">Transaction ID</div>
+                        <div class="detail-value"><code>{{ bank.id }}</code></div>
+                    </div>
+                    <div>
+                        <div class="detail-label">Date</div>
+                        <div class="detail-value">{{ bank.date }}</div>
+                    </div>
+                    <div>
+                        <div class="detail-label">Amount</div>
+                        <div class="detail-value text-mono" style="font-size: 1.25rem; font-weight: 700; color: var(--success8);">
+                            ${{ "%.2f"|format(bank.amount) }}
+                        </div>
+                    </div>
+                    <div>
+                        <div class="detail-label">Customer ID</div>
+                        <div class="detail-value"><code>{{ bank.customer_id or 'N/A' }}</code></div>
+                    </div>
+                    <div>
+                        <div class="detail-label">Reference</div>
+                        <div class="detail-value"><code>{{ bank.reference or 'N/A' }}</code></div>
+                    </div>
+                    <div>
+                        <div class="detail-label">Payment Method</div>
+                        <div class="detail-value">{{ bank.payment_method or 'N/A' }}</div>
+                    </div>
+                </div>
+                {% if bank.description %}
+                <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+                    <div class="detail-label">Description</div>
+                    <div class="detail-value" style="font-size: 0.85rem;">{{ bank.description }}</div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Proposed Allocations -->
+        <div class="card">
+            <div class="card-header">
+                <h2>Proposed Allocations</h2>
+                <span style="font-size: 0.85rem; color: var(--text-muted);">{{ allocations|length }} invoice{{ 's' if allocations|length != 1 else '' }}</span>
+            </div>
+            <div class="card-body">
+                {% if allocations %}
+                    {% for alloc in allocations %}
+                    <a href="http://localhost:5001/invoices/{{ alloc.invoice_number }}" target="_blank" class="invoice-card" style="display: block; text-decoration: none; color: inherit;">
+                        <div class="invoice-header">
+                            <span style="font-family: var(--font-mono); font-weight: 600; color: var(--primary7);">{{ alloc.invoice_number }}</span>
+                            <span class="text-mono" style="font-weight: 600; color: var(--success8);">${{ "%.2f"|format(alloc.amount) }}</span>
+                        </div>
+                        <div style="font-size: 0.85rem; color: var(--text-muted);">
+                            {% if alloc.is_partial %}
+                            <span class="status-badge" style="background: var(--warning3); color: var(--warning8); font-size: 0.7rem;">Partial Payment</span>
+                            {% endif %}
+                        </div>
+                    </a>
+                    {% endfor %}
+                {% else %}
+                <div style="text-align: center; color: var(--text-muted); padding: 2rem;">
+                    No allocations proposed
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Action Panel -->
+    <div>
+        <div class="card" style="position: sticky; top: 1rem;">
+            <div class="card-header">
+                <h2>Actions</h2>
+            </div>
+            <div class="card-body">
+                <div class="action-buttons">
+                    <button class="action-btn action-btn-success" onclick="forceApprove('{{ bank.id }}')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        Override & Approve
+                    </button>
+
+                    <button class="action-btn action-btn-secondary" onclick="moveToManual('{{ bank.id }}')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                        </svg>
+                        Send to Manual Review
+                    </button>
+
+                    <button class="action-btn action-btn-primary" onclick="rejectMatch('{{ bank.id }}')">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="15" y1="9" x2="9" y2="15"></line>
+                            <line x1="9" y1="9" x2="15" y2="15"></line>
+                        </svg>
+                        Reject Match
+                    </button>
+                </div>
+
+                <div id="action-status" style="margin-top: 1rem; text-align: center; font-size: 0.85rem;"></div>
+
+                <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+                    <div class="detail-label" style="margin-bottom: 0.75rem;">Resolution Notes</div>
+                    <textarea id="notes" placeholder="Add notes about your decision..." style="width: 100%; min-height: 100px; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-8); font-family: inherit; font-size: 0.9rem; resize: vertical;"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Render exception details
+    document.querySelectorAll('.exception-details-grid').forEach(grid => {
+        const details = JSON.parse(grid.dataset.details || '{}');
+        if (Object.keys(details).length === 0) {
+            grid.innerHTML = '<div style="grid-column: 1/-1; font-size: 0.9rem; color: var(--text-muted); font-style: italic;">No additional details available</div>';
+            return;
+        }
+
+        grid.innerHTML = Object.entries(details).map(([key, value]) => {
+            const label = key.replace(/_/g, ' ');
+            let valueClass = 'exception-detail-value';
+            let displayValue = value;
+
+            // Format based on key type
+            if (key.includes('difference') || key.includes('overpayment')) {
+                valueClass += ' negative';
+            }
+            if (key.includes('percent')) {
+                valueClass += ' highlight';
+            }
+
+            // Format currency values
+            if ((key.includes('amount') || key === 'difference' || key.includes('overpayment') || key.includes('paid') || key.includes('pending')) && !key.includes('percent')) {
+                const numVal = parseFloat(value);
+                if (!isNaN(numVal)) {
+                    displayValue = '$' + numVal.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+                }
+            }
+
+            // Format invoice numbers
+            if (key.includes('invoice') || key.includes('number')) {
+                displayValue = '<code>' + value + '</code>';
+            }
+
+            return `
+                <div class="exception-detail-item">
+                    <div class="exception-detail-label">${label}</div>
+                    <div class="${valueClass}">${displayValue}</div>
+                </div>
+            `;
+        }).join('');
+    });
+
+    function showStatus(message, isError = false) {
+        const status = document.getElementById('action-status');
+        status.innerHTML = `<span style="color: var(--${isError ? 'error7' : 'success8'});">${message}</span>`;
+    }
+
+    async function forceApprove(bankId) {
+        if (!confirm('Override validation and approve this match?')) return;
+
+        try {
+            const response = await fetch(`/api/approve/${bankId}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ force: true, notes: document.getElementById('notes').value })
+            });
+            const data = await response.json();
+
+            if (data.success) {
+                showStatus('Match approved successfully!');
+                setTimeout(() => window.location.href = '/exceptions', 1500);
+            } else {
+                showStatus('Failed to approve: ' + (data.error || 'Unknown error'), true);
+            }
+        } catch (err) {
+            showStatus('Error: ' + err.message, true);
+        }
+    }
+
+    async function moveToManual(bankId) {
+        showStatus('Moved to manual review queue');
+        setTimeout(() => window.location.href = '/manual', 1500);
+    }
+
+    async function rejectMatch(bankId) {
+        if (!confirm('Reject this match? The transaction will need to be re-matched.')) return;
+        showStatus('Match rejected');
+        setTimeout(() => window.location.href = '/exceptions', 1500);
+    }
+</script>
+{% endblock %}

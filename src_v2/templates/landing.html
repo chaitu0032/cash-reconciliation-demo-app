@@ -2,6 +2,16 @@
 
 {% block title %}Upload Bank Statement{% endblock %}
 
+{% block header %}
+<!-- Minimal header for landing page - no navigation -->
+<header class="header" style="justify-content: center;">
+    <a href="/" class="logo">
+        <img src="/static/images/hyprbots_logo.png" alt="Hyperbots" class="logo-img">
+        <span class="brand-name">Hyperbots</span>
+    </a>
+</header>
+{% endblock %}
+
 {% block extra_styles %}
 <style>
     .landing-container {
@@ -206,6 +216,42 @@
         0%, 100% { transform: scale(1); opacity: 1; }
         50% { transform: scale(1.1); opacity: 0.8; }
     }
+    .rotating-loader {
+        position: relative;
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 1.5rem;
+    }
+    .rotating-loader svg {
+        display: block;
+    }
+    .loader-arc {
+        animation: rotate 2s linear infinite;
+        transform-origin: center;
+    }
+    .loader-arc-reverse {
+        animation: rotate-reverse 3s linear infinite;
+        transform-origin: center;
+    }
+    .loader-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: float 2s ease-in-out infinite;
+    }
+    @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+    @keyframes rotate-reverse {
+        from { transform: rotate(360deg); }
+        to { transform: rotate(0deg); }
+    }
+    @keyframes float {
+        0%, 100% { transform: translate(-50%, -50%); }
+        50% { transform: translate(-50%, -60%); }
+    }
 </style>
 {% endblock %}
 
@@ -279,10 +325,22 @@
             <div id="parsing-status" class="parsing-status" style="display: none;">
                 <div class="processing-card">
                     <div class="processing-spinner">
-                        <svg width="48" height="48" viewBox="0 0 50 50">
-                            <circle cx="25" cy="25" r="20" fill="none" stroke="var(--grey4)" stroke-width="4"/>
-                            <circle cx="25" cy="25" r="20" fill="none" stroke="var(--primary7)" stroke-width="4" stroke-dasharray="80" stroke-dashoffset="60" stroke-linecap="round" style="animation: spin 1s linear infinite;"/>
-                        </svg>
+                        <div class="rotating-loader">
+                            <svg width="80" height="80" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="40" fill="none" stroke="var(--grey4)" stroke-width="6"/>
+                                <circle cx="50" cy="50" r="40" fill="none" stroke="var(--primary7)" stroke-width="6"
+                                    stroke-dasharray="62.8 188.4" stroke-linecap="round" class="loader-arc"/>
+                                <circle cx="50" cy="50" r="28" fill="none" stroke="var(--grey4)" stroke-width="4"/>
+                                <circle cx="50" cy="50" r="28" fill="none" stroke="var(--success7)" stroke-width="4"
+                                    stroke-dasharray="44 132" stroke-linecap="round" class="loader-arc-reverse"/>
+                            </svg>
+                            <div class="loader-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary7)" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                </svg>
+                            </div>
+                        </div>
                     </div>
                     <div class="processing-title">Processing Bank Statement</div>
                     <div class="processing-steps">

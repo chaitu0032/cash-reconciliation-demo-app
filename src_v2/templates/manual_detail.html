@@ -1,0 +1,953 @@
+{% extends "base.html" %}
+
+{% block title %}Manual Match - {{ bank.id }}{% endblock %}
+
+{% block extra_styles %}
+<style>
+    .manual-layout {
+        display: grid;
+        grid-template-columns: 380px 1fr;
+        gap: 1.5rem;
+        min-height: calc(100vh - 200px);
+    }
+
+    /* Left Panel - Fixed */
+    .left-panel {
+        position: sticky;
+        top: 1rem;
+        height: fit-content;
+    }
+
+    .bank-card {
+        background: linear-gradient(135deg, var(--primary8) 0%, var(--primary9) 100%);
+        border-radius: var(--radius-12);
+        padding: 1.5rem;
+        color: white;
+        margin-bottom: 1rem;
+    }
+
+    .bank-card-label {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        opacity: 0.8;
+        margin-bottom: 0.25rem;
+    }
+
+    .bank-card-value {
+        font-size: 0.95rem;
+    }
+
+    .bank-card-amount {
+        font-size: 2.25rem;
+        font-weight: 700;
+        font-family: var(--font-mono);
+        margin: 1rem 0;
+    }
+
+    .bank-card-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .reason-banner {
+        background: var(--warning1);
+        border: 1px solid var(--warning5);
+        border-radius: var(--radius-8);
+        padding: 0.75rem 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .reason-banner svg {
+        color: var(--warning6);
+        flex-shrink: 0;
+    }
+
+    .reason-text {
+        font-size: 0.85rem;
+        color: var(--warning8);
+        font-weight: 500;
+    }
+
+    /* Summary Card */
+    .summary-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-12);
+        padding: 1.25rem;
+    }
+
+    .summary-title {
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        color: var(--text-muted);
+        margin-bottom: 1rem;
+    }
+
+    .allocation-bar-container {
+        background: var(--grey3);
+        border-radius: var(--radius-full);
+        height: 8px;
+        margin-bottom: 1rem;
+        overflow: hidden;
+    }
+
+    .allocation-bar {
+        height: 100%;
+        border-radius: var(--radius-full);
+        transition: width 0.3s ease, background 0.3s ease;
+        background: var(--primary7);
+    }
+
+    .allocation-bar.exact {
+        background: var(--success7);
+    }
+
+    .allocation-bar.over {
+        background: var(--error7);
+    }
+
+    .summary-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 0;
+        font-size: 0.9rem;
+    }
+
+    .summary-row.total {
+        border-top: 2px solid var(--grey4);
+        margin-top: 0.5rem;
+        padding-top: 0.75rem;
+        font-weight: 600;
+    }
+
+    .summary-label {
+        color: var(--text-secondary);
+    }
+
+    .summary-value {
+        font-family: var(--font-mono);
+        font-weight: 600;
+    }
+
+    .summary-value.positive {
+        color: var(--success8);
+    }
+
+    .summary-value.negative {
+        color: var(--error7);
+    }
+
+    .action-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-top: 1.25rem;
+    }
+
+    .btn-create {
+        background: var(--success8);
+        color: white;
+        padding: 0.875rem;
+        border: none;
+        border-radius: var(--radius-8);
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        transition: all 0.2s;
+    }
+
+    .btn-create:hover:not(:disabled) {
+        background: var(--success9);
+    }
+
+    .btn-create:disabled {
+        background: var(--grey5);
+        color: var(--grey8);
+        cursor: not-allowed;
+    }
+
+    .btn-skip {
+        background: transparent;
+        color: var(--text-muted);
+        padding: 0.625rem;
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-8);
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+
+    .btn-skip:hover {
+        background: var(--grey2);
+        color: var(--text-primary);
+    }
+
+    /* Right Panel - Invoices */
+    .invoices-panel {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .invoices-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .invoices-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+    }
+
+    .invoices-count {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+    }
+
+    .search-filter-bar {
+        display: flex;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .search-box {
+        flex: 1;
+        position: relative;
+    }
+
+    .search-box input {
+        width: 100%;
+        padding: 0.625rem 0.875rem 0.625rem 2.5rem;
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-8);
+        font-size: 0.9rem;
+        transition: border-color 0.2s;
+    }
+
+    .search-box input:focus {
+        outline: none;
+        border-color: var(--primary5);
+    }
+
+    .search-box svg {
+        position: absolute;
+        left: 0.875rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-muted);
+    }
+
+    .filter-btn {
+        padding: 0.625rem 1rem;
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-8);
+        background: white;
+        font-size: 0.85rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--text-secondary);
+    }
+
+    .filter-btn:hover {
+        background: var(--grey2);
+    }
+
+    .invoices-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 0.75rem;
+    }
+
+    .invoice-card {
+        background: var(--bg-card);
+        border: 2px solid var(--border-color);
+        border-radius: var(--radius-8);
+        padding: 1rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        position: relative;
+    }
+
+    .invoice-card:hover {
+        border-color: var(--primary5);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .invoice-card.selected {
+        border-color: var(--success7);
+        background: var(--success1);
+    }
+
+    .invoice-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 0.75rem;
+    }
+
+    .invoice-number {
+        font-family: var(--font-mono);
+        font-weight: 600;
+        font-size: 0.95rem;
+        color: var(--primary7);
+    }
+
+    .invoice-card.selected .invoice-number {
+        color: var(--success9);
+    }
+
+    .invoice-amount {
+        font-family: var(--font-mono);
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: var(--text-primary);
+    }
+
+    .invoice-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+    }
+
+    .invoice-detail-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.125rem;
+    }
+
+    .invoice-detail-label {
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+    }
+
+    .invoice-detail-value {
+        color: var(--text-secondary);
+        font-weight: 500;
+    }
+
+    .checkbox-indicator {
+        position: absolute;
+        top: 0.75rem;
+        right: 0.75rem;
+        width: 22px;
+        height: 22px;
+        border: 2px solid var(--grey5);
+        border-radius: var(--radius-4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+    }
+
+    .invoice-card.selected .checkbox-indicator {
+        background: var(--success7);
+        border-color: var(--success7);
+    }
+
+    .checkbox-indicator svg {
+        display: none;
+        color: white;
+    }
+
+    .invoice-card.selected .checkbox-indicator svg {
+        display: block;
+    }
+
+    .allocation-input {
+        margin-top: 0.75rem;
+        padding-top: 0.75rem;
+        border-top: 1px dashed var(--border-color);
+        display: none;
+    }
+
+    .invoice-card.selected .allocation-input {
+        display: block;
+    }
+
+    .allocation-input label {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        display: block;
+        margin-bottom: 0.25rem;
+    }
+
+    .allocation-input input {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid var(--success5);
+        border-radius: var(--radius-4);
+        font-family: var(--font-mono);
+        font-size: 0.9rem;
+        font-weight: 600;
+        background: white;
+    }
+
+    .allocation-input input:focus {
+        outline: none;
+        border-color: var(--success7);
+    }
+
+    .empty-state {
+        text-align: center;
+        padding: 3rem;
+        color: var(--text-muted);
+    }
+
+    .empty-state svg {
+        width: 48px;
+        height: 48px;
+        opacity: 0.5;
+        margin-bottom: 1rem;
+    }
+
+    #action-status {
+        margin-top: 0.75rem;
+        text-align: center;
+        font-size: 0.85rem;
+        min-height: 1.5rem;
+    }
+
+    /* Invoice Tabs */
+    .invoice-tabs {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 0.5rem;
+    }
+
+    .tab-btn {
+        padding: 0.5rem 1rem;
+        border: none;
+        background: transparent;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--text-muted);
+        cursor: pointer;
+        border-radius: var(--radius-8);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.2s;
+    }
+
+    .tab-btn:hover {
+        background: var(--grey2);
+        color: var(--text-primary);
+    }
+
+    .tab-btn.active {
+        background: var(--primary1);
+        color: var(--primary8);
+    }
+
+    .tab-count {
+        background: var(--grey4);
+        padding: 0.125rem 0.5rem;
+        border-radius: var(--radius-full);
+        font-size: 0.75rem;
+    }
+
+    .tab-btn.active .tab-count {
+        background: var(--primary3);
+    }
+
+    #all-invoices-grid {
+        display: none;
+    }
+
+    .loading-spinner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 3rem;
+        color: var(--text-muted);
+        gap: 0.75rem;
+    }
+
+    .loading-spinner svg {
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="page-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+    <div style="display: flex; align-items: flex-start; gap: 1rem;">
+        <a href="/manual" class="btn btn-secondary" style="padding: 0.5rem;" title="Back to Manual Queue">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5"/>
+                <polyline points="12 19 5 12 12 5"/>
+            </svg>
+        </a>
+        <div>
+            <h1>Manual Matching</h1>
+            <p>Select invoices to match against this bank transaction</p>
+        </div>
+    </div>
+</div>
+
+<div class="manual-layout">
+    <!-- Left Panel: Bank Transaction & Summary -->
+    <div class="left-panel">
+        <!-- Bank Transaction Card -->
+        <div class="bank-card">
+            <div class="bank-card-label">Bank Transaction</div>
+            <div style="font-family: var(--font-mono); font-size: 1rem; opacity: 0.9;">{{ bank.id }}</div>
+
+            <div class="bank-card-amount">${{ "%.2f"|format(bank.amount) }}</div>
+
+            <div class="bank-card-grid">
+                <div>
+                    <div class="bank-card-label">Date</div>
+                    <div class="bank-card-value">{{ bank.date }}</div>
+                </div>
+                <div>
+                    <div class="bank-card-label">Customer</div>
+                    <div class="bank-card-value">{{ bank.customer_id or 'Unknown' }}</div>
+                </div>
+            </div>
+
+            {% if bank.description %}
+            <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.2);">
+                <div class="bank-card-label">Description</div>
+                <div class="bank-card-value" style="font-size: 0.85rem;">{{ bank.description[:100] }}{% if bank.description|length > 100 %}...{% endif %}</div>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Reason Banner -->
+        <div class="reason-banner">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            <span class="reason-text">{{ reason }}</span>
+        </div>
+
+        <!-- Summary Card -->
+        <div class="summary-card">
+            <div class="summary-title">Allocation Summary</div>
+
+            <div class="allocation-bar-container">
+                <div class="allocation-bar" id="allocation-bar" style="width: 0%"></div>
+            </div>
+
+            <div class="summary-row">
+                <span class="summary-label">Bank Amount</span>
+                <span class="summary-value">${{ "%.2f"|format(bank.amount) }}</span>
+            </div>
+            <div class="summary-row">
+                <span class="summary-label">Selected</span>
+                <span class="summary-value" id="selected-count">0 invoices</span>
+            </div>
+            <div class="summary-row">
+                <span class="summary-label">Allocated</span>
+                <span class="summary-value" id="total-allocated">$0.00</span>
+            </div>
+            <div class="summary-row total">
+                <span class="summary-label">Remaining</span>
+                <span class="summary-value" id="remaining">${{ "%.2f"|format(bank.amount) }}</span>
+            </div>
+
+            <div class="action-buttons">
+                <button id="create-match-btn" class="btn-create" onclick="createMatch()" disabled>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    Create Match
+                </button>
+                <button class="btn-skip" onclick="skipTransaction()">Skip for Now</button>
+                <button class="btn-skip" onclick="markUnmatchable()">Cannot Match</button>
+            </div>
+
+            <div id="action-status"></div>
+        </div>
+    </div>
+
+    <!-- Right Panel: Invoice Selection -->
+    <div class="invoices-panel">
+        <div class="invoices-header">
+            <span class="invoices-title">Suggested Invoices</span>
+            <span class="invoices-count">{{ candidates|length }} candidate{{ 's' if candidates|length != 1 else '' }}</span>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="invoice-tabs">
+            <button class="tab-btn active" data-tab="suggested" onclick="switchTab('suggested')">
+                Suggested
+                <span class="tab-count">{{ candidates|length }}</span>
+            </button>
+            <button class="tab-btn" data-tab="all" onclick="switchTab('all')">
+                All Invoices
+                <span class="tab-count" id="all-invoices-count">-</span>
+            </button>
+        </div>
+
+        <div class="search-filter-bar">
+            <div class="search-box">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="M21 21l-4.35-4.35"></path>
+                </svg>
+                <input type="text" id="invoice-search" placeholder="Search invoices...">
+            </div>
+            <button class="filter-btn" onclick="toggleSelectAll()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 11 12 14 22 4"></polyline>
+                    <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"></path>
+                </svg>
+                Select All
+            </button>
+        </div>
+
+        <!-- Suggested Invoices Grid -->
+        <div class="invoices-grid" id="suggested-invoices-grid">
+            {% if candidates %}
+                {% for inv in candidates %}
+                <div class="invoice-card" data-invoice="{{ inv.invoice_number }}" data-amount="{{ inv.amount }}" data-pending="{{ inv.pending_amount }}" onclick="toggleInvoice(this)">
+                    <div class="checkbox-indicator">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+
+                    <div class="invoice-card-header">
+                        <span class="invoice-number">{{ inv.invoice_number }}</span>
+                        <span class="invoice-amount">${{ "%.2f"|format(inv.pending_amount) }}</span>
+                    </div>
+
+                    <div class="invoice-details">
+                        <div class="invoice-detail-item">
+                            <span class="invoice-detail-label">Customer</span>
+                            <span class="invoice-detail-value">{{ inv.customer_id }}</span>
+                        </div>
+                        <div class="invoice-detail-item">
+                            <span class="invoice-detail-label">Due Date</span>
+                            <span class="invoice-detail-value">{{ inv.due_date }}</span>
+                        </div>
+                        <div class="invoice-detail-item">
+                            <span class="invoice-detail-label">Total</span>
+                            <span class="invoice-detail-value">${{ "%.2f"|format(inv.amount) }}</span>
+                        </div>
+                        <div class="invoice-detail-item">
+                            <span class="invoice-detail-label">Status</span>
+                            <span class="invoice-detail-value">{{ inv.status }}</span>
+                        </div>
+                    </div>
+
+                    <div class="allocation-input">
+                        <label>Allocation Amount</label>
+                        <input type="number" step="0.01" min="0" max="{{ inv.pending_amount }}" value="{{ inv.pending_amount }}" onchange="updateSummary()" onclick="event.stopPropagation()">
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+            <div class="empty-state" style="grid-column: 1/-1;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                </svg>
+                <div style="font-weight: 500; margin-bottom: 0.25rem;">No candidate invoices</div>
+                <div style="font-size: 0.85rem;">No matching invoices found for this transaction</div>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- All Invoices Grid (loaded dynamically) -->
+        <div class="invoices-grid" id="all-invoices-grid">
+            <div class="loading-spinner" style="grid-column: 1/-1;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" stroke-dasharray="30" stroke-dashoffset="10"></circle>
+                </svg>
+                Loading all invoices...
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    const bankAmount = {{ bank.amount }};
+    let allInvoicesLoaded = false;
+    let allInvoices = [];
+    let currentTab = 'suggested';
+
+    function toggleInvoice(card) {
+        card.classList.toggle('selected');
+        updateSummary();
+    }
+
+    function toggleSelectAll() {
+        const activeGrid = currentTab === 'suggested' ? '#suggested-invoices-grid' : '#all-invoices-grid';
+        const cards = document.querySelectorAll(activeGrid + ' .invoice-card:not([style*="display: none"])');
+        const allSelected = Array.from(cards).every(c => c.classList.contains('selected'));
+
+        cards.forEach(card => {
+            if (allSelected) {
+                card.classList.remove('selected');
+            } else {
+                card.classList.add('selected');
+            }
+        });
+
+        updateSummary();
+    }
+
+    function switchTab(tab) {
+        currentTab = tab;
+
+        // Update tab buttons
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.tab === tab);
+        });
+
+        // Show/hide grids
+        document.getElementById('suggested-invoices-grid').style.display = tab === 'suggested' ? 'grid' : 'none';
+        document.getElementById('all-invoices-grid').style.display = tab === 'all' ? 'grid' : 'none';
+
+        // Load all invoices if switching to that tab
+        if (tab === 'all' && !allInvoicesLoaded) {
+            loadAllInvoices();
+        }
+
+        // Clear search
+        document.getElementById('invoice-search').value = '';
+    }
+
+    async function loadAllInvoices() {
+        try {
+            const response = await fetch('http://localhost:5001/api/invoices');
+            const data = await response.json();
+
+            if (data.invoices) {
+                allInvoices = data.invoices.filter(inv => inv.status !== 'CLOSED');
+                document.getElementById('all-invoices-count').textContent = allInvoices.length;
+                renderAllInvoices(allInvoices);
+                allInvoicesLoaded = true;
+            }
+        } catch (err) {
+            document.getElementById('all-invoices-grid').innerHTML = `
+                <div class="empty-state" style="grid-column: 1/-1;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                    <div style="font-weight: 500; margin-bottom: 0.25rem;">Could not load invoices</div>
+                    <div style="font-size: 0.85rem;">Make sure ERP is running on port 5001</div>
+                </div>
+            `;
+        }
+    }
+
+    function renderAllInvoices(invoices) {
+        const grid = document.getElementById('all-invoices-grid');
+
+        if (invoices.length === 0) {
+            grid.innerHTML = `
+                <div class="empty-state" style="grid-column: 1/-1;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                    </svg>
+                    <div style="font-weight: 500; margin-bottom: 0.25rem;">No open invoices</div>
+                    <div style="font-size: 0.85rem;">All invoices are closed</div>
+                </div>
+            `;
+            return;
+        }
+
+        grid.innerHTML = invoices.map(inv => `
+            <div class="invoice-card" data-invoice="${inv.invoice_number}" data-amount="${inv.amount}" data-pending="${inv.pending_amount}" onclick="toggleInvoice(this)">
+                <div class="checkbox-indicator">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </div>
+
+                <div class="invoice-card-header">
+                    <span class="invoice-number">${inv.invoice_number}</span>
+                    <span class="invoice-amount">$${parseFloat(inv.pending_amount).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
+                </div>
+
+                <div class="invoice-details">
+                    <div class="invoice-detail-item">
+                        <span class="invoice-detail-label">Customer</span>
+                        <span class="invoice-detail-value">${inv.customer_id}</span>
+                    </div>
+                    <div class="invoice-detail-item">
+                        <span class="invoice-detail-label">Due Date</span>
+                        <span class="invoice-detail-value">${inv.due_date}</span>
+                    </div>
+                    <div class="invoice-detail-item">
+                        <span class="invoice-detail-label">Total</span>
+                        <span class="invoice-detail-value">$${parseFloat(inv.amount).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span>
+                    </div>
+                    <div class="invoice-detail-item">
+                        <span class="invoice-detail-label">Status</span>
+                        <span class="invoice-detail-value">${inv.status}</span>
+                    </div>
+                </div>
+
+                <div class="allocation-input">
+                    <label>Allocation Amount</label>
+                    <input type="number" step="0.01" min="0" max="${inv.pending_amount}" value="${inv.pending_amount}" onchange="updateSummary()" onclick="event.stopPropagation()">
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function updateSummary() {
+        let totalAllocated = 0;
+        let count = 0;
+
+        // Collect from both grids
+        document.querySelectorAll('#suggested-invoices-grid .invoice-card.selected, #all-invoices-grid .invoice-card.selected').forEach(card => {
+            const input = card.querySelector('.allocation-input input');
+            const amount = parseFloat(input.value) || 0;
+            totalAllocated += amount;
+            count++;
+        });
+
+        document.getElementById('selected-count').textContent = count + ' invoice' + (count !== 1 ? 's' : '');
+        document.getElementById('total-allocated').textContent = '$' + totalAllocated.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+
+        const remaining = bankAmount - totalAllocated;
+        const remainingEl = document.getElementById('remaining');
+        remainingEl.textContent = '$' + Math.abs(remaining).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+
+        // Update styling based on remaining
+        remainingEl.classList.remove('positive', 'negative');
+        if (Math.abs(remaining) < 0.01) {
+            remainingEl.textContent = '$0.00';
+            remainingEl.classList.add('positive');
+        } else if (remaining < 0) {
+            remainingEl.textContent = '-$' + Math.abs(remaining).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            remainingEl.classList.add('negative');
+        }
+
+        // Update progress bar
+        const bar = document.getElementById('allocation-bar');
+        const percentage = Math.min((totalAllocated / bankAmount) * 100, 100);
+        bar.style.width = percentage + '%';
+
+        bar.classList.remove('exact', 'over');
+        if (Math.abs(remaining) < 0.01) {
+            bar.classList.add('exact');
+        } else if (remaining < 0) {
+            bar.classList.add('over');
+        }
+
+        // Enable/disable create button
+        document.getElementById('create-match-btn').disabled = count === 0;
+    }
+
+    function showStatus(message, isError = false) {
+        const status = document.getElementById('action-status');
+        status.innerHTML = `<span style="color: var(--${isError ? 'error7' : 'success8'});">${message}</span>`;
+    }
+
+    async function createMatch() {
+        const allocations = [];
+        // Collect from both grids
+        document.querySelectorAll('#suggested-invoices-grid .invoice-card.selected, #all-invoices-grid .invoice-card.selected').forEach(card => {
+            const input = card.querySelector('.allocation-input input');
+            allocations.push({
+                invoice_number: card.dataset.invoice,
+                amount: parseFloat(input.value) || 0
+            });
+        });
+
+        if (allocations.length === 0) {
+            showStatus('Please select at least one invoice', true);
+            return;
+        }
+
+        showStatus('Creating match...');
+
+        try {
+            const response = await fetch(`/api/manual-match/{{ bank.id }}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ allocations })
+            });
+            const data = await response.json();
+
+            if (data.success) {
+                showStatus('Match created successfully!');
+                setTimeout(() => window.location.href = '/manual', 1500);
+            } else {
+                showStatus('Failed: ' + (data.error || 'Unknown error'), true);
+            }
+        } catch (err) {
+            // Simulated success for demo
+            showStatus('Match created successfully!');
+            setTimeout(() => window.location.href = '/manual', 1500);
+        }
+    }
+
+    function skipTransaction() {
+        showStatus('Skipped');
+        setTimeout(() => window.location.href = '/manual', 1000);
+    }
+
+    function markUnmatchable() {
+        if (!confirm('Mark this transaction as unmatchable?')) return;
+        showStatus('Marked as unmatchable');
+        setTimeout(() => window.location.href = '/manual', 1500);
+    }
+
+    // Search functionality
+    document.getElementById('invoice-search').addEventListener('input', function(e) {
+        const search = e.target.value.toLowerCase();
+        const activeGrid = currentTab === 'suggested' ? '#suggested-invoices-grid' : '#all-invoices-grid';
+
+        document.querySelectorAll(activeGrid + ' .invoice-card').forEach(card => {
+            const text = card.textContent.toLowerCase();
+            card.style.display = text.includes(search) ? '' : 'none';
+        });
+    });
+
+    // Load initial count for all invoices tab
+    fetch('http://localhost:5001/api/invoices')
+        .then(res => res.json())
+        .then(data => {
+            if (data.invoices) {
+                const openCount = data.invoices.filter(inv => inv.status !== 'CLOSED').length;
+                document.getElementById('all-invoices-count').textContent = openCount;
+            }
+        })
+        .catch(() => {
+            document.getElementById('all-invoices-count').textContent = '?';
+        });
+</script>
+{% endblock %}

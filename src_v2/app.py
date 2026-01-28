@@ -504,7 +504,7 @@ def get_remittance_pdf(remittance_id: str):
     return FileResponse(
         path=str(pdf_path),
         media_type='application/pdf',
-        filename=f'{remittance_id}.pdf'
+        headers={"Content-Disposition": f"inline; filename={remittance_id}.pdf"}
     )
 
 
@@ -546,6 +546,126 @@ def suggestions_page(request: Request):
 def manual_page(request: Request):
     """Manual review page."""
     return templates.TemplateResponse("manual.html", {"request": request})
+
+
+@app.get('/exceptions/{bank_id}', response_class=HTMLResponse)
+def exception_detail_page(request: Request, bank_id: str):
+    """Exception detail page."""
+    result = run_reconciliation()
+
+    # Find the exception
+    match = None
+    for m in result.exceptions:
+        if m.bank_id == bank_id:
+            match = m
+            break
+
+    if not match:
+        raise HTTPException(status_code=404, detail="Exception not found")
+
+    bank = get_bank(bank_id)
+
+    # Get allocations
+    allocations = [
+        {
+            'invoice_number': a.invoice_number,
+            'amount': float(a.amount),
+            'is_partial': a.is_partial
+        }
+        for a in match.allocations
+    ]
+
+    # Get exceptions
+    exceptions = [
+        {
+            'type': e.type.value if hasattr(e.type, 'value') else str(e.type),
+            'severity': e.severity.value if hasattr(e.severity, 'value') else str(e.severity),
+            'details': e.details
+        }
+        for e in match.exceptions
+    ]
+
+    return templates.TemplateResponse("exception_detail.html", {
+        "request": request,
+        "bank": bank,
+        "allocations": allocations,
+        "exceptions": exceptions
+    })
+
+
+@app.get('/suggestions/{bank_id}', response_class=HTMLResponse)
+def suggestion_detail_page(request: Request, bank_id: str):
+    """Suggestion detail page."""
+    result = run_reconciliation()
+
+    # Find the suggestion
+    suggestion = None
+    for s in result.suggestions:
+        if s.bank_id == bank_id:
+            suggestion = s
+            break
+
+    if not suggestion:
+        raise HTTPException(status_code=404, detail="Suggestion not found")
+
+    bank = get_bank(bank_id)
+
+    # Get allocations
+    allocations = [
+        {
+            'invoice_number': a.invoice_number,
+            'amount': float(a.amount),
+            'is_partial': a.is_partial
+        }
+        for a in suggestion.allocations
+    ]
+
+    return templates.TemplateResponse("suggestion_detail.html", {
+        "request": request,
+        "bank": bank,
+        "allocations": allocations,
+        "confidence": suggestion.confidence,
+        "tier": suggestion.tier.value if hasattr(suggestion.tier, 'value') else str(suggestion.tier),
+        "explanation": suggestion.explanation
+    })
+
+
+@app.get('/manual/{bank_id}', response_class=HTMLResponse)
+def manual_detail_page(request: Request, bank_id: str):
+    """Manual matching detail page."""
+    result = run_reconciliation()
+
+    # Find the manual item
+    manual_item = None
+    for m in result.manual:
+        if m.bank_id == bank_id:
+            manual_item = m
+            break
+
+    if not manual_item:
+        raise HTTPException(status_code=404, detail="Manual item not found")
+
+    bank = get_bank(bank_id)
+
+    # Get candidate invoices
+    candidates = [
+        {
+            'invoice_number': c.invoice_number,
+            'amount': float(c.amount),
+            'pending_amount': float(c.pending_amount),
+            'customer_id': c.customer_id,
+            'due_date': str(c.due_date),
+            'status': 'OPEN' if c.pending_amount > 0 else 'PAID'
+        }
+        for c in (manual_item.candidate_invoices or [])
+    ]
+
+    return templates.TemplateResponse("manual_detail.html", {
+        "request": request,
+        "bank": bank,
+        "reason": manual_item.reason,
+        "candidates": candidates
+    })
 
 
 @app.get('/match/{bank_id}', response_class=HTMLResponse)
