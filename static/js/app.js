@@ -873,39 +873,86 @@ function handleApplyFilterChange() {
 }
 
 // Write to ERP
-function handleWriteToErp() {
+async function handleWriteToErp() {
     if (selectedInvoices.size === 0) return;
 
-    const count = selectedInvoices.size;
+    const invoiceNumbers = Array.from(selectedInvoices);
+    const count = invoiceNumbers.length;
     const overlay = document.getElementById('erpModalOverlay');
     const content = document.getElementById('erpModalContent');
 
-    // Show success screen
+    // Show loading state
     content.innerHTML = `
         <div class="erp-complete">
-            <div class="erp-complete-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M20 6L9 17l-5-5"/>
-                </svg>
-            </div>
-            <h3>Written to ERP</h3>
-            <p>${count} invoice${count > 1 ? 's' : ''} successfully exported</p>
-        </div>
-        <div class="erp-actions">
-            <button class="erp-btn-secondary" onclick="closeErpModal()">Close</button>
+            <div class="erp-loading-spinner"></div>
+            <h3>Pushing to ERP...</h3>
+            <p>Updating ${count} invoice${count > 1 ? 's' : ''}</p>
         </div>
     `;
-
     overlay.classList.add('active');
 
-    // Clear selection
-    selectedInvoices.clear();
-    document.querySelectorAll('.row-checkbox').forEach(cb => {
-        cb.checked = false;
-        cb.closest('tr')?.classList.remove('selected');
-    });
-    document.getElementById('selectAllAutoApply').checked = false;
-    updateSelectedCount();
+    try {
+        // Call ERP batch status update endpoint
+        const response = await fetch('http://localhost:5001/api/invoices/batch-status', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                invoice_numbers: invoiceNumbers,
+                status: 'CLOSED'
+            })
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+            // Show success screen
+            content.innerHTML = `
+                <div class="erp-complete">
+                    <div class="erp-complete-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                    </div>
+                    <h3>Written to ERP</h3>
+                    <p>${result.updated_count} invoice${result.updated_count > 1 ? 's' : ''} successfully exported</p>
+                    ${result.not_found.length > 0 ? `<p class="erp-warning">${result.not_found.length} invoice(s) not found</p>` : ''}
+                </div>
+                <div class="erp-actions">
+                    <button class="erp-btn-secondary" onclick="closeErpModal()">Close</button>
+                </div>
+            `;
+
+            // Clear selection
+            selectedInvoices.clear();
+            document.querySelectorAll('.row-checkbox').forEach(cb => {
+                cb.checked = false;
+                cb.closest('tr')?.classList.remove('selected');
+            });
+            document.getElementById('selectAllAutoApply').checked = false;
+            updateSelectedCount();
+        } else {
+            throw new Error(result.detail || 'Failed to update invoices');
+        }
+    } catch (error) {
+        // Show error screen
+        content.innerHTML = `
+            <div class="erp-complete">
+                <div class="erp-error-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M15 9l-6 6M9 9l6 6"/>
+                    </svg>
+                </div>
+                <h3>Error</h3>
+                <p>${error.message}</p>
+            </div>
+            <div class="erp-actions">
+                <button class="erp-btn-secondary" onclick="closeErpModal()">Close</button>
+            </div>
+        `;
+    }
 }
 
 function closeErpModal() {

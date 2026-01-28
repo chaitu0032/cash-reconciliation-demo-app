@@ -34,7 +34,7 @@ def generate_bank_statement_html(
     transactions: list,
     account_name: str = "Business Account",
     account_number: str = "****1234",
-    bank_name: str = "First National Bank",
+    bank_name: str = "Bank of America",
     start_date: str = None,
     end_date: str = None,
     opening_balance: float = 0.0
@@ -335,7 +335,7 @@ def main():
     parser.add_argument('-o', '--output', help='Output file path (default: bank_statement.html)')
     parser.add_argument('--account-name', default='Business Account', help='Account name')
     parser.add_argument('--account-number', default='****1234', help='Account number (masked)')
-    parser.add_argument('--bank-name', default='First National Bank', help='Bank name')
+    parser.add_argument('--bank-name', default='Bank of America', help='Bank name')
     parser.add_argument('--start-date', help='Start date filter (YYYY-MM-DD)')
     parser.add_argument('--end-date', help='End date filter (YYYY-MM-DD)')
     parser.add_argument('--opening-balance', type=float, default=0.0, help='Opening balance')

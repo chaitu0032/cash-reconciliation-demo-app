@@ -80,6 +80,11 @@ class StatusUpdate(BaseModel):
     status: str
 
 
+class BatchStatusUpdate(BaseModel):
+    invoice_numbers: list[str]
+    status: str
+
+
 def load_invoices():
     """Load invoices from JSON file."""
     invoices_file = DATA_DIR / 'invoices.json'
@@ -223,6 +228,52 @@ def update_invoice_status(invoice_number: str, data: StatusUpdate):
     return {
         'success': True,
         'message': f'Invoice {invoice_number} status updated to {new_status}'
+    }
+
+
+@app.post('/api/invoices/batch-status')
+def batch_update_invoice_status(data: BatchStatusUpdate):
+    """
+    Batch update invoice statuses (for pushing auto-approved transactions to ERP).
+    """
+    new_status = data.status.upper()
+
+    valid_statuses = ['OPEN', 'PARTIAL', 'CLOSED']
+    if new_status not in valid_statuses:
+        raise HTTPException(
+            status_code=400,
+            detail=f'Invalid status. Must be one of: {valid_statuses}'
+        )
+
+    invoices = load_invoices()
+    updated_count = 0
+    updated_invoices = []
+    not_found = []
+
+    for invoice_number in data.invoice_numbers:
+        found = False
+        for inv in invoices:
+            if inv.get('invoice_number') == invoice_number:
+                inv['status'] = new_status
+                if new_status == 'CLOSED':
+                    inv['balance_due'] = 0.0
+                    inv['amount_paid'] = inv.get('total_amount', 0)
+                updated_count += 1
+                updated_invoices.append(invoice_number)
+                found = True
+                break
+        if not found:
+            not_found.append(invoice_number)
+
+    # Save back
+    save_invoices(invoices)
+
+    return {
+        'success': True,
+        'updated_count': updated_count,
+        'updated_invoices': updated_invoices,
+        'not_found': not_found,
+        'message': f'{updated_count} invoice(s) updated to {new_status}'
     }
 
 
